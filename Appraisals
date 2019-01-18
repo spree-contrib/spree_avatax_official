@@ -1,6 +1,8 @@
 appraise 'spree-3-1' do
   gem 'spree_core', '~> 3.1.0'
   gem 'spree_backend', '~> 3.1.0'
+  gem 'pg', '~> 0.18'
+  gem 'factory_girl'
 end
 
 appraise 'spree-3-2' do
