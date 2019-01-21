@@ -8,7 +8,7 @@ gem "spree_auth_devise", branch: "master", git: "https://github.com/spree/spree_
 gem "rails-controller-testing"
 gem "rubocop", require: false
 gem "rubocop-rspec", require: false
-gem "pg", "~> 0.18" 
+gem "pg", "~> 0.18"
 gem "factory_girl"
 
 gemspec path: "../"
