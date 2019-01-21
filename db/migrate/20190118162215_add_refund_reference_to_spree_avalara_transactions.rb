@@ -1,4 +1,4 @@
-class AddRefundReferenceToSpreeAvalaraTransactions < ActiveRecord::Migration[5.2]
+class AddRefundReferenceToSpreeAvalaraTransactions < SpreeExtension::Migration[4.2]
   def change
     return if column_exists?(:spree_avalara_transactions, :refund_id)
 

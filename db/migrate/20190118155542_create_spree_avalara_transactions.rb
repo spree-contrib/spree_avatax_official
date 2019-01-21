@@ -1,4 +1,4 @@
-class CreateSpreeAvalaraTransactions < ActiveRecord::Migration[5.2]
+class CreateSpreeAvalaraTransactions < SpreeExtension::Migration[4.2]
   def change
     return if table_exists?(:spree_avalara_transactions)
 
