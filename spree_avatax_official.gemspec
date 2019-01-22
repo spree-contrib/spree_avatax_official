@@ -23,8 +23,9 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'avatax', '~> 18.10'
 
-  spree_version = '>= 3.1.0', '< 5.0'
-  s.add_dependency 'spree_core', spree_version
+  spree_version = '>= 2.1.0', '< 5.0'
+
+  s.add_dependency 'spree_core',    spree_version
   s.add_dependency 'spree_backend', spree_version
   s.add_dependency 'spree_extension'
 
