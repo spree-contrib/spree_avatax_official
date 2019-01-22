@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'avatax', '~> 18.10'
+  s.add_dependency 'dotenv-rails'
 
   spree_version = '>= 2.1.0', '< 5.0'
 
