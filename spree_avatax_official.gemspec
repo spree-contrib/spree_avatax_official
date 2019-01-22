@@ -22,7 +22,6 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'avatax', '~> 18.10'
-  s.add_dependency 'dotenv-rails'
 
   spree_version = '>= 2.1.0', '< 5.0'
 
@@ -44,4 +43,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'selenium-webdriver'
   s.add_development_dependency 'simplecov'
   s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'dotenv-rails'
 end
