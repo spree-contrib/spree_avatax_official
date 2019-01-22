@@ -1,7 +1,9 @@
 require 'factory_bot'
 
-FactoryBot.find_definitions
+FACTORY_BOT_CLASS = defined?(FactoryGirl) ? FactoryGirl : FactoryBot
+
+FACTORY_BOT_CLASS.find_definitions
 
 RSpec.configure do |config|
-  config.include FactoryBot::Syntax::Methods
+  config.include FACTORY_BOT_CLASS::Syntax::Methods
 end
