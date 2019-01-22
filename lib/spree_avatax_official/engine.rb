@@ -1,7 +1,7 @@
 module SpreeAvataxOfficial
   class Engine < Rails::Engine
     require 'spree/core'
-    isolate_namespace Spree
+    isolate_namespace SpreeAvataxOfficial
     engine_name 'spree_avatax_official'
 
     # use rspec for tests
