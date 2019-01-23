@@ -1,6 +1,8 @@
 module SpreeAvataxOfficial
   class Engine < Rails::Engine
     require 'spree/core'
+    require 'avatax'
+
     isolate_namespace SpreeAvataxOfficial
     engine_name 'spree_avatax_official'
 
