@@ -1,7 +1,7 @@
 module SpreeAvataxOfficial
   module Transactions
     class CreatePresenter
-      def initialize(order:, ship_from_address:, transaction_type:)
+      def initialize(order:, ship_from_address:, transaction_type:, transaction_code: nil)
         @order = order
         @ship_from_address = ship_from_address
         @transaction_type = transaction_type
@@ -11,6 +11,7 @@ module SpreeAvataxOfficial
       def to_json
         {
           type: transaction_type,
+          code: transaction_code,
           companyCode: SpreeAvataxOfficial::Config.company_code,
           date: formatted_date(order.updated_at),
           customerCode: order.email,
@@ -21,7 +22,7 @@ module SpreeAvataxOfficial
 
       private
 
-      attr_reader :order, :ship_from_address, :transaction_type
+      attr_reader :order, :ship_from_address, :transaction_type, :transaction_code
 
       def formatted_date(date)
         date.strftime('%Y-%m-%d')
