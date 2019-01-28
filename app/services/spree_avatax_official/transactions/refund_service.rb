@@ -5,7 +5,11 @@ module SpreeAvataxOfficial
 
       def call(return_authorization:)
         refund_transaction(return_authorization).tap do |transaction|
-          transaction.key?('error') ? failure(transaction) : success(transaction)
+          return failure(transaction) if transaction.key?('error')
+
+          create_transaction(transaction['code'], return_authorization.order)
+
+          return success(transaction)
         end
       end
 
@@ -31,6 +35,14 @@ module SpreeAvataxOfficial
         RefundPresenter.new(
           return_authorization: return_authorization
         ).to_json
+      end
+
+      def create_transaction(code, order)
+        SpreeAvataxOfficial::Transactions::SaveCodeService.call(
+          code:  code,
+          order: order,
+          type:  'RefundInvoice'
+        )
       end
     end
   end
