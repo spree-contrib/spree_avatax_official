@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create?$include=ForceTimeout
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesOrder","companyCode":null,"date":"2019-01-28","customerCode":"ryan.koepp@nienow.ca","addresses":{"ShipFrom":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"},"ShipTo":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"lines":[{"number":"SKU-3","quantity":1,"amount":"10.0"}]}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - Basic cGlvdHIucGFzY2lha0BzcGFya3NvbHV0aW9ucy5jbzpqb3NoaTY2Ng==
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Mon, 28 Jan 2019 14:31:38 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:29.9979694'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Serviceduration:
+      - '00:00:00'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"TimeoutRequested","message":"You requested a timeout
+        error for this API call.","target":"HttpRequest","details":[{"code":"TimeoutRequested","number":316,"message":"You
+        requested a timeout error for this API call.","description":"You passed the
+        parameter `$include=ForceTimeout` to this API.  The `ForceTimeout` include
+        option simulates a timeout error to make tests easier.  To stop receiving
+        this error code, remove the word `ForceTimeout`.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/TimeoutRequested","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Mon, 28 Jan 2019 14:31:38 GMT
+recorded_with: VCR 4.0.0
