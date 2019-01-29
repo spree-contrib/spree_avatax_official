@@ -6,7 +6,7 @@ module SpreeAvataxOfficial
 
     with_options presence: true do
       validates :code, uniqueness: true
-      validates :order, uniqueness: { scope: :transaction_type }
+      validates :order
       validates :transaction_type
     end
 
