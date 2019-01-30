@@ -1,6 +1,6 @@
 module SpreeAvataxOfficial
   module Transactions
-    class SaveCodeService < Base
+    class SaveCodeService < SpreeAvataxOfficial::Base
       def call(code:, order:, type:)
         SpreeAvataxOfficial::Transaction.create(
           code:             code,

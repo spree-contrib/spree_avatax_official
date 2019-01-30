@@ -27,7 +27,7 @@ module SpreeAvataxOfficial
         # when OrderDecorator is merged
         SpreeAvataxOfficial::Transaction.find_by(
           order: order,
-          transaction_type: 'SalesInvoice'
+          transaction_type: SpreeAvataxOfficial::Transaction::SALES_INVOICE
         )&.code
       end
 
@@ -43,7 +43,7 @@ module SpreeAvataxOfficial
         order
           .line_items
           .where(id: line_item_ids)
-          .map { |line_item| line_item_json(line_item) }
+          .map(&method(:line_item_json))
       end
 
       def line_item_ids

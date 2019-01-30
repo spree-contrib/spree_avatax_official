@@ -1,6 +1,6 @@
 module SpreeAvataxOfficial
   module Transactions
-    class CreateService < Base
+    class CreateService < SpreeAvataxOfficial::Base
       def call(order:, ship_from_address:, transaction_type:, options: {})
         response = send_request(order, ship_from_address, transaction_type, options)
 
