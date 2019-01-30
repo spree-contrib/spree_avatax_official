@@ -18,12 +18,25 @@ describe SpreeAvataxOfficial::Transactions::CreatePresenter do
           SpreeAvataxOfficial::AddressPresenter.new(address: ship_from_address, address_type: 'ShipFrom').to_json.merge(
             SpreeAvataxOfficial::AddressPresenter.new(address: order.ship_address, address_type: 'ShipTo').to_json
           ),
-        lines: order.line_items.map { |line_item| SpreeAvataxOfficial::LineItemPresenter.new(line_item: line_item).to_json }
+        lines: order.line_items.map { |line_item| SpreeAvataxOfficial::LineItemPresenter.new(line_item: line_item).to_json },
+        commit: false
       }
     end
 
-    it 'serializes the object' do
-      expect(subject.to_json).to eq result
+    context 'with incomplete order' do
+      it 'serializes the object' do
+        expect(subject.to_json).to eq result
+      end
+    end
+
+    context 'with complete order' do
+      it 'serializes the object' do
+        order.update(state: :complete)
+
+        result[:commit] = true
+
+        expect(subject.to_json).to eq result
+      end
     end
   end
 end

@@ -38,6 +38,20 @@ describe SpreeAvataxOfficial::Transactions::CreateService do
             expect(SpreeAvataxOfficial::Transaction.count).to eq 1
           end
         end
+
+        context 'with complete order' do
+          it 'creates transaction with Committed status' do
+            VCR.use_cassette('spree_avatax_official/transactions/create/complete_order_success') do
+              order.update(state: :complete)
+
+              result = subject
+              response = result.value
+
+              expect(result.success?).to eq true
+              expect(response['status']).to eq 'Committed'
+            end
+          end
+        end
       end
 
       # Unfortunetly path method in https://github.com/avadev/AvaTax-REST-V2-Ruby-SDK/blob/master/lib/avatax/request.rb#L29

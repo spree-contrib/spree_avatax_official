@@ -15,7 +15,8 @@ module SpreeAvataxOfficial
           date: formatted_date(order.updated_at),
           customerCode: order.email,
           addresses: addresses_payload,
-          lines: line_items_payload(order.line_items)
+          lines: line_items_payload(order.line_items),
+          commit: order.complete?
         }
       end
 
