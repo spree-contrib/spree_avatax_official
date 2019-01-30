@@ -1,8 +1,6 @@
 module SpreeAvataxOfficial
   module Transactions
-    class SaveCodeService
-      prepend ::Spree::ServiceModule::Base
-
+    class SaveCodeService < Base
       def call(code:, order:, type:)
         SpreeAvataxOfficial::Transaction.create(
           code:             code,

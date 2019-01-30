@@ -1,8 +1,6 @@
 module SpreeAvataxOfficial
   module Transactions
-    class RefundService
-      prepend ::Spree::ServiceModule::Base
-
+    class RefundService < Base
       def call(return_authorization:)
         refund_transaction(return_authorization).tap do |transaction|
           return failure(transaction) if transaction.key?('error')
@@ -21,14 +19,6 @@ module SpreeAvataxOfficial
           return_authorization.order.number,
           refund_model(return_authorization)
         )
-      end
-
-      def client
-        AvaTax::Client.new(logger: true)
-      end
-
-      def company_code
-        SpreeAvataxOfficial::Config[:company_code]
       end
 
       def refund_model(return_authorization)
