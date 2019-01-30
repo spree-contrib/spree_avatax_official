@@ -1,7 +1,7 @@
 module SpreeAvataxOfficial
   module Transactions
     class CreateService
-      prepend Spree::ServiceModule::Base
+      prepend ::Spree::ServiceModule::Base
 
       def call(order:, ship_from_address:, transaction_type:, options: {})
         response = send_request(order, ship_from_address, transaction_type, options)
