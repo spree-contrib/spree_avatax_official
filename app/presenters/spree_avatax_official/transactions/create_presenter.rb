@@ -32,7 +32,7 @@ module SpreeAvataxOfficial
       end
 
       def ship_to_payload
-        tax_address = Spree::Config[:tax_using_ship_address] ? order.ship_address : order.bill_address
+        tax_address = ::Spree::Config[:tax_using_ship_address] ? order.ship_address : order.bill_address
 
         SpreeAvataxOfficial::AddressPresenter.new(address: tax_address, address_type: 'ShipTo').to_json
       end
