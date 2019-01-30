@@ -9,7 +9,7 @@ module SpreeAvataxOfficial
         return failure(response) if response['error'].present?
 
         unless response['id'].to_i.zero?
-          SpreeAvataxOfficial::Transaction.create!(id: response['id'], order: order, transaction_type: transaction_type)
+          SpreeAvataxOfficial::Transaction.create!(code: response['code'], order: order, transaction_type: transaction_type)
         end
 
         success(response)

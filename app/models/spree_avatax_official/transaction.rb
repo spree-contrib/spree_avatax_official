@@ -5,8 +5,8 @@ module SpreeAvataxOfficial
     belongs_to :order, class_name: 'Spree::Order'
 
     with_options presence: true do
-      validates :id
-      validates :order, uniqueness: { scope: :transaction_type }
+      validates :code, uniqueness: true
+      validates :order
       validates :transaction_type
     end
 
