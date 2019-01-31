@@ -24,12 +24,7 @@ module SpreeAvataxOfficial
       delegate :line_items, :inventory_units, to: :order, prefix: true
 
       def transaction_code
-        # TODO replace it with order.avatax_sales_invoice_transaction&.code
-        # when OrderDecorator is merged
-        SpreeAvataxOfficial::Transaction.find_by(
-          order: order,
-          transaction_type: SpreeAvataxOfficial::Transaction::SALES_INVOICE
-        )&.code
+        order.avatax_sales_invoice_transaction&.code
       end
 
       def refund_date
