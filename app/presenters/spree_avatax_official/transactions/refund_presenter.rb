@@ -20,7 +20,8 @@ module SpreeAvataxOfficial
 
       attr_reader :return_authorization
 
-      delegate :order, to: :return_authorization
+      delegate :order, :inventory_units,      to: :return_authorization
+      delegate :line_items, :inventory_units, to: :order, prefix: true
 
       def transaction_code
         # TODO replace it with order.avatax_sales_invoice_transaction&.code
@@ -40,22 +41,17 @@ module SpreeAvataxOfficial
       end
 
       def refund_lines
-        order
-          .line_items
+        order_line_items
           .where(id: line_item_ids)
-          .map(&method(:line_item_json))
+          .map { |line_item| line_item.variant.sku }
       end
 
       def line_item_ids
-        return_authorization.inventory_units.pluck(:line_item_id).uniq
-      end
-
-      def line_item_json(line_item)
-        SpreeAvataxOfficial::LineItemPresenter.new(line_item: line_item).to_json
+        inventory_units.pluck(:line_item_id).uniq
       end
 
       def all_inventory_units_returned?
-        return_authorization.inventory_units == order.inventory_units
+        inventory_units == order_inventory_units
       end
     end
   end
