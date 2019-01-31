@@ -1,8 +1,6 @@
 module SpreeAvataxOfficial
   module Transactions
-    class CreateService
-      prepend ::Spree::ServiceModule::Base
-
+    class CreateService < SpreeAvataxOfficial::Base
       def call(order:, ship_from_address:, transaction_type:, options: {})
         response = send_request(order, ship_from_address, transaction_type, options)
 
@@ -24,7 +22,7 @@ module SpreeAvataxOfficial
           transaction_type: transaction_type
         ).to_json
 
-        response = AvaTax::Client.new(logger: true).create_transaction(create_transaction_model, options)
+        response = client.create_transaction(create_transaction_model, options)
       end
     end
   end
