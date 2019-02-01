@@ -5,7 +5,7 @@ http_interactions:
     uri: https://sandbox-rest.avatax.com/api/v2/companies/test1/transactions/REFUNDTEST456/refund
     body:
       encoding: UTF-8
-      string: '{"refundTransactionCode":"REFUNDTEST456","refundDate":"2019-01-28","refundType":"Full"}'
+      string: '{"refundTransactionCode":null,"referenceCode":"REFUNDTEST456","refundDate":"2019-02-01","refundType":"Full"}'
     headers:
       Accept:
       - application/json; charset=utf-8
@@ -14,7 +14,7 @@ http_interactions:
       X-Avalara-Client:
       - ";;RubySdk;18.12.0;"
       Authorization:
-      - Basic bWFyaWEuc3ljemV3c2thKzFAc3Bhcmtzb2x1dGlvbnMuY286TWFyMTZpYW4=
+      - "<AVATAX_TOKEN>"
       Content-Type:
       - application/json
       Accept-Encoding:
@@ -25,7 +25,7 @@ http_interactions:
       message: Bad Request
     headers:
       Date:
-      - Mon, 28 Jan 2019 14:31:50 GMT
+      - Fri, 01 Feb 2019 12:08:46 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -35,11 +35,11 @@ http_interactions:
       Server:
       - Kestrel
       Serverduration:
-      - '00:00:00.0052714'
+      - '00:00:00.0264019'
       Databasecalls:
       - '1'
       Databaseduration:
-      - '00:00:00.0000020'
+      - '00:00:00.0000028'
       Serviceduration:
       - '00:00:00'
       X-Powered-By:
@@ -51,5 +51,5 @@ http_interactions:
         is not in a status to process refund","description":"The document status is
         Saved, we can only process refund on committed document.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/InvalidDocumentStatusForRefund","severity":"Error"}]}}'
     http_version:
-  recorded_at: Mon, 28 Jan 2019 14:31:50 GMT
+  recorded_at: Fri, 01 Feb 2019 12:08:46 GMT
 recorded_with: VCR 4.0.0
