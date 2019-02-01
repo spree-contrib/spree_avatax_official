@@ -10,12 +10,25 @@ describe SpreeAvataxOfficial::LineItemPresenter do
       {
         number: line_item.variant.sku,
         quantity: line_item.quantity,
-        amount: line_item.amount
+        amount: line_item.amount,
+        taxCode: 'P0000000'
       }
     end
 
-    it 'serializes the object' do
-      expect(subject.to_json).to eq result
+    context 'without line item tax code' do
+      it 'serializes the object' do
+        expect(subject.to_json).to eq result
+      end
+    end
+
+    context 'with line item tax code' do
+      it 'serializes the object' do
+        line_item.tax_category.tax_code = 'P0000001'
+
+        result[:taxCode] = 'P0000001'
+
+        expect(subject.to_json).to eq result
+      end
     end
   end
 end
