@@ -5,4 +5,8 @@ VCR.configure do |config|
   config.ignore_localhost = true
   config.configure_rspec_metadata!
   config.default_cassette_options = { record: :new_episodes }
+
+  config.filter_sensitive_data('<AVATAX_TOKEN>') do |interaction|
+    interaction.request.headers['Authorization'].first
+  end
 end
