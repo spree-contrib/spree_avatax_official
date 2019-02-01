@@ -1,8 +1,12 @@
 module SpreeAvataxOfficial
   module Transactions
     class CreateService < SpreeAvataxOfficial::Base
-      def call(order:, ship_from_address:, transaction_type:, options: {})
-        response = send_request(order, ship_from_address, transaction_type, options)
+      def call(order:, options: {}) # rubocop:disable Metrics/MethodLength
+        return failure(false) unless can_send_order_to_avatax?(order)
+
+        ship_from_address = order.ship_address # TODO: Setup ship_from_address from Spree::Store
+        transaction_type  = choose_transaction_type(order)
+        response          = send_request(order, ship_from_address, transaction_type, options)
 
         request_result(response) do
           unless response['id'].to_i.zero?
@@ -16,6 +20,19 @@ module SpreeAvataxOfficial
       end
 
       private
+
+      def can_send_order_to_avatax?(order)
+        # We need to ensure that order would not be commited multiple of times
+        order.avatax_tax_calculation_required? && order.avatax_sales_invoice_transaction.blank?
+      end
+
+      def choose_transaction_type(order)
+        if order.completed?
+          SpreeAvataxOfficial::Transaction::SALES_INVOICE
+        else
+          SpreeAvataxOfficial::Transaction::SALES_ORDER
+        end
+      end
 
       def send_request(order, ship_from_address, transaction_type, options)
         create_transaction_model = SpreeAvataxOfficial::Transactions::CreatePresenter.new(

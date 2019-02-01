@@ -1,0 +1,718 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-18","customerCode":"karin@kuhic.name","addresses":{"ShipFrom":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"},"ShipTo":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"}},"lines":[{"number":"1-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":false,"discount":"0.0"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 18 Feb 2019 21:18:02 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0002175'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Serviceduration:
+      - '00:00:00'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"AuthenticationException","message":"Authentication
+        failed.","target":"HttpRequestHeaders","details":[{"code":"AuthenticationException","number":30,"message":"Authentication
+        failed.","description":"Unable to authenticate the user or the account.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AuthenticationException","severity":"Exception"},{"code":"ValueRequiredError","number":5,"message":"Field
+        username is required.","description":"Please provide a value for field username.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"},{"code":"ValueRequiredError","number":5,"message":"Field
+        password is required.","description":"Please provide a value for field password.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2019 21:18:03 GMT
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-18","customerCode":"karin@kuhic.name","addresses":{"ShipFrom":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"},"ShipTo":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"}},"lines":[{"number":"1-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":false,"discount":"0.0"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 18 Feb 2019 21:18:04 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0002650'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Serviceduration:
+      - '00:00:00'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"AuthenticationException","message":"Authentication
+        failed.","target":"HttpRequestHeaders","details":[{"code":"AuthenticationException","number":30,"message":"Authentication
+        failed.","description":"Unable to authenticate the user or the account.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AuthenticationException","severity":"Exception"},{"code":"ValueRequiredError","number":5,"message":"Field
+        username is required.","description":"Please provide a value for field username.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"},{"code":"ValueRequiredError","number":5,"message":"Field
+        password is required.","description":"Please provide a value for field password.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2019 21:18:04 GMT
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-18","customerCode":"karin@kuhic.name","addresses":{"ShipFrom":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"},"ShipTo":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"}},"lines":[{"number":"1-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"2-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":false,"discount":"0.0"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 18 Feb 2019 21:18:05 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0002330'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Serviceduration:
+      - '00:00:00'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"AuthenticationException","message":"Authentication
+        failed.","target":"HttpRequestHeaders","details":[{"code":"AuthenticationException","number":30,"message":"Authentication
+        failed.","description":"Unable to authenticate the user or the account.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AuthenticationException","severity":"Exception"},{"code":"ValueRequiredError","number":5,"message":"Field
+        username is required.","description":"Please provide a value for field username.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"},{"code":"ValueRequiredError","number":5,"message":"Field
+        password is required.","description":"Please provide a value for field password.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2019 21:18:05 GMT
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-18","customerCode":"karin@kuhic.name","addresses":{"ShipFrom":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"},"ShipTo":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"}},"lines":[{"number":"1-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"2-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":false,"discount":"0.0"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 18 Feb 2019 21:18:06 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0002314'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Serviceduration:
+      - '00:00:00'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"AuthenticationException","message":"Authentication
+        failed.","target":"HttpRequestHeaders","details":[{"code":"AuthenticationException","number":30,"message":"Authentication
+        failed.","description":"Unable to authenticate the user or the account.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AuthenticationException","severity":"Exception"},{"code":"ValueRequiredError","number":5,"message":"Field
+        username is required.","description":"Please provide a value for field username.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"},{"code":"ValueRequiredError","number":5,"message":"Field
+        password is required.","description":"Please provide a value for field password.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2019 21:18:06 GMT
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-18","customerCode":"karin@kuhic.name","addresses":{"ShipFrom":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"},"ShipTo":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"}},"lines":[{"number":"1-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"2-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"3-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":false,"discount":"0.0"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 18 Feb 2019 21:18:07 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0002371'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Serviceduration:
+      - '00:00:00'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"AuthenticationException","message":"Authentication
+        failed.","target":"HttpRequestHeaders","details":[{"code":"AuthenticationException","number":30,"message":"Authentication
+        failed.","description":"Unable to authenticate the user or the account.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AuthenticationException","severity":"Exception"},{"code":"ValueRequiredError","number":5,"message":"Field
+        username is required.","description":"Please provide a value for field username.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"},{"code":"ValueRequiredError","number":5,"message":"Field
+        password is required.","description":"Please provide a value for field password.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2019 21:18:07 GMT
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-18","customerCode":"karin@kuhic.name","addresses":{"ShipFrom":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"},"ShipTo":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"}},"lines":[{"number":"1-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"2-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"3-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":false,"discount":"0.0"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 18 Feb 2019 21:18:08 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0002478'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Serviceduration:
+      - '00:00:00'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"AuthenticationException","message":"Authentication
+        failed.","target":"HttpRequestHeaders","details":[{"code":"AuthenticationException","number":30,"message":"Authentication
+        failed.","description":"Unable to authenticate the user or the account.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AuthenticationException","severity":"Exception"},{"code":"ValueRequiredError","number":5,"message":"Field
+        username is required.","description":"Please provide a value for field username.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"},{"code":"ValueRequiredError","number":5,"message":"Field
+        password is required.","description":"Please provide a value for field password.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2019 21:18:08 GMT
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-18","customerCode":"karin@kuhic.name","addresses":{"ShipFrom":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"},"ShipTo":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"}},"lines":[{"number":"1-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"2-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"3-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"4-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":false,"discount":"0.0"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 18 Feb 2019 21:18:09 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0002592'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Serviceduration:
+      - '00:00:00'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"AuthenticationException","message":"Authentication
+        failed.","target":"HttpRequestHeaders","details":[{"code":"AuthenticationException","number":30,"message":"Authentication
+        failed.","description":"Unable to authenticate the user or the account.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AuthenticationException","severity":"Exception"},{"code":"ValueRequiredError","number":5,"message":"Field
+        username is required.","description":"Please provide a value for field username.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"},{"code":"ValueRequiredError","number":5,"message":"Field
+        password is required.","description":"Please provide a value for field password.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2019 21:18:09 GMT
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-18","customerCode":"karin@kuhic.name","addresses":{"ShipFrom":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"},"ShipTo":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"}},"lines":[{"number":"1-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"2-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"3-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"4-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":false,"discount":"0.0"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 18 Feb 2019 21:18:10 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0002220'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Serviceduration:
+      - '00:00:00'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"AuthenticationException","message":"Authentication
+        failed.","target":"HttpRequestHeaders","details":[{"code":"AuthenticationException","number":30,"message":"Authentication
+        failed.","description":"Unable to authenticate the user or the account.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AuthenticationException","severity":"Exception"},{"code":"ValueRequiredError","number":5,"message":"Field
+        username is required.","description":"Please provide a value for field username.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"},{"code":"ValueRequiredError","number":5,"message":"Field
+        password is required.","description":"Please provide a value for field password.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2019 21:18:10 GMT
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-18","customerCode":"karin@kuhic.name","addresses":{"ShipFrom":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"},"ShipTo":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"}},"lines":[{"number":"1-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"2-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"3-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"4-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"5-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":false,"discount":"0.0"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 18 Feb 2019 21:18:11 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0002285'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Serviceduration:
+      - '00:00:00'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"AuthenticationException","message":"Authentication
+        failed.","target":"HttpRequestHeaders","details":[{"code":"AuthenticationException","number":30,"message":"Authentication
+        failed.","description":"Unable to authenticate the user or the account.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AuthenticationException","severity":"Exception"},{"code":"ValueRequiredError","number":5,"message":"Field
+        username is required.","description":"Please provide a value for field username.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"},{"code":"ValueRequiredError","number":5,"message":"Field
+        password is required.","description":"Please provide a value for field password.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2019 21:18:12 GMT
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-18","customerCode":"karin@kuhic.name","addresses":{"ShipFrom":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"},"ShipTo":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"}},"lines":[{"number":"1-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"2-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"3-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"4-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"5-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":false,"discount":"0.0"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 18 Feb 2019 21:18:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0002359'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Serviceduration:
+      - '00:00:00'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"AuthenticationException","message":"Authentication
+        failed.","target":"HttpRequestHeaders","details":[{"code":"AuthenticationException","number":30,"message":"Authentication
+        failed.","description":"Unable to authenticate the user or the account.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AuthenticationException","severity":"Exception"},{"code":"ValueRequiredError","number":5,"message":"Field
+        username is required.","description":"Please provide a value for field username.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"},{"code":"ValueRequiredError","number":5,"message":"Field
+        password is required.","description":"Please provide a value for field password.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2019 21:18:13 GMT
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-18","customerCode":"karin@kuhic.name","addresses":{"ShipFrom":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"},"ShipTo":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"}},"lines":[{"number":"1-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"2-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"3-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"4-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"5-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"1-FR","quantity":1,"amount":"100.0","taxCode":"FR","discounted":false}],"commit":false,"discount":"0.0"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 18 Feb 2019 21:18:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0002203'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Serviceduration:
+      - '00:00:00'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"AuthenticationException","message":"Authentication
+        failed.","target":"HttpRequestHeaders","details":[{"code":"AuthenticationException","number":30,"message":"Authentication
+        failed.","description":"Unable to authenticate the user or the account.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AuthenticationException","severity":"Exception"},{"code":"ValueRequiredError","number":5,"message":"Field
+        username is required.","description":"Please provide a value for field username.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"},{"code":"ValueRequiredError","number":5,"message":"Field
+        password is required.","description":"Please provide a value for field password.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2019 21:18:14 GMT
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesInvoice","code":null,"companyCode":"test1","date":"2019-02-18","customerCode":"karin@kuhic.name","addresses":{"ShipFrom":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"},"ShipTo":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"}},"lines":[{"number":"1-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"2-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"3-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"4-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"5-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"1-FR","quantity":1,"amount":"10.0","taxCode":"FR","discounted":false}],"commit":false,"discount":"0.0"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 18 Feb 2019 21:18:15 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0004685'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Serviceduration:
+      - '00:00:00'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"AuthenticationException","message":"Authentication
+        failed.","target":"HttpRequestHeaders","details":[{"code":"AuthenticationException","number":30,"message":"Authentication
+        failed.","description":"Unable to authenticate the user or the account.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AuthenticationException","severity":"Exception"},{"code":"ValueRequiredError","number":5,"message":"Field
+        username is required.","description":"Please provide a value for field username.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"},{"code":"ValueRequiredError","number":5,"message":"Field
+        password is required.","description":"Please provide a value for field password.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2019 21:18:15 GMT
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesInvoice","code":null,"companyCode":"test1","date":"2019-02-18","customerCode":"karin@kuhic.name","addresses":{"ShipFrom":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"},"ShipTo":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"35005"}},"lines":[{"number":"1-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"2-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"3-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"4-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"5-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"1-FR","quantity":1,"amount":"10.0","taxCode":"FR","discounted":false}],"commit":false,"discount":"0.0"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 18 Feb 2019 21:18:16 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0002125'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Serviceduration:
+      - '00:00:00'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"AuthenticationException","message":"Authentication
+        failed.","target":"HttpRequestHeaders","details":[{"code":"AuthenticationException","number":30,"message":"Authentication
+        failed.","description":"Unable to authenticate the user or the account.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AuthenticationException","severity":"Exception"},{"code":"ValueRequiredError","number":5,"message":"Field
+        username is required.","description":"Please provide a value for field username.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"},{"code":"ValueRequiredError","number":5,"message":"Field
+        password is required.","description":"Please provide a value for field password.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2019 21:18:16 GMT
+recorded_with: VCR 4.0.0

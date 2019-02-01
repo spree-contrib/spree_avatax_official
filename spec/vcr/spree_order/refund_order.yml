@@ -1,0 +1,165 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-19","customerCode":"lemuel@grantlemke.co.uk","addresses":{"ShipFrom":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"STATE_ABBR_6","country":"US","postalCode":"35005"},"ShipTo":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"STATE_ABBR_6","country":"US","postalCode":"35005"}},"lines":[{"number":"2-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":true,"discount":"0.0"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Tue, 19 Feb 2019 13:06:10 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0344184'
+      Databasecalls:
+      - '2'
+      Databaseduration:
+      - '00:00:00.0018714'
+      Serviceduration:
+      - '00:00:00.0301200'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"GetTaxError","message":"Invalid or missing state/province
+        code (STA).","target":"Unknown","details":[{"code":"GetTaxError","number":300,"message":"Invalid
+        or missing state/province code (STA).","description":"STA is not a known state
+        or province.","faultCode":"GetTaxError","helpLink":"http://developer.avalara.com/avatax/errors/GetTaxError","refersTo":"Addresses[0]","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Tue, 19 Feb 2019 13:06:10 GMT
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-19","customerCode":"lemuel@grantlemke.co.uk","addresses":{"ShipFrom":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"STATE_ABBR_6","country":"US","postalCode":"35005"},"ShipTo":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"STATE_ABBR_6","country":"US","postalCode":"35005"}},"lines":[{"number":"2-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":true,"discount":"0.0"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Tue, 19 Feb 2019 13:06:11 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0329721'
+      Databasecalls:
+      - '1'
+      Databaseduration:
+      - '00:00:00.0025616'
+      Serviceduration:
+      - '00:00:00.0284717'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"GetTaxError","message":"Invalid or missing state/province
+        code (STA).","target":"Unknown","details":[{"code":"GetTaxError","number":300,"message":"Invalid
+        or missing state/province code (STA).","description":"STA is not a known state
+        or province.","faultCode":"GetTaxError","helpLink":"http://developer.avalara.com/avatax/errors/GetTaxError","refersTo":"Addresses[0]","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Tue, 19 Feb 2019 13:06:11 GMT
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-19","customerCode":"lemuel@grantlemke.co.uk","addresses":{"ShipFrom":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"STATE_ABBR_6","country":"US","postalCode":"35005"},"ShipTo":{"line1":"10
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"STATE_ABBR_6","country":"US","postalCode":"35005"}},"lines":[{"number":"2-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"2-FR","quantity":1,"amount":"100.0","taxCode":"FR","discounted":false}],"commit":true,"discount":"0.0"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Tue, 19 Feb 2019 13:06:12 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0846364'
+      Databasecalls:
+      - '1'
+      Databaseduration:
+      - '00:00:00.0004513'
+      Serviceduration:
+      - '00:00:00.0821600'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"GetTaxError","message":"Invalid or missing state/province
+        code (STA).","target":"Unknown","details":[{"code":"GetTaxError","number":300,"message":"Invalid
+        or missing state/province code (STA).","description":"STA is not a known state
+        or province.","faultCode":"GetTaxError","helpLink":"http://developer.avalara.com/avatax/errors/GetTaxError","refersTo":"Addresses[0]","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Tue, 19 Feb 2019 13:06:12 GMT
+recorded_with: VCR 4.0.0

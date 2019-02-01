@@ -15,7 +15,9 @@ describe SpreeAvataxOfficial::Spree::ReturnItemDecorator do
     it 'calls refund service' do
       expect(SpreeAvataxOfficial::Transactions::RefundService).to receive(:call)
 
-      return_item.receive!
+      VCR.use_cassette('spree_order/refund_order') do
+        return_item.receive!
+      end
     end
   end
 end

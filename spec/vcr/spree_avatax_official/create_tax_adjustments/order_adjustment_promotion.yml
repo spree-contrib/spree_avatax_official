@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-18","customerCode":"suzette.okeefe@rolfson.com","addresses":{"ShipFrom":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"},"ShipTo":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"lines":[{"number":"1-LI","quantity":4,"amount":"40.0","taxCode":"P0000000","discounted":true},{"number":"2-LI","quantity":3,"amount":"30.0","taxCode":"P0000000","discounted":true}],"commit":false,"discount":"20.0"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Mon, 18 Feb 2019 21:07:36 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - "/api/v2/companies/0/transactions/0"
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0519927'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Serviceduration:
+      - '00:00:00.0503378'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"id":0,"code":"63cd7810-3cb8-41fa-bf20-596e98619f2f","companyId":0,"date":"2019-02-18","paymentDate":"2019-02-18","status":"Temporary","type":"SalesOrder","customerVendorCode":"suzette.okeefe@rolfson.com","customerCode":"suzette.okeefe@rolfson.com","reconciled":false,"totalAmount":70.0,"totalExempt":0.0,"totalDiscount":20.0,"totalTax":4.0,"totalTaxable":50.0,"totalTaxCalculated":4.0,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2019-02-18","exchangeRate":1.0,"modifiedDate":"2019-02-18T21:07:39.1742698Z","modifiedUserId":356142,"taxDate":"2019-02-18T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"1-LI","discountAmount":11.43,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":28.57,"quantity":4.0,"reportingDate":"2019-02-18","tax":2.28,"taxableAmount":28.57,"taxCalculated":2.28,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-02-18","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"42","jurisName":"PENNSYLVANIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":1.71,"taxableAmount":28.57,"taxType":"Sales","taxName":"PA
+        STATE TAX","taxAuthorityTypeId":45,"taxCalculated":1.71,"rateType":"General","rateTypeCode":"G","isNonPassThru":false},{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"101","jurisName":"PHILADELPHIA","stateAssignedNo":"51","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0,"rate":0.020000,"tax":0.57,"taxableAmount":28.57,"taxType":"Sales","taxName":"PA
+        COUNTY TAX","taxAuthorityTypeId":45,"taxCalculated":0.57,"rateType":"General","rateTypeCode":"G","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"","vatNumberTypeId":0},{"id":0,"transactionId":0,"lineNumber":"2-LI","discountAmount":8.57,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":21.43,"quantity":3.0,"reportingDate":"2019-02-18","tax":1.72,"taxableAmount":21.43,"taxCalculated":1.72,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-02-18","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"42","jurisName":"PENNSYLVANIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":1.29,"taxableAmount":21.43,"taxType":"Sales","taxName":"PA
+        STATE TAX","taxAuthorityTypeId":45,"taxCalculated":1.29,"rateType":"General","rateTypeCode":"G","isNonPassThru":false},{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"101","jurisName":"PHILADELPHIA","stateAssignedNo":"51","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0,"rate":0.020000,"tax":0.43,"taxableAmount":21.43,"taxType":"Sales","taxName":"PA
+        COUNTY TAX","taxAuthorityTypeId":45,"taxCalculated":0.43,"rateType":"General","rateTypeCode":"G","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"","vatNumberTypeId":0}],"addresses":[{"id":0,"transactionId":0,"boundaryLevel":"Address","line1":"822
+        Reed St","line2":"","line3":"","city":"Philadelphia","region":"PA","postalCode":"19147","country":"US","taxRegionId":4014900,"latitude":"39.931649","longitude":"-75.159058"}],"summary":[{"country":"US","region":"PA","jurisType":"State","jurisCode":"42","jurisName":"PENNSYLVANIA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"PA
+        STATE TAX","rateType":"General","taxable":50.00,"rate":0.060000,"tax":3.00,"taxCalculated":3.00,"nonTaxable":0.0,"exemption":0.0},{"country":"US","region":"PA","jurisType":"County","jurisCode":"101","jurisName":"PHILADELPHIA","taxAuthorityType":45,"stateAssignedNo":"51","taxType":"Sales","taxName":"PA
+        COUNTY TAX","rateType":"General","taxable":50.00,"rate":0.020000,"tax":1.00,"taxCalculated":1.00,"nonTaxable":0.0,"exemption":0.0}]}'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2019 21:07:36 GMT
+recorded_with: VCR 4.0.0

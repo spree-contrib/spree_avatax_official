@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 06 Feb 2019 11:48:12 GMT
+      - Mon, 18 Feb 2019 21:07:19 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -35,7 +35,7 @@ http_interactions:
       Server:
       - Kestrel
       Serverduration:
-      - '00:00:00.0056594'
+      - '00:00:00.0044724'
       Databasecalls:
       - '0'
       Databaseduration:
@@ -51,6 +51,6 @@ http_interactions:
         Market St","line2":"","line3":"","city":"San Francisco","region":"CA","postalCode":"94111","country":"US","taxRegionId":2128434,"latitude":"37.793815","longitude":"-122.395832"},{"id":11594662439,"transactionId":4810140820,"boundaryLevel":"Zip5","line1":"123
         Main Street","line2":"","line3":"","city":"Irvine","region":"CA","postalCode":"92615","country":"US","taxRegionId":2127863,"latitude":"33.657808","longitude":"-117.968489"}],"locationTypes":[{"documentLocationTypeId":10848111441,"documentId":4810140820,"documentAddressId":11594662439,"locationTypeCode":"ShipFrom"},{"documentLocationTypeId":4644330636,"documentId":4810140820,"documentAddressId":9389168836,"locationTypeCode":"ShipTo"}],"summary":[{"country":"US","region":"CA","jurisType":"State","jurisCode":"06","jurisName":"CALIFORNIA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"CA
         STATE TAX","rateType":"General","taxable":0.00,"rate":0.000000,"tax":0.00,"taxCalculated":0.00,"nonTaxable":120.00,"exemption":0.00}],"parameters":{}}'
-    http_version:
-  recorded_at: Wed, 06 Feb 2019 11:48:12 GMT
+    http_version: 
+  recorded_at: Mon, 18 Feb 2019 21:07:19 GMT
 recorded_with: VCR 4.0.0

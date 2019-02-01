@@ -40,7 +40,7 @@ describe SpreeAvataxOfficial::Transactions::RefundService do
             response = result.value
 
             expect(result.success?).to eq true
-            expect(response['lines'].count).to eq 1
+            expect(response['lines'].count).to eq 2
             expect(response['lines'].first['lineNumber']).to eq variant.sku
           end
         end
