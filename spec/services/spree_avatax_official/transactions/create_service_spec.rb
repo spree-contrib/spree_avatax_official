@@ -43,7 +43,7 @@ describe SpreeAvataxOfficial::Transactions::CreateService do
       # Unfortunetly path method in https://github.com/avadev/AvaTax-REST-V2-Ruby-SDK/blob/master/lib/avatax/request.rb#L29
       # removes all query params, what makes us unable to test timeout with '$include' => 'ForceTimeout' query param.
       xcontext 'and Avalara API timeout' do
-        subject { described_class.new(order: order, ship_from_address: ship_from_address, transaction_type: 'SalesOrder', options: { '$include' => 'ForceTimeout' }) }
+        subject { described_class.call(order: order, ship_from_address: ship_from_address, transaction_type: 'SalesOrder', options: { '$include' => 'ForceTimeout' }) }
 
         it 'returns negative result' do
           VCR.use_cassette('spree_avatax_official/transactions/create/timeout') do
