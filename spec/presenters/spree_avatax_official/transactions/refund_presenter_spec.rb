@@ -6,10 +6,7 @@ describe SpreeAvataxOfficial::Transactions::RefundPresenter do
   describe '#to_json' do
     let(:order) do
       create(:shipped_order, line_items_count: 2).tap do |order|
-        # TODO replace it with transaction factory
-        # after relevant PR is merged
-        SpreeAvataxOfficial::Transaction.create(
-          order: order,
+        order.avatax_transactions.create(
           code: 'testcode',
           transaction_type: 'SalesInvoice'
         )
