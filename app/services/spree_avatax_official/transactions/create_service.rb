@@ -4,13 +4,15 @@ module SpreeAvataxOfficial
       def call(order:, ship_from_address:, transaction_type:, options: {})
         response = send_request(order, ship_from_address, transaction_type, options)
 
-        return failure(response) if response['error'].present?
-
-        unless response['id'].to_i.zero?
-          SpreeAvataxOfficial::Transaction.create!(code: response['code'], order: order, transaction_type: transaction_type)
+        request_result(response) do
+          unless response['id'].to_i.zero?
+            SpreeAvataxOfficial::Transaction.create!(
+              code: response['code'],
+              order: order,
+              transaction_type: transaction_type
+            )
+          end
         end
-
-        success(response)
       end
 
       private

@@ -4,17 +4,15 @@ module SpreeAvataxOfficial
       def call(order:, ship_from_address:, adjustment_reason:, options: {})
         response = send_request(order, ship_from_address, adjustment_reason, options)
 
-        return failure(response) if response['error'].present?
+        request_result(response) do
+          invoice_transaction = order.avatax_sales_invoice_transaction
 
-        invoice_transaction = order.avatax_sales_invoice_transaction
-
-        if invoice_transaction.present?
-          invoice_transaction.update!(code: response['code'], transaction_type: response['type'])
-        else
-          SpreeAvataxOfficial::Transaction.create!(order: order, transaction_type: response['type'])
+          if invoice_transaction.present?
+            invoice_transaction.update!(code: response['code'], transaction_type: response['type'])
+          else
+            SpreeAvataxOfficial::Transaction.create!(order: order, transaction_type: response['type'])
+          end
         end
-
-        success(response)
       end
 
       private
