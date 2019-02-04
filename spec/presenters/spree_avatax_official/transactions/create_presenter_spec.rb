@@ -11,6 +11,7 @@ describe SpreeAvataxOfficial::Transactions::CreatePresenter do
     let(:result) do
       {
         type: transaction_type,
+        code: nil,
         companyCode: SpreeAvataxOfficial::Configuration.new.company_code,
         date: order.updated_at.strftime('%Y-%m-%d'),
         customerCode: order.email,
