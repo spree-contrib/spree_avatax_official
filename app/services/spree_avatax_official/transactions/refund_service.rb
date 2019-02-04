@@ -2,12 +2,10 @@ module SpreeAvataxOfficial
   module Transactions
     class RefundService < SpreeAvataxOfficial::Base
       def call(return_authorization:)
-        refund_transaction(return_authorization).tap do |transaction|
-          return failure(transaction) if transaction.key?('error')
-
-          create_transaction(transaction['code'], return_authorization.order)
-
-          return success(transaction)
+        refund_transaction(return_authorization).tap do |response|
+          return request_result(response) do
+            create_transaction(response['code'], return_authorization.order)
+          end
         end
       end
 
