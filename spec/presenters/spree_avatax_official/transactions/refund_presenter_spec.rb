@@ -36,7 +36,7 @@ describe SpreeAvataxOfficial::Transactions::RefundPresenter do
         inventory_unit              = order.inventory_units.first
         return_auth.inventory_units = [inventory_unit]
         result[:refundType]         = 'Partial'
-        result[:refundLines]        = [SpreeAvataxOfficial::LineItemPresenter.new(line_item: inventory_unit.line_item).to_json]
+        result[:refundLines]        = [inventory_unit.variant.sku]
 
         expect(subject.to_json).to eq result
       end

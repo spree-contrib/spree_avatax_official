@@ -20,6 +20,30 @@ describe SpreeAvataxOfficial::Transactions::RefundService do
           expect(SpreeAvataxOfficial::Transaction.count).to eq 1
         end
       end
+
+      context 'with partial refund' do
+        let(:order) { create(:shipped_order, number: 'REFUNDTEST321', line_items_count: 2) }
+
+        it 'creates refund only with refunded lines' do
+          # inventory units created with spree 2-2 factory do not have order assigned
+          Spree::InventoryUnit.update_all(order_id: order.id)
+
+          inventory_unit              = order.inventory_units.first
+          variant                     = inventory_unit.variant
+          return_auth.inventory_units = [inventory_unit]
+
+          variant.update(sku: 'SKU-1')
+
+          VCR.use_cassette('spree_avatax_official/transactions/refund/partial_refund_success') do
+            result   = subject
+            response = result.value
+
+            expect(result.success?).to eq true
+            expect(response['lines'].count).to eq 1
+            expect(response['lines'].first['lineNumber']).to eq variant.sku
+          end
+        end
+      end
     end
 
     context 'with uncomitted order' do
