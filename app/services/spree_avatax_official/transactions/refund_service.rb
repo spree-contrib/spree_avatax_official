@@ -29,7 +29,7 @@ module SpreeAvataxOfficial
         SpreeAvataxOfficial::Transactions::SaveCodeService.call(
           code:  code,
           order: order,
-          type:  SpreeAvataxOfficial::Transaction::SALES_INVOICE
+          type:  SpreeAvataxOfficial::Transaction::RETURN_INVOICE
         )
       end
     end
