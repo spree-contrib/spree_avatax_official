@@ -18,6 +18,7 @@ describe SpreeAvataxOfficial::Transactions::RefundService do
           expect(result.success?).to eq true
           expect(response['type']).to eq 'ReturnInvoice'
           expect(SpreeAvataxOfficial::Transaction.count).to eq 1
+          expect(SpreeAvataxOfficial::Transaction.last.transaction_type).to eq 'ReturnInvoice'
         end
       end
 
