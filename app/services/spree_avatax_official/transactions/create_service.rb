@@ -24,7 +24,7 @@ module SpreeAvataxOfficial
           transaction_type: transaction_type
         ).to_json
 
-        response = client.create_transaction(create_transaction_model, options)
+        client.create_transaction(create_transaction_model, options)
       end
     end
   end

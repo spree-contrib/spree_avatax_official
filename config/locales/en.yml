@@ -5,3 +5,5 @@ en:
   spree_avatax_official:
     void_service:
       missing_sales_invoice_transaction: Order is missing SalesInvoice transaction
+    get_by_code_service:
+      missing_code: Transaction code for these params is missing
