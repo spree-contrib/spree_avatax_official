@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SpreeAvataxOfficial::Transactions::CreatePresenter do
-  subject { described_class.new(order: order, ship_from_address: ship_from_address, transaction_type: transaction_type) }
+  subject { described_class.new(order: order, ship_from_address: ship_from_address, transaction_type: transaction_type, transaction_code: '123') }
 
   describe '#to_json' do
     let(:order) { create(:order_with_line_items) }
@@ -11,8 +11,8 @@ describe SpreeAvataxOfficial::Transactions::CreatePresenter do
     let(:result) do
       {
         type: transaction_type,
-        code: nil,
         companyCode: SpreeAvataxOfficial::Configuration.new.company_code,
+        code: '123',
         date: order.updated_at.strftime('%Y-%m-%d'),
         customerCode: order.email,
         addresses:

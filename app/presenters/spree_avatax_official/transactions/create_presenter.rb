@@ -5,6 +5,7 @@ module SpreeAvataxOfficial
         @order = order
         @ship_from_address = ship_from_address
         @transaction_type = transaction_type
+        @transaction_code = transaction_code
       end
 
       # Based on: https://developer.avalara.com/api-reference/avatax/rest/v2/models/CreateTransactionModel/
