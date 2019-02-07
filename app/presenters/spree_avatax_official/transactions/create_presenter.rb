@@ -13,7 +13,7 @@ module SpreeAvataxOfficial
           type: transaction_type,
           code: transaction_code,
           companyCode: SpreeAvataxOfficial::Config.company_code,
-          date: formatted_date(order.updated_at),
+          date: formatted_date(order_date),
           customerCode: order.email,
           addresses: addresses_payload,
           lines: line_items_payload(order.line_items),
@@ -27,6 +27,10 @@ module SpreeAvataxOfficial
 
       def formatted_date(date)
         date.strftime('%Y-%m-%d')
+      end
+
+      def order_date
+        order.completed_at || order.updated_at
       end
 
       def ship_from_payload
