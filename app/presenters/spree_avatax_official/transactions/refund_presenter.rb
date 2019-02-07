@@ -28,7 +28,7 @@ module SpreeAvataxOfficial
       end
 
       def refund_date
-        Time.current.strftime('%Y-%m-%d')
+        order.completed_at.strftime('%Y-%m-%d')
       end
 
       def refund_type
