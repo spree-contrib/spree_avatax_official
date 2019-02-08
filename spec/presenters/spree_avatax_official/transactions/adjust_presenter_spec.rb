@@ -27,7 +27,8 @@ describe SpreeAvataxOfficial::Transactions::AdjustPresenter do
         newTransaction: SpreeAvataxOfficial::Transactions::CreatePresenter.new(
           order: order,
           ship_from_address: ship_from_address,
-          transaction_type: transaction_type
+          transaction_type: transaction_type,
+          transaction_code: invoice_transaction.code
         ).to_json
       }
     end

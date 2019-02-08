@@ -5,6 +5,7 @@ module SpreeAvataxOfficial
         @order = order
         @ship_from_address = ship_from_address
         @transaction_type = transaction_type
+        @transaction_code = transaction_code
       end
 
       # Based on: https://developer.avalara.com/api-reference/avatax/rest/v2/models/CreateTransactionModel/
@@ -12,7 +13,7 @@ module SpreeAvataxOfficial
         {
           type: transaction_type,
           code: transaction_code,
-          companyCode: SpreeAvataxOfficial::Config.company_code,
+          companyCode: company_code,
           date: formatted_date(order_date),
           customerCode: order.email,
           addresses: addresses_payload,
@@ -24,6 +25,10 @@ module SpreeAvataxOfficial
       private
 
       attr_reader :order, :ship_from_address, :transaction_type, :transaction_code
+
+      def company_code
+        order.store&.avatax_company_code || SpreeAvataxOfficial::Config.company_code
+      end
 
       def formatted_date(date)
         date.strftime('%Y-%m-%d')
