@@ -39,5 +39,15 @@ describe SpreeAvataxOfficial::Transactions::CreatePresenter do
         expect(subject.to_json).to eq result
       end
     end
+
+    context 'with company code', if: defined?(Spree::Store) do
+      it 'serializes the object' do
+        order.update(store: create(:store, avatax_company_code: 'test123'))
+
+        result[:companyCode] = 'test123'
+
+        expect(subject.to_json).to eq result
+      end
+    end
   end
 end
