@@ -17,7 +17,7 @@ describe SpreeAvataxOfficial::Transactions::CreateService do
             expect(result.success?).to eq true
             expect(response['type']).to eq 'SalesOrder'
             expect(response['status']).to eq 'Temporary'
-            expect(response['lines'].size).to eq 1
+            expect(response['lines'].size).to eq 6
             expect(SpreeAvataxOfficial::Transaction.count).to eq 0
           end
         end
