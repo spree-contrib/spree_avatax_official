@@ -1,7 +1,5 @@
 module SpreeAvataxOfficial
   class LineItemPresenter
-    DEFAULT_TAX_CODE = 'P0000000'.freeze
-
     def initialize(line_item:)
       @line_item = line_item
     end
@@ -21,7 +19,7 @@ module SpreeAvataxOfficial
     attr_reader :line_item
 
     def tax_code
-      line_item.tax_category&.tax_code.presence || DEFAULT_TAX_CODE
+      line_item.tax_category&.tax_code.presence || ::Spree::TaxCategory::DEFAULT_TAX_CODES['Spree::LineItem']
     end
   end
 end
