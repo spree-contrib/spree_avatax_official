@@ -9,6 +9,14 @@ describe SpreeAvataxOfficial::RefundDecorator do
     let(:order) { create(:shipped_order, state: :awaiting_return) }
     let(:return_authorization) { create(:return_authorization, order: order, inventory_units: order.inventory_units, state: :authorized) }
 
+    around(:each) do |example|
+      SpreeAvataxOfficial::Config.enabled = true
+
+      example.run
+
+      SpreeAvataxOfficial::Config.enabled = false
+    end
+
     before { Spree::InventoryUnit.update_all(order_id: order.id) }
 
     it 'calls refund service' do

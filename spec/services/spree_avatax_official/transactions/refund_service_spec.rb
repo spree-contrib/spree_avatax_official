@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SpreeAvataxOfficial::Transactions::RefundService do
   describe '#call' do
-    let(:subject)     { described_class.call(return_authorization: return_auth) }
+    let(:subject)     { described_class.call(refund_object: return_auth) }
     let(:return_auth) { create(:return_authorization, order: order, inventory_units: order.inventory_units) }
 
     before { SpreeAvataxOfficial::Config.company_code = 'test1' }
@@ -58,6 +58,23 @@ describe SpreeAvataxOfficial::Transactions::RefundService do
           expect(result.failure?).to eq true
           expect(response['error']['code']).to eq 'InvalidDocumentStatusForRefund'
           expect(SpreeAvataxOfficial::Transaction.count).to eq 0
+        end
+      end
+    end
+
+    context 'with return item', if: defined?(Spree::ReturnItem) do
+      let(:order)       { create(:shipped_order, number: 'REFUNDITEM') }
+      let(:return_item) { create(:return_item, return_authorization: return_auth, inventory_unit: return_auth.inventory_units.first) }
+
+      it 'creates refund transaction' do
+        VCR.use_cassette('spree_avatax_official/transactions/refund/return_item_success') do
+          result   = described_class.call(refund_object: return_item)
+          response = result.value
+
+          expect(result.success?).to eq true
+          expect(response['type']).to eq 'ReturnInvoice'
+          expect(SpreeAvataxOfficial::Transaction.count).to eq 1
+          expect(SpreeAvataxOfficial::Transaction.last.transaction_type).to eq 'ReturnInvoice'
         end
       end
     end

@@ -1,8 +1,8 @@
 module SpreeAvataxOfficial
   module Transactions
-    class RefundPresenter
-      def initialize(return_authorization:)
-        @return_authorization = return_authorization
+    class ReturnItemPresenter
+      def initialize(return_item:)
+        @return_item = return_item
       end
 
       # based on https://developer.avalara.com/api-reference/avatax/rest/v2/models/RefundTransactionModel/
@@ -18,10 +18,11 @@ module SpreeAvataxOfficial
 
       private
 
-      attr_reader :return_authorization
+      attr_reader :return_item
 
-      delegate :order, :inventory_units,      to: :return_authorization
-      delegate :line_items, :inventory_units, to: :order, prefix: true
+      delegate :return_authorization, :inventory_unit, to: :return_item
+      delegate :order,                                 to: :return_authorization
+      delegate :inventory_units,                       to: :order, prefix: true
 
       def transaction_code
         order.avatax_sales_invoice_transaction&.code
@@ -36,17 +37,11 @@ module SpreeAvataxOfficial
       end
 
       def refund_lines
-        order_line_items
-          .where(id: line_item_ids)
-          .map { |line_item| line_item.variant.sku }
-      end
-
-      def line_item_ids
-        inventory_units.pluck(:line_item_id).uniq
+        [inventory_unit.line_item.sku]
       end
 
       def all_inventory_units_returned?
-        inventory_units == order_inventory_units
+        [inventory_unit] == order_inventory_units
       end
     end
   end
