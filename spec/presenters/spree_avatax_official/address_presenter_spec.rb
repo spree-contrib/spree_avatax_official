@@ -10,11 +10,11 @@ describe SpreeAvataxOfficial::AddressPresenter do
     let(:result) do
       {
         address_type => {
-          line1: address.address1,
-          line2: address.address2,
-          city: address.city,
-          region: address.state&.abbr,
-          country: address.country&.iso,
+          line1:      address.address1,
+          line2:      address.address2,
+          city:       address.city,
+          region:     address.state&.abbr,
+          country:    address.country&.iso,
           postalCode: address.zipcode
         }
       }

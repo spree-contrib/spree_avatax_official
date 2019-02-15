@@ -11,17 +11,16 @@ describe SpreeAvataxOfficial::Transactions::CreatePresenter do
 
     let(:result) do
       {
-        type: transaction_type,
-        companyCode: SpreeAvataxOfficial::Configuration.new.company_code,
-        code: '123',
-        date: order.updated_at.strftime('%Y-%m-%d'),
+        type:         transaction_type,
+        companyCode:  SpreeAvataxOfficial::Configuration.new.company_code,
+        code:         '123',
+        date:         order.updated_at.strftime('%Y-%m-%d'),
         customerCode: order.email,
-        addresses:
-          SpreeAvataxOfficial::AddressPresenter.new(address: ship_from_address, address_type: 'ShipFrom').to_json.merge(
-            SpreeAvataxOfficial::AddressPresenter.new(address: order.ship_address, address_type: 'ShipTo').to_json
-          ),
-        lines: order_items.map { |item| SpreeAvataxOfficial::ItemPresenter.new(item: item).to_json },
-        commit: false
+        addresses:    SpreeAvataxOfficial::AddressPresenter.new(address: ship_from_address, address_type: 'ShipFrom').to_json.merge(
+          SpreeAvataxOfficial::AddressPresenter.new(address: order.ship_address, address_type: 'ShipTo').to_json
+        ),
+        lines:        order_items.map { |item| SpreeAvataxOfficial::ItemPresenter.new(item: item).to_json },
+        commit:       false
       }
     end
 

@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe SpreeAvataxOfficial::Transactions::GetByCodeService do
   describe '#call' do
+    subject { described_class.call(params) }
+
     let(:order)               { create(:order) }
     let!(:return_transaction) { create(:spree_avatax_official_transaction, order: order, transaction_type: 'ReturnInvoice', code: 'test321') }
     let!(:sales_transaction)  { create(:spree_avatax_official_transaction, order: order, transaction_type: 'SalesInvoice', code: 'test123') }
-
-    subject { described_class.call(params) }
 
     context 'with correct params' do
       context 'with default transaction type' do

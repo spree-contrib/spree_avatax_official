@@ -13,7 +13,7 @@ end
 # Configure Rails Environment
 ENV['RAILS_ENV'] = 'test'
 
-require File.expand_path('../dummy/config/environment.rb', __FILE__)
+require File.expand_path('dummy/config/environment.rb', __dir__)
 
 require 'rspec/rails'
 require 'ffaker'
@@ -58,7 +58,7 @@ RSpec.configure do |config|
   # config.mock_with :flexmock
   # config.mock_with :rr
   config.mock_with :rspec
-  config.color = true
+  config.color             = true
   config.default_formatter = 'doc'
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
@@ -70,5 +70,5 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
 
   config.fail_fast = ENV['FAIL_FAST'] || false
-  config.order = 'random'
+  config.order     = 'random'
 end

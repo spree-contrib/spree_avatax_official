@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SpreeAvataxOfficial::RefundDecorator do
-  describe '#receive', unless: defined?(Spree::ReturnItem)  do
+  describe '#receive', unless: defined?(Spree::ReturnItem) do
     class Spree::ReturnAuthorization
       prepend SpreeAvataxOfficial::RefundDecorator
     end
@@ -9,7 +9,7 @@ describe SpreeAvataxOfficial::RefundDecorator do
     let(:order) { create(:shipped_order, state: :awaiting_return) }
     let(:return_authorization) { create(:return_authorization, order: order, inventory_units: order.inventory_units, state: :authorized) }
 
-    around(:each) do |example|
+    around do |example|
       SpreeAvataxOfficial::Config.enabled = true
 
       example.run

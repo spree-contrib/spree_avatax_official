@@ -19,9 +19,9 @@ module SpreeAvataxOfficial
 
       def send_request(order, ship_from_address, transaction_type, options)
         create_transaction_model = SpreeAvataxOfficial::Transactions::CreatePresenter.new(
-          order: order,
+          order:             order,
           ship_from_address: ship_from_address,
-          transaction_type: transaction_type
+          transaction_type:  transaction_type
         ).to_json
 
         client.create_transaction(create_transaction_model, options)

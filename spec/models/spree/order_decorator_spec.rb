@@ -4,7 +4,7 @@ describe Spree::Order do
   describe 'associations' do
     let(:order) { create(:order) }
 
-    describe 'avatax_sales_order_transaction'  do
+    describe 'avatax_sales_order_transaction' do
       let!(:sales_order_transaction) { create(:spree_avatax_official_transaction, order: order, transaction_type: 'SalesOrder') }
       let!(:sales_invoice_transaction) { create(:spree_avatax_official_transaction, order: order, transaction_type: 'SalesInvoice') }
 

@@ -11,12 +11,12 @@ describe SpreeAvataxOfficial::Transactions::VoidService do
       it 'returns positive result' do
         VCR.use_cassette('spree_avatax_official/transactions/void/success') do
           SpreeAvataxOfficial::Transactions::CreateService.call(
-            order: order,
+            order:             order,
             ship_from_address: ship_from_address,
-            transaction_type: 'SalesInvoice'
+            transaction_type:  'SalesInvoice'
           )
 
-          result = subject
+          result   = subject
           response = result.value
 
           expect(result.success?).to eq true
@@ -27,7 +27,7 @@ describe SpreeAvataxOfficial::Transactions::VoidService do
 
     context 'when order does NOT have SalesInvoice transaction' do
       it 'returns negative result' do
-        result = subject
+        result   = subject
         response = result.value
 
         expect(result.success?).to eq false

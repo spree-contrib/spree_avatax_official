@@ -1,24 +1,77 @@
 AllCops:
   DisplayCopNames: true
   TargetRubyVersion: 2.3
-  Include:
-    - '**/Gemfile'
-    - '**/Rakefile'
-    - '**/Appraisals'
   Exclude:
     - 'spec/dummy/**/*'
     - 'lib/generators/**/*'
+    - 'vendor/bundle/**/*'
+    - 'tmp/**/*'
+    - 'gemfiles/vendor/bundle/**/*'
 
 Rails:
   Enabled: true
 
+# == Metrics == #
 Metrics/LineLength:
   Max: 150
 
-# DISABLED
+Metrics/MethodLength:
+  Max: 10
+
+Metrics/ClassLength:
+  Max: 100
+
+Metrics/ModuleLength:
+  Max: 100
+
+Metrics/ParameterLists:
+  Max: 5
+
+# == Layout == #
+Layout/AlignHash:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle:      table
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: true
+
+Layout/ExtraSpacing:
+  ForceEqualSignAlignment: true
+
+Layout/Tab:
+  IndentationWidth: 2
+
+# == Style == #
+Style/SymbolArray:
+  Enabled: true
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+
+Style/CollectionMethods:
+  Enabled: true
+
+Style/NumericLiterals:
+  MinDigits: 4
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+# == Disabled Cops == #
+Rails/SkipsModelValidations:
+  Enabled: false
+
+Rails/ApplicationRecord:
+  Enabled: false
 
 Style/Documentation:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
   Enabled: false
