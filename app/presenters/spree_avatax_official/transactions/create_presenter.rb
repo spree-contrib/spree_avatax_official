@@ -17,7 +17,7 @@ module SpreeAvataxOfficial
           date: formatted_date(order_date),
           customerCode: order.email,
           addresses: addresses_payload,
-          lines: line_items_payload(order.line_items),
+          lines: items_payload,
           commit: order.complete?
         }
       end
@@ -52,8 +52,12 @@ module SpreeAvataxOfficial
         ship_from_payload.merge(ship_to_payload)
       end
 
-      def line_items_payload(line_items)
-        line_items.map { |line_item| SpreeAvataxOfficial::LineItemPresenter.new(line_item: line_item).to_json }
+      def items_payload
+        items.map { |item| SpreeAvataxOfficial::ItemPresenter.new(item: item).to_json }
+      end
+
+      def items
+        order.line_items + order.shipments
       end
     end
   end

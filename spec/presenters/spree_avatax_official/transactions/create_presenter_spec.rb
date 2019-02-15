@@ -5,6 +5,7 @@ describe SpreeAvataxOfficial::Transactions::CreatePresenter do
 
   describe '#to_json' do
     let(:order) { create(:order_with_line_items) }
+    let(:order_items) { order.line_items + order.shipments }
     let(:ship_from_address) { create(:address) }
     let(:transaction_type) { 'SalesOrder' }
 
@@ -19,7 +20,7 @@ describe SpreeAvataxOfficial::Transactions::CreatePresenter do
           SpreeAvataxOfficial::AddressPresenter.new(address: ship_from_address, address_type: 'ShipFrom').to_json.merge(
             SpreeAvataxOfficial::AddressPresenter.new(address: order.ship_address, address_type: 'ShipTo').to_json
           ),
-        lines: order.line_items.map { |line_item| SpreeAvataxOfficial::LineItemPresenter.new(line_item: line_item).to_json },
+        lines: order_items.map { |item| SpreeAvataxOfficial::ItemPresenter.new(item: item).to_json },
         commit: false
       }
     end
