@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SpreeAvataxOfficial::Transactions::RefundPresenter do
+describe SpreeAvataxOfficial::Transactions::ReturnAuthorizationPresenter do
   subject { described_class.new(return_authorization: return_auth) }
 
   describe '#to_json' do
@@ -12,6 +12,7 @@ describe SpreeAvataxOfficial::Transactions::RefundPresenter do
         )
       end
     end
+    let(:inventory_unit) { order.inventory_units.first }
     let(:return_auth) { create(:return_authorization, order: order) }
 
     let(:result) do
@@ -19,7 +20,8 @@ describe SpreeAvataxOfficial::Transactions::RefundPresenter do
         refundTransactionCode: 'testcode',
         referenceCode:         order.number,
         refundDate:            Time.zone.now.strftime('%Y-%m-%d'),
-        refundType:            'Full'
+        refundType:            'Partial',
+        refundLines:           [inventory_unit.variant.sku]
       }
     end
 
@@ -30,10 +32,9 @@ describe SpreeAvataxOfficial::Transactions::RefundPresenter do
 
     context 'with partial refund' do
       it 'serializes the object' do
-        inventory_unit              = order.inventory_units.first
         return_auth.inventory_units = [inventory_unit]
         result[:refundType]         = 'Partial'
-        result[:refundLines]        = [inventory_unit.variant.sku]
+        result[:refundLines]        = [inventory_unit.line_item.avatax_number]
 
         expect(subject.to_json).to eq result
       end
@@ -42,6 +43,8 @@ describe SpreeAvataxOfficial::Transactions::RefundPresenter do
     context 'with full refund' do
       it 'serializes the object' do
         return_auth.inventory_units = order.inventory_units
+        result[:refundType]  = 'Full'
+        result[:refundLines] = nil
 
         expect(subject.to_json).to eq result
       end

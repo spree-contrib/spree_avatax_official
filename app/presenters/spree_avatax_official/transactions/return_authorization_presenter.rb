@@ -1,19 +1,19 @@
 module SpreeAvataxOfficial
   module Transactions
-    class RefundPresenter
+    class ReturnAuthorizationPresenter
       def initialize(return_authorization:)
         @return_authorization = return_authorization
       end
 
       # based on https://developer.avalara.com/api-reference/avatax/rest/v2/models/RefundTransactionModel/
       def to_json
-        {}.tap do |params|
-          params[:refundTransactionCode] = transaction_code
-          params[:referenceCode]         = order.number
-          params[:refundDate]            = refund_date
-          params[:refundType]            = refund_type
-          params[:refundLines]           = refund_lines if refund_type == 'Partial'
-        end
+        {
+          refundTransactionCode: transaction_code,
+          referenceCode:         order.number,
+          refundDate:            refund_date,
+          refundType:            refund_type,
+          refundLines:           refund_lines
+        }
       end
 
       private
@@ -36,9 +36,11 @@ module SpreeAvataxOfficial
       end
 
       def refund_lines
+        return unless refund_type == 'Partial'
+
         order_line_items
           .where(id: line_item_ids)
-          .map { |line_item| line_item.variant.sku }
+          .map(&:avatax_number)
       end
 
       def line_item_ids
