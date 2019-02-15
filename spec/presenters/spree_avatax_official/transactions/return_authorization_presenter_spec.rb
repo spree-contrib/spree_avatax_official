@@ -33,6 +33,8 @@ describe SpreeAvataxOfficial::Transactions::ReturnAuthorizationPresenter do
     context 'with partial refund' do
       it 'serializes the object' do
         return_auth.inventory_units = [inventory_unit]
+        result[:refundType]         = 'Partial'
+        result[:refundLines]        = [inventory_unit.line_item.avatax_number]
 
         expect(subject.to_json).to eq result
       end
@@ -41,9 +43,8 @@ describe SpreeAvataxOfficial::Transactions::ReturnAuthorizationPresenter do
     context 'with full refund' do
       it 'serializes the object' do
         return_auth.inventory_units = order.inventory_units
-        result[:refundType]         = 'Full'
-
-        result.delete(:refundLines)
+        result[:refundType]  = 'Full'
+        result[:refundLines] = nil
 
         expect(subject.to_json).to eq result
       end

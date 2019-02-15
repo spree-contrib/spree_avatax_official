@@ -7,7 +7,7 @@ module SpreeAvataxOfficial
     # Based on: https://developer.avalara.com/api-reference/avatax/rest/v2/models/LineItemModel/
     def to_json
       {
-        number:     item_number,
+        number:     item.avatax_number,
         quantity:   item_quantity,
         amount:     item.discounted_amount,
         taxCode:    tax_code,
@@ -18,19 +18,6 @@ module SpreeAvataxOfficial
     private
 
     attr_reader :item
-
-    def item_number
-      "#{item.id}-#{avatax_code}"
-    end
-
-    def avatax_code
-      case item
-      when ::Spree::LineItem
-        ::Spree::LineItem::AVATAX_CODE
-      when ::Spree::Shipment
-        ::Spree::Shipment::AVATAX_CODE
-      end
-    end
 
     def item_quantity
       item.is_a?(::Spree::LineItem) ? item.quantity : 1

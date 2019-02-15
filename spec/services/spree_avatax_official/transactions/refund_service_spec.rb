@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SpreeAvataxOfficial::Transactions::RefundService do
   describe '#call' do
-    let(:subject)     { described_class.call(refund_object: return_auth) }
+    let(:subject)     { described_class.call(refundable: return_auth) }
     let(:return_auth) { create(:return_authorization, order: order, inventory_units: order.inventory_units) }
 
     before { SpreeAvataxOfficial::Config.company_code = 'test1' }
@@ -68,7 +68,7 @@ describe SpreeAvataxOfficial::Transactions::RefundService do
 
       it 'creates refund transaction' do
         VCR.use_cassette('spree_avatax_official/transactions/refund/return_item_success') do
-          result   = described_class.call(refund_object: return_item)
+          result   = described_class.call(refundable: return_item)
           response = result.value
 
           expect(result.success?).to eq true

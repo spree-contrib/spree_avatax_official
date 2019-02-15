@@ -1,39 +1,39 @@
 module SpreeAvataxOfficial
   module Transactions
     class RefundService < SpreeAvataxOfficial::Base
-      def call(refund_object:)
-        refund_transaction(refund_object).tap do |response|
+      def call(refundable:)
+        refund_transaction(refundable).tap do |response|
           return request_result(response) do
-            create_transaction(response['code'], order(refund_object))
+            create_transaction(response['code'], order(refundable))
           end
         end
       end
 
       private
 
-      def refund_transaction(refund_object)
+      def refund_transaction(refundable)
         client.refund_transaction(
           company_code,
-          order(refund_object).number,
-          refund_model(refund_object)
+          order(refundable).number,
+          refund_model(refundable)
         )
       end
 
-      def order(refund_object)
-        case refund_object
+      def order(refundable)
+        case refundable
         when ::Spree::ReturnAuthorization
-          refund_object.order
+          refundable.order
         when ::Spree::ReturnItem
-          refund_object.return_authorization.order
+          refundable.return_authorization.order
         end
       end
 
-      def refund_model(refund_object)
-        case refund_object
+      def refund_model(refundable)
+        case refundable
         when ::Spree::ReturnAuthorization
-          ReturnAuthorizationPresenter.new(return_authorization: refund_object).to_json
+          ReturnAuthorizationPresenter.new(return_authorization: refundable).to_json
         when ::Spree::ReturnItem
-          ReturnItemPresenter.new(return_item: refund_object).to_json
+          ReturnItemPresenter.new(return_item: refundable).to_json
         end
       end
 

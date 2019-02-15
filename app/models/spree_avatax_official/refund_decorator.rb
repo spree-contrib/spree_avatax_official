@@ -9,7 +9,7 @@ module SpreeAvataxOfficial
     def refund_in_avatax
       return unless SpreeAvataxOfficial::Config.enabled
 
-      SpreeAvataxOfficial::Transactions::RefundService.call(refund_object: self)
+      SpreeAvataxOfficial::Transactions::RefundService.call(refundable: self)
     end
   end
 end

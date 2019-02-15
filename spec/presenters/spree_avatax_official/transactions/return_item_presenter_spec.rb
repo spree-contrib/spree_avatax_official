@@ -22,7 +22,7 @@ describe SpreeAvataxOfficial::Transactions::ReturnItemPresenter, if: defined?(Sp
         referenceCode:         order.number,
         refundDate:            Time.zone.now.strftime('%Y-%m-%d'),
         refundType:            'Partial',
-        refundLines:           [inventory_unit.variant.sku]
+        refundLines:           [inventory_unit.line_item.avatax_number]
       }
     end
 
@@ -39,10 +39,10 @@ describe SpreeAvataxOfficial::Transactions::ReturnItemPresenter, if: defined?(Sp
 
     context 'with full refund' do
       it 'serializes the object' do
-        result[:refundType]         = 'Full'
+        result[:refundType]  = 'Full'
+        result[:refundLines] = nil
 
         order.inventory_units.last.destroy
-        result.delete(:refundLines)
 
         expect(subject.to_json).to eq result
       end

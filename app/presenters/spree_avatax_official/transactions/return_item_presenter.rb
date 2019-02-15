@@ -7,13 +7,13 @@ module SpreeAvataxOfficial
 
       # based on https://developer.avalara.com/api-reference/avatax/rest/v2/models/RefundTransactionModel/
       def to_json
-        {}.tap do |params|
-          params[:refundTransactionCode] = transaction_code
-          params[:referenceCode]         = order.number
-          params[:refundDate]            = refund_date
-          params[:refundType]            = refund_type
-          params[:refundLines]           = refund_lines if refund_type == 'Partial'
-        end
+        {
+          refundTransactionCode: transaction_code,
+          referenceCode:         order.number,
+          refundDate:            refund_date,
+          refundType:            refund_type,
+          refundLines:           refund_lines
+        }
       end
 
       private
@@ -37,11 +37,13 @@ module SpreeAvataxOfficial
       end
 
       def refund_lines
-        [inventory_unit.line_item.sku]
+        return unless refund_type == 'Partial'
+
+        [inventory_unit.line_item.avatax_number]
       end
 
       def all_inventory_units_returned?
-        [inventory_unit] == order_inventory_units
+        order_inventory_units == [inventory_unit]
       end
     end
   end
