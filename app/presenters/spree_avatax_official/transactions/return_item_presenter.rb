@@ -25,7 +25,7 @@ module SpreeAvataxOfficial
       delegate :inventory_units,                       to: :order, prefix: true
 
       def transaction_code
-        order.avatax_sales_invoice_transaction&.code
+        order.avatax_sales_invoice_code
       end
 
       def refund_date

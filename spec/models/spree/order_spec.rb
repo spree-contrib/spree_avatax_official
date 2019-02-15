@@ -27,4 +27,13 @@ describe Spree::Order do
       order.cancel
     end
   end
+
+  describe '#avatax_sales_invoice_code' do
+    let(:transaction) { create(:spree_avatax_official_transaction, transaction_type: 'SalesInvoice') }
+    let(:order)       { transaction.order }
+
+    it 'returns code of avatax sales invoice' do
+      expect(order.avatax_sales_invoice_code).to eq transaction.code
+    end
+  end
 end

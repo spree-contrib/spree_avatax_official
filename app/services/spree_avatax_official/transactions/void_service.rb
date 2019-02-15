@@ -16,7 +16,7 @@ module SpreeAvataxOfficial
       def send_request(order, options)
         client.void_transaction(
           company_code,
-          order.avatax_sales_invoice_transaction.code,
+          order.avatax_sales_invoice_code,
           { code: 'DocVoided' },
           options
         )
