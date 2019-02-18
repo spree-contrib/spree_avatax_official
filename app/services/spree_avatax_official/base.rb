@@ -17,5 +17,13 @@ module SpreeAvataxOfficial
 
       success(response)
     end
+
+    def create_transaction!(code:, order:, transaction_type:)
+      SpreeAvataxOfficial::Transaction.create!(
+        code:             code,
+        order:            order,
+        transaction_type: transaction_type
+      )
+    end
   end
 end

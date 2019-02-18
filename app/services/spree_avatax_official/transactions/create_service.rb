@@ -6,9 +6,9 @@ module SpreeAvataxOfficial
 
         request_result(response) do
           unless response['id'].to_i.zero?
-            SpreeAvataxOfficial::Transaction.create!(
-              code: response['code'],
-              order: order,
+            create_transaction!(
+              code:             response['code'],
+              order:            order,
               transaction_type: transaction_type
             )
           end

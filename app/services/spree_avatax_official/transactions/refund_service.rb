@@ -4,7 +4,11 @@ module SpreeAvataxOfficial
       def call(refundable:)
         refund_transaction(refundable).tap do |response|
           return request_result(response) do
-            create_transaction(response['code'], order(refundable))
+            create_transaction!(
+              code:             response['code'],
+              order:            order(refundable),
+              transaction_type: SpreeAvataxOfficial::Transaction::RETURN_INVOICE
+            )
           end
         end
       end
@@ -35,14 +39,6 @@ module SpreeAvataxOfficial
         when ::Spree::ReturnItem
           ReturnItemPresenter.new(return_item: refundable).to_json
         end
-      end
-
-      def create_transaction(code, order)
-        SpreeAvataxOfficial::Transactions::SaveCodeService.call(
-          code:  code,
-          order: order,
-          type:  SpreeAvataxOfficial::Transaction::RETURN_INVOICE
-        )
       end
     end
   end

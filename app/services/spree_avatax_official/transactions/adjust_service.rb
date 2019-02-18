@@ -10,7 +10,11 @@ module SpreeAvataxOfficial
           if invoice_transaction.present?
             invoice_transaction.update!(code: response['code'], transaction_type: response['type'])
           else
-            SpreeAvataxOfficial::Transaction.create!(order: order, transaction_type: response['type'])
+            create_transaction!(
+              code:             response['code'],
+              order:            order,
+              transaction_type: response['type']
+            )
           end
         end
       end
