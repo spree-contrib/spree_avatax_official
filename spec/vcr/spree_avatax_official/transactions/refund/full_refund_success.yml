@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/companies/test1/transactions/TESTFULLREFUND/refund
+    body:
+      encoding: UTF-8
+      string: '{"referenceCode":"R344260399","refundDate":"2019-02-18","refundType":"Full"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Mon, 18 Feb 2019 08:25:25 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - "/api/v2/companies/848107/transactions/4815021081"
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.1417354'
+      Databasecalls:
+      - '1'
+      Databaseduration:
+      - '00:00:00.0000024'
+      Serviceduration:
+      - '00:00:00.1307180'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"id":4815021081,"code":"781c370b-32c0-4a86-af0b-9ce0d20cbb40","companyId":848107,"date":"2019-02-18","status":"Committed","type":"ReturnInvoice","batchCode":"","currencyCode":"USD","customerUsageType":"","entityUseCode":"","customerVendorCode":"katyperry@fullscript.com","customerCode":"katyperry@fullscript.com","exemptNo":"","reconciled":false,"locationCode":"","reportingLocationCode":"","purchaseOrderNo":"","referenceCode":"R344260399","salespersonCode":"","taxOverrideType":"None","taxOverrideAmount":0.0000,"taxOverrideReason":"","totalAmount":-97.9400,"totalExempt":0.0000,"totalDiscount":0.0000,"totalTax":-6.3800,"totalTaxable":-97.9400,"totalTaxCalculated":-6.0500,"adjustmentReason":"NotAdjusted","adjustmentDescription":"","locked":false,"region":"FL","country":"US","version":1,"softwareVersion":"19.2.0.39","originAddressId":5398751127,"destinationAddressId":7398751127,"exchangeRateEffectiveDate":"2019-01-05","exchangeRate":1.0000,"isSellerImporterOfRecord":true,"description":"","email":"","businessIdentificationNo":"","modifiedDate":"2019-02-18T08:25:25.02","modifiedUserId":356147,"taxDate":"2019-02-18T00:00:00","lines":[{"id":12011122277,"transactionId":4815021081,"lineNumber":"SKU-1","boundaryOverrideId":0,"customerUsageType":"","entityUseCode":"","description":"","destinationAddressId":9398751127,"originAddressId":11604244730,"discountAmount":0.0000,"discountTypeId":0,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"","lineAmount":-29.9900,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2019-02-18","revAccount":"","sourcing":"Destination","tax":-1.9500,"taxableAmount":-29.9900,"taxCalculated":-1.9500,"taxCode":"PH050117","taxCodeId":8300,"taxDate":"2019-01-05","taxEngine":"","taxOverrideType":"TaxAmount","businessIdentificationNo":"","taxOverrideAmount":-1.9500,"taxOverrideReason":"Refund
+        request on 2019-02-18","taxIncluded":false,"details":[{"id":13609661693,"transactionLineId":12011122277,"transactionId":4815021081,"addressId":9398751127,"country":"US","region":"FL","countyFIPS":"","stateFIPS":"12","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"12","jurisName":"FLORIDA","jurisdictionId":16,"signatureCode":"AKUY","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.060000,"rateRuleId":3325253,"rateSourceId":4,"serCode":"","sourcing":"Destination","tax":-1.8000,"taxableAmount":-29.9900,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"FL
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":4013231,"taxCalculated":-1.8000,"taxOverride":-1.8000,"rateType":"General","rateTypeCode":"G","taxableUnits":-29.9900,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false},{"id":15609661694,"transactionLineId":12011122277,"transactionId":4815021081,"addressId":9398751127,"country":"US","region":"FL","countyFIPS":"","stateFIPS":"12","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"095","jurisName":"ORANGE","jurisdictionId":418,"signatureCode":"ALYO","stateAssignedNo":"","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.005000,"rateRuleId":3326964,"rateSourceId":4,"serCode":"","sourcing":"Destination","tax":-0.1500,"taxableAmount":-29.9900,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"FL
+        COUNTY TAX","taxAuthorityTypeId":45,"taxRegionId":4013231,"taxCalculated":-0.1500,"taxOverride":-0.1500,"rateType":"General","rateTypeCode":"G","taxableUnits":-29.9900,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false}],"nonPassthroughDetails":[],"lineLocationTypes":[{"documentLineLocationTypeId":12674118332,"documentLineId":12011122277,"documentAddressId":11604244730,"locationTypeCode":"ShipFrom"},{"documentLineLocationTypeId":6457060192,"documentLineId":12011122277,"documentAddressId":9398751127,"locationTypeCode":"ShipTo"}],"parameters":{},"hsCode":"","costInsuranceFreight":0.0000,"vatCode":"","vatNumberTypeId":0},{"id":5802786031,"transactionId":4815021081,"lineNumber":"3466334-LI","boundaryOverrideId":0,"customerUsageType":"","entityUseCode":"","description":"","destinationAddressId":9398751127,"originAddressId":11604244730,"discountAmount":0.0000,"discountTypeId":0,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"","lineAmount":-63.0000,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2019-02-18","revAccount":"","sourcing":"Destination","tax":-4.1000,"taxableAmount":-63.0000,"taxCalculated":-4.1000,"taxCode":"PH050118","taxCodeId":8301,"taxDate":"2019-01-05","taxEngine":"","taxOverrideType":"TaxAmount","businessIdentificationNo":"","taxOverrideAmount":-4.1000,"taxOverrideReason":"Refund
+        request on 2019-02-18","taxIncluded":false,"details":[{"id":27619206120,"transactionLineId":5802786031,"transactionId":4815021081,"addressId":9398751127,"country":"US","region":"FL","countyFIPS":"","stateFIPS":"12","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"12","jurisName":"FLORIDA","jurisdictionId":16,"signatureCode":"AKUY","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.060000,"rateRuleId":3325253,"rateSourceId":4,"serCode":"","sourcing":"Destination","tax":-3.7800,"taxableAmount":-63.0000,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"FL
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":4013231,"taxCalculated":-3.7800,"taxOverride":-3.7800,"rateType":"General","rateTypeCode":"G","taxableUnits":-63.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false},{"id":7609661693,"transactionLineId":5802786031,"transactionId":4815021081,"addressId":9398751127,"country":"US","region":"FL","countyFIPS":"","stateFIPS":"12","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"095","jurisName":"ORANGE","jurisdictionId":418,"signatureCode":"ALYO","stateAssignedNo":"","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.005000,"rateRuleId":3326964,"rateSourceId":4,"serCode":"","sourcing":"Destination","tax":-0.3200,"taxableAmount":-63.0000,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"FL
+        COUNTY TAX","taxAuthorityTypeId":45,"taxRegionId":4013231,"taxCalculated":-0.3200,"taxOverride":-0.3200,"rateType":"General","rateTypeCode":"G","taxableUnits":-63.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false}],"nonPassthroughDetails":[],"lineLocationTypes":[{"documentLineLocationTypeId":10457060192,"documentLineId":5802786031,"documentAddressId":9398751127,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":8457060192,"documentLineId":5802786031,"documentAddressId":11604244730,"locationTypeCode":"ShipFrom"}],"parameters":{},"hsCode":"","costInsuranceFreight":0.0000,"vatCode":"","vatNumberTypeId":0},{"id":7802786032,"transactionId":4815021081,"lineNumber":"1359828-FR","boundaryOverrideId":0,"customerUsageType":"","entityUseCode":"","description":"","destinationAddressId":9398751127,"originAddressId":11604244730,"discountAmount":0.0000,"discountTypeId":0,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"","lineAmount":-4.9500,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2019-02-18","revAccount":"","sourcing":"Destination","tax":-0.3300,"taxableAmount":-4.9500,"taxCalculated":0.0000,"taxCode":"FR000000","taxCodeId":8550,"taxDate":"2019-01-05","taxEngine":"","taxOverrideType":"TaxAmount","businessIdentificationNo":"","taxOverrideAmount":-0.3300,"taxOverrideReason":"Refund
+        request on 2019-02-18","taxIncluded":false,"details":[{"id":9609661692,"transactionLineId":7802786032,"transactionId":4815021081,"addressId":9398751127,"country":"US","region":"FL","countyFIPS":"","stateFIPS":"12","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"12","jurisName":"FLORIDA","jurisdictionId":16,"signatureCode":"AKUY","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.060000,"rateRuleId":3325253,"rateSourceId":4,"serCode":"","sourcing":"Destination","tax":-0.3000,"taxableAmount":-4.9500,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"FL
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":4013231,"taxCalculated":0.0000,"taxOverride":-0.3000,"rateType":"General","rateTypeCode":"G","taxableUnits":-4.9500,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false},{"id":11609661693,"transactionLineId":7802786032,"transactionId":4815021081,"addressId":9398751127,"country":"US","region":"FL","countyFIPS":"","stateFIPS":"12","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"095","jurisName":"ORANGE","jurisdictionId":418,"signatureCode":"ALYO","stateAssignedNo":"","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.005000,"rateRuleId":3326964,"rateSourceId":4,"serCode":"","sourcing":"Destination","tax":-0.0300,"taxableAmount":-4.9500,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"FL
+        COUNTY TAX","taxAuthorityTypeId":45,"taxRegionId":4013231,"taxCalculated":0.0000,"taxOverride":-0.0300,"rateType":"General","rateTypeCode":"G","taxableUnits":-4.9500,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false}],"nonPassthroughDetails":[],"lineLocationTypes":[{"documentLineLocationTypeId":12674118333,"documentLineId":7802786032,"documentAddressId":11604244730,"locationTypeCode":"ShipFrom"},{"documentLineLocationTypeId":6457060193,"documentLineId":7802786032,"documentAddressId":9398751127,"locationTypeCode":"ShipTo"}],"parameters":{},"hsCode":"","costInsuranceFreight":0.0000,"vatCode":"","vatNumberTypeId":0}],"addresses":[{"id":5398751127,"transactionId":4815021081,"boundaryLevel":"Zip5","line1":"123
+        Fake St.","line2":"","line3":"","city":"Beverly Hills","region":"CA","postalCode":"90210","country":"US","taxRegionId":0},{"id":7398751127,"transactionId":4815021081,"boundaryLevel":"Zip5","line1":"9627
+        Fenrose Ter","line2":"","line3":"","city":"Orlando","region":"FL","postalCode":"32827-5765","country":"US","taxRegionId":0},{"id":9398751127,"transactionId":4815021081,"boundaryLevel":"Address","line1":"9627
+        Fenrose Ter","line2":"","line3":"","city":"Orlando","region":"FL","postalCode":"32827-5765","country":"US","taxRegionId":4013231,"latitude":"28.426576","longitude":"-81.258163"},{"id":11604244730,"transactionId":4815021081,"boundaryLevel":"Zip5","line1":"123
+        Fake St.","line2":"","line3":"","city":"Beverly Hills","region":"CA","postalCode":"90210","country":"US","taxRegionId":4003858}],"locationTypes":[{"documentLocationTypeId":10854061964,"documentId":4815021081,"documentAddressId":7398751127,"locationTypeCode":"ShipTo"},{"documentLocationTypeId":8650281158,"documentId":4815021081,"documentAddressId":5398751127,"locationTypeCode":"ShipFrom"}],"summary":[{"country":"US","region":"FL","jurisType":"State","jurisCode":"12","jurisName":"FLORIDA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"FL
+        STATE TAX","rateType":"General","taxable":-97.94,"rate":0.060000,"tax":-5.88,"taxCalculated":-5.58,"nonTaxable":0.00,"exemption":0.00},{"country":"US","region":"FL","jurisType":"County","jurisCode":"095","jurisName":"ORANGE","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"FL
+        COUNTY TAX","rateType":"General","taxable":-97.94,"rate":0.005000,"tax":-0.50,"taxCalculated":-0.47,"nonTaxable":0.00,"exemption":0.00}],"parameters":{}}'
+    http_version:
+  recorded_at: Mon, 18 Feb 2019 08:25:25 GMT
+recorded_with: VCR 4.0.0
+
