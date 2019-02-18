@@ -3,26 +3,26 @@ require 'spec_helper'
 describe SpreeAvataxOfficial::Transactions::AdjustService do
   describe '#call' do
     context 'with correct parameters' do
-      let(:order) { create(:order_with_line_items, ship_address: create(:usa_address)) }
-      let(:ship_from_address) { create(:usa_address) }
-
       subject do
         described_class.call(
-          order: order,
+          order:             order,
           ship_from_address: ship_from_address,
           adjustment_reason: 'PriceAdjusted'
         )
       end
 
+      let(:order) { create(:order_with_line_items, ship_address: create(:usa_address)) }
+      let(:ship_from_address) { create(:usa_address) }
+
       it 'returns positive result' do
         VCR.use_cassette('spree_avatax_official/transactions/adjust/invoice_order_success') do
           SpreeAvataxOfficial::Transactions::CreateService.call(
-            order: order,
+            order:             order,
             ship_from_address: ship_from_address,
-            transaction_type: 'SalesInvoice'
+            transaction_type:  'SalesInvoice'
           )
 
-          result = subject
+          result   = subject
           response = result.value
 
           expect(result.success?).to eq true
@@ -35,26 +35,26 @@ describe SpreeAvataxOfficial::Transactions::AdjustService do
     end
 
     context 'with incorrect parameters' do
-      let(:order) { create(:order_with_line_items, ship_address: create(:usa_address)) }
-      let(:ship_from_address) { create(:usa_address) }
-
       subject do
         described_class.call(
-          order: order,
+          order:             order,
           ship_from_address: ship_from_address,
           adjustment_reason: ''
         )
       end
 
+      let(:order) { create(:order_with_line_items, ship_address: create(:usa_address)) }
+      let(:ship_from_address) { create(:usa_address) }
+
       it 'returns negative result' do
         VCR.use_cassette('spree_avatax_official/transactions/adjust/failure') do
           SpreeAvataxOfficial::Transactions::CreateService.call(
-            order: order,
+            order:             order,
             ship_from_address: ship_from_address,
-            transaction_type: 'SalesInvoice'
+            transaction_type:  'SalesInvoice'
           )
 
-          result = subject
+          result   = subject
           response = result.value
 
           expect(result.success?).to eq false

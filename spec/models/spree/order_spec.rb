@@ -4,7 +4,7 @@ describe Spree::Order do
   describe '#cancel' do
     let(:order) { create(:completed_order_with_totals) }
 
-    around(:each) do |example|
+    around do |example|
       SpreeAvataxOfficial::Config.enabled = true
 
       example.run

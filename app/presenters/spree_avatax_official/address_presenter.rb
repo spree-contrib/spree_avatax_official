@@ -1,7 +1,7 @@
 module SpreeAvataxOfficial
   class AddressPresenter
     def initialize(address:, address_type:)
-      @address = address
+      @address      = address
       @address_type = address_type
     end
 
@@ -9,11 +9,11 @@ module SpreeAvataxOfficial
     def to_json
       {
         address_type => {
-          line1: address.address1,
-          line2: address.address2,
-          city: address.city,
-          region: address.state&.abbr,
-          country: address.country&.iso,
+          line1:      address.address1,
+          line2:      address.address2,
+          city:       address.city,
+          region:     address.state&.abbr,
+          country:    address.country&.iso,
           postalCode: address.zipcode
         }
       }

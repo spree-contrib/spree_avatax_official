@@ -3,7 +3,7 @@ require 'spec_helper'
 describe SpreeAvataxOfficial::Transactions::AdjustPresenter do
   subject do
     described_class.new(
-      order: order,
+      order:             order,
       ship_from_address: ship_from_address,
       adjustment_reason: 'PriceAdjusted'
     )
@@ -17,18 +17,18 @@ describe SpreeAvataxOfficial::Transactions::AdjustPresenter do
       create(
         :spree_avatax_official_transaction,
         transaction_type: transaction_type,
-        order: order
+        order:            order
       )
     end
 
     let(:result) do
       {
         adjustmentReason: 'PriceAdjusted',
-        newTransaction: SpreeAvataxOfficial::Transactions::CreatePresenter.new(
-          order: order,
+        newTransaction:   SpreeAvataxOfficial::Transactions::CreatePresenter.new(
+          order:             order,
           ship_from_address: ship_from_address,
-          transaction_type: transaction_type,
-          transaction_code: invoice_transaction.code
+          transaction_type:  transaction_type,
+          transaction_code:  invoice_transaction.code
         ).to_json
       }
     end

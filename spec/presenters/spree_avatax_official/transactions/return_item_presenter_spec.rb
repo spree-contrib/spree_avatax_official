@@ -7,14 +7,14 @@ describe SpreeAvataxOfficial::Transactions::ReturnItemPresenter, if: defined?(Sp
     let(:order) do
       create(:shipped_order, line_items_count: 2).tap do |order|
         order.avatax_transactions.create(
-          code: 'testcode',
+          code:             'testcode',
           transaction_type: 'SalesInvoice'
         )
       end
     end
     let(:inventory_unit) { order.inventory_units.first }
     let(:return_auth)    { create(:return_authorization, order: order) }
-    let(:return_item)    { create(:return_item, return_authorization: return_auth, inventory_unit: inventory_unit)}
+    let(:return_item)    { create(:return_item, return_authorization: return_auth, inventory_unit: inventory_unit) }
 
     let(:result) do
       {

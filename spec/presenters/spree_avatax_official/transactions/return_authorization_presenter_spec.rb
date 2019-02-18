@@ -7,7 +7,7 @@ describe SpreeAvataxOfficial::Transactions::ReturnAuthorizationPresenter do
     let(:order) do
       create(:shipped_order, line_items_count: 2).tap do |order|
         order.avatax_transactions.create(
-          code: 'testcode',
+          code:             'testcode',
           transaction_type: 'SalesInvoice'
         )
       end
@@ -43,8 +43,8 @@ describe SpreeAvataxOfficial::Transactions::ReturnAuthorizationPresenter do
     context 'with full refund' do
       it 'serializes the object' do
         return_auth.inventory_units = order.inventory_units
-        result[:refundType]  = 'Full'
-        result[:refundLines] = nil
+        result[:refundType]         = 'Full'
+        result[:refundLines]        = nil
 
         expect(subject.to_json).to eq result
       end

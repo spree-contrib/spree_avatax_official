@@ -11,7 +11,7 @@ describe SpreeAvataxOfficial::Transactions::CreateService do
 
         it 'returns positive result' do
           VCR.use_cassette('spree_avatax_official/transactions/create/sales_order_success') do
-            result = subject
+            result   = subject
             response = result.value
 
             expect(result.success?).to eq true
@@ -28,7 +28,7 @@ describe SpreeAvataxOfficial::Transactions::CreateService do
 
         it 'returns positive result' do
           VCR.use_cassette('spree_avatax_official/transactions/create/invoice_order_success') do
-            result = subject
+            result   = subject
             response = result.value
 
             expect(result.success?).to eq true
@@ -44,7 +44,7 @@ describe SpreeAvataxOfficial::Transactions::CreateService do
             VCR.use_cassette('spree_avatax_official/transactions/create/complete_order_success') do
               order.update(state: :complete)
 
-              result = subject
+              result   = subject
               response = result.value
 
               expect(result.success?).to eq true
@@ -57,11 +57,18 @@ describe SpreeAvataxOfficial::Transactions::CreateService do
       # Unfortunetly path method in https://github.com/avadev/AvaTax-REST-V2-Ruby-SDK/blob/master/lib/avatax/request.rb#L29
       # removes all query params, what makes us unable to test timeout with '$include' => 'ForceTimeout' query param.
       xcontext 'and Avalara API timeout' do
-        subject { described_class.call(order: order, ship_from_address: ship_from_address, transaction_type: 'SalesOrder', options: { '$include' => 'ForceTimeout' }) }
+        subject do
+          described_class.call(
+            order:             order,
+            ship_from_address: ship_from_address,
+            transaction_type:  'SalesOrder',
+            options:           { '$include' => 'ForceTimeout' }
+          )
+        end
 
         it 'returns negative result' do
           VCR.use_cassette('spree_avatax_official/transactions/create/timeout') do
-            result = subject
+            result   = subject
             response = result.value
 
             expect(result.success?).to eq false
@@ -73,14 +80,14 @@ describe SpreeAvataxOfficial::Transactions::CreateService do
     end
 
     context 'with incorrect parameters' do
+      subject { described_class.call(order: order_without_line_items, ship_from_address: ship_from_address, transaction_type: 'SalesOrder') }
+
       let(:order_without_line_items) { create(:order, ship_address: create(:usa_address)) }
       let(:ship_from_address) { create(:usa_address) }
 
-      subject { described_class.call(order: order_without_line_items, ship_from_address: ship_from_address, transaction_type: 'SalesOrder') }
-
       it 'returns negative result' do
         VCR.use_cassette('spree_avatax_official/transactions/create/failure') do
-          result = subject
+          result   = subject
           response = result.value
 
           expect(result.success?).to eq false

@@ -12,7 +12,7 @@ describe SpreeAvataxOfficial::Transactions::RefundService do
 
       it 'creates refund transaction' do
         VCR.use_cassette('spree_avatax_official/transactions/refund/success') do
-          result = subject
+          result   = subject
           response = result.value
 
           expect(result.success?).to eq true
@@ -52,7 +52,7 @@ describe SpreeAvataxOfficial::Transactions::RefundService do
 
       it 'returns error' do
         VCR.use_cassette('spree_avatax_official/transactions/refund/error') do
-          result = subject
+          result   = subject
           response = result.value
 
           expect(result.failure?).to eq true
