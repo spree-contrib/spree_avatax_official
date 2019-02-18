@@ -20,13 +20,11 @@ module SpreeAvataxOfficial
       attr_reader :order, :ship_from_address, :adjustment_reason
 
       def transaction_payload
-        transaction = order.avatax_sales_invoice_transaction
-
         SpreeAvataxOfficial::Transactions::CreatePresenter.new(
           order:             order,
           ship_from_address: ship_from_address,
-          transaction_type:  transaction.transaction_type,
-          transaction_code:  transaction.code
+          transaction_type:  SpreeAvataxOfficial::Transaction::SALES_INVOICE,
+          transaction_code:  order.avatax_sales_invoice_code
         ).to_json
       end
     end
