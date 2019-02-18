@@ -8,6 +8,16 @@ module SpreeAvataxOfficial
                 class_name: 'SpreeAvataxOfficial::Transaction'
         base.has_one :avatax_sales_invoice_transaction, -> { where(transaction_type: 'SalesInvoice') },
                 class_name: 'SpreeAvataxOfficial::Transaction'
+
+        base.state_machine.after_transition to: :canceled, do: :void_in_avatax
+      end
+
+      private
+
+      def void_in_avatax
+        return unless SpreeAvataxOfficial::Config.enabled
+
+        SpreeAvataxOfficial::Transactions::VoidService.call(order: self)
       end
     end
   end
