@@ -2,6 +2,8 @@ module SpreeAvataxOfficial
   module Spree
     module OrderDecorator
       def self.prepended(base)
+        base.register_update_hook :recalculate_avatax_taxes
+
         base.has_many :avatax_transactions, class_name: 'SpreeAvataxOfficial::Transaction'
 
         base.has_one :avatax_sales_order_transaction, -> { where(transaction_type: 'SalesOrder') },
@@ -17,6 +19,23 @@ module SpreeAvataxOfficial
 
       def avatax_sales_invoice_code
         avatax_sales_invoice_transaction&.code
+      end
+
+      def avatax_tax_calculation_required?
+        tax_address.present? && line_items.any?
+      end
+
+      def create_tax_charge!
+        return super unless SpreeAvataxOfficial::Config.enabled
+
+        SpreeAvataxOfficial::CreateTaxAdjustments.call(order: self)
+      end
+
+      def recalculate_avatax_taxes
+        return unless SpreeAvataxOfficial::Config.enabled
+
+        SpreeAvataxOfficial::CreateTaxAdjustments.call(order: self)
+        update_totals
       end
 
       private

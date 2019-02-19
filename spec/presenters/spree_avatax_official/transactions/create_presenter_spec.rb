@@ -20,7 +20,8 @@ describe SpreeAvataxOfficial::Transactions::CreatePresenter do
           SpreeAvataxOfficial::AddressPresenter.new(address: order.ship_address, address_type: 'ShipTo').to_json
         ),
         lines:        order_items.map { |item| SpreeAvataxOfficial::ItemPresenter.new(item: item).to_json },
-        commit:       false
+        commit:       false,
+        discount:     0.0
       }
     end
 

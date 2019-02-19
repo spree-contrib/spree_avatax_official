@@ -9,7 +9,7 @@ module SpreeAvataxOfficial
       end
 
       # Based on: https://developer.avalara.com/api-reference/avatax/rest/v2/models/CreateTransactionModel/
-      def to_json
+      def to_json # rubocop:disable Metrics/MethodLength
         {
           type:         transaction_type,
           code:         transaction_code,
@@ -18,7 +18,8 @@ module SpreeAvataxOfficial
           customerCode: order.email,
           addresses:    addresses_payload,
           lines:        items_payload,
-          commit:       order.complete?
+          commit:       order.complete?,
+          discount:     discount_amount
         }
       end
 
@@ -43,9 +44,7 @@ module SpreeAvataxOfficial
       end
 
       def ship_to_payload
-        tax_address = ::Spree::Config[:tax_using_ship_address] ? order.ship_address : order.bill_address
-
-        SpreeAvataxOfficial::AddressPresenter.new(address: tax_address, address_type: 'ShipTo').to_json
+        SpreeAvataxOfficial::AddressPresenter.new(address: order.tax_address, address_type: 'ShipTo').to_json
       end
 
       def addresses_payload
@@ -58,6 +57,10 @@ module SpreeAvataxOfficial
 
       def items
         order.line_items + order.shipments
+      end
+
+      def discount_amount
+        order.adjustments.promotion.eligible.sum(:amount).abs
       end
     end
   end

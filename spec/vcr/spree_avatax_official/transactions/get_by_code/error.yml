@@ -23,7 +23,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Wed, 06 Feb 2019 11:48:10 GMT
+      - Mon, 18 Feb 2019 21:07:22 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -33,11 +33,11 @@ http_interactions:
       Server:
       - Kestrel
       Serverduration:
-      - '00:00:00.0037176'
+      - '00:00:00.0041586'
       Databasecalls:
       - '1'
       Databaseduration:
-      - '00:00:00.0000020'
+      - '00:00:00.0000040'
       Serviceduration:
       - '00:00:00'
       X-Powered-By:
@@ -47,6 +47,6 @@ http_interactions:
       string: '{"error":{"code":"EntityNotFoundError","message":"Transaction not found.","target":"HttpRequest","details":[{"code":"EntityNotFoundError","number":4,"message":"Transaction
         not found.","description":"The Transaction with code ''test1:testerror'' was
         not found.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/EntityNotFoundError","severity":"Error"}]}}'
-    http_version:
-  recorded_at: Wed, 06 Feb 2019 11:48:10 GMT
+    http_version: 
+  recorded_at: Mon, 18 Feb 2019 21:07:22 GMT
 recorded_with: VCR 4.0.0

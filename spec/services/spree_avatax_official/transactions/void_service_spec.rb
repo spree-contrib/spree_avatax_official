@@ -5,16 +5,12 @@ describe SpreeAvataxOfficial::Transactions::VoidService do
   let(:ship_from_address) { create(:usa_address) }
 
   describe '#call' do
-    subject { described_class.call(order: order) }
+    subject { described_class.call(order: order.reload) }
 
     context 'with correct parameters' do
       it 'returns positive result' do
         VCR.use_cassette('spree_avatax_official/transactions/void/success') do
-          SpreeAvataxOfficial::Transactions::CreateService.call(
-            order:             order,
-            ship_from_address: ship_from_address,
-            transaction_type:  'SalesInvoice'
-          )
+          SpreeAvataxOfficial::Transactions::CreateService.call(order: order)
 
           result   = subject
           response = result.value
