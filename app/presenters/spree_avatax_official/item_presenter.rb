@@ -1,7 +1,8 @@
 module SpreeAvataxOfficial
   class ItemPresenter
-    def initialize(item:)
-      @item = item
+    def initialize(item:, quantity: nil)
+      @item     = item
+      @quantity = quantity
     end
 
     # Based on: https://developer.avalara.com/api-reference/avatax/rest/v2/models/LineItemModel/
@@ -17,10 +18,10 @@ module SpreeAvataxOfficial
 
     private
 
-    attr_reader :item
+    attr_reader :item, :quantity
 
     def item_quantity
-      item.is_a?(::Spree::LineItem) ? item.quantity : 1
+      quantity || item.try(:quantity) || 1
     end
 
     def tax_code
