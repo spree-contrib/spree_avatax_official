@@ -1,9 +1,8 @@
 module SpreeAvataxOfficial
   module Transactions
     class CreatePresenter
-      def initialize(order:, ship_from_address:, transaction_type:, transaction_code: nil)
+      def initialize(order:, transaction_type:, transaction_code: nil)
         @order             = order
-        @ship_from_address = ship_from_address
         @transaction_type  = transaction_type
         @transaction_code  = transaction_code
       end
@@ -25,7 +24,7 @@ module SpreeAvataxOfficial
 
       private
 
-      attr_reader :order, :ship_from_address, :transaction_type, :transaction_code
+      attr_reader :order, :transaction_type, :transaction_code
 
       def company_code
         order.store&.avatax_company_code || SpreeAvataxOfficial::Config.company_code
@@ -40,7 +39,7 @@ module SpreeAvataxOfficial
       end
 
       def ship_from_payload
-        SpreeAvataxOfficial::AddressPresenter.new(address: ship_from_address, address_type: 'ShipFrom').to_json
+        SpreeAvataxOfficial::AddressPresenter.new(address: SpreeAvataxOfficial::Config.ship_from_address, address_type: 'ShipFrom').to_json
       end
 
       def ship_to_payload

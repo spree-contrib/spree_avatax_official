@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe SpreeAvataxOfficial::Transactions::VoidService do
   let(:order) { create(:completed_order_with_totals, ship_address: create(:usa_address)) }
-  let(:ship_from_address) { create(:usa_address) }
 
   describe '#call' do
     subject { described_class.call(order: order.reload) }

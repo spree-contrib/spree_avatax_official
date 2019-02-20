@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe SpreeAvataxOfficial::Transactions::CreatePresenter do
-  subject { described_class.new(order: order, ship_from_address: ship_from_address, transaction_type: transaction_type, transaction_code: '123') }
+  subject { described_class.new(order: order, transaction_type: transaction_type, transaction_code: '123') }
 
   describe '#to_json' do
     let(:order) { create(:order_with_line_items) }
     let(:order_items) { order.taxable_items }
-    let(:ship_from_address) { create(:address) }
+    let(:ship_from_address) { SpreeAvataxOfficial::Config.ship_from_address }
     let(:transaction_type) { 'SalesOrder' }
 
     let(:result) do

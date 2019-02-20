@@ -4,7 +4,6 @@ describe SpreeAvataxOfficial::Transactions::CreateService do
   describe '#call' do
     context 'with correct parameters' do
       let(:order) { create(:order_with_line_items, ship_address: create(:usa_address)) }
-      let(:ship_from_address) { create(:usa_address) }
 
       context 'for SalesOrder and Avalara API successfull response' do
         subject { described_class.call(order: order) }
@@ -84,7 +83,6 @@ describe SpreeAvataxOfficial::Transactions::CreateService do
       subject { described_class.call(order: order_without_line_items) }
 
       let(:order_without_line_items) { create(:order, ship_address: create(:usa_address)) }
-      let(:ship_from_address) { create(:usa_address) }
 
       it 'returns negative result' do
         VCR.use_cassette('spree_avatax_official/transactions/create/failure') do

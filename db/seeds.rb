@@ -1,0 +1,1 @@
+SpreeAvataxOfficial::Seeder.new.seed!
