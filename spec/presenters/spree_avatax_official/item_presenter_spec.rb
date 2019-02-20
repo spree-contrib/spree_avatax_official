@@ -32,6 +32,18 @@ describe SpreeAvataxOfficial::ItemPresenter do
           expect(subject.to_json).to eq result
         end
       end
+
+      context 'with line item quantity' do
+        subject { described_class.new(item: item, quantity: quantity) }
+
+        let(:quantity) { item.quantity - 1 }
+
+        it 'serializes the object' do
+          result[:quantity] = quantity
+
+          expect(subject.to_json).to eq result
+        end
+      end
     end
 
     context 'with shipment' do

@@ -56,6 +56,14 @@ describe Spree::Order do
     end
   end
 
+  describe '#all_items' do
+    let(:order) { create(:shipped_order, line_items_count: 2) }
+
+    it 'returns array of shipments and line items' do
+      expect(order.all_items).to eq [order.line_items.first, order.line_items.last, order.shipments.first]
+    end
+  end
+
   describe '#avatax_sales_invoice_code' do
     let(:transaction) { create(:spree_avatax_official_transaction, transaction_type: 'SalesInvoice') }
     let(:order)       { transaction.order }

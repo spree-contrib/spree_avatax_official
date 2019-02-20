@@ -17,6 +17,10 @@ module SpreeAvataxOfficial
         base.state_machine.after_transition to: :canceled, do: :void_in_avatax
       end
 
+      def all_items
+        line_items + shipments
+      end
+
       def avatax_sales_invoice_code
         avatax_sales_invoice_transaction&.code
       end

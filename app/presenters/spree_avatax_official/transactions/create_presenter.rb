@@ -52,11 +52,7 @@ module SpreeAvataxOfficial
       end
 
       def items_payload
-        items.map { |item| SpreeAvataxOfficial::ItemPresenter.new(item: item).to_json }
-      end
-
-      def items
-        order.line_items + order.shipments
+        order.all_items.map { |item| SpreeAvataxOfficial::ItemPresenter.new(item: item).to_json }
       end
 
       def discount_amount
