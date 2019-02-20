@@ -2,40 +2,54 @@ module SpreeAvataxOfficial
   module Transactions
     class RefundService < SpreeAvataxOfficial::Base
       def call(refundable:)
-        refund_transaction(refundable).tap do |response|
-          return request_result(response) do
-            create_transaction!(
-              code:             response['code'],
-              order:            order(refundable),
-              transaction_type: SpreeAvataxOfficial::Transaction::RETURN_INVOICE
-            )
-          end
+        if full_refund?(refundable)
+          create_full_refund(refundable)
+        else
+          create_partial_refund(refundable)
         end
       end
 
       private
 
-      def refund_transaction(refundable)
-        order = order(refundable)
-
-        client.refund_transaction(
-          company_code,
-          order.number,
-          refund_model(order)
-        )
+      def full_refund?(refundable)
+        order(refundable).inventory_units == inventory_units(refundable)
       end
 
       def order(refundable)
-        case refundable
-        when ::Spree::ReturnAuthorization
-          refundable.order
-        when ::Spree::ReturnItem
-          refundable.return_authorization.order
+        @order ||= case refundable
+                   when ::Spree::ReturnAuthorization
+                     refundable.order
+                   when ::Spree::ReturnItem
+                     refundable.return_authorization.order
+                   end
+      end
+
+      def inventory_units(refundable)
+        @inventory_units ||= case refundable
+                             when ::Spree::ReturnAuthorization
+                               refundable.inventory_units
+                             when ::Spree::ReturnItem
+                               [refundable.inventory_unit]
+                             end
+      end
+
+      def create_partial_refund(refundable)
+        SpreeAvataxOfficial::Transactions::PartialRefundService.call(
+          order:        order(refundable),
+          refund_items: refund_items(refundable)
+        )
+      end
+
+      def refund_items(refundable)
+        inventory_units(refundable).group_by(&:line_item).reduce({}) do |ids, (line_item, units)|
+          ids.merge!(line_item => units.count)
         end
       end
 
-      def refund_model(order)
-        FullRefundPresenter.new(order: order).to_json
+      def create_full_refund(refundable)
+        SpreeAvataxOfficial::Transactions::FullRefundService.call(
+          order: order(refundable)
+        )
       end
     end
   end
