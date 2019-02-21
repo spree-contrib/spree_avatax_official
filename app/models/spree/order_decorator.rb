@@ -17,7 +17,7 @@ module SpreeAvataxOfficial
         base.state_machine.after_transition to: :canceled, do: :void_in_avatax
       end
 
-      def all_items
+      def taxable_items
         line_items + shipments
       end
 

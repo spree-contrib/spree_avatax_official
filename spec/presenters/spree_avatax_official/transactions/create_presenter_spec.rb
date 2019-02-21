@@ -5,7 +5,7 @@ describe SpreeAvataxOfficial::Transactions::CreatePresenter do
 
   describe '#to_json' do
     let(:order) { create(:order_with_line_items) }
-    let(:order_items) { order.all_items }
+    let(:order_items) { order.taxable_items }
     let(:ship_from_address) { create(:address) }
     let(:transaction_type) { 'SalesOrder' }
 
