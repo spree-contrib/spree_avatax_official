@@ -64,6 +64,37 @@ describe Spree::Order do
     end
   end
 
+  describe '#complete' do
+    let!(:order) do
+      create(:order_with_line_items, line_items_count: 1, ship_address: create(:usa_address)).tap do |order|
+        order.line_items.first.update(id: 1)
+
+        order.payments << create(:payment)
+
+        4.times { order.next! }
+      end
+    end
+
+    before do
+      # spree-fullscript
+      allow(Spree::OrderMailer).to receive_message_chain(:confirm_email, :deliver_now)
+      # spree-3-1
+      allow(Spree::OrderMailer).to receive_message_chain(:confirm_email, :deliver_later)
+    end
+
+    it 'creates a commited SalesInvoice transaction' do
+      SpreeAvataxOfficial::Config.enabled = true
+
+      expect(order.state).to eq 'confirm'
+
+      VCR.use_cassette('spree_order/complete_order') do
+        expect { order.next! }.to change { order.avatax_transactions.count }.by(1)
+      end
+
+      SpreeAvataxOfficial::Config.enabled = false
+    end
+  end
+
   describe '#avatax_sales_invoice_code' do
     let(:transaction) { create(:spree_avatax_official_transaction, transaction_type: 'SalesInvoice') }
     let(:order)       { transaction.order }

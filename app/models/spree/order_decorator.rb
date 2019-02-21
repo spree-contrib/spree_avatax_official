@@ -15,6 +15,7 @@ module SpreeAvataxOfficial
                      inverse_of: :order
 
         base.state_machine.after_transition to: :canceled, do: :void_in_avatax
+        base.state_machine.after_transition to: :complete, do: :commit_in_avatax
       end
 
       def taxable_items
@@ -43,6 +44,12 @@ module SpreeAvataxOfficial
       end
 
       private
+
+      def commit_in_avatax
+        return unless SpreeAvataxOfficial::Config.enabled
+
+        SpreeAvataxOfficial::Transactions::CreateService.call(order: self)
+      end
 
       def void_in_avatax
         return unless SpreeAvataxOfficial::Config.enabled
