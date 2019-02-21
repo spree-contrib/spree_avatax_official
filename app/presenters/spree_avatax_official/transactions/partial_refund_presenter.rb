@@ -4,7 +4,6 @@ module SpreeAvataxOfficial
       def initialize(order:, refund_items:)
         @order             = order
         @refund_items      = refund_items
-        @ship_from_address = order.ship_address
         @transaction_type  = SpreeAvataxOfficial::Transaction::RETURN_INVOICE
       end
 

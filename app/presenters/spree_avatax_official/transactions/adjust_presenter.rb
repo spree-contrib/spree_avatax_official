@@ -1,9 +1,8 @@
 module SpreeAvataxOfficial
   module Transactions
     class AdjustPresenter
-      def initialize(order:, ship_from_address:, adjustment_reason:)
+      def initialize(order:, adjustment_reason:)
         @order             = order
-        @ship_from_address = ship_from_address
         @adjustment_reason = adjustment_reason
       end
 
@@ -17,14 +16,13 @@ module SpreeAvataxOfficial
 
       private
 
-      attr_reader :order, :ship_from_address, :adjustment_reason
+      attr_reader :order, :adjustment_reason
 
       def transaction_payload
         SpreeAvataxOfficial::Transactions::CreatePresenter.new(
-          order:             order,
-          ship_from_address: ship_from_address,
-          transaction_type:  SpreeAvataxOfficial::Transaction::SALES_INVOICE,
-          transaction_code:  order.avatax_sales_invoice_code
+          order:            order,
+          transaction_type: SpreeAvataxOfficial::Transaction::SALES_INVOICE,
+          transaction_code: order.avatax_sales_invoice_code
         ).to_json
       end
     end

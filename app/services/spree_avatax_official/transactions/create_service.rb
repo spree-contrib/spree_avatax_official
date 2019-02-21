@@ -4,9 +4,8 @@ module SpreeAvataxOfficial
       def call(order:, options: {}) # rubocop:disable Metrics/MethodLength
         return failure(false) unless can_send_order_to_avatax?(order)
 
-        ship_from_address = order.ship_address # TODO: Setup ship_from_address from Spree::Store
-        transaction_type  = choose_transaction_type(order)
-        response          = send_request(order, ship_from_address, transaction_type, options)
+        transaction_type = choose_transaction_type(order)
+        response         = send_request(order, transaction_type, options)
 
         request_result(response) do
           unless response['id'].to_i.zero?
@@ -34,11 +33,10 @@ module SpreeAvataxOfficial
         end
       end
 
-      def send_request(order, ship_from_address, transaction_type, options)
+      def send_request(order, transaction_type, options)
         create_transaction_model = SpreeAvataxOfficial::Transactions::CreatePresenter.new(
-          order:             order,
-          ship_from_address: ship_from_address,
-          transaction_type:  transaction_type
+          order:            order,
+          transaction_type: transaction_type
         ).to_json
 
         client.create_transaction(create_transaction_model, options)

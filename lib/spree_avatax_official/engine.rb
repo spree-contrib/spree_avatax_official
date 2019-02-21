@@ -6,6 +6,8 @@ module SpreeAvataxOfficial
     isolate_namespace SpreeAvataxOfficial
     engine_name 'spree_avatax_official'
 
+    config.autoload_paths += %W[#{config.root}/lib]
+
     initializer 'spree_avatax_official.environment', before: :load_config_initializers do |_app|
       SpreeAvataxOfficial::Config = SpreeAvataxOfficial::Configuration.new
     end

@@ -1,27 +1,53 @@
 require 'spec_helper'
 
 describe SpreeAvataxOfficial::AddressPresenter do
-  subject { described_class.new(address: address, address_type: address_type) }
-
   describe '#to_json' do
-    let(:address) { create(:address) }
-    let(:address_type) { 'ShipFrom' }
+    context 'when serializing ShipTo address' do
+      subject { described_class.new(address: address, address_type: address_type) }
 
-    let(:result) do
-      {
-        address_type => {
-          line1:      address.address1,
-          line2:      address.address2,
-          city:       address.city,
-          region:     address.state&.abbr,
-          country:    address.country&.iso,
-          postalCode: address.zipcode
+      let(:address) { create(:address) }
+      let(:address_type) { 'ShipTo' }
+
+      let(:result) do
+        {
+          address_type => {
+            line1:      address.address1,
+            line2:      address.address2,
+            city:       address.city,
+            region:     address.state&.abbr,
+            country:    address.country&.iso,
+            postalCode: address.zipcode
+          }
         }
-      }
+      end
+
+      it 'serializes the object' do
+        expect(subject.to_json).to eq result
+      end
     end
 
-    it 'serializes the object' do
-      expect(subject.to_json).to eq result
+    context 'when serializing ShipFrom address' do
+      subject { described_class.new(address: address, address_type: address_type) }
+
+      let(:address) { SpreeAvataxOfficial::Config.ship_from_address }
+      let(:address_type) { 'ShipFrom' }
+
+      let(:result) do
+        {
+          address_type => {
+            line1:      address[:line1],
+            line2:      address[:line2],
+            city:       address[:city],
+            region:     address[:region],
+            country:    address[:country],
+            postalCode: address[:postalCode]
+          }
+        }
+      end
+
+      it 'serializes the object' do
+        expect(subject.to_json).to eq result
+      end
     end
   end
 end
