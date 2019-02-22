@@ -57,9 +57,11 @@ RSpec.configure do |config|
   # config.mock_with :mocha
   # config.mock_with :flexmock
   # config.mock_with :rr
-  config.mock_with :rspec
-  config.color             = true
-  config.default_formatter = 'doc'
+  config.mock_with :rspec do |mocks|
+    mocks.allow_message_expectations_on_nil = false
+    mocks.verify_doubled_constant_names     = true
+    mocks.verify_partial_doubles            = true
+  end
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -68,7 +70,9 @@ RSpec.configure do |config|
   # to cleanup after each test instead.  Without transactional fixtures set to false the records created
   # to setup a test will be unavailable to the browser, which runs under a separate server instance.
   config.use_transactional_fixtures = false
-
-  config.fail_fast = ENV['FAIL_FAST'] || false
-  config.order     = 'random'
+  config.color                      = true
+  config.raise_on_warning           = true
+  config.order                      = 'random'
+  config.default_formatter          = 'doc'
+  config.fail_fast                  = ENV['FAIL_FAST'] || false
 end
