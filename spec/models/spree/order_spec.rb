@@ -105,8 +105,7 @@ describe Spree::Order do
   end
 
   describe 'tax estimation triggering' do
-    let!(:avatax_tax_rate) { create(:avatax_tax_rate) }
-    let(:order) { create(:order, ship_address: create(:usa_address)) }
+    let(:order) { create(:avatax_order, ship_address: create(:usa_address)) }
     let(:line_item) { order.line_items.first }
     let(:tax_adjustment) { line_item.adjustments.tax.first }
 
