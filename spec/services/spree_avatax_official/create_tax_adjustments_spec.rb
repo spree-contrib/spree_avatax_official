@@ -30,6 +30,29 @@ describe SpreeAvataxOfficial::CreateTaxAdjustments do
         end
       end
 
+      context 'with single line item and and shipment' do
+        let(:order) { create(:avatax_order, with_shipment: true, line_items_count: 1, ship_address: usa_address) }
+        let(:shipment) { order.shipments.first }
+        let(:tax_adjustment) { shipment.adjustments.tax.first }
+
+        it 'creates tax rates and tax adjustments' do
+          result = nil
+
+          VCR.use_cassette('spree_avatax_official/create_tax_adjustments/line_item_and_shipment') do
+            result = subject
+
+            order.updater.update
+          end
+
+          expect(result.success?).to eq true
+          expect(order.total).to eq 16.2
+          expect(order.additional_tax_total).to eq 1.2
+          expect(shipment.reload.additional_tax_total).to eq 0.4
+          expect(tax_adjustment.amount).to eq 0.4
+          expect(tax_adjustment.source_type).to eq 'Spree::TaxRate'
+        end
+      end
+
       context 'with multiple line items with multiple quantity' do
         let(:order) { create(:avatax_order, ship_address: usa_address) }
         let(:first_line_item) { order.line_items.first }
@@ -85,10 +108,38 @@ describe SpreeAvataxOfficial::CreateTaxAdjustments do
         end
       end
 
+      context 'with promotion that adjusts shipment' do
+        let(:order) { create(:avatax_order, with_shipment: true, line_items_count: 1, ship_address: usa_address) }
+        let(:first_line_item) { order.line_items.first }
+        let(:shipment) { order.shipments.first }
+        let(:promotion) { create(:free_shipping_promotion, code: 'promotion_code') }
+
+        it 'creates tax rates and tax adjustments' do
+          result = nil
+
+          VCR.use_cassette('spree_avatax_official/create_tax_adjustments/shipment_adjustment_promotion') do
+            order.coupon_code = promotion.code
+            Spree::PromotionHandler::Coupon.new(order).apply
+
+            result = subject
+
+            order.updater.update
+          end
+
+          expect(result.success?).to eq true
+
+          expect(order.total).to eq 10.8
+          expect(order.additional_tax_total).to eq 0.8
+          expect(shipment.additional_tax_total).to eq 0.0
+          expect(shipment.discounted_cost).to eq 0.0
+        end
+      end
+
       context 'with promotion that adjusts whole order' do
-        let(:order) { create(:avatax_order, ship_address: usa_address) }
+        let(:order) { create(:avatax_order, with_shipment: true, ship_address: usa_address) }
         let(:first_line_item) { order.line_items.first }
         let(:second_line_item) { order.line_items.second }
+        let(:shipment) { order.shipments.first }
         let(:promotion) { create(:promotion, :avatax_with_order_adjustment, weighted_order_adjustment_amount: 20.0, code: 'promotion_code') }
 
         it 'creates tax rates and tax adjustments' do
@@ -108,10 +159,11 @@ describe SpreeAvataxOfficial::CreateTaxAdjustments do
           end
 
           expect(result.success?).to eq true
-          expect(order.total).to eq 54.0
-          expect(order.additional_tax_total).to eq 4.0
+          expect(order.total).to eq 59.4
+          expect(order.additional_tax_total).to eq 4.4
           expect(first_line_item.reload.additional_tax_total).to eq 2.28 # I would expect 2.4 but AvaTax applies discount proportionaly to price
           expect(second_line_item.reload.additional_tax_total).to eq 1.72 # I would expect 1.6 but AvaTax applies discount proportionaly to price
+          expect(shipment.additional_tax_total).to eq 0.4 # Shipment tax is not affected by order level promotions
         end
       end
     end
