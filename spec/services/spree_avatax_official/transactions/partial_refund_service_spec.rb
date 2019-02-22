@@ -9,7 +9,7 @@ describe SpreeAvataxOfficial::Transactions::PartialRefundService do
       )
     end
 
-    let(:order)       { create(:order_with_line_items) }
+    let(:order)       { create(:order_with_line_items, ship_address: create(:usa_address)) }
     let(:refund_item) { { line_item => line_item.quantity - 1 } }
     let(:line_item)   { order.line_items.first }
 

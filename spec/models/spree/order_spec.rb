@@ -65,14 +65,26 @@ describe Spree::Order do
   end
 
   describe '#complete' do
-    let!(:order) do
-      create(:order_with_line_items, line_items_count: 1, ship_address: create(:usa_address)).tap do |order|
-        order.line_items.first.update(id: 1)
+    let(:order) do
+      VCR.use_cassette('spree_order/order_transition_to_completed') do
+        create(:avatax_order, line_items_count: 1, ship_address: create(:usa_address)).tap do |order|
+          order.payments << create(:payment)
 
-        order.payments << create(:payment)
-
-        4.times { order.next! }
+          order.next!
+          # Unfortunetly state machine does not allow me to stub create_proposed_shipments method
+          # Stubbing results with `Wrong number of arguments. Expected 0, got 1.` without stacktrace
+          create(:avatax_shipment, id: 1, order: order)
+          order.update(state: 'delivery')
+          order.reload
+          2.times { order.next! }
+        end
       end
+    end
+
+    around do |example|
+      SpreeAvataxOfficial::Config.enabled = true
+      example.run
+      SpreeAvataxOfficial::Config.enabled = false
     end
 
     before do
@@ -83,15 +95,11 @@ describe Spree::Order do
     end
 
     it 'creates a commited SalesInvoice transaction' do
-      SpreeAvataxOfficial::Config.enabled = true
-
       expect(order.state).to eq 'confirm'
 
       VCR.use_cassette('spree_order/complete_order') do
         expect { order.next! }.to change { order.avatax_transactions.count }.by(1)
       end
-
-      SpreeAvataxOfficial::Config.enabled = false
     end
   end
 

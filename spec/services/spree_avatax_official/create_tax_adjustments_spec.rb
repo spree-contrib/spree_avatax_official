@@ -3,13 +3,12 @@ require 'spec_helper'
 describe SpreeAvataxOfficial::CreateTaxAdjustments do
   subject { described_class.call(order: order) }
 
-  let!(:default_tax_category) { create(:tax_category, tax_code: ::Spree::TaxCategory::DEFAULT_TAX_CODES['Spree::LineItem']) }
   let(:usa_address) { create(:usa_address) }
 
   describe '#call' do
     context 'with external tax' do
       context 'with single line item order' do
-        let(:order) { create(:order, ship_address: usa_address) }
+        let(:order) { create(:avatax_order, line_items_count: 1, ship_address: usa_address) }
         let(:line_item) { order.line_items.first }
         let(:tax_adjustment) { line_item.adjustments.tax.first }
 
@@ -17,7 +16,6 @@ describe SpreeAvataxOfficial::CreateTaxAdjustments do
           result = nil
 
           VCR.use_cassette('spree_avatax_official/create_tax_adjustments/single_line_item') do
-            create(:line_item, id: 1, price: 10.0, quantity: 1, order: order)
             result = subject
 
             order.updater.update
@@ -33,7 +31,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustments do
       end
 
       context 'with multiple line items with multiple quantity' do
-        let(:order) { create(:order, ship_address: usa_address) }
+        let(:order) { create(:avatax_order, ship_address: usa_address) }
         let(:first_line_item) { order.line_items.first }
         let(:second_line_item) { order.line_items.second }
 
@@ -58,7 +56,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustments do
       end
 
       context 'with promotion that adjusts line items' do
-        let(:order) { create(:order, ship_address: usa_address) }
+        let(:order) { create(:avatax_order, ship_address: usa_address) }
         let(:first_line_item) { order.line_items.first }
         let(:second_line_item) { order.line_items.second }
         let(:promotion) { create(:promotion, :with_line_item_adjustment, adjustment_rate: 10, code: 'promotion_code') }
@@ -88,7 +86,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustments do
       end
 
       context 'with promotion that adjusts whole order' do
-        let(:order) { create(:order, ship_address: usa_address) }
+        let(:order) { create(:avatax_order, ship_address: usa_address) }
         let(:first_line_item) { order.line_items.first }
         let(:second_line_item) { order.line_items.second }
         let(:promotion) { create(:promotion, :avatax_with_order_adjustment, weighted_order_adjustment_amount: 20.0, code: 'promotion_code') }
@@ -100,7 +98,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustments do
             create(:line_item, id: 1, price: 10.0, quantity: 4, order: order)
             create(:line_item, id: 2, price: 10.0, quantity: 3, order: order)
 
-            order.updater.update
+            order.reload.updater.update
             order.coupon_code = promotion.code
             Spree::PromotionHandler::Coupon.new(order).apply
 

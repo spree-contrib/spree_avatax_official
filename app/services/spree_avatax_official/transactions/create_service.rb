@@ -8,7 +8,7 @@ module SpreeAvataxOfficial
         response         = send_request(order, transaction_type, options)
 
         request_result(response) do
-          unless response['id'].to_i.zero?
+          if order.completed? && response['id'].to_i.positive?
             create_transaction!(
               code:             response['code'],
               order:            order,

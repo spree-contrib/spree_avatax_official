@@ -24,15 +24,16 @@ FACTORY_BOT_CLASS.define do
     end
 
     after(:create) do |order, evaluator|
-      create_list(
-        :line_item,
-        evaluator.line_items_count,
-        order:        order,
-        price:        evaluator.line_items_price,
-        tax_category: evaluator.tax_category || Spree::TaxCategory.find_by(name: 'Clothing'),
-        quantity:     evaluator.line_items_quantity
-      )
-
+      evaluator.line_items_count.times do |index|
+        create(
+          :line_item,
+          id:           index + 1,
+          price:        evaluator.line_items_price,
+          tax_category: evaluator.tax_category || Spree::TaxCategory.find_by(name: 'Clothing'),
+          quantity:     evaluator.line_items_quantity,
+          order:        order
+        )
+      end
       order.line_items.reload
 
       if evaluator.with_shipment
