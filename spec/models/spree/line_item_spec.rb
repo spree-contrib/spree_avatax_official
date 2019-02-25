@@ -11,8 +11,7 @@ describe Spree::LineItem do
 
   describe '#update_tax_charge' do
     context 'with AvaTax tax calculcation' do
-      let!(:avatax_tax_rate) { create(:avatax_tax_rate) }
-      let(:order) { create(:order, ship_address: create(:usa_address)) }
+      let(:order) { create(:avatax_order, ship_address: create(:usa_address)) }
       let(:line_item) { order.line_items.first }
 
       around do |example|
