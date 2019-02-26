@@ -35,9 +35,9 @@ describe SpreeAvataxOfficial::Seeder do
       end
 
       around do |example|
+        SpreeAvataxOfficial::Config.ship_from_address = {}
         create_avatax_origin_preference
         example.run
-        SpreeAvataxOfficial::Config.ship_from_address = {}
       end
 
       it 'copies the value to SpreeAvataxOfficial::Config.ship_from_address' do
