@@ -3,7 +3,7 @@ module SpreeAvataxOfficial
     def call(order:)
       order.reload.all_adjustments.tax.destroy_all
 
-      avatax_response = SpreeAvataxOfficial::Transactions::CreateService.call(order: order)
+      avatax_response = send_transaction_to_avatax(order)
 
       return failure(false) if avatax_failed_response?(avatax_response)
 
@@ -15,6 +15,18 @@ module SpreeAvataxOfficial
     end
 
     private
+
+    def send_transaction_to_avatax(order)
+      if order.avatax_sales_invoice_transaction.present?
+        SpreeAvataxOfficial::Transactions::AdjustService.call(
+          order:                  order,
+          adjustment_reason:      SpreeAvataxOfficial::Transaction::DEFAULT_ADJUSTMENT_REASON,
+          adjustment_description: I18n.t('spree_avatax_official.create_tax_adjustments.adjustment_description')
+        )
+      else
+        SpreeAvataxOfficial::Transactions::CreateService.call(order: order)
+      end
+    end
 
     def avatax_failed_response?(avatax_response)
       avatax_response.failure? || avatax_response.value['totalTax'].zero?
@@ -45,6 +57,7 @@ module SpreeAvataxOfficial
       ::Spree::TaxRate.find_or_create_by!(
         name:               'AvaTax dummy tax rate',
         amount:             0.0,
+        zone:               ::Spree::Zone.default_tax,
         tax_category:       item.tax_category,
         show_rate_in_label: false
       ) do |tax_rate|

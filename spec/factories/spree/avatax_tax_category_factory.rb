@@ -4,8 +4,9 @@ FACTORY_BOT_CLASS.define do
     description { 'Tax category description' }
 
     trait :clothing do
-      name     { 'Clothing' }
-      tax_code { ::Spree::TaxCategory::DEFAULT_TAX_CODES['Spree::LineItem'] }
+      name       { 'Clothing' }
+      tax_code   { ::Spree::TaxCategory::DEFAULT_TAX_CODES['Spree::LineItem'] }
+      is_default { true }
     end
 
     trait :shipping do
