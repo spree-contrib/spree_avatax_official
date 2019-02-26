@@ -5,7 +5,7 @@ describe Spree::Shipment do
 
   describe '#avatax_number' do
     it 'returns shipment id with avatax code' do
-      expect(shipment.avatax_number).to eq "#{shipment.id}-FR"
+      expect(shipment.avatax_number).to eq "FR-#{shipment.avatax_uuid}"
     end
   end
 end

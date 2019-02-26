@@ -9,7 +9,7 @@ describe SpreeAvataxOfficial::ItemPresenter do
 
       let(:result) do
         {
-          number:     "#{item.id}-LI",
+          number:     "LI-#{item.avatax_uuid}",
           quantity:   item.quantity,
           amount:     item.discounted_amount,
           taxCode:    'P0000000',
@@ -47,11 +47,11 @@ describe SpreeAvataxOfficial::ItemPresenter do
     end
 
     context 'with shipment' do
-      let(:item) { create(:shipment) }
+      let(:item) { create(:avatax_shipment) }
 
       let(:result) do
         {
-          number:     "#{item.id}-FR",
+          number:     "FR-#{item.avatax_uuid}",
           quantity:   1,
           amount:     item.discounted_amount,
           taxCode:    'FR',

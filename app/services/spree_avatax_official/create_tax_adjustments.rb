@@ -46,10 +46,10 @@ module SpreeAvataxOfficial
 
     def find_item(order, id, suffix)
       case suffix
-      when 'LI'
-        order.line_items.find(id)
-      when 'FR'
-        order.shipments.find(id)
+      when 'LI-'
+        order.line_items.find_by(avatax_uuid: uuid)
+      when 'FR-'
+        order.shipments.find_by(avatax_uuid: uuid)
       end
     end
 
