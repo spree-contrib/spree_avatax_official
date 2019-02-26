@@ -37,7 +37,7 @@ FACTORY_BOT_CLASS.define do
       order.line_items.reload
 
       if evaluator.with_shipment
-        create(:avatax_shipment, order: order, cost: evaluator.shipment_cost)
+        create(:avatax_shipment, id: 1, order: order, cost: evaluator.shipment_cost)
         order.shipments.reload
       end
 

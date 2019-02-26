@@ -17,3 +17,17 @@ FACTORY_BOT_CLASS.modify do
     end
   end
 end
+
+unless FACTORY_BOT_CLASS.factories.registered?(:free_shipping_promotion)
+  FACTORY_BOT_CLASS.define do
+    factory :free_shipping_promotion, class: Spree::Promotion do
+      name { 'Free Shipping Promotion' }
+
+      after(:create) do |promotion|
+        action           = Spree::Promotion::Actions::FreeShipping.new
+        action.promotion = promotion
+        action.save
+      end
+    end
+  end
+end

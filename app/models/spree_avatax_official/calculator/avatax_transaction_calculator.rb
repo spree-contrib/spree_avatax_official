@@ -16,9 +16,8 @@ module SpreeAvataxOfficial
         line_item.adjustments.tax.sum(:amount)
       end
 
-      def compute_shipment(_shipment)
-        # TODO: It will be implemented in separate PR that handles shipments taxes
-        0
+      def compute_shipment(shipment)
+        shipment.adjustments.tax.sum(:amount)
       end
 
       def compute_shipping_rate(_shipping_rate)

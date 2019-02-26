@@ -113,8 +113,9 @@ describe Spree::Order do
   end
 
   describe 'tax estimation triggering' do
-    let(:order) { create(:avatax_order, ship_address: create(:usa_address)) }
+    let(:order) { create(:avatax_order, with_shipment: true, ship_address: create(:usa_address)) }
     let(:line_item) { order.line_items.first }
+    let(:shipment) { order.shipments.first }
     let(:tax_adjustment) { line_item.adjustments.tax.first }
 
     around do |example|
@@ -124,7 +125,7 @@ describe Spree::Order do
     end
 
     before do
-      VCR.use_cassette('spree_order/simple_order_with_single_line_item') do
+      VCR.use_cassette('spree_order/simple_order_with_single_line_item_and_shipment') do
         create(:line_item, id: 1, price: 10.0, quantity: 1, order: order)
 
         order.updater.update
@@ -135,7 +136,7 @@ describe Spree::Order do
       let(:promotion) { create(:promotion, :with_line_item_adjustment, adjustment_rate: 5, code: 'promotion_code') }
 
       it 'triggers tax estimation' do
-        expect(order.total).to eq 10.8
+        expect(order.total).to eq 16.2
 
         VCR.use_cassette('spree_order/order_with_line_item_adjustment') do
           order.coupon_code = promotion.code
@@ -144,8 +145,9 @@ describe Spree::Order do
           order.updater.update
         end
 
-        expect(order.total).to eq 5.4
-        expect(line_item.reload.total).to eq 5.4
+        expect(order.total).to eq 10.8
+        expect(line_item.reload.additional_tax_total).to eq 0.4
+        expect(shipment.reload.additional_tax_total).to eq 0.4
         expect(tax_adjustment.amount).to eq 0.4
       end
     end
@@ -154,7 +156,7 @@ describe Spree::Order do
       let(:promotion) { create(:promotion, :avatax_with_order_adjustment, weighted_order_adjustment_amount: 5.0, code: 'promotion_code') }
 
       it 'triggers tax estimation' do
-        expect(order.total).to eq 10.8
+        expect(order.total).to eq 16.2
 
         VCR.use_cassette('spree_order/order_with_order_adjustment') do
           order.coupon_code = promotion.code
@@ -163,8 +165,9 @@ describe Spree::Order do
           order.updater.update
         end
 
-        expect(order.total).to eq 5.4
-        expect(line_item.reload.total).to eq 10.4
+        expect(order.total).to eq 10.8
+        expect(line_item.reload.additional_tax_total).to eq 0.4
+        expect(shipment.reload.additional_tax_total).to eq 0.4
         expect(tax_adjustment.amount).to eq 0.4
       end
     end
