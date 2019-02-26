@@ -35,7 +35,7 @@ describe Spree::Order do
 
     before do
       VCR.use_cassette('spree_order/simple_order_with_single_line_item') do
-        create(:line_item, id: 1, price: 10.0, quantity: 1, order: order)
+        create(:line_item, price: 10.0, quantity: 1, order: order)
         order.update(state: :complete, completed_at: Time.current)
       end
 
@@ -46,13 +46,9 @@ describe Spree::Order do
     end
 
     it 'calls void service' do
-      order.create_avatax_sales_invoice_transaction
-
       expect(SpreeAvataxOfficial::Transactions::VoidService).to receive(:call)
 
-      VCR.use_cassette('spree_order/avatax_cancel_order') do
-        order.cancel
-      end
+      order.cancel
     end
   end
 
@@ -73,7 +69,7 @@ describe Spree::Order do
           order.next!
           # Unfortunetly state machine does not allow me to stub create_proposed_shipments method
           # Stubbing results with `Wrong number of arguments. Expected 0, got 1.` without stacktrace
-          create(:avatax_shipment, id: 1, order: order)
+          create(:avatax_shipment, order: order)
           order.update(state: 'delivery')
           order.reload
           2.times { order.next! }
@@ -126,7 +122,7 @@ describe Spree::Order do
 
     before do
       VCR.use_cassette('spree_order/simple_order_with_single_line_item_and_shipment') do
-        create(:line_item, id: 1, price: 10.0, quantity: 1, order: order)
+        create(:line_item, price: 10.0, quantity: 1, order: order)
 
         order.updater.update
       end

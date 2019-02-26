@@ -63,7 +63,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustments do
 
           VCR.use_cassette('spree_avatax_official/create_tax_adjustments/multiple_line_items_multiple_quantity') do
             create(:line_item, id: 1, price: 10.0, quantity: 2, order: order)
-            create(:line_item, id: 2, price: 10.0, quantity: 3, order: order)
+            create(:line_item, id: 2, price: 10.0, quantity: 3, order: order, avatax_uuid: '50f0c7ba-0c5f-4479-a24a-3de192354004')
 
             result = subject
 
@@ -89,7 +89,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustments do
 
           VCR.use_cassette('spree_avatax_official/create_tax_adjustments/line_item_adjustment_promotion') do
             create(:line_item, id: 1, price: 10.0, quantity: 4, order: order)
-            create(:line_item, id: 2, price: 10.0, quantity: 3, order: order)
+            create(:line_item, id: 2, price: 10.0, quantity: 3, order: order, avatax_uuid: 'bf57f52a-2ab3-44bc-8be3-8f99ecccd196')
 
             order.updater.update
             order.coupon_code = promotion.code
@@ -147,7 +147,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustments do
 
           VCR.use_cassette('spree_avatax_official/create_tax_adjustments/order_adjustment_promotion') do
             create(:line_item, id: 1, price: 10.0, quantity: 4, order: order)
-            create(:line_item, id: 2, price: 10.0, quantity: 3, order: order)
+            create(:line_item, id: 2, price: 10.0, quantity: 3, order: order, avatax_uuid: 'be393e03-c530-4d31-bea7-f01b39496568')
 
             order.reload.updater.update
             order.coupon_code = promotion.code
@@ -163,7 +163,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustments do
           expect(order.additional_tax_total).to eq 4.4
           expect(first_line_item.reload.additional_tax_total).to eq 2.28 # I would expect 2.4 but AvaTax applies discount proportionaly to price
           expect(second_line_item.reload.additional_tax_total).to eq 1.72 # I would expect 1.6 but AvaTax applies discount proportionaly to price
-          expect(shipment.additional_tax_total).to eq 0.4 # Shipment tax is not affected by order level promotions
+          expect(shipment.reload.additional_tax_total).to eq 0.4 # Shipment tax is not affected by order level promotions
         end
       end
     end
@@ -196,6 +196,17 @@ describe SpreeAvataxOfficial::CreateTaxAdjustments do
         expect(result.success?).to eq true
         expect(order.total).to eq 32.4
         expect(order.additional_tax_total).to eq 2.4
+      end
+    end
+
+    context 'with canceled order' do
+      let(:order) { create(:order, state: :canceled) }
+
+      it 'return failure' do
+        result = subject
+
+        expect(result.failure?).to eq true
+        expect(result.value).to eq I18n.t('spree_avatax_official.create_tax_adjustments.order_canceled')
       end
     end
   end
