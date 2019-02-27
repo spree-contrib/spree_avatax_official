@@ -153,25 +153,34 @@ describe Spree::Order do
         end
 
         expect(order.total).to eq 10.8
-        expect(line_item.reload.additional_tax_total).to eq 0.4
         expect(shipment.reload.additional_tax_total).to eq 0.4
         expect(tax_adjustment.amount).to eq 0.4
       end
     end
 
-    # TODO: Implement tax recalculation on tax address change and unxit this spec
-    xcontext 'when shipping address is changed' do
+    context 'when shipping address is changed' do
       let(:california_address) { create(:usa_address, :from_california) }
 
       it 'triggers tax estimation' do
-        expect(order.total).to eq 10.8
+        expect(order.total).to eq 16.2
 
         VCR.use_cassette('spree_order/california_order') do
-          order.update(ship_address: california_address)
+          order.tax_address.update(
+            address1: california_address.address1,
+            address2: california_address.address2,
+            city:     california_address.city,
+            zipcode:  california_address.zipcode,
+            state_id: california_address.state_id
+          )
+          california_address.run_callbacks(:save)
         end
 
-        expect(order.total).not_to eq 10.73
-        expect(line_item.reload.total).to eq 10.73
+        expect(order.reload.total).to eq 15.73
+        expect(line_item.reload.additional_tax_total).to eq 0.73
+        # California does not charge shipping tax
+        # https://www.avalara.com/us/en/blog/2016/01/do-i-charge-tax-on-shipping-costs-in-california.html
+        expect(shipment.reload.additional_tax_total).to eq 0
+
         expect(tax_adjustment.amount).to eq 0.73
       end
     end
