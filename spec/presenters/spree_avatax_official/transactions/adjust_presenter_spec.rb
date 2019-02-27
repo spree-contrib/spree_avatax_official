@@ -3,8 +3,9 @@ require 'spec_helper'
 describe SpreeAvataxOfficial::Transactions::AdjustPresenter do
   subject do
     described_class.new(
-      order:             order,
-      adjustment_reason: 'PriceAdjusted'
+      order:                  order,
+      adjustment_reason:      'PriceAdjusted',
+      adjustment_description: 'Adjustment description'
     )
   end
 
@@ -22,8 +23,9 @@ describe SpreeAvataxOfficial::Transactions::AdjustPresenter do
 
     let(:result) do
       {
-        adjustmentReason: 'PriceAdjusted',
-        newTransaction:   SpreeAvataxOfficial::Transactions::CreatePresenter.new(
+        adjustmentReason:      'PriceAdjusted',
+        adjustmentDescription: 'Adjustment description',
+        newTransaction:        SpreeAvataxOfficial::Transactions::CreatePresenter.new(
           order:            order,
           transaction_type: transaction_type,
           transaction_code: invoice_transaction.code

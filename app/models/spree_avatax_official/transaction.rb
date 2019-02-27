@@ -1,8 +1,9 @@
 module SpreeAvataxOfficial
   class Transaction < ActiveRecord::Base
-    SALES_ORDER    = 'SalesOrder'.freeze
-    SALES_INVOICE  = 'SalesInvoice'.freeze
-    RETURN_INVOICE = 'ReturnInvoice'.freeze
+    SALES_ORDER               = 'SalesOrder'.freeze
+    SALES_INVOICE             = 'SalesInvoice'.freeze
+    RETURN_INVOICE            = 'ReturnInvoice'.freeze
+    DEFAULT_ADJUSTMENT_REASON = 'Other'.freeze
 
     AVAILABLE_TRANSACTION_TYPES = [
       SALES_ORDER,

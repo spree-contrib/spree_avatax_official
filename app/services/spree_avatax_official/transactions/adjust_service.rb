@@ -1,8 +1,8 @@
 module SpreeAvataxOfficial
   module Transactions
     class AdjustService < SpreeAvataxOfficial::Base
-      def call(order:, adjustment_reason:, options: {}) # rubocop:disable Metrics/MethodLength
-        response = send_request(order, adjustment_reason, options)
+      def call(order:, adjustment_reason:, adjustment_description: '', options: {}) # rubocop:disable Metrics/MethodLength
+        response = send_request(order, adjustment_reason, adjustment_description, options)
 
         request_result(response) do
           invoice_transaction = order.avatax_sales_invoice_transaction
@@ -21,10 +21,11 @@ module SpreeAvataxOfficial
 
       private
 
-      def send_request(order, adjustment_reason, options)
+      def send_request(order, adjustment_reason, adjustment_description, options) # rubocop:disable Metrics/MethodLength
         adjust_transaction_model = SpreeAvataxOfficial::Transactions::AdjustPresenter.new(
-          order:             order,
-          adjustment_reason: adjustment_reason
+          order:                  order,
+          adjustment_reason:      adjustment_reason,
+          adjustment_description: adjustment_description
         ).to_json
 
         client.adjust_transaction(

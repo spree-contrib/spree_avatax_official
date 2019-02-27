@@ -167,5 +167,36 @@ describe SpreeAvataxOfficial::CreateTaxAdjustments do
         end
       end
     end
+
+    context 'completed order with single line item and shipment' do
+      let(:order) { create(:avatax_order, :completed, with_shipment: true, line_items_count: 1, ship_address: usa_address) }
+      let(:line_item) { order.line_items.first }
+      let(:shipment) { order.shipments.first }
+      let(:invoice_transaction) { order.reload.avatax_sales_invoice_transaction }
+
+      before do
+        VCR.use_cassette('spree_avatax_official/create_tax_adjustments/simple_completed_order') do
+          described_class.call(order: order)
+          order.updater.update
+        end
+      end
+
+      it 'updates tax rates and tax adjustments' do
+        expect(invoice_transaction).to be_present
+        expect(order.total).to eq 21.6
+        expect(order.additional_tax_total).to eq 1.6
+
+        result = nil
+        VCR.use_cassette('spree_avatax_official/create_tax_adjustments/completed_order_line_item_update') do
+          line_item.update(quantity: 2)
+          result = subject
+          order.updater.update
+        end
+
+        expect(result.success?).to eq true
+        expect(order.total).to eq 32.4
+        expect(order.additional_tax_total).to eq 2.4
+      end
+    end
   end
 end

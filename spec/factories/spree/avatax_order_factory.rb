@@ -43,5 +43,17 @@ FACTORY_BOT_CLASS.define do
 
       order.updater.update
     end
+
+    trait :completed do
+      shipment_state { 'shipped' }
+      payment_state  { 'paid' }
+
+      after(:create) do |order|
+        order.update_column(:completed_at, Time.current)
+        order.update_column(:state, 'complete')
+        create(:payment, amount: order.total, order: order, state: 'completed')
+        order.updater.update
+      end
+    end
   end
 end
