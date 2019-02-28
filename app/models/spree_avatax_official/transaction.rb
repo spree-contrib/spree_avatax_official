@@ -6,7 +6,6 @@ module SpreeAvataxOfficial
     DEFAULT_ADJUSTMENT_REASON = 'Other'.freeze
 
     AVAILABLE_TRANSACTION_TYPES = [
-      SALES_ORDER,
       SALES_INVOICE,
       RETURN_INVOICE
     ].freeze
@@ -21,7 +20,6 @@ module SpreeAvataxOfficial
 
     validates :transaction_type, inclusion: { in: AVAILABLE_TRANSACTION_TYPES }
 
-    scope :sales_orders,    -> { with_kind(SALES_ORDER) }
     scope :sales_invoices,  -> { with_kind(SALES_INVOICE) }
     scope :return_invoices, -> { with_kind(RETURN_INVOICE) }
     scope :with_kind,       ->(*s) { where(transaction_type: s) }
