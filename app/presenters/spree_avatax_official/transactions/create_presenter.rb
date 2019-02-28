@@ -18,7 +18,7 @@ module SpreeAvataxOfficial
           addresses:    addresses_payload,
           lines:        items_payload,
           commit:       order.complete?,
-          discount:     discount_amount
+          discount:     order.avatax_discount_amount
         }
       end
 
@@ -52,10 +52,6 @@ module SpreeAvataxOfficial
 
       def items_payload
         order.taxable_items.map { |item| SpreeAvataxOfficial::ItemPresenter.new(item: item).to_json }
-      end
-
-      def discount_amount
-        order.adjustments.promotion.eligible.sum(:amount).abs
       end
     end
   end

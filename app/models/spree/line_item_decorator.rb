@@ -10,6 +10,10 @@ module SpreeAvataxOfficial
 
         SpreeAvataxOfficial::CreateTaxAdjustmentsService.call(order: order)
       end
+
+      def avatax_tax_code
+        tax_category&.tax_code.presence || ::Spree::TaxCategory::DEFAULT_TAX_CODES['Spree::LineItem']
+      end
     end
   end
 end
