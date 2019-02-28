@@ -24,10 +24,9 @@ FACTORY_BOT_CLASS.define do
     end
 
     after(:create) do |order, evaluator|
-      evaluator.line_items_count.times do |index|
+      evaluator.line_items_count.times do
         create(
           :line_item,
-          id:           index + 1,
           price:        evaluator.line_items_price,
           tax_category: evaluator.tax_category || Spree::TaxCategory.find_by(name: 'Clothing'),
           quantity:     evaluator.line_items_quantity,
@@ -37,7 +36,7 @@ FACTORY_BOT_CLASS.define do
       order.line_items.reload
 
       if evaluator.with_shipment
-        create(:avatax_shipment, id: 1, order: order, cost: evaluator.shipment_cost)
+        create(:avatax_shipment, order: order, cost: evaluator.shipment_cost)
         order.shipments.reload
       end
 

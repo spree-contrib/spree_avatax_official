@@ -5,7 +5,7 @@ describe Spree::LineItem do
     let(:line_item) { create(:line_item) }
 
     it 'returns line item id with avatax code' do
-      expect(line_item.avatax_number).to eq "#{line_item.id}-LI"
+      expect(line_item.avatax_number).to eq "LI-#{line_item.avatax_uuid}"
     end
   end
 
@@ -22,7 +22,7 @@ describe Spree::LineItem do
 
       before do
         VCR.use_cassette('spree_order/update_tax_charge/create_line_item') do
-          create(:line_item, id: 1, price: 10.0, quantity: 2, order: order)
+          create(:line_item, price: 10.0, quantity: 2, order: order)
 
           order.updater.update
         end

@@ -5,9 +5,9 @@ http_interactions:
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
     body:
       encoding: UTF-8
-      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-18","customerCode":"kathie_cole@bernhard.ca","addresses":{"ShipFrom":{"line1":"822
-        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"},"ShipTo":{"line1":"822
-        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"lines":[{"number":"1-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":false,"discount":"0.0"}'
+      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-26","customerCode":"mercy@oreilly.name","addresses":{"ShipFrom":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"USA","postalCode":"19147"},"ShipTo":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"lines":[{"number":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":false,"discount":"0.0"}'
     headers:
       Accept:
       - application/json; charset=utf-8
@@ -27,7 +27,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Mon, 18 Feb 2019 21:06:58 GMT
+      - Tue, 26 Feb 2019 15:28:55 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -38,34 +38,36 @@ http_interactions:
       - "/api/v2/companies/0/transactions/0"
       Server:
       - Kestrel
+      X-Content-Type-Options:
+      - nosniff
       Serverduration:
-      - '00:00:00.0436185'
+      - '00:00:00.0472751'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
       Serviceduration:
-      - '00:00:00.0421742'
+      - '00:00:00.0457698'
       X-Powered-By:
       - ASP.NET
     body:
       encoding: UTF-8
-      string: '{"id":0,"code":"76f780a3-db25-4631-a8b5-8bb4eab16a69","companyId":0,"date":"2019-02-18","paymentDate":"2019-02-18","status":"Temporary","type":"SalesOrder","customerVendorCode":"kathie_cole@bernhard.ca","customerCode":"kathie_cole@bernhard.ca","reconciled":false,"totalAmount":10.0,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":0.8,"totalTaxable":10.0,"totalTaxCalculated":0.8,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2019-02-18","exchangeRate":1.0,"modifiedDate":"2019-02-18T21:06:55.9944803Z","modifiedUserId":356142,"taxDate":"2019-02-18T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"1-LI","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":10.0,"quantity":1.0,"reportingDate":"2019-02-18","tax":0.8,"taxableAmount":10.0,"taxCalculated":0.8,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-02-18","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"42","jurisName":"PENNSYLVANIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":0.6,"taxableAmount":10.0,"taxType":"Sales","taxName":"PA
+      string: '{"id":0,"code":"510e31d2-b8eb-4c40-ae83-dd8ef6eb41f9","companyId":0,"date":"2019-02-26","paymentDate":"2019-02-26","status":"Temporary","type":"SalesOrder","customerVendorCode":"mercy@oreilly.name","customerCode":"mercy@oreilly.name","reconciled":false,"totalAmount":10.0,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":0.8,"totalTaxable":10.0,"totalTaxCalculated":0.8,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2019-02-26","exchangeRate":1.0,"modifiedDate":"2019-02-26T15:28:58.3615052Z","modifiedUserId":356147,"taxDate":"2019-02-26T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":10.0,"quantity":1.0,"reportingDate":"2019-02-26","tax":0.8,"taxableAmount":10.0,"taxCalculated":0.8,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-02-26","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"42","jurisName":"PENNSYLVANIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":0.6,"taxableAmount":10.0,"taxType":"Sales","taxName":"PA
         STATE TAX","taxAuthorityTypeId":45,"taxCalculated":0.6,"rateType":"General","rateTypeCode":"G","isNonPassThru":false},{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"101","jurisName":"PHILADELPHIA","stateAssignedNo":"51","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0,"rate":0.020000,"tax":0.2,"taxableAmount":10.0,"taxType":"Sales","taxName":"PA
         COUNTY TAX","taxAuthorityTypeId":45,"taxCalculated":0.2,"rateType":"General","rateTypeCode":"G","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"","vatNumberTypeId":0}],"addresses":[{"id":0,"transactionId":0,"boundaryLevel":"Address","line1":"822
         Reed St","line2":"","line3":"","city":"Philadelphia","region":"PA","postalCode":"19147","country":"US","taxRegionId":4014900,"latitude":"39.931649","longitude":"-75.159058"}],"summary":[{"country":"US","region":"PA","jurisType":"State","jurisCode":"42","jurisName":"PENNSYLVANIA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"PA
         STATE TAX","rateType":"General","taxable":10.0,"rate":0.060000,"tax":0.6,"taxCalculated":0.6,"nonTaxable":0.0,"exemption":0.0},{"country":"US","region":"PA","jurisType":"County","jurisCode":"101","jurisName":"PHILADELPHIA","taxAuthorityType":45,"stateAssignedNo":"51","taxType":"Sales","taxName":"PA
         COUNTY TAX","rateType":"General","taxable":10.0,"rate":0.020000,"tax":0.2,"taxCalculated":0.2,"nonTaxable":0.0,"exemption":0.0}]}'
-    http_version: 
-  recorded_at: Mon, 18 Feb 2019 21:06:58 GMT
+    http_version:
+  recorded_at: Tue, 26 Feb 2019 15:28:55 GMT
 - request:
     method: post
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
     body:
       encoding: UTF-8
-      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-18","customerCode":"kathie_cole@bernhard.ca","addresses":{"ShipFrom":{"line1":"822
-        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"},"ShipTo":{"line1":"822
-        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"lines":[{"number":"1-LI","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":false,"discount":"0.0"}'
+      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-26","customerCode":"mercy@oreilly.name","addresses":{"ShipFrom":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"USA","postalCode":"19147"},"ShipTo":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"lines":[{"number":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":false,"discount":"0.0"}'
     headers:
       Accept:
       - application/json; charset=utf-8
@@ -85,7 +87,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Mon, 18 Feb 2019 21:06:59 GMT
+      - Tue, 26 Feb 2019 15:28:56 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -96,24 +98,26 @@ http_interactions:
       - "/api/v2/companies/0/transactions/0"
       Server:
       - Kestrel
+      X-Content-Type-Options:
+      - nosniff
       Serverduration:
-      - '00:00:00.0493041'
+      - '00:00:00.0432769'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
       Serviceduration:
-      - '00:00:00.0477767'
+      - '00:00:00.0419354'
       X-Powered-By:
       - ASP.NET
     body:
       encoding: UTF-8
-      string: '{"id":0,"code":"e20e1003-73e2-4273-b4a0-1713daf2250a","companyId":0,"date":"2019-02-18","paymentDate":"2019-02-18","status":"Temporary","type":"SalesOrder","customerVendorCode":"kathie_cole@bernhard.ca","customerCode":"kathie_cole@bernhard.ca","reconciled":false,"totalAmount":10.0,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":0.8,"totalTaxable":10.0,"totalTaxCalculated":0.8,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2019-02-18","exchangeRate":1.0,"modifiedDate":"2019-02-18T21:06:57.5090718Z","modifiedUserId":356142,"taxDate":"2019-02-18T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"1-LI","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":10.0,"quantity":1.0,"reportingDate":"2019-02-18","tax":0.8,"taxableAmount":10.0,"taxCalculated":0.8,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-02-18","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"42","jurisName":"PENNSYLVANIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":0.6,"taxableAmount":10.0,"taxType":"Sales","taxName":"PA
+      string: '{"id":0,"code":"baaeaf87-8d05-4e24-927a-8475f51a01a3","companyId":0,"date":"2019-02-26","paymentDate":"2019-02-26","status":"Temporary","type":"SalesOrder","customerVendorCode":"mercy@oreilly.name","customerCode":"mercy@oreilly.name","reconciled":false,"totalAmount":10.0,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":0.8,"totalTaxable":10.0,"totalTaxCalculated":0.8,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2019-02-26","exchangeRate":1.0,"modifiedDate":"2019-02-26T15:28:59.4449897Z","modifiedUserId":356147,"taxDate":"2019-02-26T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":10.0,"quantity":1.0,"reportingDate":"2019-02-26","tax":0.8,"taxableAmount":10.0,"taxCalculated":0.8,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-02-26","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"42","jurisName":"PENNSYLVANIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":0.6,"taxableAmount":10.0,"taxType":"Sales","taxName":"PA
         STATE TAX","taxAuthorityTypeId":45,"taxCalculated":0.6,"rateType":"General","rateTypeCode":"G","isNonPassThru":false},{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"101","jurisName":"PHILADELPHIA","stateAssignedNo":"51","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0,"rate":0.020000,"tax":0.2,"taxableAmount":10.0,"taxType":"Sales","taxName":"PA
         COUNTY TAX","taxAuthorityTypeId":45,"taxCalculated":0.2,"rateType":"General","rateTypeCode":"G","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"","vatNumberTypeId":0}],"addresses":[{"id":0,"transactionId":0,"boundaryLevel":"Address","line1":"822
         Reed St","line2":"","line3":"","city":"Philadelphia","region":"PA","postalCode":"19147","country":"US","taxRegionId":4014900,"latitude":"39.931649","longitude":"-75.159058"}],"summary":[{"country":"US","region":"PA","jurisType":"State","jurisCode":"42","jurisName":"PENNSYLVANIA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"PA
         STATE TAX","rateType":"General","taxable":10.0,"rate":0.060000,"tax":0.6,"taxCalculated":0.6,"nonTaxable":0.0,"exemption":0.0},{"country":"US","region":"PA","jurisType":"County","jurisCode":"101","jurisName":"PHILADELPHIA","taxAuthorityType":45,"stateAssignedNo":"51","taxType":"Sales","taxName":"PA
         COUNTY TAX","rateType":"General","taxable":10.0,"rate":0.020000,"tax":0.2,"taxCalculated":0.2,"nonTaxable":0.0,"exemption":0.0}]}'
-    http_version: 
-  recorded_at: Mon, 18 Feb 2019 21:06:59 GMT
+    http_version:
+  recorded_at: Tue, 26 Feb 2019 15:28:56 GMT
 recorded_with: VCR 4.0.0

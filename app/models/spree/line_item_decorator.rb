@@ -1,10 +1,8 @@
 module SpreeAvataxOfficial
   module Spree
     module LineItemDecorator
-      AVATAX_CODE = 'LI'.freeze
-
-      def avatax_number
-        "#{id}-#{AVATAX_CODE}"
+      def self.prepended(base)
+        base.include ::SpreeAvataxOfficial::HasUuid
       end
 
       def update_tax_charge

@@ -9,3 +9,4 @@ en:
       missing_code: Transaction code for these params is missing
     create_tax_adjustments:
       adjustment_description: Completed order contents were changed
+      order_canceled: Cannot calculate tax for a canceled order
