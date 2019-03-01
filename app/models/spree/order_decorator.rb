@@ -37,6 +37,7 @@ module SpreeAvataxOfficial
 
         SpreeAvataxOfficial::CreateTaxAdjustmentsService.call(order: self)
         update_totals
+        persist_totals
       end
 
       private
