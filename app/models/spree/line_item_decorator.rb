@@ -8,7 +8,7 @@ module SpreeAvataxOfficial
       def update_tax_charge
         return super unless SpreeAvataxOfficial::Config.enabled
 
-        SpreeAvataxOfficial::CreateTaxAdjustments.call(order: order)
+        SpreeAvataxOfficial::CreateTaxAdjustmentsService.call(order: order)
       end
     end
   end
