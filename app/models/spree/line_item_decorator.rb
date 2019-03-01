@@ -14,4 +14,4 @@ module SpreeAvataxOfficial
   end
 end
 
-Spree::LineItem.prepend ::SpreeAvataxOfficial::Spree::LineItemDecorator
+AVATAX_NAMESPACE::LineItem.prepend ::SpreeAvataxOfficial::Spree::LineItemDecorator

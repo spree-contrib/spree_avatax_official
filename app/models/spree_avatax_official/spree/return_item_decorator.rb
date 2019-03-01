@@ -16,4 +16,4 @@ module SpreeAvataxOfficial
   end
 end
 
-::Spree::ReturnItem.prepend(::SpreeAvataxOfficial::Spree::ReturnItemDecorator) if 'Spree::ReturnItem'.safe_constantize
+AVATAX_NAMESPACE::ReturnItem.prepend(::SpreeAvataxOfficial::Spree::ReturnItemDecorator) if "#{AVATAX_NAMESPACE}::ReturnItem".safe_constantize

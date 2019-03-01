@@ -56,4 +56,4 @@ module SpreeAvataxOfficial
   end
 end
 
-Spree::Order.prepend ::SpreeAvataxOfficial::Spree::OrderDecorator
+AVATAX_NAMESPACE::Order.prepend ::SpreeAvataxOfficial::Spree::OrderDecorator

@@ -12,4 +12,4 @@ module SpreeAvataxOfficial
   end
 end
 
-Spree::Shipment.prepend ::SpreeAvataxOfficial::Spree::ShipmentDecorator
+AVATAX_NAMESPACE::Shipment.prepend ::SpreeAvataxOfficial::Spree::ShipmentDecorator

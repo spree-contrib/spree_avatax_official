@@ -1,0 +1,1 @@
+AVATAX_NAMESPACE = ::Spree
