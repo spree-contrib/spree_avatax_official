@@ -1,5 +1,5 @@
 module SpreeAvataxOfficial
-  class CreateTaxAdjustments < SpreeAvataxOfficial::Base
+  class CreateTaxAdjustmentsService < SpreeAvataxOfficial::Base
     def call(order:)
       return failure(I18n.t('spree_avatax_official.create_tax_adjustments.order_canceled')) if order.canceled?
 

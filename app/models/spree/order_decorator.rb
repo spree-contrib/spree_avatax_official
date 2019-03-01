@@ -29,13 +29,13 @@ module SpreeAvataxOfficial
       def create_tax_charge!
         return super unless SpreeAvataxOfficial::Config.enabled
 
-        SpreeAvataxOfficial::CreateTaxAdjustments.call(order: self)
+        SpreeAvataxOfficial::CreateTaxAdjustmentsService.call(order: self)
       end
 
       def recalculate_avatax_taxes
         return unless SpreeAvataxOfficial::Config.enabled
 
-        SpreeAvataxOfficial::CreateTaxAdjustments.call(order: self)
+        SpreeAvataxOfficial::CreateTaxAdjustmentsService.call(order: self)
         update_totals
       end
 

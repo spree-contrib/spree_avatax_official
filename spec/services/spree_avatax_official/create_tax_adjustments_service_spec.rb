@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SpreeAvataxOfficial::CreateTaxAdjustments do
+describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
   subject { described_class.call(order: order) }
 
   let(:usa_address) { create(:usa_address) }
