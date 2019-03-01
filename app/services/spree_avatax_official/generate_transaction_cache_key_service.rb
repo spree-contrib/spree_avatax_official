@@ -34,8 +34,8 @@ module SpreeAvataxOfficial
         tax_address.address1,
         tax_address.address2,
         tax_address.city,
-        tax_address.state&.abbr,
-        tax_address.country&.iso,
+        tax_address.state.try(:abbr),
+        tax_address.country.try(:iso),
         tax_address.zipcode
       ].join('-')
     end
@@ -66,7 +66,7 @@ module SpreeAvataxOfficial
     end
 
     def avatax_preferences_cache_key
-      ship_from_address_timestamp = ship_from_address_preference&.updated_at&.utc&.to_s(:number)
+      ship_from_address_timestamp = ship_from_address_preference.try(:updated_at).try(:utc).try(:to_s, :number)
 
       "#{SpreeAvataxOfficial::Config.company_code}-#{ship_from_address_timestamp}"
     end
