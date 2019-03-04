@@ -15,13 +15,15 @@ Introduction goes here.
   bundle install
   ```
 
-3. Copy & run migrations
+3. Copy, run migrations and run seeds
 
   ```ruby
   bundle exec rails g spree_avatax_official:install
   ```
 
-4. Restart your server
+4. Fill up config located in ./config/initializers/spree_avatax_official.rb
+
+5. Restart your server
 
   If your server was running, restart it so that it can find the assets properly.
 
@@ -53,7 +55,7 @@ pull request.
 
 ## License
 
-Spree Avatax Official is copyright © 2019 [Spark Solutions Sp. z o.o.][spark]. 
+Spree Avatax Official is copyright © 2019 [Spark Solutions Sp. z o.o.][spark].
 It is free software, and may be redistributed under the terms specified in the
 [LICENCE](LICENSE) file.
 
@@ -63,7 +65,7 @@ It is free software, and may be redistributed under the terms specified in the
 
 [![Spark Solutions](http://sparksolutions.co/wp-content/uploads/2015/01/logo-ss-tr-221x100.png)][spark]
 
-Spree Avatax Official is maintained by [Spark Solutions Sp. z o.o.](http://sparksolutions.co?utm_source=github) and 
+Spree Avatax Official is maintained by [Spark Solutions Sp. z o.o.](http://sparksolutions.co?utm_source=github) and
 funded by [Avalara Inc.](https://www.avalara.com/us/en/index.html). The names and logos are trademarks of Avalara Inc.
 
 We are passionate about open source software.
