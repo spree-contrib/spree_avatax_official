@@ -27,7 +27,7 @@ module SpreeAvataxOfficial
       attr_reader :order, :transaction_type, :transaction_code
 
       def company_code
-        order.store&.avatax_company_code || SpreeAvataxOfficial::Config.company_code
+        order.store.try(:avatax_company_code) || SpreeAvataxOfficial::Config.company_code
       end
 
       def formatted_date(date)

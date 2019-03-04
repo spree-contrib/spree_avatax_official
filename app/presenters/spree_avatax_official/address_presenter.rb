@@ -25,8 +25,8 @@ module SpreeAvataxOfficial
         line1:      address.address1,
         line2:      address.address2,
         city:       address.city,
-        region:     address.state&.abbr,
-        country:    address.country&.iso,
+        region:     address.state.try(:abbr),
+        country:    address.country.try(:iso),
         postalCode: address.zipcode
       }
     end
