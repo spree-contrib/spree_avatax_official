@@ -4,7 +4,7 @@ module SpreeAvataxOfficial
       def call(order:, refund_items:)
         response = send_request(order, refund_items)
 
-        request_result(response) do
+        request_result(response, order) do
           unless response['id'].to_i.zero?
             create_transaction!(
               code:             response['code'],
@@ -22,6 +22,8 @@ module SpreeAvataxOfficial
           order:        order,
           refund_items: refund_items
         ).to_json
+
+        logger.info(refund_transaction_model)
 
         client.create_transaction(refund_transaction_model)
       end

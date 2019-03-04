@@ -4,7 +4,7 @@ module SpreeAvataxOfficial
       def call(order:, adjustment_reason:, adjustment_description: '', options: {}) # rubocop:disable Metrics/MethodLength
         response = send_request(order, adjustment_reason, adjustment_description, options)
 
-        request_result(response) do
+        request_result(response, order) do
           invoice_transaction = order.avatax_sales_invoice_transaction
 
           if invoice_transaction.present?
@@ -27,6 +27,8 @@ module SpreeAvataxOfficial
           adjustment_reason:      adjustment_reason,
           adjustment_description: adjustment_description
         ).to_json
+
+        logger.info(adjust_transaction_model)
 
         client.adjust_transaction(
           company_code,

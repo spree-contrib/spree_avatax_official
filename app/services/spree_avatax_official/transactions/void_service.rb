@@ -8,12 +8,14 @@ module SpreeAvataxOfficial
 
         response = send_request(order, options)
 
-        request_result(response)
+        request_result(response, order)
       end
 
       private
 
       def send_request(order, options)
+        logger.info(options, order)
+
         client.void_transaction(
           company_code,
           order.avatax_sales_invoice_code,

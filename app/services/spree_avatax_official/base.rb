@@ -10,10 +10,16 @@ module SpreeAvataxOfficial
       AvaTax::Client.new(logger: true)
     end
 
-    def request_result(response)
-      return failure(response) if response['error'].present?
+    def request_result(response, object)
+      if response['error'].present?
+        logger.error(object, response)
+
+        return failure(response)
+      end
 
       yield response if block_given?
+
+      logger.info(response, object)
 
       success(response)
     end
@@ -24,6 +30,10 @@ module SpreeAvataxOfficial
         order:            order,
         transaction_type: transaction_type
       )
+    end
+
+    def logger
+      @logger ||= SpreeAvataxOfficial::AvataxLog.new
     end
   end
 end

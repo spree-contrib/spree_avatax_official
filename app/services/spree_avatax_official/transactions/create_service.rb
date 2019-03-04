@@ -7,7 +7,7 @@ module SpreeAvataxOfficial
         transaction_type = choose_transaction_type(order)
         response         = send_request(order, transaction_type, options)
 
-        request_result(response) do
+        request_result(response, order) do
           if order.completed? && response['id'].to_i.positive?
             create_transaction!(
               code:             response['code'],
@@ -38,6 +38,8 @@ module SpreeAvataxOfficial
           order:            order,
           transaction_type: transaction_type
         ).to_json
+
+        logger.info(create_transaction_model)
 
         client.create_transaction(create_transaction_model, options)
       end
