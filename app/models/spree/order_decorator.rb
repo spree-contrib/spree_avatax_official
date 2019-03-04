@@ -57,4 +57,5 @@ module SpreeAvataxOfficial
   end
 end
 
-Spree::Order.prepend ::SpreeAvataxOfficial::Spree::OrderDecorator
+# Temporarily commented out for a project with multiple namespaces
+# Spree::Order.prepend ::SpreeAvataxOfficial::Spree::OrderDecorator

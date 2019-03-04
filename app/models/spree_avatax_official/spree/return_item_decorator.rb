@@ -16,4 +16,5 @@ module SpreeAvataxOfficial
   end
 end
 
-::Spree::ReturnItem.prepend(::SpreeAvataxOfficial::Spree::ReturnItemDecorator) if 'Spree::ReturnItem'.safe_constantize
+# Temporarily commented out for a project with multiple namespaces
+# ::Spree::ReturnItem.prepend(::SpreeAvataxOfficial::Spree::ReturnItemDecorator) if 'Spree::ReturnItem'.safe_constantize
