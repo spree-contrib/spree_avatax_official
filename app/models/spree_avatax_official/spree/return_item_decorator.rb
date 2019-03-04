@@ -2,7 +2,9 @@ module SpreeAvataxOfficial
   module Spree
     module ReturnItemDecorator
       def self.prepended(base)
-        base.state_machine.after_transition to: :received, do: :refund_in_avatax
+        base.state_machine :reception_status do
+          after_transition to: :received, do: :refund_in_avatax
+        end
       end
 
       private
