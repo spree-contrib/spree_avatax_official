@@ -25,7 +25,7 @@ module SpreeAvataxOfficial
     end
 
     def tax_code
-      item.tax_category&.tax_code.presence || default_tax_code
+      item.tax_category.try(:tax_code).presence || default_tax_code
     end
 
     def default_tax_code

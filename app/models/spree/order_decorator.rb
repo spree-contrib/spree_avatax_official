@@ -19,7 +19,7 @@ module SpreeAvataxOfficial
       end
 
       def avatax_sales_invoice_code
-        avatax_sales_invoice_transaction&.code
+        avatax_sales_invoice_transaction.try(:code)
       end
 
       def avatax_tax_calculation_required?

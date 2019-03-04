@@ -22,7 +22,7 @@ module SpreeAvataxOfficial
         order
           .avatax_transactions
           .find_by(transaction_type: type)
-          &.code
+          .try(:code)
       end
     end
   end
