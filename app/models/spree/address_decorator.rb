@@ -10,6 +10,8 @@ module SpreeAvataxOfficial
       private
 
       def recalculate_avatax_taxes
+        return yield unless SpreeAvataxOfficial::Config.enabled
+
         observed_fields_changed = OBSERVABLE_FIELDS & changed
 
         yield # around_save requires yield to perform save operation
@@ -27,4 +29,5 @@ module SpreeAvataxOfficial
   end
 end
 
-Spree::Address.prepend ::SpreeAvataxOfficial::Spree::AddressDecorator
+# Temporarily commented out for a project with multiple namespaces
+# Spree::Address.prepend ::SpreeAvataxOfficial::Spree::AddressDecorator

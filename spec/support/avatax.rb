@@ -15,6 +15,7 @@ SpreeAvataxOfficial::Config.ship_from_address = {
 
 # Added temporarily for a project with multiple namespaces
 Spree::Order.prepend ::SpreeAvataxOfficial::Spree::OrderDecorator
+Spree::Address.prepend ::SpreeAvataxOfficial::Spree::AddressDecorator
 Spree::Shipment.prepend ::SpreeAvataxOfficial::Spree::ShipmentDecorator
 Spree::LineItem.prepend ::SpreeAvataxOfficial::Spree::LineItemDecorator
 Spree::OrderUpdater.prepend ::SpreeAvataxOfficial::Spree::OrderUpdaterDecorator
