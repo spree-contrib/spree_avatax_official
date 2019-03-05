@@ -44,7 +44,13 @@ module SpreeAvataxOfficial
       item_suffix = avatax_item['lineNumber'].slice!(0..2)
       item_id     = avatax_item['lineNumber']
       item        = find_item(order, item_id, item_suffix)
-      tax_rate    = find_or_create_tax_rate(item)
+
+      # Spree allows to setup shipping methods without tax category and
+      # in that case it doesn't make sense to collect any tax,
+      # especially because of validation that requires presence of tax category
+      return if item.tax_category.nil?
+
+      tax_rate = find_or_create_tax_rate(item)
 
       create_tax_adjustment(item, tax_rate, tax_amount)
     end
