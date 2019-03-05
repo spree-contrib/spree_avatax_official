@@ -26,6 +26,18 @@ module SpreeAvataxOfficial
         tax_address.present? && line_items.any?
       end
 
+      def avatax_discount_amount
+        adjustments.promotion.eligible.sum(:amount).abs
+      end
+
+      def line_items_discounted_in_avatax?
+        adjustments.promotion.eligible.any?
+      end
+
+      def tax_address_symbol
+        ::Spree::Config.tax_using_ship_address ? :ship_address : :bill_address
+      end
+
       def create_tax_charge!
         return super unless SpreeAvataxOfficial::Config.enabled
 

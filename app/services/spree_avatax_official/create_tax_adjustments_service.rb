@@ -1,13 +1,18 @@
 module SpreeAvataxOfficial
   class CreateTaxAdjustmentsService < SpreeAvataxOfficial::Base
-    def call(order:)
+    def call(order:) # rubocop:disable Metrics/AbcSize
       return failure(I18n.t('spree_avatax_official.create_tax_adjustments.order_canceled')) if order.canceled?
 
       order.reload.all_adjustments.tax.destroy_all
 
-      avatax_response = send_transaction_to_avatax(order)
+      return failure(I18n.t('spree_avatax_official.create_tax_adjustments.tax_calculation_unnecessary')) unless order.avatax_tax_calculation_required?
 
-      return failure(false) if avatax_failed_response?(avatax_response)
+      transaction_cache_key = SpreeAvataxOfficial::GenerateTransactionCacheKeyService.call(order: order).value
+      avatax_response       = Rails.cache.fetch(transaction_cache_key, expires_in: 5.minutes) do
+        send_transaction_to_avatax(order)
+      end
+
+      return failure(I18n.t('spree_avatax_official.create_tax_adjustments.tax_calculation_failed')) if avatax_failed_response?(avatax_response)
 
       process_avatax_items(order, avatax_response.value['lines'])
 

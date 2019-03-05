@@ -11,7 +11,7 @@ module SpreeAvataxOfficial
         number:     item.avatax_number,
         quantity:   item_quantity,
         amount:     item.discounted_amount,
-        taxCode:    tax_code,
+        taxCode:    item.avatax_tax_code,
         discounted: discounted?
       }
     end
@@ -24,18 +24,10 @@ module SpreeAvataxOfficial
       quantity || item.try(:quantity) || 1
     end
 
-    def tax_code
-      item.tax_category.try(:tax_code).presence || default_tax_code
-    end
-
-    def default_tax_code
-      ::Spree::TaxCategory::DEFAULT_TAX_CODES[item.class.to_s]
-    end
-
     def discounted?
       case item
       when ::Spree::LineItem
-        item.order.adjustments.promotion.eligible.any?
+        item.order.line_items_discounted_in_avatax?
       when ::Spree::Shipment
         # we do not want to apply order level discounts to shipments
         false

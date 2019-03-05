@@ -10,3 +10,5 @@ en:
     create_tax_adjustments:
       adjustment_description: Completed order contents were changed
       order_canceled: Cannot calculate tax for a canceled order
+      tax_calculation_unnecessary: Order is missing tax address or line items
+      tax_calculation_failed: AvaTax failed to calculate tax

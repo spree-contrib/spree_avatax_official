@@ -5,9 +5,9 @@ http_interactions:
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
     body:
       encoding: UTF-8
-      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-27","customerCode":"sana@marquardtdouglas.biz","addresses":{"ShipFrom":{"line1":"822
+      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-03-01","customerCode":"christa_jacobson@vandervortschamberger.info","addresses":{"ShipFrom":{"line1":"822
         Reed St","line2":"","city":"Philadelphia","region":"PA","country":"USA","postalCode":"19147"},"ShipTo":{"line1":"10
-        Lovely Street","line2":"Northwest","city":"Herndon","region":"STATE_ABBR_6","country":"US","postalCode":"35005"}},"lines":[{"number":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":true,"discount":"0.0"}'
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"STATE_ABBR_6","country":"US","postalCode":"35005"}},"lines":[{"number":"LI-021faea4-44fb-47b1-8432-42a3212d5d2f","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":true,"discount":"0.0"}'
     headers:
       Accept:
       - application/json; charset=utf-8
@@ -23,11 +23,11 @@ http_interactions:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
-      code: 401
-      message: Unauthorized
+      code: 400
+      message: Bad Request
     headers:
       Date:
-      - Wed, 27 Feb 2019 15:19:04 GMT
+      - Fri, 01 Mar 2019 15:32:44 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -39,32 +39,31 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0002576'
+      - '00:00:00.0399598'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
       Serviceduration:
-      - '00:00:00'
+      - '00:00:00.0387695'
       X-Powered-By:
       - ASP.NET
     body:
       encoding: UTF-8
-      string: '{"error":{"code":"AuthenticationException","message":"Authentication
-        failed.","target":"HttpRequestHeaders","details":[{"code":"AuthenticationException","number":30,"message":"Authentication
-        failed.","description":"Unable to authenticate the user or the account.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AuthenticationException","severity":"Exception"},{"code":"ValueRequiredError","number":5,"message":"Field
-        username is required.","description":"Please provide a value for field username.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"},{"code":"ValueRequiredError","number":5,"message":"Field
-        password is required.","description":"Please provide a value for field password.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
-    http_version:
-  recorded_at: Wed, 27 Feb 2019 15:19:04 GMT
+      string: '{"error":{"code":"GetTaxError","message":"Invalid or missing state/province
+        code (STA).","target":"Unknown","details":[{"code":"GetTaxError","number":300,"message":"Invalid
+        or missing state/province code (STA).","description":"STA is not a known state
+        or province.","faultCode":"GetTaxError","helpLink":"http://developer.avalara.com/avatax/errors/GetTaxError","refersTo":"Addresses[1]","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Fri, 01 Mar 2019 15:32:45 GMT
 - request:
     method: post
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
     body:
       encoding: UTF-8
-      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-27","customerCode":"sana@marquardtdouglas.biz","addresses":{"ShipFrom":{"line1":"822
+      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-03-01","customerCode":"christa_jacobson@vandervortschamberger.info","addresses":{"ShipFrom":{"line1":"822
         Reed St","line2":"","city":"Philadelphia","region":"PA","country":"USA","postalCode":"19147"},"ShipTo":{"line1":"10
-        Lovely Street","line2":"Northwest","city":"Herndon","region":"STATE_ABBR_6","country":"US","postalCode":"35005"}},"lines":[{"number":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":true,"discount":"0.0"}'
+        Lovely Street","line2":"Northwest","city":"Herndon","region":"STATE_ABBR_6","country":"US","postalCode":"35005"}},"lines":[{"number":"LI-021faea4-44fb-47b1-8432-42a3212d5d2f","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"FR-7bc722af-8596-48a2-ab88-160bb061ce99","quantity":1,"amount":"100.0","taxCode":"FR","discounted":false}],"commit":true,"discount":"0.0"}'
     headers:
       Accept:
       - application/json; charset=utf-8
@@ -80,11 +79,11 @@ http_interactions:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
-      code: 401
-      message: Unauthorized
+      code: 400
+      message: Bad Request
     headers:
       Date:
-      - Wed, 27 Feb 2019 15:19:04 GMT
+      - Fri, 01 Mar 2019 15:32:45 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -96,79 +95,21 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0002613'
+      - '00:00:00.0410857'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
       Serviceduration:
-      - '00:00:00'
+      - '00:00:00.0396792'
       X-Powered-By:
       - ASP.NET
     body:
       encoding: UTF-8
-      string: '{"error":{"code":"AuthenticationException","message":"Authentication
-        failed.","target":"HttpRequestHeaders","details":[{"code":"AuthenticationException","number":30,"message":"Authentication
-        failed.","description":"Unable to authenticate the user or the account.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AuthenticationException","severity":"Exception"},{"code":"ValueRequiredError","number":5,"message":"Field
-        username is required.","description":"Please provide a value for field username.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"},{"code":"ValueRequiredError","number":5,"message":"Field
-        password is required.","description":"Please provide a value for field password.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
-    http_version:
-  recorded_at: Wed, 27 Feb 2019 15:19:05 GMT
-- request:
-    method: post
-    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
-    body:
-      encoding: UTF-8
-      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-02-27","customerCode":"sana@marquardtdouglas.biz","addresses":{"ShipFrom":{"line1":"822
-        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"USA","postalCode":"19147"},"ShipTo":{"line1":"10
-        Lovely Street","line2":"Northwest","city":"Herndon","region":"STATE_ABBR_6","country":"US","postalCode":"35005"}},"lines":[{"number":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false},{"number":"FR-c180abe0-d37d-445c-9449-4d2479afb93a","quantity":1,"amount":"100.0","taxCode":"FR","discounted":false}],"commit":true,"discount":"0.0"}'
-    headers:
-      Accept:
-      - application/json; charset=utf-8
-      User-Agent:
-      - AvaTax Ruby Gem 18.12.0
-      X-Avalara-Client:
-      - ";;RubySdk;18.12.0;"
-      Authorization:
-      - "<AVATAX_TOKEN>"
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Date:
-      - Wed, 27 Feb 2019 15:19:05 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Server:
-      - Kestrel
-      X-Content-Type-Options:
-      - nosniff
-      Serverduration:
-      - '00:00:00.0002420'
-      Databasecalls:
-      - '0'
-      Databaseduration:
-      - '00:00:00'
-      Serviceduration:
-      - '00:00:00'
-      X-Powered-By:
-      - ASP.NET
-    body:
-      encoding: UTF-8
-      string: '{"error":{"code":"AuthenticationException","message":"Authentication
-        failed.","target":"HttpRequestHeaders","details":[{"code":"AuthenticationException","number":30,"message":"Authentication
-        failed.","description":"Unable to authenticate the user or the account.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AuthenticationException","severity":"Exception"},{"code":"ValueRequiredError","number":5,"message":"Field
-        username is required.","description":"Please provide a value for field username.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"},{"code":"ValueRequiredError","number":5,"message":"Field
-        password is required.","description":"Please provide a value for field password.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
-    http_version:
-  recorded_at: Wed, 27 Feb 2019 15:19:05 GMT
+      string: '{"error":{"code":"GetTaxError","message":"Invalid or missing state/province
+        code (STA).","target":"Unknown","details":[{"code":"GetTaxError","number":300,"message":"Invalid
+        or missing state/province code (STA).","description":"STA is not a known state
+        or province.","faultCode":"GetTaxError","helpLink":"http://developer.avalara.com/avatax/errors/GetTaxError","refersTo":"Addresses[1]","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Fri, 01 Mar 2019 15:32:45 GMT
 recorded_with: VCR 4.0.0
