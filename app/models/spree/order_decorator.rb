@@ -15,7 +15,7 @@ module SpreeAvataxOfficial
       end
 
       def taxable_items
-        line_items + shipments
+        line_items.reload + shipments.reload
       end
 
       def avatax_sales_invoice_code
