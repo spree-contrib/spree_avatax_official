@@ -1,7 +1,7 @@
 module SpreeAvataxOfficial
   class GenerateTransactionCacheKeyService < SpreeAvataxOfficial::Base
     def call(order:)
-      reloaded_order = ::Spree::Order.includes(:line_items, :shipments, :adjustments, order.tax_address_symbol => %i[state country]).find(order.id)
+      reloaded_order = order.class.includes(:line_items, :shipments, :adjustments, order.tax_address_symbol => %i[state country]).find(order.id)
 
       success(transaction_cache_key(reloaded_order))
     end

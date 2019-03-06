@@ -82,13 +82,12 @@ module SpreeAvataxOfficial
     end
 
     def create_tax_adjustment(item, source, amount)
-      ::Spree::Adjustment.create!(
-        source:     source,
-        adjustable: item,
-        amount:     amount,
-        included:   false,
-        label:      'AvaTax Tax adjustment',
-        order:      item.order
+      item.adjustments.create!(
+        source:   source,
+        amount:   amount,
+        included: false,
+        label:    'AvaTax Tax adjustment',
+        order:    item.order
       )
     end
   end

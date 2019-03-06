@@ -10,7 +10,7 @@ module SpreeAvataxOfficial
       end
 
       def avatax_tax_code
-        tax_category.try(:tax_code).presence || ::Spree::TaxCategory::DEFAULT_TAX_CODES['Spree::Shipment']
+        tax_category.try(:tax_code).presence || ::Spree::TaxCategory::DEFAULT_TAX_CODES['Shipment']
       end
     end
   end
