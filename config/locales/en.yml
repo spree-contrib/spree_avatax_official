@@ -12,3 +12,5 @@ en:
       order_canceled: Cannot calculate tax for a canceled order
       tax_calculation_unnecessary: Order is missing tax address or line items
       tax_calculation_failed: AvaTax failed to calculate tax
+      line_item_tax_adjustment_default_label: Sales Tax
+      shipment_tax_adjustment_default_label: Shipping Tax
