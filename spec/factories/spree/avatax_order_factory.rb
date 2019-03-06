@@ -8,19 +8,20 @@ FACTORY_BOT_CLASS.define do
     state        { 'cart' }
 
     transient do
-      line_items_price    { 10.0 }
-      line_items_count    { 0 }
-      line_items_quantity { 1 }
-      with_shipment       { false }
-      shipment_cost       { 5.0 }
-      tax_category        { Spree::TaxCategory.find_by(name: 'Clothing') }
+      line_items_price           { 10.0 }
+      line_items_count           { 0 }
+      line_items_quantity        { 1 }
+      with_shipment              { false }
+      with_shipping_tax_category { true }
+      shipment_cost              { 5.0 }
+      tax_category               { Spree::TaxCategory.find_by(name: 'Clothing') }
     end
 
-    before(:create) do
+    before(:create) do |_order, evaluator|
       Spree::Zone.find_by(name: 'GlobalZone') || create(:avatax_global_zone)
       Spree::TaxCategory.find_by(name: 'Clothing') || create(:avatax_tax_category, :clothing)
       Spree::TaxCategory.find_by(name: 'Shipping') || create(:avatax_tax_category, :shipping)
-      Spree::ShippingMethod.find_by(name: 'AvaTax Ground') || create(:avatax_shipping_method)
+      Spree::ShippingMethod.find_by(name: 'AvaTax Ground') || create(:avatax_shipping_method, with_tax_category: evaluator.with_shipping_tax_category)
     end
 
     after(:create) do |order, evaluator|

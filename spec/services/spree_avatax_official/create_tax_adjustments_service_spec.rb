@@ -12,7 +12,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
         let(:line_item) { order.line_items.first }
         let(:tax_adjustment) { line_item.adjustments.tax.first }
 
-        it 'creates tax rates and tax adjustments' do
+        it 'creates tax rates and tax adjustments for all taxable items' do
           result = nil
 
           VCR.use_cassette('spree_avatax_official/create_tax_adjustments/single_line_item') do
@@ -31,25 +31,47 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
       end
 
       context 'with single line item and and shipment' do
-        let(:order) { create(:avatax_order, with_shipment: true, line_items_count: 1, ship_address: usa_address) }
         let(:shipment) { order.shipments.first }
         let(:tax_adjustment) { shipment.adjustments.tax.first }
 
-        it 'creates tax rates and tax adjustments' do
-          result = nil
+        context 'when shipping method has tax category' do
+          let(:order) { create(:avatax_order, with_shipment: true, line_items_count: 1, ship_address: usa_address) }
 
-          VCR.use_cassette('spree_avatax_official/create_tax_adjustments/line_item_and_shipment') do
-            result = subject
+          it 'creates tax rates and tax adjustments' do
+            result = nil
 
-            order.updater.update
+            VCR.use_cassette('spree_avatax_official/create_tax_adjustments/line_item_and_shipment') do
+              result = subject
+
+              order.updater.update
+            end
+
+            expect(result.success?).to eq true
+            expect(order.total).to eq 16.2
+            expect(order.additional_tax_total).to eq 1.2
+            expect(shipment.reload.additional_tax_total).to eq 0.4
+            expect(tax_adjustment.amount).to eq 0.4
+            expect(tax_adjustment.source_type).to eq 'Spree::TaxRate'
           end
+        end
 
-          expect(result.success?).to eq true
-          expect(order.total).to eq 16.2
-          expect(order.additional_tax_total).to eq 1.2
-          expect(shipment.reload.additional_tax_total).to eq 0.4
-          expect(tax_adjustment.amount).to eq 0.4
-          expect(tax_adjustment.source_type).to eq 'Spree::TaxRate'
+        context 'when shipping method does NOT have tax category' do
+          let(:order) { create(:avatax_order, with_shipment: true, with_shipping_tax_category: false, line_items_count: 1, ship_address: usa_address) } # rubocop:disable Metrics/LineLength
+
+          it 'creates tax rates and tax adjustments only for line items' do
+            result = nil
+
+            VCR.use_cassette('spree_avatax_official/create_tax_adjustments/line_item_and_shipment') do
+              result = subject
+
+              order.updater.update
+            end
+
+            expect(result.success?).to eq true
+            expect(order.total).to eq 15.8
+            expect(order.additional_tax_total).to eq 0.8
+            expect(shipment.reload.additional_tax_total).to eq 0
+          end
         end
       end
 
