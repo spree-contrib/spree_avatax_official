@@ -25,10 +25,10 @@ module SpreeAvataxOfficial
     end
 
     def discounted?
-      case item
-      when ::Spree::LineItem
+      case item.class.name.demodulize
+      when 'LineItem'
         item.order.line_items_discounted_in_avatax?
-      when ::Spree::Shipment
+      when 'Shipment'
         # we do not want to apply order level discounts to shipments
         false
       end
