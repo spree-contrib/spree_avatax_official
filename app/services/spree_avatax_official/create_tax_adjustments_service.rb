@@ -1,5 +1,7 @@
 module SpreeAvataxOfficial
   class CreateTaxAdjustmentsService < SpreeAvataxOfficial::Base
+    include SpreeAvataxOfficial::TaxAdjustmentLabelHelper
+
     def call(order:) # rubocop:disable Metrics/AbcSize
       return failure(I18n.t('spree_avatax_official.create_tax_adjustments.order_canceled')) if order.canceled?
 
@@ -55,7 +57,7 @@ module SpreeAvataxOfficial
       # especially because of validation that requires presence of tax category
       return if item.tax_category.nil?
 
-      tax_rate = find_or_create_tax_rate(item)
+      tax_rate = find_or_create_tax_rate(item, avatax_item)
 
       create_tax_adjustment(item, tax_rate, tax_amount)
     end
@@ -69,10 +71,10 @@ module SpreeAvataxOfficial
       end
     end
 
-    def find_or_create_tax_rate(item)
+    def find_or_create_tax_rate(item, avatax_item)
       ::Spree::TaxRate.find_or_create_by!(
         name:               'AvaTax dummy tax rate',
-        amount:             0.0,
+        amount:             sum_rates_from_details(avatax_item),
         zone:               ::Spree::Zone.default_tax,
         tax_category:       item.tax_category,
         show_rate_in_label: false
@@ -86,9 +88,13 @@ module SpreeAvataxOfficial
         source:   source,
         amount:   amount,
         included: false,
-        label:    'AvaTax Tax adjustment',
+        label:    tax_adjustment_label(item, source.amount),
         order:    item.order
       )
+    end
+
+    def sum_rates_from_details(avatax_item)
+      avatax_item['details'].sum { |detail_entry| detail_entry['rate'] }
     end
   end
 end

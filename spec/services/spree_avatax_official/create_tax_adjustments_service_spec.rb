@@ -73,6 +73,34 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
             expect(shipment.reload.additional_tax_total).to eq 0
           end
         end
+
+        context 'when SpreeAvataxOfficial::Config.show_rate_in label is true' do
+          let(:order) { create(:avatax_order, with_shipment: true, line_items_count: 1, ship_address: usa_address) }
+          let(:line_item_tax_adjustment) { order.line_items.first.adjustments.tax.first }
+          let(:shipment_tax_adjustment) { order.shipments.first.adjustments.tax.first }
+
+          around do |example|
+            SpreeAvataxOfficial::Config.show_rate_in_label = true
+            example.run
+            SpreeAvataxOfficial::Config.show_rate_in_label = false
+          end
+
+          it 'sets adjustments labels with percentage tax amount' do
+            result = nil
+
+            VCR.use_cassette('spree_avatax_official/create_tax_adjustments/line_item_and_shipment') do
+              result = subject
+
+              order.updater.update
+            end
+
+            expect(result.success?).to eq true
+            expect(line_item_tax_adjustment.source.amount).to eq 0.08
+            expect(line_item_tax_adjustment.label).to eq 'Sales Tax (8%)'
+            expect(shipment_tax_adjustment.source.amount).to eq 0.08
+            expect(shipment_tax_adjustment.label).to eq 'Shipping Tax (8%)'
+          end
+        end
       end
 
       context 'with multiple line items with multiple quantity' do
