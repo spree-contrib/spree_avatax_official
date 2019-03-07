@@ -16,7 +16,13 @@ module SpreeAvataxOfficial
       attr_reader :refund_items
 
       def items_payload
-        refund_items.map { |item, quantity| SpreeAvataxOfficial::ItemPresenter.new(item: item, quantity: quantity).to_json }
+        refund_items.map do |item, (quantity, amount)|
+          SpreeAvataxOfficial::ItemPresenter.new(
+            item:            item,
+            custom_quantity: quantity,
+            custom_amount:   amount
+          ).to_json
+        end
       end
     end
   end

@@ -34,7 +34,7 @@ describe SpreeAvataxOfficial::ItemPresenter do
       end
 
       context 'with line item quantity' do
-        subject { described_class.new(item: item, quantity: quantity) }
+        subject { described_class.new(item: item, custom_quantity: quantity) }
 
         let(:quantity) { item.quantity - 1 }
 
@@ -42,6 +42,20 @@ describe SpreeAvataxOfficial::ItemPresenter do
           result[:quantity] = quantity
 
           expect(subject.to_json).to eq result
+        end
+
+        context 'with line item amount' do
+          subject { described_class.new(item: item, custom_quantity: quantity, custom_amount: amount) }
+
+          let(:quantity) { item.quantity - 1 }
+          let(:amount) { item.amount * 2 }
+
+          it 'serializes the object' do
+            result[:quantity] = quantity
+            result[:amount]   = amount
+
+            expect(subject.to_json).to eq result
+          end
         end
       end
     end
