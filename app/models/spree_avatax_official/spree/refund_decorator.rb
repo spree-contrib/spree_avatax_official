@@ -1,10 +1,8 @@
 module SpreeAvataxOfficial
   module Spree
-    module ReturnItemDecorator
+    module RefundDecorator
       def self.prepended(base)
-        base.state_machine :reception_status do
-          after_transition to: :received, do: :refund_in_avatax
-        end
+        base.after_create :refund_in_avatax
       end
 
       private
@@ -19,4 +17,4 @@ module SpreeAvataxOfficial
 end
 
 # Temporarily commented out for a project with multiple namespaces
-# ::Spree::ReturnItem.prepend(::SpreeAvataxOfficial::Spree::ReturnItemDecorator) if 'Spree::ReturnItem'.safe_constantize
+# ::Spree::Refund.prepend(::SpreeAvataxOfficial::Spree::RefundDecorator) if 'Spree::Refund'.safe_constantize
