@@ -1,8 +1,9 @@
 module SpreeAvataxOfficial
   class ItemPresenter
-    def initialize(item:, quantity: nil)
-      @item     = item
-      @quantity = quantity
+    def initialize(item:, custom_quantity: nil, custom_amount: nil)
+      @item            = item
+      @custom_quantity = custom_quantity
+      @custom_amount   = custom_amount
     end
 
     # Based on: https://developer.avalara.com/api-reference/avatax/rest/v2/models/LineItemModel/
@@ -10,7 +11,7 @@ module SpreeAvataxOfficial
       {
         number:     item.avatax_number,
         quantity:   item_quantity,
-        amount:     item.discounted_amount,
+        amount:     item_amount,
         taxCode:    item.avatax_tax_code,
         discounted: discounted?
       }
@@ -18,10 +19,14 @@ module SpreeAvataxOfficial
 
     private
 
-    attr_reader :item, :quantity
+    attr_reader :item, :custom_quantity, :custom_amount
 
     def item_quantity
-      quantity || item.try(:quantity) || 1
+      custom_quantity || item.try(:quantity) || 1
+    end
+
+    def item_amount
+      custom_amount || item.discounted_amount
     end
 
     def discounted?

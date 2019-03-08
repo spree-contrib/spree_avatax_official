@@ -16,20 +16,24 @@ module SpreeAvataxOfficial
       end
 
       def order(refundable)
-        @order ||= case refundable
-                   when ::Spree::ReturnAuthorization
+        @order ||= case refundable_class(refundable)
+                   when 'ReturnAuthorization'
                      refundable.order
-                   when ::Spree::ReturnItem
-                     refundable.return_authorization.order
+                   when 'Refund'
+                     refundable.reimbursement.order
                    end
       end
 
+      def refundable_class(refundable)
+        @refundable_class ||= refundable.class.name.demodulize
+      end
+
       def inventory_units(refundable)
-        @inventory_units ||= case refundable
-                             when ::Spree::ReturnAuthorization
+        @inventory_units ||= case refundable_class(refundable)
+                             when 'ReturnAuthorization'
                                refundable.inventory_units
-                             when ::Spree::ReturnItem
-                               [refundable.inventory_unit]
+                             when 'Refund'
+                               refundable.reimbursement.return_items.map(&:inventory_unit)
                              end
       end
 
@@ -42,8 +46,14 @@ module SpreeAvataxOfficial
 
       def refund_items(refundable)
         inventory_units(refundable).group_by(&:line_item).reduce({}) do |ids, (line_item, units)|
-          ids.merge!(line_item => units.count)
+          ids.merge!(line_item => [units.count, line_item_amount(refundable, units)])
         end
+      end
+
+      def line_item_amount(refundable, units)
+        return unless refundable_class(refundable) == 'Refund'
+
+        units.flat_map(&:return_items).sum(&:pre_tax_amount)
       end
 
       def create_full_refund(refundable)
