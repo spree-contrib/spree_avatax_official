@@ -76,4 +76,12 @@ RSpec.configure do |config|
   config.order                      = 'random'
   config.default_formatter          = 'doc'
   config.fail_fast                  = ENV['FAIL_FAST'] || false
+
+  config.around(avatax_enabled: true) do |example|
+    SpreeAvataxOfficial::Config.enabled = true
+
+    example.run
+
+    SpreeAvataxOfficial::Config.enabled = false
+  end
 end
