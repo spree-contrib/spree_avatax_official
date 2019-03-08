@@ -10,15 +10,9 @@ describe Spree::LineItem do
   end
 
   describe '#update_tax_charge' do
-    context 'with AvaTax tax calculcation' do
+    context 'with AvaTax tax calculcation', :avatax_enabled do
       let(:order) { create(:avatax_order, ship_address: create(:usa_address)) }
       let(:line_item) { order.line_items.first }
-
-      around do |example|
-        SpreeAvataxOfficial::Config.enabled = true
-        example.run
-        SpreeAvataxOfficial::Config.enabled = false
-      end
 
       before do
         VCR.use_cassette('spree_order/update_tax_charge/create_line_item') do

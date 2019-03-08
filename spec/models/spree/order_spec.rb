@@ -14,15 +14,9 @@ describe Spree::Order do
     end
   end
 
-  describe '#cancel' do
+  describe '#cancel', :avatax_enabled do
     let!(:avatax_tax_rate) { create(:avatax_tax_rate) }
     let(:order) { create(:order, ship_address: create(:usa_address)) }
-
-    around do |example|
-      SpreeAvataxOfficial::Config.enabled = true
-      example.run
-      SpreeAvataxOfficial::Config.enabled = false
-    end
 
     before do
       VCR.use_cassette('spree_order/simple_order_with_single_line_item') do
@@ -51,7 +45,7 @@ describe Spree::Order do
     end
   end
 
-  describe '#complete' do
+  describe '#complete', :avatax_enabled do
     let(:order) do
       VCR.use_cassette('spree_order/order_transition_to_completed') do
         create(:avatax_order, line_items_count: 1, ship_address: create(:usa_address)).tap do |order|
@@ -66,12 +60,6 @@ describe Spree::Order do
           2.times { order.next! }
         end
       end
-    end
-
-    around do |example|
-      SpreeAvataxOfficial::Config.enabled = true
-      example.run
-      SpreeAvataxOfficial::Config.enabled = false
     end
 
     before do
@@ -99,17 +87,11 @@ describe Spree::Order do
     end
   end
 
-  describe 'tax estimation triggering' do
+  describe 'tax estimation triggering', :avatax_enabled do
     let(:order) { create(:avatax_order, with_shipment: true, ship_address: create(:usa_address)) }
     let(:line_item) { order.line_items.first }
     let(:shipment) { order.shipments.first }
     let(:tax_adjustment) { line_item.adjustments.tax.first }
-
-    around do |example|
-      SpreeAvataxOfficial::Config.enabled = true
-      example.run
-      SpreeAvataxOfficial::Config.enabled = false
-    end
 
     before do
       VCR.use_cassette('spree_order/simple_order_with_single_line_item_and_shipment') do
