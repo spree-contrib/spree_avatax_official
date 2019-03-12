@@ -1,41 +1,22 @@
 module SpreeAvataxOfficial
   class Seeder
-    def initialize
-      @parsed_address = JSON.parse(spree_avatax_certified_preference)
-    end
-
-    # TODO: Create initial data like Tax Categories
     def seed!
-      copy_ship_from_address
+      create_default_tax_category
+      create_and_assign_shipping_tax_category
     end
 
     private
 
-    attr_reader :parsed_address
-
-    # Copy ShipFrom address from SpreeAvataxCertified preference
-    def copy_ship_from_address
-      return if parsed_address.blank?
-
-      SpreeAvataxOfficial::Config.ship_from_address = map_to_new_format(parsed_address)
+    def create_default_tax_category
+      ::Spree::TaxCategory.find_or_create_by!(name: 'Clothing')
+                          .update!(tax_code: ::Spree::TaxCategory::DEFAULT_TAX_CODES['LineItem'], is_default: true)
     end
 
-    def spree_avatax_certified_preference
-      ::Spree::Preference.find_by(key: 'spree/app_configuration/avatax_origin').try(:value) || '{}'
-    end
+    def create_and_assign_shipping_tax_category
+      shipping_tax_category = ::Spree::TaxCategory.find_or_create_by!(name: 'Shipping')
+      shipping_tax_category.update!(tax_code: ::Spree::TaxCategory::DEFAULT_TAX_CODES['Shipment'])
 
-    def map_to_new_format(parsed_address)
-      state_abbr   = ::Spree::State.find_by(name: parsed_address['Region']).try(:abbr)
-      country_iso3 = ::Spree::Country.find_by(name: parsed_address['Country']).try(:iso3)
-
-      {
-        line1:      parsed_address['Address1'],
-        line2:      parsed_address['Address2'],
-        city:       parsed_address['City'],
-        region:     state_abbr,
-        country:    country_iso3,
-        postalCode: parsed_address['Zip5']
-      }
+      ::Spree::ShippingMethod.update_all(tax_category_id: shipping_tax_category.id)
     end
   end
 end
