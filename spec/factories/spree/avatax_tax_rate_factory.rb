@@ -5,13 +5,13 @@ FACTORY_BOT_CLASS.define do
     zone               { Spree::Zone.find_by(name: 'GlobalZone') || create(:avatax_global_zone) }
     show_rate_in_label { false }
     tax_category do
-      Spree::TaxCategory.find_by(tax_code: ::Spree::TaxCategory::DEFAULT_TAX_CODES['Spree::LineItem']) ||
+      Spree::TaxCategory.find_by(tax_code: ::Spree::TaxCategory::DEFAULT_TAX_CODES['LineItem']) ||
         create(:avatax_tax_category, :clothing)
     end
 
     trait :shipping_tax_rate do
       tax_category do
-        Spree::TaxCategory.find_by(tax_code: ::Spree::TaxCategory::DEFAULT_TAX_CODES['Spree::Shipment']) ||
+        Spree::TaxCategory.find_by(tax_code: ::Spree::TaxCategory::DEFAULT_TAX_CODES['Shipment']) ||
           create(:avatax_tax_category, :shipping)
       end
     end
