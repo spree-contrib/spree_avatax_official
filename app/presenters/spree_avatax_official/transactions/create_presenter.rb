@@ -39,7 +39,7 @@ module SpreeAvataxOfficial
       end
 
       def ship_from_payload
-        SpreeAvataxOfficial::AddressPresenter.new(address: SpreeAvataxOfficial::Config.ship_from_address, address_type: 'ShipFrom').to_json
+        SpreeAvataxOfficial::AddressPresenter.new(address: order.avatax_ship_from_address, address_type: 'ShipFrom').to_json
       end
 
       def ship_to_payload

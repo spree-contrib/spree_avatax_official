@@ -30,6 +30,10 @@ module SpreeAvataxOfficial
         adjustments.promotion.eligible.sum(:amount).abs
       end
 
+      def avatax_ship_from_address
+        SpreeAvataxOfficial::Config.ship_from_address
+      end
+
       def line_items_discounted_in_avatax?
         adjustments.promotion.eligible.any?
       end
