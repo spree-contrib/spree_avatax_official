@@ -19,4 +19,5 @@ Spree::Address.prepend ::SpreeAvataxOfficial::Spree::AddressDecorator
 Spree::Shipment.prepend ::SpreeAvataxOfficial::Spree::ShipmentDecorator
 Spree::LineItem.prepend ::SpreeAvataxOfficial::Spree::LineItemDecorator
 Spree::OrderUpdater.prepend ::SpreeAvataxOfficial::Spree::OrderUpdaterDecorator
+Spree::ReturnAuthorization.prepend(::SpreeAvataxOfficial::Spree::ReturnAuthorizationDecorator)
 Spree::Refund.prepend(::SpreeAvataxOfficial::Spree::RefundDecorator) if 'Spree::Refund'.safe_constantize
