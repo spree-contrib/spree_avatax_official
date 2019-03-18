@@ -1,7 +1,12 @@
 module SpreeAvataxOfficial
   class GenerateTransactionCacheKeyService < SpreeAvataxOfficial::Base
     def call(order:)
-      reloaded_order = order.class.includes(:line_items, :shipments, :adjustments, order.tax_address_symbol => %i[state country]).find(order.id)
+      reloaded_order = order.class.includes(
+        :line_items,
+        :adjustments,
+        :shipments               => :stock_location,
+        order.tax_address_symbol => %i[state country]
+      ).find(order.id)
 
       success(transaction_cache_key(reloaded_order))
     end
@@ -60,9 +65,20 @@ module SpreeAvataxOfficial
         [
           shipment.avatax_uuid,
           shipment.discounted_cost,
-          shipment.avatax_tax_code
+          shipment.avatax_tax_code,
+          stock_location_cache_key(shipment.stock_location)
         ].join('-')
       end.join('-')
+    end
+
+    def stock_location_cache_key(stock_location)
+      [
+        stock_location.address1,
+        stock_location.address2,
+        stock_location.city,
+        stock_location.state.try(:abbr),
+        stock_location.country.try(:iso)
+      ].join('-')
     end
 
     def avatax_preferences_cache_key

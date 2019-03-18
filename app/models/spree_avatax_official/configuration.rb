@@ -1,5 +1,5 @@
 module SpreeAvataxOfficial
-  class Configuration < Spree::Preferences::Configuration
+  class Configuration < ::Spree::Preferences::Configuration
     preference :company_code,       :string,  default: ''
     preference :enabled,            :boolean, default: false
     preference :ship_from_address,  :hash,    default: {}

@@ -13,7 +13,8 @@ describe SpreeAvataxOfficial::ItemPresenter do
           quantity:   item.quantity,
           amount:     item.discounted_amount,
           taxCode:    'P0000000',
-          discounted: false
+          discounted: false,
+          addresses:  {}
         }
       end
 
@@ -58,6 +59,34 @@ describe SpreeAvataxOfficial::ItemPresenter do
           end
         end
       end
+
+      context 'when line item has inventory_units' do
+        let(:ship_from_address) { SpreeAvataxOfficial::AddressPresenter.new(address: stock_location_address, address_type: 'ShipFrom').to_json }
+        let(:ship_to_address)   { SpreeAvataxOfficial::AddressPresenter.new(address: item.order.tax_address, address_type: 'ShipTo').to_json }
+        let(:stock_location)    { item.inventory_units.first.shipment.stock_location }
+        let(:stock_location_address) do
+          {
+            line1:      stock_location.address1,
+            line2:      stock_location.address2,
+            city:       stock_location.city,
+            region:     stock_location.state.try(:abbr),
+            country:    stock_location.country.try(:iso),
+            postalCode: stock_location.zipcode
+          }
+        end
+        let(:item) do
+          create(:line_item).tap do |line_item|
+            line_item.order.ship_address = create(:usa_address)
+            create(:inventory_unit, order: line_item.order, line_item: line_item)
+          end
+        end
+
+        it 'serializes the object' do
+          result[:addresses] = ship_from_address.merge(ship_to_address)
+
+          expect(subject.to_json).to eq result
+        end
+      end
     end
 
     context 'with shipment' do
@@ -69,7 +98,8 @@ describe SpreeAvataxOfficial::ItemPresenter do
           quantity:   1,
           amount:     item.discounted_amount,
           taxCode:    'FR',
-          discounted: false
+          discounted: false,
+          addresses:  {}
         }
       end
 

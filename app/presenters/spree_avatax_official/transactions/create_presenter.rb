@@ -22,6 +22,8 @@ module SpreeAvataxOfficial
         }
       end
 
+      delegate :avatax_ship_from_address, to: :order
+
       private
 
       attr_reader :order, :transaction_type, :transaction_code
@@ -39,7 +41,7 @@ module SpreeAvataxOfficial
       end
 
       def ship_from_payload
-        SpreeAvataxOfficial::AddressPresenter.new(address: order.avatax_ship_from_address, address_type: 'ShipFrom').to_json
+        SpreeAvataxOfficial::AddressPresenter.new(address: avatax_ship_from_address, address_type: 'ShipFrom').to_json
       end
 
       def ship_to_payload
