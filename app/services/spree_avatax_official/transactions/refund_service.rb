@@ -12,16 +12,7 @@ module SpreeAvataxOfficial
       private
 
       def full_refund?(refundable)
-        order(refundable).inventory_units == inventory_units(refundable)
-      end
-
-      def order(refundable)
-        @order ||= case refundable_class(refundable)
-                   when 'ReturnAuthorization'
-                     refundable.order
-                   when 'Refund'
-                     refundable.reimbursement.order
-                   end
+        refundable.order_inventory_units == inventory_units(refundable)
       end
 
       def refundable_class(refundable)
@@ -39,7 +30,7 @@ module SpreeAvataxOfficial
 
       def create_partial_refund(refundable)
         SpreeAvataxOfficial::Transactions::PartialRefundService.call(
-          order:        order(refundable),
+          order:        refundable.order,
           refund_items: refund_items(refundable)
         )
       end
@@ -58,7 +49,7 @@ module SpreeAvataxOfficial
 
       def create_full_refund(refundable)
         SpreeAvataxOfficial::Transactions::FullRefundService.call(
-          order: order(refundable)
+          order: refundable.order
         )
       end
     end

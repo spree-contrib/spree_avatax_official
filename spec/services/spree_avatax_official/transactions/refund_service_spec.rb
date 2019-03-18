@@ -4,7 +4,7 @@ describe SpreeAvataxOfficial::Transactions::RefundService do
   describe '#call' do
     subject { described_class.call(refundable: return_auth) }
 
-    let(:order) { create(:shipped_order, line_items_count: 2) }
+    let(:order)       { create(:shipped_order, line_items_count: 2, ship_address: create(:usa_address)) }
     let(:return_auth) { create(:return_authorization, order: order, inventory_units: order.inventory_units) }
 
     context 'with return authorization' do
@@ -31,11 +31,16 @@ describe SpreeAvataxOfficial::Transactions::RefundService do
     end
 
     context 'with refund', if: defined?(Spree::Refund) do
-      let(:refund) { create(:refund, amount: 10, reimbursement: reimbursement) }
-      let(:reimbursement) { create(:reimbursement) }
+      let(:payment)       { create(:payment, state: :completed, order: order) }
+      let(:reimbursement) { order.reimbursements.create }
+      let(:refund)        { create(:refund, amount: 10, reimbursement: reimbursement, payment: payment) }
 
       context 'with full refund' do
         it 'creates refund transaction' do
+          order.inventory_units.each do |inventory_unit|
+            reimbursement.return_items.create(inventory_unit: inventory_unit)
+          end
+
           expect(SpreeAvataxOfficial::Transactions::FullRefundService).to receive(:call)
 
           described_class.call(refundable: refund)
@@ -43,12 +48,6 @@ describe SpreeAvataxOfficial::Transactions::RefundService do
       end
 
       context 'with partial refund' do
-        let(:order) do
-          reimbursement.order.tap do |order|
-            order.update(ship_address: create(:usa_address))
-            create(:inventory_unit, order: order)
-          end
-        end
         let(:inventory_unit) do
           order.inventory_units.first.tap do |inventory_unit|
             inventory_unit.return_items.update_all(pre_tax_amount: 10)
@@ -61,6 +60,8 @@ describe SpreeAvataxOfficial::Transactions::RefundService do
         end
 
         it 'creates refund only for refunded lines' do
+          order.update(completed_at: Time.current)
+
           VCR.use_cassette('spree_avatax_official/transactions/refund/partial_refund_with_refund_success') do
             order.reload
 

@@ -3,6 +3,9 @@ module SpreeAvataxOfficial
     module RefundDecorator
       def self.prepended(base)
         base.after_create :refund_in_avatax
+
+        base.delegate :order,           to: :payment
+        base.delegate :inventory_units, to: :order, prefix: true
       end
 
       private
