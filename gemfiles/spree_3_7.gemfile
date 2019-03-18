@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'rails-controller-testing'
-gem 'rubocop', require: false
+gem 'rubocop', '~> 0.63.0', require: false
 gem 'rubocop-rspec', require: false
 gem 'spree_auth_devise', '~> 3.4'
 gem 'spree_backend', '~> 3.7.0.rc1'
