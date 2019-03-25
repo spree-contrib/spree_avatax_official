@@ -167,4 +167,38 @@ describe Spree::Order do
       end
     end
   end
+
+  describe '#validate_tax_address' do
+    let(:order) { create(:order_with_line_items, ship_address: ship_address, state: :address) }
+
+    around do |example|
+      SpreeAvataxOfficial::Config.address_validation_enabled = true
+
+      example.run
+
+      SpreeAvataxOfficial::Config.address_validation_enabled = false
+    end
+
+    context 'when address is invalid' do
+      let(:ship_address) { create(:invalid_usa_address) }
+
+      it 'does not change order state to delivery and adds an error' do
+        VCR.use_cassette('spree_avatax_official/address/validate_failure') do
+          expect { order.next! }.to raise_error StateMachines::InvalidTransition
+          expect(order.errors.count).to eq 1
+          expect(order.state).to eq 'address'
+        end
+      end
+    end
+
+    context 'when address is valid' do
+      let(:ship_address) { create(:usa_address) }
+
+      it 'changes state from address to delivery' do
+        VCR.use_cassette('spree_avatax_official/address/validate_success') do
+          expect { order.next! }.to change(order, :state).to 'delivery'
+        end
+      end
+    end
+  end
 end
