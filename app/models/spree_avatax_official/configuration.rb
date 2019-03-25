@@ -8,5 +8,6 @@ module SpreeAvataxOfficial
     preference :log_file_name,      :string,  default: 'avatax.log'
     preference :log_frequency,      :string,  default: 'weekly'
     preference :show_rate_in_label, :boolean, default: false
+    preference :address_validation_enabled, :boolean, default: false
   end
 end
