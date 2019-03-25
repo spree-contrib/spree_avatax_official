@@ -21,14 +21,9 @@ module SpreeAvataxOfficial
     end
 
     def ship_to_address
-      {
-        line1:      address.address1,
-        line2:      address.address2,
-        city:       address.city,
-        region:     address.state.try(:abbr),
-        country:    address.country.try(:iso),
-        postalCode: address.zipcode
-      }
+      SpreeAvataxOfficial::ShipToAddressPresenter.new(
+        address: address
+      ).to_json
     end
 
     def ship_from_address
