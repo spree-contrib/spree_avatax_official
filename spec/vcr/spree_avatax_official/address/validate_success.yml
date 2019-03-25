@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox-rest.avatax.com/api/v2/addresses/resolve?city=Philadelphia&country=US&line1=822%20Reed%20St&line2=&postalCode=19147&region=PA
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 22 Mar 2019 09:41:25 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      X-Content-Type-Options:
+      - nosniff
+      Serverduration:
+      - '00:00:00.0262181'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Serviceduration:
+      - '00:00:00.0207094'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"address":{"line1":"822 Reed St","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"},"validatedAddresses":[{"addressType":"StreetOrResidentialAddress","line1":"822
+        REED ST","line2":"","line3":"","city":"PHILADELPHIA","region":"PA","country":"US","postalCode":"19147-5736","latitude":39.931649,"longitude":-75.159058}],"coordinates":{"latitude":39.931649,"longitude":-75.159058},"resolutionQuality":"Intersection","taxAuthorities":[{"avalaraId":"49","jurisdictionName":"PENNSYLVANIA","jurisdictionType":"State","signatureCode":"BKTQ"},{"avalaraId":"2311","jurisdictionName":"PHILADELPHIA","jurisdictionType":"County","signatureCode":"BMWV"},{"avalaraId":"2001076561","jurisdictionName":"PHILADELPHIA","jurisdictionType":"City","signatureCode":"NMXX"}]}'
+    http_version: 
+  recorded_at: Fri, 22 Mar 2019 09:41:25 GMT
+recorded_with: VCR 4.0.0

@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox-rest.avatax.com/api/v2/addresses/resolve?city=Philadelphia&country=US&line1=invalid%20address%20line&line2=&postalCode=19147&region=PA
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 18.12.0
+      X-Avalara-Client:
+      - ";;RubySdk;18.12.0;"
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 26 Mar 2019 08:12:35 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      X-Content-Type-Options:
+      - nosniff
+      Serverduration:
+      - '00:00:00.0281757'
+      Databasecalls:
+      - '1'
+      Databaseduration:
+      - '00:00:00.0020000'
+      Serviceduration:
+      - '00:00:00.0241363'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"address":{"line1":"invalid address line","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"},"validatedAddresses":[{"addressType":"UnknownAddressType","line1":"invalid
+        address line","line2":"","line3":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147","latitude":39.937562,"longitude":-75.155601}],"coordinates":{"latitude":39.937562,"longitude":-75.155601},"resolutionQuality":"NotCoded","messages":[{"summary":"An
+        exact street name match could not be found","details":"An exact street name
+        match could not be found and phonetically matching the street name resulted
+        in either no matches or matches to more than one street name.","refersTo":"Address.Line1","severity":"Error","source":"Avalara.AvaTax.Services.Address"}]}'
+    http_version: 
+  recorded_at: Tue, 26 Mar 2019 08:12:35 GMT
+recorded_with: VCR 4.0.0
