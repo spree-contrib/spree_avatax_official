@@ -10,15 +10,16 @@ module SpreeAvataxOfficial
       # Based on: https://developer.avalara.com/api-reference/avatax/rest/v2/models/CreateTransactionModel/
       def to_json # rubocop:disable Metrics/MethodLength
         {
-          type:         transaction_type,
-          code:         transaction_code,
-          companyCode:  company_code,
-          date:         formatted_date(order_date),
-          customerCode: order.email,
-          addresses:    addresses_payload,
-          lines:        items_payload,
-          commit:       order.complete?,
-          discount:     order.avatax_discount_amount
+          type:          transaction_type,
+          code:          transaction_code,
+          referenceCode: order.number,
+          companyCode:   company_code,
+          date:          formatted_date(order_date),
+          customerCode:  order.email,
+          addresses:     addresses_payload,
+          lines:         items_payload,
+          commit:        order.complete?,
+          discount:      order.avatax_discount_amount
         }
       end
 

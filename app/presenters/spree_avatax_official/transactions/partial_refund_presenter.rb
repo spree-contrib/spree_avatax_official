@@ -7,10 +7,6 @@ module SpreeAvataxOfficial
         @transaction_type  = SpreeAvataxOfficial::Transaction::RETURN_INVOICE
       end
 
-      def to_json
-        super.merge!(referenceCode: order.number)
-      end
-
       private
 
       attr_reader :refund_items
