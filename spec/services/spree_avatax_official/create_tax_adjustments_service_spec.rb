@@ -101,6 +101,41 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
             expect(shipment_tax_adjustment.label).to eq 'Shipping Tax (8%)'
           end
         end
+
+        context 'when stock location has different address then order tax address' do
+          let(:california_address)       { create(:usa_address, :from_california) }
+          let(:order)                    { create(:avatax_order, with_shipment: true, line_items_count: 1, ship_address: usa_address) }
+          let(:line_item)                { order.line_items.first }
+          let(:line_item_tax_adjustment) { line_item.adjustments.tax.first }
+          let(:shipment_tax_adjustment)  { order.shipments.first.adjustments.tax.first }
+
+          let!(:stock_location) do
+            line_item.inventory_units.first.shipment.stock_location.tap do |stock_location|
+              stock_location.update(
+                name:     'California Warehouse',
+                address1: california_address.address1,
+                address2: california_address.address2,
+                city:     california_address.city,
+                zipcode:  california_address.zipcode,
+                state_id: california_address.state_id
+              )
+            end
+          end
+
+          it 'creates tax rates and tax adjustments' do
+            result = nil
+
+            VCR.use_cassette('spree_avatax_official/create_tax_adjustments/californian_stock_location') do
+              result = subject
+
+              order.updater.update
+            end
+
+            expect(result.success?).to eq true
+            expect(order.total).to eq 16.2
+            expect(order.additional_tax_total).to eq 1.2
+          end
+        end
       end
 
       context 'with multiple line items with multiple quantity' do

@@ -14,7 +14,7 @@ unless FACTORY_BOT_CLASS.factories.registered?(:usa_address)
       state             { |address| Spree::State.where(name: 'Pennsylvania', abbr: 'PA', country: address.country).first_or_create }
 
       country do
-        usa_attributes = { name: 'United States of America', iso_name: 'UNITED STATES', iso: 'US', iso3: 'USA' }
+        usa_attributes = { name: 'United States', iso_name: 'UNITED STATES', iso: 'US', iso3: 'USA' }
         Spree::Country.find_by(usa_attributes) || create(:country, usa_attributes)
       end
 
