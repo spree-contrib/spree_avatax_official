@@ -21,10 +21,11 @@ module SpreeAvataxOfficial
       end
 
       def transaction_code(order, type)
-        order
-          .avatax_transactions
-          .find_by(transaction_type: type)
-          .try(:code)
+        transaction = order
+                      .avatax_transactions
+                      .find_by(transaction_type: type)
+
+        transaction.try(:code) || order.number
       end
     end
   end

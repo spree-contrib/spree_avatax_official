@@ -17,6 +17,24 @@ describe SpreeAvataxOfficial::Transactions::GetByCodeService do
             expect(subject.value['type']).to eq 'SalesInvoice'
           end
         end
+
+        context 'without sales transaction', :vcr do
+          let(:params) { { order: order } }
+
+          before do
+            order.update(number: 'R677767217')
+            order.avatax_transactions.destroy_all
+          end
+
+          it 'returns success' do
+            VCR.use_cassette('spree_avatax_official/transactions/get_by_code/order_with_number_success') do
+              result = subject.value
+
+              expect(result['code']).to eq order.number
+              expect(result['type']).to eq 'SalesInvoice'
+            end
+          end
+        end
       end
 
       context 'with custom transaction type' do
@@ -31,23 +49,13 @@ describe SpreeAvataxOfficial::Transactions::GetByCodeService do
     end
 
     context 'with incorrect params' do
-      context 'when transaction does not exist in avalara' do
-        let(:params) { { order: order } }
+      let(:params) { { order: order } }
 
-        before { sales_transaction.update(code: 'testerror') }
+      before { sales_transaction.update(code: 'testerror') }
 
-        it 'returns error' do
-          VCR.use_cassette('spree_avatax_official/transactions/get_by_code/error') do
-            expect(subject.value['error']['code']).to eq 'EntityNotFoundError'
-          end
-        end
-      end
-
-      context 'when order transaction does not exist' do
-        let(:params) { { order: create(:order) } }
-
-        it 'returns error' do
-          expect(subject.value).to eq I18n.t('spree_avatax_official.get_by_code_service.missing_code')
+      it 'returns error' do
+        VCR.use_cassette('spree_avatax_official/transactions/get_by_code/error') do
+          expect(subject.value['error']['code']).to eq 'EntityNotFoundError'
         end
       end
     end
