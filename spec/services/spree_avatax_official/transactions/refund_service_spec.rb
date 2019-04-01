@@ -7,7 +7,7 @@ describe SpreeAvataxOfficial::Transactions::RefundService do
     let(:order)       { create(:shipped_order, line_items_count: 2, ship_address: create(:usa_address)) }
     let(:return_auth) { create(:return_authorization, order: order, inventory_units: order.inventory_units) }
 
-    context 'with return authorization' do
+    context 'with return authorization', unless: defined?(Spree::Refund) do
       context 'with full refund' do
         it 'creates refund transaction' do
           expect(SpreeAvataxOfficial::Transactions::FullRefundService).to receive(:call)

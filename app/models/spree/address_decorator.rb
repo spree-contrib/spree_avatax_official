@@ -28,5 +28,4 @@ module SpreeAvataxOfficial
   end
 end
 
-# Temporarily commented out for a project with multiple namespaces
-# Spree::Address.prepend ::SpreeAvataxOfficial::Spree::AddressDecorator
+::Spree::Address.prepend ::SpreeAvataxOfficial::Spree::AddressDecorator

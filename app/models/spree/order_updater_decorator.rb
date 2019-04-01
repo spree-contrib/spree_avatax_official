@@ -13,5 +13,4 @@ module SpreeAvataxOfficial
   end
 end
 
-# Temporarily commented out for a project with multiple namespaces
-# Spree::OrderUpdater.prepend ::SpreeAvataxOfficial::Spree::OrderUpdaterDecorator
+::Spree::OrderUpdater.prepend ::SpreeAvataxOfficial::Spree::OrderUpdaterDecorator
