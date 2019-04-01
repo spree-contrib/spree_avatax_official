@@ -10,6 +10,7 @@ module SpreeAvataxOfficial
                      class_name: 'SpreeAvataxOfficial::Transaction',
                      inverse_of: :order
 
+        base.state_machine.before_transition to: :delivery, do: :validate_tax_address, if: :address_validation_enabled?
         base.state_machine.after_transition to: :canceled, do: :void_in_avatax
         base.state_machine.after_transition to: :complete, do: :commit_in_avatax
       end
@@ -54,6 +55,24 @@ module SpreeAvataxOfficial
         SpreeAvataxOfficial::CreateTaxAdjustmentsService.call(order: self)
         update_totals
         persist_totals
+      end
+
+      def validate_tax_address
+        response = SpreeAvataxOfficial::Address::Validate.call(
+          address: tax_address
+        )
+
+        return if response.success?
+
+        error_message = response.value['messages'].map { |message| message['summary'] }.join('. ')
+
+        errors.add(:base, error_message)
+
+        false
+      end
+
+      def address_validation_enabled?
+        SpreeAvataxOfficial::Config.address_validation_enabled
       end
 
       private

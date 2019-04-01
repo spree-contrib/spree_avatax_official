@@ -16,8 +16,9 @@ SpreeAvataxOfficial::Config.ship_from_address  = {
 }
 
 # Optional configuration fields
-SpreeAvataxOfficial::Config.log                = true
-SpreeAvataxOfficial::Config.log_to_stdout      = false
-SpreeAvataxOfficial::Config.log_file_name      = 'avatax.log'
-SpreeAvataxOfficial::Config.log_frequency      = 'weekly'
-SpreeAvataxOfficial::Config.show_rate_in_label = false
+SpreeAvataxOfficial::Config.log                        = true
+SpreeAvataxOfficial::Config.log_to_stdout              = false
+SpreeAvataxOfficial::Config.log_file_name              = 'avatax.log'
+SpreeAvataxOfficial::Config.log_frequency              = 'weekly'
+SpreeAvataxOfficial::Config.show_rate_in_label         = false
+SpreeAvataxOfficial::Config.address_validation_enabled = false

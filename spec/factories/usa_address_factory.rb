@@ -25,6 +25,10 @@ unless FACTORY_BOT_CLASS.factories.registered?(:usa_address)
         zipcode  { '94108' }
         state    { |address| Spree::State.where(name: 'California', abbr: 'CA', country: address.country).first_or_create }
       end
+
+      factory :invalid_usa_address do
+        address1 { 'invalid address line' }
+      end
     end
   end
 end
