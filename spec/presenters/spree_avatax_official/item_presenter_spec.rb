@@ -78,10 +78,13 @@ describe SpreeAvataxOfficial::ItemPresenter do
           create(:line_item).tap do |line_item|
             line_item.order.ship_address = create(:usa_address)
             create(:inventory_unit, order: line_item.order, line_item: line_item)
+            line_item.reload
           end
         end
 
         it 'serializes the object' do
+          item.order.update(ship_address: create(:usa_address))
+
           result[:addresses] = ship_from_address.merge(ship_to_address)
 
           expect(subject.to_json).to eq result
