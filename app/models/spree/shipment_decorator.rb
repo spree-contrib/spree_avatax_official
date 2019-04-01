@@ -16,5 +16,4 @@ module SpreeAvataxOfficial
   end
 end
 
-# Temporarily commented out for a project with multiple namespaces
-# Spree::Shipment.prepend ::SpreeAvataxOfficial::Spree::ShipmentDecorator
+::Spree::Shipment.prepend ::SpreeAvataxOfficial::Spree::ShipmentDecorator

@@ -8,5 +8,4 @@ module SpreeAvataxOfficial
   end
 end
 
-# Temporarily commented out for a project with multiple namespaces
-# ::Spree::ReturnAuthorization.prepend(::SpreeAvataxOfficial::Spree::ReturnAuthorizationDecorator)
+::Spree::ReturnAuthorization.prepend(::SpreeAvataxOfficial::Spree::ReturnAuthorizationDecorator) unless 'Spree::Refund'.safe_constantize

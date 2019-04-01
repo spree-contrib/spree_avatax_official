@@ -19,5 +19,4 @@ module SpreeAvataxOfficial
   end
 end
 
-# Temporarily commented out for a project with multiple namespaces
-# ::Spree::Refund.prepend(::SpreeAvataxOfficial::Spree::RefundDecorator) if 'Spree::Refund'.safe_constantize
+::Spree::Refund.prepend(::SpreeAvataxOfficial::Spree::RefundDecorator) if 'Spree::Refund'.safe_constantize

@@ -11,4 +11,4 @@ module SpreeAvataxOfficial
   end
 end
 
-Spree::TaxCategory.prepend ::SpreeAvataxOfficial::Spree::TaxCategoryDecorator
+::Spree::TaxCategory.prepend ::SpreeAvataxOfficial::Spree::TaxCategoryDecorator

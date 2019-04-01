@@ -92,5 +92,4 @@ module SpreeAvataxOfficial
   end
 end
 
-# Temporarily commented out for a project with multiple namespaces
-# Spree::Order.prepend ::SpreeAvataxOfficial::Spree::OrderDecorator
+::Spree::Order.prepend ::SpreeAvataxOfficial::Spree::OrderDecorator

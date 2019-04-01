@@ -18,5 +18,4 @@ module SpreeAvataxOfficial
   end
 end
 
-# Temporarily commented out for a project with multiple namespaces
-# Spree::LineItem.prepend ::SpreeAvataxOfficial::Spree::LineItemDecorator
+::Spree::LineItem.prepend ::SpreeAvataxOfficial::Spree::LineItemDecorator
