@@ -1,11 +1,17 @@
 require 'spec_helper'
 
 describe SpreeAvataxOfficial::ItemPresenter do
-  subject { described_class.new(item: item) }
+  subject     { described_class.new(item: item) }
+
+  let(:zone)  { create(:zone, included_in_price: false) }
 
   describe '#to_json' do
+    before do
+      allow(item.order).to receive(:tax_zone).and_return zone
+    end
+
     context 'with line item' do
-      let(:item) { create(:line_item) }
+      let(:item)  { create(:line_item) }
 
       let(:result) do
         {
@@ -16,7 +22,8 @@ describe SpreeAvataxOfficial::ItemPresenter do
           amount:      item.discounted_amount,
           taxCode:     'P0000000',
           discounted:  false,
-          addresses:   {}
+          addresses:   {},
+          taxIncluded: false
         }
       end
 
@@ -92,6 +99,18 @@ describe SpreeAvataxOfficial::ItemPresenter do
           expect(subject.to_json).to eq result
         end
       end
+
+      context 'with tax included in price' do
+        let(:zone) { create(:zone, included_in_price: true) }
+
+        it 'serializes the object' do
+          allow(item).to receive(:tax_zone).and_return zone
+
+          result[:taxIncluded] = true
+
+          expect(subject.to_json).to eq result
+        end
+      end
     end
 
     context 'with shipment' do
@@ -99,12 +118,13 @@ describe SpreeAvataxOfficial::ItemPresenter do
 
       let(:result) do
         {
-          number:     "FR-#{item.avatax_uuid}",
-          quantity:   1,
-          amount:     item.discounted_amount,
-          taxCode:    'FR',
-          discounted: false,
-          addresses:  {}
+          number:      "FR-#{item.avatax_uuid}",
+          quantity:    1,
+          amount:      item.discounted_amount,
+          taxCode:     'FR',
+          discounted:  false,
+          addresses:   {},
+          taxIncluded: false
         }
       end
 
