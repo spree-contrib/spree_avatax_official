@@ -140,7 +140,7 @@ describe Spree::Order do
       end
     end
 
-    context 'when shipping address is changed' do
+    context 'when shipping address is changed', if: (::Gem::Version.new(::Spree.version) >= ::Gem::Version.new('3.0.0')) do
       let(:california_address) { create(:usa_address, :from_california) }
 
       it 'triggers tax estimation' do
