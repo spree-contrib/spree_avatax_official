@@ -48,8 +48,8 @@ module SpreeAvataxOfficial
 
       return if tax_amount.zero?
 
-      item_suffix = avatax_item['lineNumber'].slice!(0..2)
-      item_id     = avatax_item['lineNumber']
+      item_suffix = avatax_item['lineNumber'].slice(0..2)
+      item_id     = avatax_item['lineNumber'].slice(3..-1)
       item        = find_item(order, item_id, item_suffix)
 
       # Spree allows to setup shipping methods without tax category and
