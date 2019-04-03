@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 describe SpreeAvataxOfficial::AvataxLog, type: :model do
-  let(:file_name)    { 'test_file.log' }
-  let(:logger)       { SpreeAvataxOfficial::AvataxLog.new }
-  let!(:order)       { create(:order) }
+  let(:file_name)       { 'test_file.log' }
+  let(:logger)          { SpreeAvataxOfficial::AvataxLog.new }
+  let(:example_payload) { { test: 'Test!' } }
+  let!(:order)          { create(:order) }
 
   before do
     SpreeAvataxOfficial::Config.log_file_name = file_name
@@ -21,9 +22,9 @@ describe SpreeAvataxOfficial::AvataxLog, type: :model do
 
   describe '#info' do
     it 'logs info with given message' do
-      logger.info('Test!')
+      logger.info(example_payload)
 
-      expect(File.new(Rails.root.join('log', file_name)).read).to include '[AVATAX] - Test!'
+      expect(File.new(Rails.root.join('log', file_name)).read).to include "[AVATAX] - #{example_payload.to_json}"
     end
 
     it 'returns nil if logger is not enabled' do
@@ -45,9 +46,9 @@ describe SpreeAvataxOfficial::AvataxLog, type: :model do
 
   describe '#debug' do
     it 'receives debug with message' do
-      logger.debug(order, 'Test')
+      logger.debug(order, example_payload)
 
-      expect(File.new(Rails.root.join('log', file_name)).read).to include "[AVATAX] #{order.class}-#{order.id} Test"
+      expect(File.new(Rails.root.join('log', file_name)).read).to include "[AVATAX] #{order.class}-#{order.id} #{example_payload.to_json}"
     end
 
     it 'returns nil if logger is not enabled' do
@@ -59,9 +60,9 @@ describe SpreeAvataxOfficial::AvataxLog, type: :model do
 
   describe '#error' do
     it 'logs error with given message' do
-      logger.error(order, 'Test!')
+      logger.error(order, example_payload)
 
-      expect(File.new(Rails.root.join('log', file_name)).read).to include "[AVATAX] #{order.class}-#{order.id} Test!"
+      expect(File.new(Rails.root.join('log', file_name)).read).to include "[AVATAX] #{order.class}-#{order.id} #{example_payload.to_json}"
     end
 
     it 'returns nil if logger is not enabled' do
