@@ -48,18 +48,12 @@ describe SpreeAvataxOfficial::Transactions::RefundService do
       end
 
       context 'with partial refund' do
-        let(:inventory_unit) do
-          order.inventory_units.first.tap do |inventory_unit|
-            inventory_unit.return_items.update_all(pre_tax_amount: 10)
-          end
-        end
-        let(:line_item) do
-          inventory_unit.line_item.tap do |line_item|
-            line_item.update_columns(price: 100, quantity: 3, avatax_uuid: 'a844605f-e114-4933-a0cf-7a434ac83cdf')
-          end
-        end
-
         it 'creates refund only for refunded lines' do
+          reimbursement.return_items.create!(
+            inventory_unit:    order.inventory_units.first,
+            pre_tax_amount:    10,
+            acceptance_status: 'accepted'
+          )
           order.update(completed_at: Time.current)
 
           VCR.use_cassette('spree_avatax_official/transactions/refund/partial_refund_with_refund_success') do
