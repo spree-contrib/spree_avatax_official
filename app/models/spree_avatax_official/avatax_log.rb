@@ -11,15 +11,15 @@ module SpreeAvataxOfficial
     end
 
     def info(message, object = nil)
-      logger.info("[AVATAX] #{object&.class}-#{object&.id} #{message}") if enabled?
+      logger.info("[AVATAX] #{object&.class}-#{object&.id} #{message.to_json}") if enabled?
     end
 
     def debug(object, message = '')
-      logger.debug("[AVATAX] #{object.class}-#{object.id} #{message}") if enabled?
+      logger.debug("[AVATAX] #{object.class}-#{object.id} #{message.to_json}") if enabled?
     end
 
     def error(object, message = '')
-      logger.error("[AVATAX] #{object.class}-#{object.id} #{message}") if enabled?
+      logger.error("[AVATAX] #{object.class}-#{object.id} #{message.to_json}") if enabled?
     end
 
     delegate :log_file_name, :log_frequency, to: 'SpreeAvataxOfficial::Config'
