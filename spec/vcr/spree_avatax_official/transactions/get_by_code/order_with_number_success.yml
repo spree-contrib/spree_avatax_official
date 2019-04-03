@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 27 Mar 2019 14:59:26 GMT
+      - Wed, 03 Apr 2019 15:32:21 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -37,7 +37,7 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0051993'
+      - '00:00:00.0128096'
       Databasecalls:
       - '0'
       Databaseduration:
@@ -54,6 +54,6 @@ http_interactions:
         Reed St","line2":"","line3":"","city":"Philadelphia","region":"PA","postalCode":"19147-5736","country":"US","taxRegionId":4014900,"latitude":"39.931649","longitude":"-75.159058"}],"locationTypes":[{"documentLocationTypeId":6645093308,"documentId":10814105362,"documentAddressId":7390566442,"locationTypeCode":"ShipTo"},{"documentLocationTypeId":4645093308,"documentId":10814105362,"documentAddressId":7390566442,"locationTypeCode":"ShipFrom"}],"summary":[{"country":"US","region":"PA","jurisType":"State","jurisCode":"42","jurisName":"PENNSYLVANIA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"PA
         STATE TAX","rateType":"General","taxable":10.00,"rate":0.060000,"tax":0.60,"taxCalculated":0.60,"nonTaxable":0.00,"exemption":0.00},{"country":"US","region":"PA","jurisType":"County","jurisCode":"101","jurisName":"PHILADELPHIA","taxAuthorityType":45,"stateAssignedNo":"51","taxType":"Sales","taxName":"PA
         COUNTY TAX","rateType":"General","taxable":10.00,"rate":0.020000,"tax":0.20,"taxCalculated":0.20,"nonTaxable":0.00,"exemption":0.00}],"parameters":{}}'
-    http_version:
-  recorded_at: Wed, 27 Mar 2019 14:59:26 GMT
+    http_version: 
+  recorded_at: Wed, 03 Apr 2019 15:32:21 GMT
 recorded_with: VCR 4.0.0

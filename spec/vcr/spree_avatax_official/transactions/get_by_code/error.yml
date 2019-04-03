@@ -23,7 +23,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Fri, 01 Mar 2019 15:33:17 GMT
+      - Wed, 03 Apr 2019 15:32:20 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -35,11 +35,11 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0042599'
+      - '00:00:00.0053816'
       Databasecalls:
       - '1'
       Databaseduration:
-      - '00:00:00.0000024'
+      - '00:00:00'
       Serviceduration:
       - '00:00:00'
       X-Powered-By:
@@ -50,5 +50,5 @@ http_interactions:
         not found.","description":"The Transaction with code ''test1:testerror'' was
         not found.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/EntityNotFoundError","severity":"Error"}]}}'
     http_version: 
-  recorded_at: Fri, 01 Mar 2019 15:33:17 GMT
+  recorded_at: Wed, 03 Apr 2019 15:32:20 GMT
 recorded_with: VCR 4.0.0
