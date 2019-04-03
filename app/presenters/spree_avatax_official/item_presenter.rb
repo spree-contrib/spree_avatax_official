@@ -8,6 +8,21 @@ module SpreeAvataxOfficial
 
     # Based on: https://developer.avalara.com/api-reference/avatax/rest/v2/models/LineItemModel/
     def to_json
+      case item.class.name.demodulize
+      when 'LineItem'
+        shared_payload.merge(line_item_payload)
+      else
+        shared_payload
+      end
+    end
+
+    delegate :inventory_units, to: :item
+
+    private
+
+    attr_reader :item, :custom_quantity, :custom_amount
+
+    def shared_payload
       {
         number:     item.avatax_number,
         quantity:   item_quantity,
@@ -18,11 +33,12 @@ module SpreeAvataxOfficial
       }
     end
 
-    delegate :inventory_units, to: :item
-
-    private
-
-    attr_reader :item, :custom_quantity, :custom_amount
+    def line_item_payload
+      {
+        description: item.description,
+        sku:         item.variant.sku
+      }
+    end
 
     def item_quantity
       custom_quantity || item.try(:quantity) || 1
