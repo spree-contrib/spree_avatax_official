@@ -24,7 +24,7 @@ module SpreeAvataxOfficial
         SpreeAvataxOfficial::Transactions::CreatePresenter.new(
           order:            order,
           transaction_type: SpreeAvataxOfficial::Transaction::SALES_INVOICE,
-          transaction_code: order.avatax_sales_invoice_code
+          transaction_code: order.number
         ).to_json
       end
     end

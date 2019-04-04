@@ -32,7 +32,7 @@ module SpreeAvataxOfficial
 
         client.adjust_transaction(
           company_code,
-          order.avatax_sales_invoice_code,
+          order.number,
           adjust_transaction_model,
           options
         )

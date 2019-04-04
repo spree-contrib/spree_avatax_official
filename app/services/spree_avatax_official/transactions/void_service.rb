@@ -18,7 +18,7 @@ module SpreeAvataxOfficial
 
         client.void_transaction(
           company_code,
-          order.avatax_sales_invoice_code,
+          order.number,
           { code: 'DocVoided' },
           options
         )

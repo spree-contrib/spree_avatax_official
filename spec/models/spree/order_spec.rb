@@ -5,8 +5,8 @@ describe Spree::Order do
     let(:order) { create(:order) }
 
     describe 'avatax_sales_invoice_transaction' do
-      let!(:return_invoice_transaction) { create(:spree_avatax_official_transaction, order: order, transaction_type: 'ReturnInvoice') }
-      let!(:sales_invoice_transaction) { create(:spree_avatax_official_transaction, order: order, transaction_type: 'SalesInvoice') }
+      let!(:return_invoice_transaction) { create(:spree_avatax_official_transaction, :return_invoice, order: order) }
+      let!(:sales_invoice_transaction)  { create(:spree_avatax_official_transaction, order: order) }
 
       it 'returns SpreeAvataxOfficial::Transaction object with transaction_type: SalesInvoice' do
         expect(order.avatax_sales_invoice_transaction).to eq sales_invoice_transaction
@@ -75,15 +75,6 @@ describe Spree::Order do
       VCR.use_cassette('spree_order/complete_order') do
         expect { order.next! }.to change { order.avatax_transactions.count }.by(1)
       end
-    end
-  end
-
-  describe '#avatax_sales_invoice_code' do
-    let(:transaction) { create(:spree_avatax_official_transaction) }
-    let(:order)       { transaction.order }
-
-    it 'returns code of avatax sales invoice' do
-      expect(order.avatax_sales_invoice_code).to eq transaction.code
     end
   end
 

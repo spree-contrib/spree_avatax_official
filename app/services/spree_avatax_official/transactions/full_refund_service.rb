@@ -20,7 +20,7 @@ module SpreeAvataxOfficial
 
         client.refund_transaction(
           company_code,
-          order.avatax_sales_invoice_code,
+          order.number,
           refund_model(order)
         )
       end
