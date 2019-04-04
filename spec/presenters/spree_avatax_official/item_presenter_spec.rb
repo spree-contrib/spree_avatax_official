@@ -9,12 +9,14 @@ describe SpreeAvataxOfficial::ItemPresenter do
 
       let(:result) do
         {
-          number:     "LI-#{item.avatax_uuid}",
-          quantity:   item.quantity,
-          amount:     item.discounted_amount,
-          taxCode:    'P0000000',
-          discounted: false,
-          addresses:  {}
+          number:      "LI-#{item.avatax_uuid}",
+          description: item.description,
+          sku:         item.variant.sku,
+          quantity:    item.quantity,
+          amount:      item.discounted_amount,
+          taxCode:     'P0000000',
+          discounted:  false,
+          addresses:   {}
         }
       end
 

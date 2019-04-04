@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 01 Mar 2019 15:33:18 GMT
+      - Wed, 03 Apr 2019 15:32:20 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -37,7 +37,7 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0370819'
+      - '00:00:00.0113031'
       Databasecalls:
       - '0'
       Databaseduration:
@@ -54,5 +54,5 @@ http_interactions:
         Main Street","line2":"","line3":"","city":"Irvine","region":"CA","postalCode":"92615","country":"US","taxRegionId":2127863,"latitude":"33.657808","longitude":"-117.968489"}],"locationTypes":[{"documentLocationTypeId":10848111441,"documentId":4810140820,"documentAddressId":11594662439,"locationTypeCode":"ShipFrom"},{"documentLocationTypeId":4644330636,"documentId":4810140820,"documentAddressId":9389168836,"locationTypeCode":"ShipTo"}],"summary":[{"country":"US","region":"CA","jurisType":"State","jurisCode":"06","jurisName":"CALIFORNIA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"CA
         STATE TAX","rateType":"General","taxable":0.00,"rate":0.000000,"tax":0.00,"taxCalculated":0.00,"nonTaxable":120.00,"exemption":0.00}],"parameters":{}}'
     http_version: 
-  recorded_at: Fri, 01 Mar 2019 15:33:18 GMT
+  recorded_at: Wed, 03 Apr 2019 15:32:21 GMT
 recorded_with: VCR 4.0.0

@@ -5,9 +5,19 @@ http_interactions:
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
     body:
       encoding: UTF-8
-      string: '{"type":"SalesOrder","code":null,"companyCode":"test1","date":"2019-03-01","customerCode":"pat@zulaufdurgan.ca","addresses":{"ShipFrom":{"line1":"822
+      string: '{"type":"SalesOrder","code":null,"referenceCode":"R912459423","companyCode":"test1","date":"2019-04-03","customerCode":"hosea.mohr@hamillschiller.com","addresses":{"ShipFrom":{"line1":"822
         Reed St","line2":"","city":"Philadelphia","region":"PA","country":"USA","postalCode":"19147"},"ShipTo":{"line1":"822
-        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"lines":[{"number":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false}],"commit":false,"discount":"0.0"}'
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"lines":[{"number":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false,"addresses":{},"description":"Unde
+        deleniti voluptas occaecati repellendus consequatur velit praesentium. Voluptatibus
+        quod enim nemo necessitatibus aliquam et laborum. Adipisci architecto odit
+        soluta ea aut blanditiis sint aut. Totam nemo est rerum consectetur aut ad
+        qui ipsa.\nVitae ut nemo iste qui a eveniet expedita. Omnis unde cum totam
+        cumque quia dolor qui. Consequatur quo debitis atque dolores dolor ut et quae.\nConsequuntur
+        veritatis eius sunt dolor. Ut illo iure asperiores enim id sit. Et eum vero
+        pariatur distinctio voluptatem dignissimos eos qui. Culpa fugiat voluptatem
+        et aut delectus sed. Consequatur sint ad ut ea ab impedit.\nIpsam et asperiores
+        voluptatibus corrupti aut itaque et sunt. Fugiat necessitatibus tenetur nulla
+        et. Accusamus vero ratione autem natus eveniet.","sku":"SKU-56"}],"commit":false,"discount":"0.0"}'
     headers:
       Accept:
       - application/json; charset=utf-8
@@ -27,7 +37,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 01 Mar 2019 15:33:14 GMT
+      - Wed, 03 Apr 2019 15:32:59 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -41,23 +51,33 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0482965'
+      - '00:00:00.0479700'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
       Serviceduration:
-      - '00:00:00.0458176'
+      - '00:00:00.0463078'
       X-Powered-By:
       - ASP.NET
     body:
       encoding: UTF-8
-      string: '{"id":0,"code":"6955fef9-eb0e-4f31-961d-7b6a5905298d","companyId":0,"date":"2019-03-01","paymentDate":"2019-03-01","status":"Temporary","type":"SalesOrder","customerVendorCode":"pat@zulaufdurgan.ca","customerCode":"pat@zulaufdurgan.ca","reconciled":false,"totalAmount":10.0,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":0.8,"totalTaxable":10.0,"totalTaxCalculated":0.8,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2019-03-01","exchangeRate":1.0,"modifiedDate":"2019-03-01T15:33:13.2347979Z","modifiedUserId":356142,"taxDate":"2019-03-01T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":10.0,"quantity":1.0,"reportingDate":"2019-03-01","tax":0.8,"taxableAmount":10.0,"taxCalculated":0.8,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-03-01","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"42","jurisName":"PENNSYLVANIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":0.6,"taxableAmount":10.0,"taxType":"Sales","taxName":"PA
+      string: '{"id":0,"code":"1a48a938-e510-4bb3-a845-3f9bcc18c9d0","companyId":0,"date":"2019-04-03","paymentDate":"2019-04-03","status":"Temporary","type":"SalesOrder","customerVendorCode":"hosea.mohr@hamillschiller.com","customerCode":"hosea.mohr@hamillschiller.com","reconciled":false,"referenceCode":"R912459423","totalAmount":10.0,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":0.8,"totalTaxable":10.0,"totalTaxCalculated":0.8,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2019-04-03","exchangeRate":1.0,"modifiedDate":"2019-04-03T15:32:53.1251835Z","modifiedUserId":390298,"taxDate":"2019-04-03T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","description":"Unde
+        deleniti voluptas occaecati repellendus consequatur velit praesentium. Voluptatibus
+        quod enim nemo necessitatibus aliquam et laborum. Adipisci architecto odit
+        soluta ea aut blanditiis sint aut. Totam nemo est rerum consectetur aut ad
+        qui ipsa.\nVitae ut nemo iste qui a eveniet expedita. Omnis unde cum totam
+        cumque quia dolor qui. Consequatur quo debitis atque dolores dolor ut et quae.\nConsequuntur
+        veritatis eius sunt dolor. Ut illo iure asperiores enim id sit. Et eum vero
+        pariatur distinctio voluptatem dignissimos eos qui. Culpa fugiat voluptatem
+        et aut delectus sed. Consequatur sint ad ut ea ab impedit.\nIpsam et asperiores
+        voluptatibus corrupti aut itaque et sunt. Fugiat necessitatibus tenetur nulla
+        et. Accusamus vero ratione autem natus eveniet.","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":10.0,"quantity":1.0,"reportingDate":"2019-04-03","tax":0.8,"taxableAmount":10.0,"taxCalculated":0.8,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-04-03","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"42","jurisName":"PENNSYLVANIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":0.6,"taxableAmount":10.0,"taxType":"Sales","taxName":"PA
         STATE TAX","taxAuthorityTypeId":45,"taxCalculated":0.6,"rateType":"General","rateTypeCode":"G","isNonPassThru":false},{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"101","jurisName":"PHILADELPHIA","stateAssignedNo":"51","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0,"rate":0.020000,"tax":0.2,"taxableAmount":10.0,"taxType":"Sales","taxName":"PA
         COUNTY TAX","taxAuthorityTypeId":45,"taxCalculated":0.2,"rateType":"General","rateTypeCode":"G","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"","vatNumberTypeId":0}],"addresses":[{"id":0,"transactionId":0,"boundaryLevel":"Address","line1":"822
         Reed St","line2":"","line3":"","city":"Philadelphia","region":"PA","postalCode":"19147","country":"US","taxRegionId":4014900,"latitude":"39.931649","longitude":"-75.159058"}],"summary":[{"country":"US","region":"PA","jurisType":"State","jurisCode":"42","jurisName":"PENNSYLVANIA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"PA
         STATE TAX","rateType":"General","taxable":10.0,"rate":0.060000,"tax":0.6,"taxCalculated":0.6,"nonTaxable":0.0,"exemption":0.0},{"country":"US","region":"PA","jurisType":"County","jurisCode":"101","jurisName":"PHILADELPHIA","taxAuthorityType":45,"stateAssignedNo":"51","taxType":"Sales","taxName":"PA
         COUNTY TAX","rateType":"General","taxable":10.0,"rate":0.020000,"tax":0.2,"taxCalculated":0.2,"nonTaxable":0.0,"exemption":0.0}]}'
     http_version: 
-  recorded_at: Fri, 01 Mar 2019 15:33:14 GMT
+  recorded_at: Wed, 03 Apr 2019 15:32:59 GMT
 recorded_with: VCR 4.0.0

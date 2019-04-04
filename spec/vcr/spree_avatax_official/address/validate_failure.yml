@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 26 Mar 2019 08:12:35 GMT
+      - Wed, 03 Apr 2019 15:32:29 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -35,13 +35,13 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0281757'
+      - '00:00:00.0231387'
       Databasecalls:
-      - '1'
+      - '0'
       Databaseduration:
-      - '00:00:00.0020000'
+      - '00:00:00'
       Serviceduration:
-      - '00:00:00.0241363'
+      - '00:00:00.0222909'
       X-Powered-By:
       - ASP.NET
     body:
@@ -52,5 +52,5 @@ http_interactions:
         match could not be found and phonetically matching the street name resulted
         in either no matches or matches to more than one street name.","refersTo":"Address.Line1","severity":"Error","source":"Avalara.AvaTax.Services.Address"}]}'
     http_version: 
-  recorded_at: Tue, 26 Mar 2019 08:12:35 GMT
+  recorded_at: Wed, 03 Apr 2019 15:32:29 GMT
 recorded_with: VCR 4.0.0
