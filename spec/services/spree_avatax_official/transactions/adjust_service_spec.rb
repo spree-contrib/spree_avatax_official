@@ -10,7 +10,7 @@ describe SpreeAvataxOfficial::Transactions::AdjustService do
         )
       end
 
-      let(:order) { create(:completed_order_with_totals, ship_address: create(:usa_address)) }
+      let(:order) { create(:completed_order_with_totals, line_items_count: 1, ship_address: create(:usa_address)) }
 
       it 'returns positive result' do
         VCR.use_cassette('spree_avatax_official/transactions/adjust/invoice_order_success') do

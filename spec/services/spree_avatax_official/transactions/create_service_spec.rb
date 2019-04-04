@@ -3,7 +3,7 @@ require 'spec_helper'
 describe SpreeAvataxOfficial::Transactions::CreateService do
   describe '#call' do
     context 'with correct parameters' do
-      let(:order) { create(:order_with_line_items, ship_address: create(:usa_address)) }
+      let(:order) { create(:order_with_line_items, line_items_count: 1, ship_address: create(:usa_address)) }
 
       context 'for SalesOrder and Avalara API successfull response' do
         subject { described_class.call(order: order) }
@@ -25,7 +25,7 @@ describe SpreeAvataxOfficial::Transactions::CreateService do
       context 'for SalesInvoice and Avalara API successfull response' do
         subject { described_class.call(order: order) }
 
-        let(:order) { create(:order_with_line_items, ship_address: create(:usa_address)) }
+        let(:order) { create(:order_with_line_items, line_items_count: 1, ship_address: create(:usa_address)) }
 
         it 'returns positive result' do
           VCR.use_cassette('spree_avatax_official/transactions/create/invoice_order_success') do

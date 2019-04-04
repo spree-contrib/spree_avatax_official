@@ -5,23 +5,26 @@ http_interactions:
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
     body:
       encoding: UTF-8
-      string: '{"type":"SalesOrder","code":null,"referenceCode":"R770368024","companyCode":"test1","date":"2019-04-03","customerCode":"diedre.murazik@mohr.co.uk","addresses":{"ShipFrom":{"line1":"822
+      string: '{"type":"SalesOrder","code":null,"referenceCode":"R307595494","companyCode":"test1","date":"2019-04-04","customerCode":"val@gibson.co.uk","addresses":{"ShipFrom":{"line1":"822
         Reed St","line2":"","city":"Philadelphia","region":"PA","country":"USA","postalCode":"19147"},"ShipTo":{"line1":"822
         Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"lines":[{"number":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false,"addresses":{"ShipFrom":{"line1":"1600
-        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"PA","country":"US","postalCode":"20500"},"ShipTo":{"line1":"822
-        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"description":"Harum
-        odit quaerat sed quis tenetur. Consequatur doloremque aliquid magni aut cum
-        ab quia. Reiciendis ex harum est enim. Omnis vitae laboriosam sunt iusto odit
-        culpa.\nIpsa tempore minus tempora ut impedit et. Sed accusamus nihil ullam
-        praesentium occaecati voluptas fugit. Repudiandae quia tenetur reprehenderit
-        accusamus facere quo vel. Ullam aut et dolorem id quos aliquid labore.","sku":"SKU-46"},{"number":"FR-25c2d82a-c299-41b0-8759-14a4c3b003b4","quantity":1,"amount":"100.0","taxCode":"FR","discounted":false,"addresses":{}}],"commit":false,"discount":"0.0"}'
+        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"ShipTo":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"description":"Omnis
+        et cumque illo fuga deleniti et. Qui at odit ducimus reiciendis id distinctio
+        architecto labore. Dolore ut autem dolor sit sed eligendi eveniet.\nNobis
+        dolorem id omnis culpa. Mollitia nisi odio inventore sunt est. Voluptas voluptatem
+        quia sequi excepturi.\nImpedit in qui eligendi mollitia. Repellendus aut et
+        ducimus perferendis sunt. Reiciendis non ut non quas. Inventore deleniti esse
+        voluptatem dolor dolore est.\nDolores eius sint aut cupiditate non doloribus.
+        Et sunt consequatur neque ipsa consequatur omnis. Officiis consequatur mollitia
+        voluptatem quis autem minima. Facilis nobis est iusto asperiores rerum.","sku":"66b87ea49f4a6c609710df0b0c1bdaaf"},{"number":"FR-4f4f68dc-7546-4edb-9f1b-7a9d948ba5e7","quantity":1,"amount":"100.0","taxCode":"FR","discounted":false,"addresses":{}}],"commit":false,"discount":"0.0"}'
     headers:
       Accept:
       - application/json; charset=utf-8
       User-Agent:
       - AvaTax Ruby Gem 18.12.0
       X-Avalara-Client:
-      - ";;RubySdk;18.12.0;"
+      - a0o0b000005HsXPAA0;Spree by Spark;RubySdk;18.12.0;
       Authorization:
       - "<AVATAX_TOKEN>"
       Content-Type:
@@ -34,7 +37,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Wed, 03 Apr 2019 15:32:48 GMT
+      - Thu, 04 Apr 2019 09:57:41 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -48,31 +51,34 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0888653'
+      - '00:00:00.1095071'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
       Serviceduration:
-      - '00:00:00.0871376'
+      - '00:00:00.1069975'
       X-Powered-By:
       - ASP.NET
     body:
       encoding: UTF-8
-      string: '{"id":0,"code":"d8dd026e-6d74-4548-b11d-3a28c3fd81fc","companyId":0,"date":"2019-04-03","paymentDate":"2019-04-03","status":"Temporary","type":"SalesOrder","customerVendorCode":"diedre.murazik@mohr.co.uk","customerCode":"diedre.murazik@mohr.co.uk","reconciled":false,"referenceCode":"R770368024","totalAmount":110.0,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":8.8,"totalTaxable":110.0,"totalTaxCalculated":8.8,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2019-04-03","exchangeRate":1.0,"modifiedDate":"2019-04-03T15:32:41.6840837Z","modifiedUserId":390298,"taxDate":"2019-04-03T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","description":"Harum
-        odit quaerat sed quis tenetur. Consequatur doloremque aliquid magni aut cum
-        ab quia. Reiciendis ex harum est enim. Omnis vitae laboriosam sunt iusto odit
-        culpa.\nIpsa tempore minus tempora ut impedit et. Sed accusamus nihil ullam
-        praesentium occaecati voluptas fugit. Repudiandae quia tenetur reprehenderit
-        accusamus facere quo vel. Ullam aut et dolorem id quos aliquid labore.","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":10.0,"quantity":1.0,"reportingDate":"2019-04-03","tax":0.8,"taxableAmount":10.0,"taxCalculated":0.8,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-04-03","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"42","jurisName":"PENNSYLVANIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":0.6,"taxableAmount":10.0,"taxType":"Sales","taxName":"PA
+      string: '{"id":0,"code":"97416045-71c9-4ea0-8bf7-29901496bc08","companyId":0,"date":"2019-04-04","paymentDate":"2019-04-04","status":"Temporary","type":"SalesOrder","customerVendorCode":"val@gibson.co.uk","customerCode":"val@gibson.co.uk","reconciled":false,"referenceCode":"R307595494","totalAmount":110.0,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":8.8,"totalTaxable":110.0,"totalTaxCalculated":8.8,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2019-04-04","exchangeRate":1.0,"modifiedDate":"2019-04-04T09:57:32.5024232Z","modifiedUserId":356147,"taxDate":"2019-04-04T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","description":"Omnis
+        et cumque illo fuga deleniti et. Qui at odit ducimus reiciendis id distinctio
+        architecto labore. Dolore ut autem dolor sit sed eligendi eveniet.\nNobis
+        dolorem id omnis culpa. Mollitia nisi odio inventore sunt est. Voluptas voluptatem
+        quia sequi excepturi.\nImpedit in qui eligendi mollitia. Repellendus aut et
+        ducimus perferendis sunt. Reiciendis non ut non quas. Inventore deleniti esse
+        voluptatem dolor dolore est.\nDolores eius sint aut cupiditate non doloribus.
+        Et sunt consequatur neque ipsa consequatur omnis. Officiis consequatur mollitia
+        voluptatem quis autem minima. Facilis nobis est iusto asperiores rerum.","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":10.0,"quantity":1.0,"reportingDate":"2019-04-04","tax":0.8,"taxableAmount":10.0,"taxCalculated":0.8,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-04-04","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"42","jurisName":"PENNSYLVANIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":0.6,"taxableAmount":10.0,"taxType":"Sales","taxName":"PA
         STATE TAX","taxAuthorityTypeId":45,"taxCalculated":0.6,"rateType":"General","rateTypeCode":"G","isNonPassThru":false},{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"101","jurisName":"PHILADELPHIA","stateAssignedNo":"51","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0,"rate":0.020000,"tax":0.2,"taxableAmount":10.0,"taxType":"Sales","taxName":"PA
-        COUNTY TAX","taxAuthorityTypeId":45,"taxCalculated":0.2,"rateType":"General","rateTypeCode":"G","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"","vatNumberTypeId":0},{"id":0,"transactionId":0,"lineNumber":"FR-25c2d82a-c299-41b0-8759-14a4c3b003b4","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":100.0,"quantity":1.0,"reportingDate":"2019-04-03","tax":8.0,"taxableAmount":100.0,"taxCalculated":8.0,"taxCode":"FR","taxCodeId":10890,"taxDate":"2019-04-03","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"42","jurisName":"PENNSYLVANIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":6.0,"taxableAmount":100.0,"taxType":"Sales","taxName":"PA
+        COUNTY TAX","taxAuthorityTypeId":45,"taxCalculated":0.2,"rateType":"General","rateTypeCode":"G","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"","vatNumberTypeId":0},{"id":0,"transactionId":0,"lineNumber":"FR-4f4f68dc-7546-4edb-9f1b-7a9d948ba5e7","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":100.0,"quantity":1.0,"reportingDate":"2019-04-04","tax":8.0,"taxableAmount":100.0,"taxCalculated":8.0,"taxCode":"FR","taxCodeId":10890,"taxDate":"2019-04-04","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"42","jurisName":"PENNSYLVANIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":6.0,"taxableAmount":100.0,"taxType":"Sales","taxName":"PA
         STATE TAX","taxAuthorityTypeId":45,"taxCalculated":6.0,"rateType":"General","rateTypeCode":"G","isNonPassThru":false},{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"101","jurisName":"PHILADELPHIA","stateAssignedNo":"51","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0,"rate":0.020000,"tax":2.0,"taxableAmount":100.0,"taxType":"Sales","taxName":"PA
         COUNTY TAX","taxAuthorityTypeId":45,"taxCalculated":2.0,"rateType":"General","rateTypeCode":"G","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"","vatNumberTypeId":0}],"addresses":[{"id":0,"transactionId":0,"boundaryLevel":"Address","line1":"822
         Reed St","line2":"","line3":"","city":"Philadelphia","region":"PA","postalCode":"19147","country":"US","taxRegionId":4014900,"latitude":"39.931649","longitude":"-75.159058"},{"id":0,"transactionId":0,"boundaryLevel":"Address","line1":"1600
-        Pennsylvania Ave NW","line2":"","line3":"","city":"Washington","region":"PA","postalCode":"20500","country":"US","taxRegionId":949,"latitude":"38.898636","longitude":"-77.036543"}],"summary":[{"country":"US","region":"PA","jurisType":"State","jurisCode":"42","jurisName":"PENNSYLVANIA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"PA
+        Pennsylvania Ave NW","line2":"","line3":"","city":"Washington","region":"AL","postalCode":"20500","country":"US","taxRegionId":949,"latitude":"38.898636","longitude":"-77.036543"}],"summary":[{"country":"US","region":"PA","jurisType":"State","jurisCode":"42","jurisName":"PENNSYLVANIA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"PA
         STATE TAX","rateType":"General","taxable":110.0,"rate":0.060000,"tax":6.6,"taxCalculated":6.6,"nonTaxable":0.0,"exemption":0.0},{"country":"US","region":"PA","jurisType":"County","jurisCode":"101","jurisName":"PHILADELPHIA","taxAuthorityType":45,"stateAssignedNo":"51","taxType":"Sales","taxName":"PA
         COUNTY TAX","rateType":"General","taxable":110.0,"rate":0.020000,"tax":2.2,"taxCalculated":2.2,"nonTaxable":0.0,"exemption":0.0}]}'
     http_version: 
-  recorded_at: Wed, 03 Apr 2019 15:32:48 GMT
+  recorded_at: Thu, 04 Apr 2019 09:57:41 GMT
 recorded_with: VCR 4.0.0

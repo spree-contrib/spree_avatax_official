@@ -5,24 +5,58 @@ http_interactions:
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
     body:
       encoding: UTF-8
-      string: '{"type":"SalesInvoice","code":null,"referenceCode":"R635813760","companyCode":"test1","date":"2019-04-03","customerCode":"laure.barton@mosciskijaskolski.us","addresses":{"ShipFrom":{"line1":"822
+      string: '{"type":"SalesInvoice","code":null,"referenceCode":"R187063978","companyCode":"test1","date":"2019-04-04","customerCode":"debi@mraz.info","addresses":{"ShipFrom":{"line1":"822
         Reed St","line2":"","city":"Philadelphia","region":"PA","country":"USA","postalCode":"19147"},"ShipTo":{"line1":"822
         Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"lines":[{"number":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false,"addresses":{"ShipFrom":{"line1":"1600
-        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"PA","country":"US","postalCode":"20500"},"ShipTo":{"line1":"822
-        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"description":"Voluptas
-        tempore ex laborum ea voluptates laboriosam accusamus. Voluptatem ut sed quasi
-        eveniet eum. Necessitatibus inventore deserunt sequi ut incidunt. Voluptatem
-        distinctio a accusamus rerum dolores quia asperiores.\nVoluptas et rem nobis
-        labore quaerat velit dolor. Rem consequuntur molestiae possimus animi quaerat
-        sed est incidunt. Sit laborum nobis ipsum fugiat sit et beatae. Distinctio
-        ea esse natus maiores alias fugit non id.","sku":"SKU-22"},{"number":"FR-ada5f77a-cb99-4e2a-adb6-4606653958a7","quantity":1,"amount":"100.0","taxCode":"FR","discounted":false,"addresses":{}}],"commit":true,"discount":"0.0"}'
+        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"ShipTo":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"description":"Itaque
+        ad voluptatem aut maxime. Hic quis eos qui neque. Enim iure aut rerum neque
+        quibusdam. Non praesentium qui ea reprehenderit eum dignissimos. Quo vitae
+        exercitationem ipsam sunt et perspiciatis et.\nOfficia qui et laboriosam perferendis
+        deleniti magni enim. Dicta harum non sapiente aut ullam porro laudantium alias.
+        Quos laudantium in quis totam et officiis architecto et. Et quo impedit libero
+        quasi.\nPariatur omnis voluptas cupiditate explicabo. Consequatur ea ipsam
+        porro animi aut molestias. Aspernatur dolore eligendi blanditiis vel. Dolor
+        est reiciendis quo labore et. Voluptatem distinctio sed quidem eum sint corporis
+        non totam.","sku":"bcf27af1c7304430f85994ce0e338253"},{"number":"LI-740732e9-cd77-4636-9cfa-124a4c7ef723","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false,"addresses":{"ShipFrom":{"line1":"1600
+        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"ShipTo":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"description":"Saepe
+        nobis molestias dignissimos labore ut. Nihil ut corporis quasi in dolore.
+        Expedita esse aliquid distinctio quia reiciendis.\nDolor est totam illum perspiciatis
+        eum impedit dolorem possimus. Consequatur nihil adipisci dolor dolorem et
+        maiores. Id voluptatem odit inventore porro velit.","sku":"356311fe4f06b615889f5be4324f0fc3"},{"number":"LI-a686899e-5deb-422d-a6eb-d60890555800","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false,"addresses":{"ShipFrom":{"line1":"1600
+        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"ShipTo":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"description":"Modi
+        repellendus aut aut est molestiae. Sed quas deserunt natus libero. Eum quis
+        modi ea quae. Sed molestias enim eum perferendis ex. Dolores quia provident
+        earum minus voluptates nostrum.\nAdipisci delectus quos quia voluptatem aut
+        voluptas. Voluptates repudiandae deleniti similique facilis iste voluptatibus.
+        Quia nesciunt ipsa doloribus cum numquam voluptatem.\nAccusantium omnis et
+        vel aut. Ut sint magni sapiente animi sit perspiciatis qui. In et enim sapiente
+        quisquam rerum ut qui.","sku":"35582036479edfc26e50fbb446cdd2c8"},{"number":"LI-ba35d0e7-47f8-413c-bcf7-5c00bbf72dd0","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false,"addresses":{"ShipFrom":{"line1":"1600
+        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"ShipTo":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"description":"Officia
+        aut est nobis laborum quis. Laborum voluptatum accusamus pariatur omnis. Qui
+        fugit sit consectetur enim repudiandae magnam magni vel. Ea eos id enim odio.","sku":"108b674a8c02573b5a8991d352832027"},{"number":"LI-e0a8e3dc-4daa-49c9-86a2-b8454d236fa7","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false,"addresses":{"ShipFrom":{"line1":"1600
+        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"ShipTo":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"description":"Et
+        ut nihil aut facere vitae ut. Vitae at consequatur dignissimos iste est soluta
+        molestiae. Quibusdam minus totam libero eaque. Impedit rerum voluptatem qui
+        voluptas.\nAlias aut sit distinctio ad laboriosam. Ut fugit at cumque fuga
+        minus quae culpa repudiandae. Corrupti voluptatem odio unde molestiae in.
+        Dolores et fuga eos atque ut occaecati aliquid soluta. At assumenda in veniam
+        quae ex.\nVoluptate quisquam minima nam voluptatum praesentium ut nemo consequatur.
+        Ut consequatur voluptatum beatae vel aut quia neque. Saepe perferendis quis
+        voluptas ullam dolores sunt. Ipsa harum suscipit quos ea officia.\nFacere
+        atque ut magni impedit. A repudiandae et pariatur est aut. Atque eius sint
+        ullam in. Assumenda in corrupti repellat occaecati.","sku":"405bd941dfbc3e2cdf5127be23edb550"},{"number":"FR-65386c3f-d134-4c26-9fb3-e621cedd113d","quantity":1,"amount":"100.0","taxCode":"FR","discounted":false,"addresses":{}}],"commit":true,"discount":"0.0"}'
     headers:
       Accept:
       - application/json; charset=utf-8
       User-Agent:
       - AvaTax Ruby Gem 18.12.0
       X-Avalara-Client:
-      - ";;RubySdk;18.12.0;"
+      - a0o0b000005HsXPAA0;Spree by Spark;RubySdk;18.12.0;
       Authorization:
       - "<AVATAX_TOKEN>"
       Content-Type:
@@ -35,7 +69,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Wed, 03 Apr 2019 15:32:25 GMT
+      - Thu, 04 Apr 2019 09:56:33 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -43,63 +77,131 @@ http_interactions:
       Connection:
       - keep-alive
       Location:
-      - "/api/v2/companies/848107/transactions/4826477765"
+      - "/api/v2/companies/848107/transactions/10830074796"
       Server:
       - Kestrel
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.1137835'
+      - '00:00:00.1943682'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
       Serviceduration:
-      - '00:00:00.1080238'
+      - '00:00:00.1849979'
       X-Powered-By:
       - ASP.NET
     body:
       encoding: UTF-8
-      string: '{"id":4826477765,"code":"ac5c8f17-a4da-408a-90a5-ee680f842ae4","companyId":848107,"date":"2019-04-03","status":"Committed","type":"SalesInvoice","batchCode":"","currencyCode":"USD","customerUsageType":"","entityUseCode":"","customerVendorCode":"laure.barton@mosciskijaskolski.us","customerCode":"laure.barton@mosciskijaskolski.us","exemptNo":"","reconciled":false,"locationCode":"","reportingLocationCode":"","purchaseOrderNo":"","referenceCode":"R635813760","salespersonCode":"","taxOverrideType":"None","taxOverrideAmount":0.0000,"taxOverrideReason":"","totalAmount":110.0000,"totalExempt":0.0000,"totalDiscount":0.0000,"totalTax":8.8000,"totalTaxable":110.0000,"totalTaxCalculated":8.8000,"adjustmentReason":"NotAdjusted","adjustmentDescription":"","locked":false,"region":"PA","country":"US","version":1,"softwareVersion":"19.3.1.4","originAddressId":11623868500,"destinationAddressId":11623868500,"exchangeRateEffectiveDate":"2019-04-03","exchangeRate":1.0000,"isSellerImporterOfRecord":true,"description":"","email":"","businessIdentificationNo":"","modifiedDate":"2019-04-03T15:32:25.96","modifiedUserId":390298,"taxDate":"2019-04-03T00:00:00","lines":[{"id":9827899125,"transactionId":4826477765,"lineNumber":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","boundaryOverrideId":0,"customerUsageType":"","entityUseCode":"","description":"Voluptas
-        tempore ex laborum ea voluptates laboriosam accusamus. Voluptatem ut sed quasi
-        eveniet eum. Necessitatibus inventore deserunt sequi ut incidunt. Voluptatem
-        distinctio a accusamus rerum dolores quia asperiores.Voluptas et rem nobis
-        labore quaerat velit dolor. Rem consequuntur molestiae possimus animi quaerat
-        sed est incidunt. Sit laborum nobis ipsum fugiat sit et beatae. Distinctio
-        ea esse natus maiores alias fugit non id.","destinationAddressId":11623868500,"originAddressId":5418374897,"discountAmount":0.0000,"discountTypeId":0,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"","lineAmount":10.0000,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2019-04-03","revAccount":"","sourcing":"Destination","tax":0.8000,"taxableAmount":10.0000,"taxCalculated":0.8000,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-04-03","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0000,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":13649135554,"transactionLineId":9827899125,"transactionId":4826477765,"addressId":11623868500,"country":"US","region":"PA","countyFIPS":"","stateFIPS":"42","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"42","jurisName":"PENNSYLVANIA","jurisdictionId":49,"signatureCode":"BKTQ","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.060000,"rateRuleId":1457985,"rateSourceId":3,"serCode":"","sourcing":"Destination","tax":0.6000,"taxableAmount":10.0000,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"PA
-        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":4014900,"taxCalculated":0.6000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":10.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false},{"id":15649135555,"transactionLineId":9827899125,"transactionId":4826477765,"addressId":11623868500,"country":"US","region":"PA","countyFIPS":"","stateFIPS":"42","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"101","jurisName":"PHILADELPHIA","jurisdictionId":2311,"signatureCode":"BMWV","stateAssignedNo":"51","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.020000,"rateRuleId":1458005,"rateSourceId":3,"serCode":"","sourcing":"Destination","tax":0.2000,"taxableAmount":10.0000,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"PA
-        COUNTY TAX","taxAuthorityTypeId":45,"taxRegionId":4014900,"taxCalculated":0.2000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":10.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false}],"nonPassthroughDetails":[],"lineLocationTypes":[{"documentLineLocationTypeId":8508673554,"documentLineId":9827899125,"documentAddressId":11623868500,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":6508673554,"documentLineId":9827899125,"documentAddressId":5418374897,"locationTypeCode":"ShipFrom"}],"parameters":{},"hsCode":"","costInsuranceFreight":0.0000,"vatCode":"","vatNumberTypeId":0},{"id":12036235371,"transactionId":4826477765,"lineNumber":"FR-ada5f77a-cb99-4e2a-adb6-4606653958a7","boundaryOverrideId":0,"customerUsageType":"","entityUseCode":"","description":"","destinationAddressId":11623868500,"originAddressId":11623868500,"discountAmount":0.0000,"discountTypeId":0,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"","lineAmount":100.0000,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2019-04-03","revAccount":"","sourcing":"Origin","tax":8.0000,"taxableAmount":100.0000,"taxCalculated":8.0000,"taxCode":"FR","taxCodeId":10890,"taxDate":"2019-04-03","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0000,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":7649135554,"transactionLineId":12036235371,"transactionId":4826477765,"addressId":11623868500,"country":"US","region":"PA","countyFIPS":"","stateFIPS":"42","exemptAmount":0.0000,"exemptReasonId":4,"inState":true,"jurisCode":"42","jurisName":"PENNSYLVANIA","jurisdictionId":49,"signatureCode":"BKTQ","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.060000,"rateRuleId":1457985,"rateSourceId":3,"serCode":"","sourcing":"Origin","tax":6.0000,"taxableAmount":100.0000,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"PA
-        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":4014900,"taxCalculated":6.0000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":100.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false},{"id":9649135553,"transactionLineId":12036235371,"transactionId":4826477765,"addressId":11623868500,"country":"US","region":"PA","countyFIPS":"","stateFIPS":"42","exemptAmount":0.0000,"exemptReasonId":4,"inState":true,"jurisCode":"101","jurisName":"PHILADELPHIA","jurisdictionId":2311,"signatureCode":"BMWV","stateAssignedNo":"51","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.020000,"rateRuleId":1458005,"rateSourceId":3,"serCode":"","sourcing":"Origin","tax":2.0000,"taxableAmount":100.0000,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"PA
-        COUNTY TAX","taxAuthorityTypeId":45,"taxRegionId":4014900,"taxCalculated":2.0000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":100.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false}],"nonPassthroughDetails":[],"lineLocationTypes":[{"documentLineLocationTypeId":12725731695,"documentLineId":12036235371,"documentAddressId":11623868500,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":10508673554,"documentLineId":12036235371,"documentAddressId":11623868500,"locationTypeCode":"ShipFrom"}],"parameters":{},"hsCode":"","costInsuranceFreight":0.0000,"vatCode":"","vatNumberTypeId":0}],"addresses":[{"id":5418374897,"transactionId":4826477765,"boundaryLevel":"Address","line1":"1600
-        Pennsylvania Ave NW","line2":"","line3":"","city":"Washington","region":"DC","postalCode":"20500-0003","country":"US","taxRegionId":949,"latitude":"38.898636","longitude":"-77.036543"},{"id":11623868500,"transactionId":4826477765,"boundaryLevel":"Address","line1":"822
-        Reed St","line2":"","line3":"","city":"Philadelphia","region":"PA","postalCode":"19147-5736","country":"US","taxRegionId":4014900,"latitude":"39.931649","longitude":"-75.159058"}],"locationTypes":[{"documentLocationTypeId":10866414733,"documentId":4826477765,"documentAddressId":11623868500,"locationTypeCode":"ShipTo"},{"documentLocationTypeId":8662633927,"documentId":4826477765,"documentAddressId":11623868500,"locationTypeCode":"ShipFrom"}],"summary":[{"country":"US","region":"PA","jurisType":"State","jurisCode":"42","jurisName":"PENNSYLVANIA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"PA
-        STATE TAX","rateType":"General","taxable":110.00,"rate":0.060000,"tax":6.60,"taxCalculated":6.60,"nonTaxable":0.00,"exemption":0.00},{"country":"US","region":"PA","jurisType":"County","jurisCode":"101","jurisName":"PHILADELPHIA","taxAuthorityType":45,"stateAssignedNo":"51","taxType":"Sales","taxName":"PA
-        COUNTY TAX","rateType":"General","taxable":110.00,"rate":0.020000,"tax":2.20,"taxCalculated":2.20,"nonTaxable":0.00,"exemption":0.00}],"parameters":{}}'
+      string: '{"id":10830074796,"code":"b0c395be-9dc9-4da8-99f5-9b5301c2207b","companyId":848107,"date":"2019-04-04","status":"Committed","type":"SalesInvoice","batchCode":"","currencyCode":"USD","customerUsageType":"","entityUseCode":"","customerVendorCode":"debi@mraz.info","customerCode":"debi@mraz.info","exemptNo":"","reconciled":false,"locationCode":"","reportingLocationCode":"","purchaseOrderNo":"","referenceCode":"R187063978","salespersonCode":"","taxOverrideType":"None","taxOverrideAmount":0.0000,"taxOverrideReason":"","totalAmount":150.0000,"totalExempt":0.0000,"totalDiscount":0.0000,"totalTax":12.0000,"totalTaxable":150.0000,"totalTaxCalculated":12.0000,"adjustmentReason":"NotAdjusted","adjustmentDescription":"","locked":false,"region":"PA","country":"US","version":1,"softwareVersion":"19.3.1.4","originAddressId":11624303422,"destinationAddressId":11624303422,"exchangeRateEffectiveDate":"2019-04-04","exchangeRate":1.0000,"isSellerImporterOfRecord":true,"description":"","email":"","businessIdentificationNo":"","modifiedDate":"2019-04-04T09:56:34.127","modifiedUserId":356147,"taxDate":"2019-04-04T00:00:00","lines":[{"id":9828439371,"transactionId":10830074796,"lineNumber":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","boundaryOverrideId":0,"customerUsageType":"","entityUseCode":"","description":"Itaque
+        ad voluptatem aut maxime. Hic quis eos qui neque. Enim iure aut rerum neque
+        quibusdam. Non praesentium qui ea reprehenderit eum dignissimos. Quo vitae
+        exercitationem ipsam sunt et perspiciatis et.Officia qui et laboriosam perferendis
+        deleniti magni enim. Dicta harum non sapiente aut ullam porro laudantium alias.
+        Quos laudantium in quis totam et officiis architecto et. Et quo impedit libero
+        quasi.Pariatur omnis voluptas cupiditate explicabo. Consequatur ea ipsam porro
+        animi aut molestias. Aspernatur dolore eligendi blanditiis vel. Dolor est
+        reiciendis quo labore et. Voluptatem distinctio sed quidem eum sint corporis
+        non totam.","destinationAddressId":11624303422,"originAddressId":5418809819,"discountAmount":0.0000,"discountTypeId":0,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"","lineAmount":10.0000,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2019-04-04","revAccount":"","sourcing":"Destination","tax":0.8000,"taxableAmount":10.0000,"taxCalculated":0.8000,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-04-04","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0000,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":27659530575,"transactionLineId":9828439371,"transactionId":10830074796,"addressId":11624303422,"country":"US","region":"PA","countyFIPS":"","stateFIPS":"42","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"42","jurisName":"PENNSYLVANIA","jurisdictionId":49,"signatureCode":"BKTQ","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.060000,"rateRuleId":1457985,"rateSourceId":3,"serCode":"","sourcing":"Destination","tax":0.6000,"taxableAmount":10.0000,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"PA
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":4014900,"taxCalculated":0.6000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":10.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false},{"id":7649986148,"transactionLineId":9828439371,"transactionId":10830074796,"addressId":11624303422,"country":"US","region":"PA","countyFIPS":"","stateFIPS":"42","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"101","jurisName":"PHILADELPHIA","jurisdictionId":2311,"signatureCode":"BMWV","stateAssignedNo":"51","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.020000,"rateRuleId":1458005,"rateSourceId":3,"serCode":"","sourcing":"Destination","tax":0.2000,"taxableAmount":10.0000,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"PA
+        COUNTY TAX","taxAuthorityTypeId":45,"taxRegionId":4014900,"taxCalculated":0.2000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":10.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false}],"nonPassthroughDetails":[],"lineLocationTypes":[{"documentLineLocationTypeId":12726837665,"documentLineId":9828439371,"documentAddressId":11624303422,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":10509779524,"documentLineId":9828439371,"documentAddressId":5418809819,"locationTypeCode":"ShipFrom"}],"parameters":{},"hsCode":"","costInsuranceFreight":0.0000,"vatCode":"","vatNumberTypeId":0},{"id":12036775617,"transactionId":10830074796,"lineNumber":"LI-740732e9-cd77-4636-9cfa-124a4c7ef723","boundaryOverrideId":0,"customerUsageType":"","entityUseCode":"","description":"Saepe
+        nobis molestias dignissimos labore ut. Nihil ut corporis quasi in dolore.
+        Expedita esse aliquid distinctio quia reiciendis.Dolor est totam illum perspiciatis
+        eum impedit dolorem possimus. Consequatur nihil adipisci dolor dolorem et
+        maiores. Id voluptatem odit inventore porro velit.","destinationAddressId":11624303422,"originAddressId":5418809819,"discountAmount":0.0000,"discountTypeId":0,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"","lineAmount":10.0000,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2019-04-04","revAccount":"","sourcing":"Destination","tax":0.8000,"taxableAmount":10.0000,"taxCalculated":0.8000,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-04-04","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0000,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":9649986147,"transactionLineId":12036775617,"transactionId":10830074796,"addressId":11624303422,"country":"US","region":"PA","countyFIPS":"","stateFIPS":"42","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"42","jurisName":"PENNSYLVANIA","jurisdictionId":49,"signatureCode":"BKTQ","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.060000,"rateRuleId":1457985,"rateSourceId":3,"serCode":"","sourcing":"Destination","tax":0.6000,"taxableAmount":10.0000,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"PA
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":4014900,"taxCalculated":0.6000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":10.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false},{"id":11649986148,"transactionLineId":12036775617,"transactionId":10830074796,"addressId":11624303422,"country":"US","region":"PA","countyFIPS":"","stateFIPS":"42","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"101","jurisName":"PHILADELPHIA","jurisdictionId":2311,"signatureCode":"BMWV","stateAssignedNo":"51","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.020000,"rateRuleId":1458005,"rateSourceId":3,"serCode":"","sourcing":"Destination","tax":0.2000,"taxableAmount":10.0000,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"PA
+        COUNTY TAX","taxAuthorityTypeId":45,"taxRegionId":4014900,"taxCalculated":0.2000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":10.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false}],"nonPassthroughDetails":[],"lineLocationTypes":[{"documentLineLocationTypeId":8509779525,"documentLineId":12036775617,"documentAddressId":11624303422,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":6509779525,"documentLineId":12036775617,"documentAddressId":5418809819,"locationTypeCode":"ShipFrom"}],"parameters":{},"hsCode":"","costInsuranceFreight":0.0000,"vatCode":"","vatNumberTypeId":0},{"id":5828439371,"transactionId":10830074796,"lineNumber":"LI-a686899e-5deb-422d-a6eb-d60890555800","boundaryOverrideId":0,"customerUsageType":"","entityUseCode":"","description":"Modi
+        repellendus aut aut est molestiae. Sed quas deserunt natus libero. Eum quis
+        modi ea quae. Sed molestias enim eum perferendis ex. Dolores quia provident
+        earum minus voluptates nostrum.Adipisci delectus quos quia voluptatem aut
+        voluptas. Voluptates repudiandae deleniti similique facilis iste voluptatibus.
+        Quia nesciunt ipsa doloribus cum numquam voluptatem.Accusantium omnis et vel
+        aut. Ut sint magni sapiente animi sit perspiciatis qui. In et enim sapiente
+        quisquam rerum ut qui.","destinationAddressId":11624303422,"originAddressId":5418809819,"discountAmount":0.0000,"discountTypeId":0,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"","lineAmount":10.0000,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2019-04-04","revAccount":"","sourcing":"Destination","tax":0.8000,"taxableAmount":10.0000,"taxCalculated":0.8000,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-04-04","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0000,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":13649986149,"transactionLineId":5828439371,"transactionId":10830074796,"addressId":11624303422,"country":"US","region":"PA","countyFIPS":"","stateFIPS":"42","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"42","jurisName":"PENNSYLVANIA","jurisdictionId":49,"signatureCode":"BKTQ","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.060000,"rateRuleId":1457985,"rateSourceId":3,"serCode":"","sourcing":"Destination","tax":0.6000,"taxableAmount":10.0000,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"PA
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":4014900,"taxCalculated":0.6000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":10.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false},{"id":15649986150,"transactionLineId":5828439371,"transactionId":10830074796,"addressId":11624303422,"country":"US","region":"PA","countyFIPS":"","stateFIPS":"42","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"101","jurisName":"PHILADELPHIA","jurisdictionId":2311,"signatureCode":"BMWV","stateAssignedNo":"51","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.020000,"rateRuleId":1458005,"rateSourceId":3,"serCode":"","sourcing":"Destination","tax":0.2000,"taxableAmount":10.0000,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"PA
+        COUNTY TAX","taxAuthorityTypeId":45,"taxRegionId":4014900,"taxCalculated":0.2000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":10.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false}],"nonPassthroughDetails":[],"lineLocationTypes":[{"documentLineLocationTypeId":12726837666,"documentLineId":5828439371,"documentAddressId":11624303422,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":10509779525,"documentLineId":5828439371,"documentAddressId":5418809819,"locationTypeCode":"ShipFrom"}],"parameters":{},"hsCode":"","costInsuranceFreight":0.0000,"vatCode":"","vatNumberTypeId":0},{"id":7828439372,"transactionId":10830074796,"lineNumber":"LI-ba35d0e7-47f8-413c-bcf7-5c00bbf72dd0","boundaryOverrideId":0,"customerUsageType":"","entityUseCode":"","description":"Officia
+        aut est nobis laborum quis. Laborum voluptatum accusamus pariatur omnis. Qui
+        fugit sit consectetur enim repudiandae magnam magni vel. Ea eos id enim odio.","destinationAddressId":11624303422,"originAddressId":5418809819,"discountAmount":0.0000,"discountTypeId":0,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"","lineAmount":10.0000,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2019-04-04","revAccount":"","sourcing":"Destination","tax":0.8000,"taxableAmount":10.0000,"taxCalculated":0.8000,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-04-04","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0000,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":27659530576,"transactionLineId":7828439372,"transactionId":10830074796,"addressId":11624303422,"country":"US","region":"PA","countyFIPS":"","stateFIPS":"42","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"42","jurisName":"PENNSYLVANIA","jurisdictionId":49,"signatureCode":"BKTQ","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.060000,"rateRuleId":1457985,"rateSourceId":3,"serCode":"","sourcing":"Destination","tax":0.6000,"taxableAmount":10.0000,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"PA
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":4014900,"taxCalculated":0.6000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":10.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false},{"id":7649986149,"transactionLineId":7828439372,"transactionId":10830074796,"addressId":11624303422,"country":"US","region":"PA","countyFIPS":"","stateFIPS":"42","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"101","jurisName":"PHILADELPHIA","jurisdictionId":2311,"signatureCode":"BMWV","stateAssignedNo":"51","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.020000,"rateRuleId":1458005,"rateSourceId":3,"serCode":"","sourcing":"Destination","tax":0.2000,"taxableAmount":10.0000,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"PA
+        COUNTY TAX","taxAuthorityTypeId":45,"taxRegionId":4014900,"taxCalculated":0.2000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":10.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false}],"nonPassthroughDetails":[],"lineLocationTypes":[{"documentLineLocationTypeId":8509779526,"documentLineId":7828439372,"documentAddressId":11624303422,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":6509779526,"documentLineId":7828439372,"documentAddressId":5418809819,"locationTypeCode":"ShipFrom"}],"parameters":{},"hsCode":"","costInsuranceFreight":0.0000,"vatCode":"","vatNumberTypeId":0},{"id":9828439372,"transactionId":10830074796,"lineNumber":"LI-e0a8e3dc-4daa-49c9-86a2-b8454d236fa7","boundaryOverrideId":0,"customerUsageType":"","entityUseCode":"","description":"Et
+        ut nihil aut facere vitae ut. Vitae at consequatur dignissimos iste est soluta
+        molestiae. Quibusdam minus totam libero eaque. Impedit rerum voluptatem qui
+        voluptas.Alias aut sit distinctio ad laboriosam. Ut fugit at cumque fuga minus
+        quae culpa repudiandae. Corrupti voluptatem odio unde molestiae in. Dolores
+        et fuga eos atque ut occaecati aliquid soluta. At assumenda in veniam quae
+        ex.Voluptate quisquam minima nam voluptatum praesentium ut nemo consequatur.
+        Ut consequatur voluptatum beatae vel aut quia neque. Saepe perferendis quis
+        voluptas ullam dolores sunt. Ipsa harum suscipit quos ea officia.Facere atque
+        ut magni impedit. A repudiandae et pariatur est aut. Atque eius sint ullam
+        in. Assumenda in corrupti repellat occaecati.","destinationAddressId":11624303422,"originAddressId":5418809819,"discountAmount":0.0000,"discountTypeId":0,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"","lineAmount":10.0000,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2019-04-04","revAccount":"","sourcing":"Destination","tax":0.8000,"taxableAmount":10.0000,"taxCalculated":0.8000,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-04-04","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0000,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":9649986148,"transactionLineId":9828439372,"transactionId":10830074796,"addressId":11624303422,"country":"US","region":"PA","countyFIPS":"","stateFIPS":"42","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"42","jurisName":"PENNSYLVANIA","jurisdictionId":49,"signatureCode":"BKTQ","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.060000,"rateRuleId":1457985,"rateSourceId":3,"serCode":"","sourcing":"Destination","tax":0.6000,"taxableAmount":10.0000,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"PA
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":4014900,"taxCalculated":0.6000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":10.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false},{"id":11649986149,"transactionLineId":9828439372,"transactionId":10830074796,"addressId":11624303422,"country":"US","region":"PA","countyFIPS":"","stateFIPS":"42","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"101","jurisName":"PHILADELPHIA","jurisdictionId":2311,"signatureCode":"BMWV","stateAssignedNo":"51","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.020000,"rateRuleId":1458005,"rateSourceId":3,"serCode":"","sourcing":"Destination","tax":0.2000,"taxableAmount":10.0000,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"PA
+        COUNTY TAX","taxAuthorityTypeId":45,"taxRegionId":4014900,"taxCalculated":0.2000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":10.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false}],"nonPassthroughDetails":[],"lineLocationTypes":[{"documentLineLocationTypeId":12726837667,"documentLineId":9828439372,"documentAddressId":11624303422,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":10509779526,"documentLineId":9828439372,"documentAddressId":5418809819,"locationTypeCode":"ShipFrom"}],"parameters":{},"hsCode":"","costInsuranceFreight":0.0000,"vatCode":"","vatNumberTypeId":0},{"id":12036775618,"transactionId":10830074796,"lineNumber":"FR-65386c3f-d134-4c26-9fb3-e621cedd113d","boundaryOverrideId":0,"customerUsageType":"","entityUseCode":"","description":"","destinationAddressId":11624303422,"originAddressId":11624303422,"discountAmount":0.0000,"discountTypeId":0,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"","lineAmount":100.0000,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2019-04-04","revAccount":"","sourcing":"Origin","tax":8.0000,"taxableAmount":100.0000,"taxCalculated":8.0000,"taxCode":"FR","taxCodeId":10890,"taxDate":"2019-04-04","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0000,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":13649986150,"transactionLineId":12036775618,"transactionId":10830074796,"addressId":11624303422,"country":"US","region":"PA","countyFIPS":"","stateFIPS":"42","exemptAmount":0.0000,"exemptReasonId":4,"inState":true,"jurisCode":"42","jurisName":"PENNSYLVANIA","jurisdictionId":49,"signatureCode":"BKTQ","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.060000,"rateRuleId":1457985,"rateSourceId":3,"serCode":"","sourcing":"Origin","tax":6.0000,"taxableAmount":100.0000,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"PA
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":4014900,"taxCalculated":6.0000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":100.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false},{"id":15649986151,"transactionLineId":12036775618,"transactionId":10830074796,"addressId":11624303422,"country":"US","region":"PA","countyFIPS":"","stateFIPS":"42","exemptAmount":0.0000,"exemptReasonId":4,"inState":true,"jurisCode":"101","jurisName":"PHILADELPHIA","jurisdictionId":2311,"signatureCode":"BMWV","stateAssignedNo":"51","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.020000,"rateRuleId":1458005,"rateSourceId":3,"serCode":"","sourcing":"Origin","tax":2.0000,"taxableAmount":100.0000,"taxType":"Sales","taxSubTypeId":"S","taxTypeGroupId":"SalesAndUse","taxName":"PA
+        COUNTY TAX","taxAuthorityTypeId":45,"taxRegionId":4014900,"taxCalculated":2.0000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":100.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false}],"nonPassthroughDetails":[],"lineLocationTypes":[{"documentLineLocationTypeId":8509779527,"documentLineId":12036775618,"documentAddressId":11624303422,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":6509779527,"documentLineId":12036775618,"documentAddressId":11624303422,"locationTypeCode":"ShipFrom"}],"parameters":{},"hsCode":"","costInsuranceFreight":0.0000,"vatCode":"","vatNumberTypeId":0}],"addresses":[{"id":5418809819,"transactionId":10830074796,"boundaryLevel":"Address","line1":"1600
+        Pennsylvania Ave NW","line2":"","line3":"","city":"Washington","region":"DC","postalCode":"20500-0003","country":"US","taxRegionId":949,"latitude":"38.898636","longitude":"-77.036543"},{"id":11624303422,"transactionId":10830074796,"boundaryLevel":"Address","line1":"822
+        Reed St","line2":"","line3":"","city":"Philadelphia","region":"PA","postalCode":"19147-5736","country":"US","taxRegionId":4014900,"latitude":"39.931649","longitude":"-75.159058"}],"locationTypes":[{"documentLocationTypeId":6662958890,"documentId":10830074796,"documentAddressId":11624303422,"locationTypeCode":"ShipTo"},{"documentLocationTypeId":4662958890,"documentId":10830074796,"documentAddressId":11624303422,"locationTypeCode":"ShipFrom"}],"summary":[{"country":"US","region":"PA","jurisType":"State","jurisCode":"42","jurisName":"PENNSYLVANIA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"PA
+        STATE TAX","rateType":"General","taxable":150.00,"rate":0.060000,"tax":9.00,"taxCalculated":9.00,"nonTaxable":0.00,"exemption":0.00},{"country":"US","region":"PA","jurisType":"County","jurisCode":"101","jurisName":"PHILADELPHIA","taxAuthorityType":45,"stateAssignedNo":"51","taxType":"Sales","taxName":"PA
+        COUNTY TAX","rateType":"General","taxable":150.00,"rate":0.020000,"tax":3.00,"taxCalculated":3.00,"nonTaxable":0.00,"exemption":0.00}],"parameters":{}}'
     http_version: 
-  recorded_at: Wed, 03 Apr 2019 15:32:25 GMT
+  recorded_at: Thu, 04 Apr 2019 09:56:34 GMT
 - request:
     method: post
-    uri: https://sandbox-rest.avatax.com/api/v2/companies/test1/transactions/ac5c8f17-a4da-408a-90a5-ee680f842ae4/adjust
+    uri: https://sandbox-rest.avatax.com/api/v2/companies/test1/transactions/b0c395be-9dc9-4da8-99f5-9b5301c2207b/adjust
     body:
       encoding: UTF-8
-      string: '{"adjustmentReason":"","adjustmentDescription":"","newTransaction":{"type":"SalesInvoice","code":"ac5c8f17-a4da-408a-90a5-ee680f842ae4","referenceCode":"R635813760","companyCode":"test1","date":"2019-04-03","customerCode":"laure.barton@mosciskijaskolski.us","addresses":{"ShipFrom":{"line1":"822
+      string: '{"adjustmentReason":"","adjustmentDescription":"","newTransaction":{"type":"SalesInvoice","code":"b0c395be-9dc9-4da8-99f5-9b5301c2207b","referenceCode":"R187063978","companyCode":"test1","date":"2019-04-04","customerCode":"debi@mraz.info","addresses":{"ShipFrom":{"line1":"822
         Reed St","line2":"","city":"Philadelphia","region":"PA","country":"USA","postalCode":"19147"},"ShipTo":{"line1":"822
         Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"lines":[{"number":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false,"addresses":{"ShipFrom":{"line1":"1600
-        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"PA","country":"US","postalCode":"20500"},"ShipTo":{"line1":"822
-        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"description":"Voluptas
-        tempore ex laborum ea voluptates laboriosam accusamus. Voluptatem ut sed quasi
-        eveniet eum. Necessitatibus inventore deserunt sequi ut incidunt. Voluptatem
-        distinctio a accusamus rerum dolores quia asperiores.\nVoluptas et rem nobis
-        labore quaerat velit dolor. Rem consequuntur molestiae possimus animi quaerat
-        sed est incidunt. Sit laborum nobis ipsum fugiat sit et beatae. Distinctio
-        ea esse natus maiores alias fugit non id.","sku":"SKU-22"},{"number":"FR-ada5f77a-cb99-4e2a-adb6-4606653958a7","quantity":1,"amount":"100.0","taxCode":"FR","discounted":false,"addresses":{}}],"commit":true,"discount":"0.0"}}'
+        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"ShipTo":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"description":"Itaque
+        ad voluptatem aut maxime. Hic quis eos qui neque. Enim iure aut rerum neque
+        quibusdam. Non praesentium qui ea reprehenderit eum dignissimos. Quo vitae
+        exercitationem ipsam sunt et perspiciatis et.\nOfficia qui et laboriosam perferendis
+        deleniti magni enim. Dicta harum non sapiente aut ullam porro laudantium alias.
+        Quos laudantium in quis totam et officiis architecto et. Et quo impedit libero
+        quasi.\nPariatur omnis voluptas cupiditate explicabo. Consequatur ea ipsam
+        porro animi aut molestias. Aspernatur dolore eligendi blanditiis vel. Dolor
+        est reiciendis quo labore et. Voluptatem distinctio sed quidem eum sint corporis
+        non totam.","sku":"bcf27af1c7304430f85994ce0e338253"},{"number":"LI-740732e9-cd77-4636-9cfa-124a4c7ef723","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false,"addresses":{"ShipFrom":{"line1":"1600
+        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"ShipTo":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"description":"Saepe
+        nobis molestias dignissimos labore ut. Nihil ut corporis quasi in dolore.
+        Expedita esse aliquid distinctio quia reiciendis.\nDolor est totam illum perspiciatis
+        eum impedit dolorem possimus. Consequatur nihil adipisci dolor dolorem et
+        maiores. Id voluptatem odit inventore porro velit.","sku":"356311fe4f06b615889f5be4324f0fc3"},{"number":"LI-a686899e-5deb-422d-a6eb-d60890555800","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false,"addresses":{"ShipFrom":{"line1":"1600
+        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"ShipTo":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"description":"Modi
+        repellendus aut aut est molestiae. Sed quas deserunt natus libero. Eum quis
+        modi ea quae. Sed molestias enim eum perferendis ex. Dolores quia provident
+        earum minus voluptates nostrum.\nAdipisci delectus quos quia voluptatem aut
+        voluptas. Voluptates repudiandae deleniti similique facilis iste voluptatibus.
+        Quia nesciunt ipsa doloribus cum numquam voluptatem.\nAccusantium omnis et
+        vel aut. Ut sint magni sapiente animi sit perspiciatis qui. In et enim sapiente
+        quisquam rerum ut qui.","sku":"35582036479edfc26e50fbb446cdd2c8"},{"number":"LI-ba35d0e7-47f8-413c-bcf7-5c00bbf72dd0","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false,"addresses":{"ShipFrom":{"line1":"1600
+        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"ShipTo":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"description":"Officia
+        aut est nobis laborum quis. Laborum voluptatum accusamus pariatur omnis. Qui
+        fugit sit consectetur enim repudiandae magnam magni vel. Ea eos id enim odio.","sku":"108b674a8c02573b5a8991d352832027"},{"number":"LI-e0a8e3dc-4daa-49c9-86a2-b8454d236fa7","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false,"addresses":{"ShipFrom":{"line1":"1600
+        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"ShipTo":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"description":"Et
+        ut nihil aut facere vitae ut. Vitae at consequatur dignissimos iste est soluta
+        molestiae. Quibusdam minus totam libero eaque. Impedit rerum voluptatem qui
+        voluptas.\nAlias aut sit distinctio ad laboriosam. Ut fugit at cumque fuga
+        minus quae culpa repudiandae. Corrupti voluptatem odio unde molestiae in.
+        Dolores et fuga eos atque ut occaecati aliquid soluta. At assumenda in veniam
+        quae ex.\nVoluptate quisquam minima nam voluptatum praesentium ut nemo consequatur.
+        Ut consequatur voluptatum beatae vel aut quia neque. Saepe perferendis quis
+        voluptas ullam dolores sunt. Ipsa harum suscipit quos ea officia.\nFacere
+        atque ut magni impedit. A repudiandae et pariatur est aut. Atque eius sint
+        ullam in. Assumenda in corrupti repellat occaecati.","sku":"405bd941dfbc3e2cdf5127be23edb550"},{"number":"FR-65386c3f-d134-4c26-9fb3-e621cedd113d","quantity":1,"amount":"100.0","taxCode":"FR","discounted":false,"addresses":{}}],"commit":true,"discount":"0.0"}}'
     headers:
       Accept:
       - application/json; charset=utf-8
       User-Agent:
       - AvaTax Ruby Gem 18.12.0
       X-Avalara-Client:
-      - ";;RubySdk;18.12.0;"
+      - a0o0b000005HsXPAA0;Spree by Spark;RubySdk;18.12.0;
       Authorization:
       - "<AVATAX_TOKEN>"
       Content-Type:
@@ -112,7 +214,7 @@ http_interactions:
       message: Bad Request
     headers:
       Date:
-      - Wed, 03 Apr 2019 15:32:26 GMT
+      - Thu, 04 Apr 2019 09:56:35 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -124,7 +226,7 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0002133'
+      - '00:00:00.0002170'
       Databasecalls:
       - '0'
       Databaseduration:
@@ -141,5 +243,5 @@ http_interactions:
         22: Error converting value \"\" to type ''Avalara.AvaTax.Enums.AdjustmentReason''.
         Path ''adjustmentReason''","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/JsonFormatError","severity":"Error"}]}}'
     http_version: 
-  recorded_at: Wed, 03 Apr 2019 15:32:26 GMT
+  recorded_at: Thu, 04 Apr 2019 09:56:35 GMT
 recorded_with: VCR 4.0.0
