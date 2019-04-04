@@ -1,19 +1,13 @@
 module SpreeAvataxOfficial
   module Transactions
     class AdjustService < SpreeAvataxOfficial::Base
-      def call(order:, adjustment_reason:, adjustment_description: '', options: {}) # rubocop:disable Metrics/MethodLength
+      def call(order:, adjustment_reason:, adjustment_description: '', options: {})
         response = send_request(order, adjustment_reason, adjustment_description, options)
 
         request_result(response, order) do
-          invoice_transaction = order.avatax_sales_invoice_transaction
-
-          if invoice_transaction.present?
-            invoice_transaction.update!(code: response['code'], transaction_type: response['type'])
-          else
+          if order.avatax_sales_invoice_transaction.nil?
             create_transaction!(
-              code:             response['code'],
-              order:            order,
-              transaction_type: response['type']
+              order: order
             )
           end
         end

@@ -350,7 +350,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
     end
 
     context 'completed order with single line item and shipment' do
-      let(:order) { create(:avatax_order, :completed, with_shipment: true, line_items_count: 1, ship_address: usa_address) }
+      let(:order) { create(:avatax_order, :completed, number: 'R966011034', with_shipment: true, line_items_count: 1, ship_address: usa_address) }
       let(:line_item) { order.line_items.first }
       let(:shipment) { order.shipments.first }
       let(:invoice_transaction) { order.reload.avatax_sales_invoice_transaction }

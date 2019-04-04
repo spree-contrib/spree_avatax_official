@@ -31,9 +31,9 @@ module SpreeAvataxOfficial
       success(response)
     end
 
-    def create_transaction!(code:, order:, transaction_type:)
+    def create_transaction!(code: nil, order:, transaction_type:)
       SpreeAvataxOfficial::Transaction.create!(
-        code:             code,
+        code:             code || order.number,
         order:            order,
         transaction_type: transaction_type
       )
