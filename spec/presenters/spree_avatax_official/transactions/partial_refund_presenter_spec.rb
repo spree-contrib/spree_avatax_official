@@ -3,8 +3,9 @@ require 'spec_helper'
 describe SpreeAvataxOfficial::Transactions::PartialRefundPresenter do
   subject do
     described_class.new(
-      order:        order,
-      refund_items: { line_item => [quantity, amount] }
+      order:            order,
+      refund_items:     { line_item => [quantity, amount] },
+      transaction_code: "#{order.number}-1"
     )
   end
 
@@ -14,7 +15,7 @@ describe SpreeAvataxOfficial::Transactions::PartialRefundPresenter do
       type:          'ReturnInvoice',
       companyCode:   SpreeAvataxOfficial::Configuration.new.company_code,
       referenceCode: order.number,
-      code:          nil,
+      code:          "#{order.number}-1",
       date:          order.updated_at.strftime('%Y-%m-%d'),
       customerCode:  order.email,
       addresses:     SpreeAvataxOfficial::AddressPresenter.new(address: ship_from_address, address_type: 'ShipFrom').to_json.merge(
