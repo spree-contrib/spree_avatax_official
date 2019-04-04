@@ -56,14 +56,18 @@ describe SpreeAvataxOfficial::Transactions::CreateService do
         end
       end
 
-      # Unfortunetly path method in https://github.com/avadev/AvaTax-REST-V2-Ruby-SDK/blob/master/lib/avatax/request.rb#L29
-      # removes all query params, what makes us unable to test timeout with '$include' => 'ForceTimeout' query param.
-      xcontext 'and Avalara API timeout' do
+      context 'and Avalara API timeout' do
         subject do
           described_class.call(
             order:   order,
             options: { '$include' => 'ForceTimeout' }
           )
+        end
+
+        let(:connection_options) { { request: { timeout: 120.0, open_timeout: 120.0 } } }
+
+        before do
+          allow_any_instance_of(AvaTax::Client).to receive(:connection_options).and_return(connection_options) # rubocop:disable RSpec/AnyInstance
         end
 
         it 'returns negative result' do
@@ -74,6 +78,50 @@ describe SpreeAvataxOfficial::Transactions::CreateService do
             expect(result.success?).to eq false
             expect(response['error']).to be_present
             expect(response['error']['code']).to eq 'TimeoutRequested'
+          end
+        end
+      end
+
+      context 'and Faraday read timeout' do
+        subject { described_class.call(order: order) }
+
+        let(:connection_options) { { request: { timeout: 0, open_timeout: 2 } } }
+
+        before do
+          allow_any_instance_of(AvaTax::Client).to receive(:connection_options).and_return(connection_options) # rubocop:disable RSpec/AnyInstance
+        end
+
+        it 'returns negative result' do
+          VCR.use_cassette('spree_avatax_official/transactions/create/faraday_read_timeout') do
+            result   = subject
+            response = result.value
+
+            expect(result.success?).to eq false
+            expect(response['error']).to be_present
+            expect(response['error']['code']).to eq 'ConnectionError'
+            expect(response['error']['message']).to eq 'Faraday::TimeoutError - Net::ReadTimeout'
+          end
+        end
+      end
+
+      context 'and Faraday open timeout' do
+        subject { described_class.call(order: order) }
+
+        let(:connection_options) { { request: { timeout: 6, open_timeout: 0 } } }
+
+        before do
+          allow_any_instance_of(AvaTax::Client).to receive(:connection_options).and_return(connection_options) # rubocop:disable RSpec/AnyInstance
+        end
+
+        it 'returns negative result' do
+          VCR.use_cassette('spree_avatax_official/transactions/create/faraday_open_timeout') do
+            result   = subject
+            response = result.value
+
+            expect(result.success?).to eq false
+            expect(response['error']).to be_present
+            expect(response['error']['code']).to eq 'ConnectionError'
+            expect(response['error']['message']).to eq 'Faraday::ConnectionFailed - Net::OpenTimeout'
           end
         end
       end

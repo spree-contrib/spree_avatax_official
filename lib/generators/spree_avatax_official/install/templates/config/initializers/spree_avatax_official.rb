@@ -3,6 +3,7 @@ AvaTax.configure do |config|
   config.username = ''
   config.password = ''
 end
+
 # Fields necessary to enable AvaTax tax calculation
 SpreeAvataxOfficial::Config.enabled            = false
 SpreeAvataxOfficial::Config.company_code       = ''
@@ -16,9 +17,19 @@ SpreeAvataxOfficial::Config.ship_from_address  = {
 }
 
 # Optional configuration fields
+SpreeAvataxOfficial::Config.address_validation_enabled = false
 SpreeAvataxOfficial::Config.log                        = true
 SpreeAvataxOfficial::Config.log_to_stdout              = false
 SpreeAvataxOfficial::Config.log_file_name              = 'avatax.log'
 SpreeAvataxOfficial::Config.log_frequency              = 'weekly'
 SpreeAvataxOfficial::Config.show_rate_in_label         = false
-SpreeAvataxOfficial::Config.address_validation_enabled = false
+SpreeAvataxOfficial::Config.open_timeout               = 2.0
+SpreeAvataxOfficial::Config.read_timeout               = 6.0
+
+
+avatax_default_connection_options = AvaTax::Configuration::DEFAULT_CONNECTION_OPTIONS
+avatax_default_connection_options[:request] = {
+  timeout:      SpreeAvataxOfficial::Config.read_timeout,
+  open_timeout: SpreeAvataxOfficial::Config.open_timeout
+}
+AvaTax::Configuration::DEFAULT_CONNECTION_OPTIONS = avatax_default_connection_options
