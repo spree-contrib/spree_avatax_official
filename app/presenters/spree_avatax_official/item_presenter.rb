@@ -24,12 +24,13 @@ module SpreeAvataxOfficial
 
     def shared_payload
       {
-        number:     item.avatax_number,
-        quantity:   item_quantity,
-        amount:     item_amount,
-        taxCode:    item.avatax_tax_code,
-        discounted: discounted?,
-        addresses:  line_item_addresses_payload
+        number:      item.avatax_number,
+        quantity:    item_quantity,
+        amount:      item_amount,
+        taxCode:     item.avatax_tax_code,
+        discounted:  discounted?,
+        addresses:   line_item_addresses_payload,
+        taxIncluded: item.included_in_price
       }
     end
 

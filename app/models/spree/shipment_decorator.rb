@@ -1,6 +1,9 @@
 module SpreeAvataxOfficial
   module Spree
     module ShipmentDecorator
+      delegate :tax_zone, to: :order
+      delegate :included_in_price, to: :tax_zone
+
       def self.prepended(base)
         base.include ::SpreeAvataxOfficial::HasUuid
       end

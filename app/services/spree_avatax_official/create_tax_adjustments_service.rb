@@ -59,6 +59,8 @@ module SpreeAvataxOfficial
 
       tax_rate = find_or_create_tax_rate(item, avatax_item)
 
+      store_pre_tax_amount(item, tax_rate, tax_amount)
+
       create_tax_adjustment(item, tax_rate, tax_amount)
     end
 
@@ -75,9 +77,10 @@ module SpreeAvataxOfficial
       ::Spree::TaxRate.find_or_create_by!(
         name:               'AvaTax dummy tax rate',
         amount:             sum_rates_from_details(avatax_item),
-        zone:               ::Spree::Zone.default_tax,
+        zone:               item.tax_zone,
         tax_category:       item.tax_category,
-        show_rate_in_label: false
+        show_rate_in_label: false,
+        included_in_price:  item.included_in_price
       ) do |tax_rate|
         tax_rate.calculator = SpreeAvataxOfficial::Calculator::AvataxTransactionCalculator.new
       end
@@ -87,10 +90,21 @@ module SpreeAvataxOfficial
       item.adjustments.create!(
         source:   source,
         amount:   amount,
-        included: false,
+        included: item.included_in_price,
         label:    tax_adjustment_label(item, source.amount),
         order:    item.order
       )
+    end
+
+    def store_pre_tax_amount(item, tax_rate, tax_amount)
+      pre_tax_amount = case item.class.name.demodulize
+                       when 'LineItem' then item.discounted_amount
+                       when 'Shipment' then item.discounted_cost
+                       end
+
+      pre_tax_amount -= tax_amount if tax_rate.included_in_price?
+
+      item.update_column(:pre_tax_amount, pre_tax_amount)
     end
 
     def sum_rates_from_details(avatax_item)
