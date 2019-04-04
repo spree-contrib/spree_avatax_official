@@ -5,25 +5,22 @@ http_interactions:
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
     body:
       encoding: UTF-8
-      string: '{"type":"SalesOrder","code":null,"referenceCode":"R036952263","companyCode":"test1","date":"2019-04-03","customerCode":"raven_conroy@carroll.co.uk","addresses":{"ShipFrom":{"line1":"822
+      string: '{"type":"SalesOrder","code":null,"referenceCode":"R401079786","companyCode":"test1","date":"2019-04-04","customerCode":"jarred.schmidt@deckow.info","addresses":{"ShipFrom":{"line1":"822
         Reed St","line2":"","city":"Philadelphia","region":"PA","country":"USA","postalCode":"19147"},"ShipTo":{"line1":"742
-        Washington St","line2":"","city":"San Francisco","region":"CA","country":"US","postalCode":"94108"}},"lines":[{"number":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false,"addresses":{},"description":"Ut
-        enim culpa aut voluptatem quis corporis tempore itaque. Quo ea beatae accusantium
-        voluptatibus. Nesciunt voluptas et dolorem ut quas voluptatum nihil. Expedita
-        quia eligendi facere sed iusto eum. Omnis dignissimos nihil nesciunt incidunt
-        et sunt aperiam eius.\nFugiat sit id itaque consequatur praesentium. Id minus
-        incidunt eveniet quia nisi tempora laboriosam. Dolor maiores laborum accusantium
-        at.\nQui ducimus ut eos quia id voluptatem exercitationem. Sed qui impedit
-        facilis magnam doloribus rerum saepe velit. Laudantium repudiandae itaque
-        ut ipsum cupiditate. Neque ratione ut sunt qui soluta culpa possimus. Et blanditiis
-        neque repudiandae sint quis.","sku":"SKU-38"},{"number":"FR-6a9efefa-0c6c-4e63-ab43-f43f1d7b2e22","quantity":1,"amount":"5.0","taxCode":"FR","discounted":false,"addresses":{}}],"commit":false,"discount":"0.0"}'
+        Washington St","line2":"","city":"San Francisco","region":"CA","country":"US","postalCode":"94108"}},"lines":[{"number":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false,"addresses":{},"description":"Quidem
+        quia enim minus et minima rerum et cupiditate. Aliquid possimus nemo fuga
+        quos nisi numquam eos in. Expedita harum recusandae ab ex architecto inventore.
+        Animi quidem minus cupiditate necessitatibus nihil.\nIure quia debitis ea
+        nam ex ipsum. Tenetur maiores doloribus sunt quae natus. Facere iste quaerat
+        optio provident quas sed. Eaque qui cupiditate quisquam recusandae consequuntur
+        aut.","sku":"SKU-24"},{"number":"FR-6a9efefa-0c6c-4e63-ab43-f43f1d7b2e22","quantity":1,"amount":"5.0","taxCode":"FR","discounted":false,"addresses":{}}],"commit":false,"discount":"0.0"}'
     headers:
       Accept:
       - application/json; charset=utf-8
       User-Agent:
       - AvaTax Ruby Gem 18.12.0
       X-Avalara-Client:
-      - ";;RubySdk;18.12.0;"
+      - a0o0b000005HsXPAA0;Spree by Spark;RubySdk;18.12.0;
       Authorization:
       - "<AVATAX_TOKEN>"
       Content-Type:
@@ -36,7 +33,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Wed, 03 Apr 2019 15:32:38 GMT
+      - Thu, 04 Apr 2019 09:59:32 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -50,32 +47,29 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0960698'
+      - '00:00:00.0982642'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
       Serviceduration:
-      - '00:00:00.0939202'
+      - '00:00:00.0964288'
       X-Powered-By:
       - ASP.NET
     body:
       encoding: UTF-8
-      string: '{"id":0,"code":"75b58d92-9828-4d22-b66f-72928da6da25","companyId":0,"date":"2019-04-03","paymentDate":"2019-04-03","status":"Temporary","type":"SalesOrder","customerVendorCode":"raven_conroy@carroll.co.uk","customerCode":"raven_conroy@carroll.co.uk","reconciled":false,"referenceCode":"R036952263","totalAmount":15.0,"totalExempt":5.0,"totalDiscount":0.0,"totalTax":0.73,"totalTaxable":10.0,"totalTaxCalculated":0.73,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2019-04-03","exchangeRate":1.0,"modifiedDate":"2019-04-03T15:32:31.793014Z","modifiedUserId":390298,"taxDate":"2019-04-03T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","description":"Ut
-        enim culpa aut voluptatem quis corporis tempore itaque. Quo ea beatae accusantium
-        voluptatibus. Nesciunt voluptas et dolorem ut quas voluptatum nihil. Expedita
-        quia eligendi facere sed iusto eum. Omnis dignissimos nihil nesciunt incidunt
-        et sunt aperiam eius.\nFugiat sit id itaque consequatur praesentium. Id minus
-        incidunt eveniet quia nisi tempora laboriosam. Dolor maiores laborum accusantium
-        at.\nQui ducimus ut eos quia id voluptatem exercitationem. Sed qui impedit
-        facilis magnam doloribus rerum saepe velit. Laudantium repudiandae itaque
-        ut ipsum cupiditate. Neque ratione ut sunt qui soluta culpa possimus. Et blanditiis
-        neque repudiandae sint quis.","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":10.0,"quantity":1.0,"reportingDate":"2019-04-03","tax":0.73,"taxableAmount":10.0,"taxCalculated":0.73,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-04-03","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"CA","exemptAmount":0.0,"jurisCode":"06","jurisName":"CALIFORNIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":0.6,"taxableAmount":10.0,"taxType":"Sales","taxName":"CA
+      string: '{"id":0,"code":"0fbbdc14-58a3-4e16-9a0f-c85fc9a0885a","companyId":0,"date":"2019-04-04","paymentDate":"2019-04-04","status":"Temporary","type":"SalesOrder","customerVendorCode":"jarred.schmidt@deckow.info","customerCode":"jarred.schmidt@deckow.info","reconciled":false,"referenceCode":"R401079786","totalAmount":15.0,"totalExempt":5.0,"totalDiscount":0.0,"totalTax":0.73,"totalTaxable":10.0,"totalTaxCalculated":0.73,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2019-04-04","exchangeRate":1.0,"modifiedDate":"2019-04-04T09:59:23.705048Z","modifiedUserId":356147,"taxDate":"2019-04-04T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","description":"Quidem
+        quia enim minus et minima rerum et cupiditate. Aliquid possimus nemo fuga
+        quos nisi numquam eos in. Expedita harum recusandae ab ex architecto inventore.
+        Animi quidem minus cupiditate necessitatibus nihil.\nIure quia debitis ea
+        nam ex ipsum. Tenetur maiores doloribus sunt quae natus. Facere iste quaerat
+        optio provident quas sed. Eaque qui cupiditate quisquam recusandae consequuntur
+        aut.","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":10.0,"quantity":1.0,"reportingDate":"2019-04-04","tax":0.73,"taxableAmount":10.0,"taxCalculated":0.73,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-04-04","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"CA","exemptAmount":0.0,"jurisCode":"06","jurisName":"CALIFORNIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":0.6,"taxableAmount":10.0,"taxType":"Sales","taxName":"CA
         STATE TAX","taxAuthorityTypeId":45,"taxCalculated":0.6,"rateType":"General","rateTypeCode":"G","isNonPassThru":false},{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"CA","exemptAmount":0.0,"jurisCode":"075","jurisName":"SAN
         FRANCISCO","stateAssignedNo":"","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0,"rate":0.002500,"tax":0.03,"taxableAmount":10.0,"taxType":"Sales","taxName":"CA
         COUNTY TAX","taxAuthorityTypeId":45,"taxCalculated":0.03,"rateType":"General","rateTypeCode":"G","isNonPassThru":false},{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"CA","exemptAmount":0.0,"jurisCode":"EMTV0","jurisName":"SAN
         FRANCISCO CO LOCAL TAX SL","stateAssignedNo":"38","jurisType":"STJ","jurisdictionType":"Special","nonTaxableAmount":0.0,"rate":0.010000,"tax":0.1,"taxableAmount":10.0,"taxType":"Sales","taxName":"CA
-        SPECIAL TAX","taxAuthorityTypeId":45,"taxCalculated":0.1,"rateType":"General","rateTypeCode":"G","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"","vatNumberTypeId":0},{"id":0,"transactionId":0,"lineNumber":"FR-6a9efefa-0c6c-4e63-ab43-f43f1d7b2e22","discountAmount":0.0,"exemptAmount":5.0,"exemptCertId":0,"isItemTaxable":false,"lineAmount":5.0,"quantity":1.0,"reportingDate":"2019-04-03","tax":0.0,"taxableAmount":0.0,"taxCalculated":0.0,"taxCode":"FR","taxCodeId":10890,"taxDate":"2019-04-03","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"CA","exemptAmount":0.0,"jurisCode":"06","jurisName":"CALIFORNIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":5.0,"rate":0.060000,"tax":0.0,"taxableAmount":0.0,"taxType":"Sales","taxName":"CA
+        SPECIAL TAX","taxAuthorityTypeId":45,"taxCalculated":0.1,"rateType":"General","rateTypeCode":"G","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"","vatNumberTypeId":0},{"id":0,"transactionId":0,"lineNumber":"FR-6a9efefa-0c6c-4e63-ab43-f43f1d7b2e22","discountAmount":0.0,"exemptAmount":5.0,"exemptCertId":0,"isItemTaxable":false,"lineAmount":5.0,"quantity":1.0,"reportingDate":"2019-04-04","tax":0.0,"taxableAmount":0.0,"taxCalculated":0.0,"taxCode":"FR","taxCodeId":10890,"taxDate":"2019-04-04","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"CA","exemptAmount":0.0,"jurisCode":"06","jurisName":"CALIFORNIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":5.0,"rate":0.060000,"tax":0.0,"taxableAmount":0.0,"taxType":"Sales","taxName":"CA
         STATE TAX","taxAuthorityTypeId":45,"taxCalculated":0.0,"rateType":"General","rateTypeCode":"G","isNonPassThru":false},{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"CA","exemptAmount":0.0,"jurisCode":"075","jurisName":"SAN
         FRANCISCO","stateAssignedNo":"","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":5.0,"rate":0.002500,"tax":0.0,"taxableAmount":0.0,"taxType":"Sales","taxName":"CA
         COUNTY TAX","taxAuthorityTypeId":45,"taxCalculated":0.0,"rateType":"General","rateTypeCode":"G","isNonPassThru":false},{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"CA","exemptAmount":0.0,"jurisCode":"EMTV0","jurisName":"SAN
@@ -89,5 +83,5 @@ http_interactions:
         FRANCISCO CO LOCAL TAX SL","taxAuthorityType":45,"stateAssignedNo":"38","taxType":"Sales","taxName":"CA
         SPECIAL TAX","rateType":"General","taxable":10.0,"rate":0.010000,"tax":0.1,"taxCalculated":0.1,"nonTaxable":5.0,"exemption":0.0}]}'
     http_version: 
-  recorded_at: Wed, 03 Apr 2019 15:32:38 GMT
+  recorded_at: Thu, 04 Apr 2019 09:59:32 GMT
 recorded_with: VCR 4.0.0

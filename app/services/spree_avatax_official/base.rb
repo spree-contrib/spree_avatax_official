@@ -2,12 +2,19 @@ module SpreeAvataxOfficial
   class Base
     prepend ::Spree::ServiceModule::Base
 
+    APP_NAME    = 'a0o0b000005HsXPAA0'.freeze
+    APP_VERSION = 'Spree by Spark'.freeze
+
     private
 
     delegate :company_code, to: 'SpreeAvataxOfficial::Config'
 
     def client
-      AvaTax::Client.new(logger: true)
+      AvaTax::Client.new(
+        app_name:    APP_NAME,
+        app_version: APP_VERSION,
+        logger:      true
+      )
     end
 
     def request_result(response, object)

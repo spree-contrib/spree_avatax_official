@@ -12,7 +12,7 @@ http_interactions:
       User-Agent:
       - AvaTax Ruby Gem 18.12.0
       X-Avalara-Client:
-      - ";;RubySdk;18.12.0;"
+      - a0o0b000005HsXPAA0;Spree by Spark;RubySdk;18.12.0;
       Authorization:
       - "<AVATAX_TOKEN>"
       Accept-Encoding:
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 03 Apr 2019 15:32:22 GMT
+      - Thu, 04 Apr 2019 09:24:33 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -37,11 +37,11 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0344425'
+      - '00:00:00.0468456'
       Databasecalls:
       - '1'
       Databaseduration:
-      - '00:00:00'
+      - '00:00:00.0010000'
       Serviceduration:
       - '00:00:00'
       X-Powered-By:
@@ -54,5 +54,5 @@ http_interactions:
         Main Street","line2":"","line3":"","city":"Irvine","region":"CA","postalCode":"92615","country":"US","taxRegionId":2127863,"latitude":"33.657808","longitude":"-117.968489"}],"locationTypes":[{"documentLocationTypeId":10850462802,"documentId":8812014852,"documentAddressId":5392514951,"locationTypeCode":"ShipTo"},{"documentLocationTypeId":8646681996,"documentId":8812014852,"documentAddressId":7392514951,"locationTypeCode":"ShipFrom"}],"summary":[{"country":"US","region":"CA","jurisType":"State","jurisCode":"06","jurisName":"CALIFORNIA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"CA
         STATE TAX","rateType":"General","taxable":0.00,"rate":0.000000,"tax":0.00,"taxCalculated":0.00,"nonTaxable":100.00,"exemption":0.00}],"parameters":{}}'
     http_version: 
-  recorded_at: Wed, 03 Apr 2019 15:32:22 GMT
+  recorded_at: Thu, 04 Apr 2019 09:24:34 GMT
 recorded_with: VCR 4.0.0
