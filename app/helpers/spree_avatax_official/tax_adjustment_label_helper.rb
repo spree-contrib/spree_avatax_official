@@ -9,9 +9,13 @@ module SpreeAvataxOfficial
       item_class = item.class.name.demodulize.underscore
 
       format_adjustment_label(
-        I18n.t("spree_avatax_official.create_tax_adjustments.#{item_class}_tax_adjustment_default_label"),
+        I18n.t("spree_avatax_official.create_tax_adjustments.#{item_class}_tax_adjustment_default_label", included_label: included_label(item)),
         rate
       )
+    end
+
+    def included_label(item)
+      item.included_in_price ? 'Included ' : ''
     end
 
     def format_adjustment_label(adjustment_default_label, rate)
