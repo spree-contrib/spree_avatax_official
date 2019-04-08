@@ -61,7 +61,7 @@ describe SpreeAvataxOfficial::Transactions::RefundService do
 
             line = described_class.call(refundable: refund).value['lines'].first
 
-            expect(line['lineAmount']).to eq 10
+            expect(line['lineAmount']).to eq(-10)
             expect(line['quantity']).to eq 1
           end
         end

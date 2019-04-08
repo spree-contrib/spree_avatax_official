@@ -37,14 +37,17 @@ module SpreeAvataxOfficial
 
       def refund_items(refundable)
         inventory_units(refundable).group_by(&:line_item).reduce({}) do |ids, (line_item, units)|
-          ids.merge!(line_item => [units.count, line_item_amount(refundable, units)])
+          ids.merge!(line_item => [units.count, -1 * line_item_amount(refundable, units)])
         end
       end
 
       def line_item_amount(refundable, units)
-        return unless refundable_class(refundable) == 'Refund'
-
-        units.flat_map(&:return_items).sum(&:pre_tax_amount)
+        case refundable_class(refundable)
+        when 'ReturnAuthorization'
+          units.flat_map(&:line_item).sum(&:pre_tax_amount)
+        when 'Refund'
+          units.flat_map(&:return_items).sum(&:pre_tax_amount)
+        end
       end
 
       def create_full_refund(refundable)

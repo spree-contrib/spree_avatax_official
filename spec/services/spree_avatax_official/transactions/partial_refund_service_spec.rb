@@ -10,7 +10,7 @@ describe SpreeAvataxOfficial::Transactions::PartialRefundService do
     end
 
     let(:order)       { create(:order_with_line_items, ship_address: create(:usa_address)) }
-    let(:refund_item) { { line_item => line_item.quantity - 1 } }
+    let(:refund_item) { { line_item => [line_item.quantity - 1, -1 * line_item.amount] } }
     let(:line_item)   { order.line_items.first }
 
     it 'creates ReturnInvoice' do
@@ -24,6 +24,7 @@ describe SpreeAvataxOfficial::Transactions::PartialRefundService do
         expect(response['type']).to eq 'ReturnInvoice'
         expect(response['status']).to eq 'Committed'
         expect(response['lines'].size).to eq 1
+        expect(response['lines'].first['lineAmount']).to eq(-10)
         expect(SpreeAvataxOfficial::Transaction.count).to eq 1
       end
     end
