@@ -22,14 +22,7 @@ SpreeAvataxOfficial::Config.log                        = true
 SpreeAvataxOfficial::Config.log_to_stdout              = false
 SpreeAvataxOfficial::Config.log_file_name              = 'avatax.log'
 SpreeAvataxOfficial::Config.log_frequency              = 'weekly'
-SpreeAvataxOfficial::Config.show_rate_in_label         = false
+SpreeAvataxOfficial::Config.max_retries                = 2
 SpreeAvataxOfficial::Config.open_timeout               = 2.0
 SpreeAvataxOfficial::Config.read_timeout               = 6.0
-
-
-avatax_default_connection_options = AvaTax::Configuration::DEFAULT_CONNECTION_OPTIONS
-avatax_default_connection_options[:request] = {
-  timeout:      SpreeAvataxOfficial::Config.read_timeout,
-  open_timeout: SpreeAvataxOfficial::Config.open_timeout
-}
-AvaTax::Configuration::DEFAULT_CONNECTION_OPTIONS = avatax_default_connection_options
+SpreeAvataxOfficial::Config.show_rate_in_label         = false

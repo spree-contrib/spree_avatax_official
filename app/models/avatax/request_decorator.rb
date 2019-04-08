@@ -3,8 +3,12 @@ module AvaTax
     include ::SpreeAvataxOfficial::HttpHelper
 
     def request(method, path, model, options = {})
+      max_retries ||= ::SpreeAvataxOfficial::Config.max_retries
+
       super
     rescue *::SpreeAvataxOfficial::HttpHelper::CONNECTION_ERRORS => e
+      retry unless (max_retries -= 1).zero?
+
       mock_error_response(e) # SpreeAvataxOfficial::HttpHelper method
     end
   end
