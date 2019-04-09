@@ -1,27 +1,35 @@
 # Spree Avatax (Avalara) Official extension
 
-Introduction goes here.
+The only officially supported Avatax (Avalara) extension for [Spree Commerce](https://spreecommerce.org/) using [Avalara REST API v2](https://developer.avalara.com/api-reference/avatax/rest/v2/). 
+
+## Features
+
+...
+
+Developed and maintained by:
+
+[![Spark Solutions](http://sparksolutions.co/wp-content/uploads/2015/01/logo-ss-tr-221x100.png)][spark]
 
 ## Installation
 
-1. Add this extension to your Gemfile with this line:
+1. Add this extension to your `Gemfile` with this line:
   ```ruby
   gem 'spree_avatax_official', github: 'spree-contrib/spree_avatax_official'
   ```
 
 2. Install the gem using Bundler:
 
-  ```ruby
+  ```bash
   bundle install
   ```
 
-3. Copy, run migrations and run seeds
+3. Run the install generator
 
-  ```ruby
+  ```bash
   bundle exec rails g spree_avatax_official:install
   ```
 
-4. Fill up config located in ./config/initializers/spree_avatax_official.rb
+4. Fill up config located in `config/initializers/spree_avatax_official.rb`
 
 5. Restart your server
 
@@ -29,7 +37,8 @@ Introduction goes here.
 
 ## Migrating from spree_avatax_certified
 
-Steps go here...
+1. Remove the `spree_avatax_certified` from your `Gemfile`
+2. ...
 
 ## Testing
 
