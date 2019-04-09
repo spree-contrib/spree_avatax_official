@@ -2,8 +2,14 @@ module SpreeAvataxOfficial
   class Base
     prepend ::Spree::ServiceModule::Base
 
-    APP_NAME    = 'a0o0b000005HsXPAA0'.freeze
-    APP_VERSION = 'Spree by Spark'.freeze
+    APP_NAME           = 'a0o0b000005HsXPAA0'.freeze
+    APP_VERSION        = 'Spree by Spark'.freeze
+    CONNECTION_OPTIONS = ::AvaTax::Configuration::DEFAULT_CONNECTION_OPTIONS.merge(
+      request: {
+        timeout:      SpreeAvataxOfficial::Config.read_timeout,
+        open_timeout: SpreeAvataxOfficial::Config.open_timeout
+      }
+    ).freeze
 
     private
 
@@ -11,9 +17,10 @@ module SpreeAvataxOfficial
 
     def client
       AvaTax::Client.new(
-        app_name:    APP_NAME,
-        app_version: APP_VERSION,
-        logger:      true
+        app_name:           APP_NAME,
+        app_version:        APP_VERSION,
+        connection_options: CONNECTION_OPTIONS,
+        logger:             true
       )
     end
 
