@@ -4,8 +4,9 @@ describe SpreeAvataxOfficial::Transactions::PartialRefundService do
   describe '#call' do
     subject do
       described_class.call(
-        order:        order,
-        refund_items: refund_item
+        order:            order,
+        transaction_code: 'test-code',
+        refund_items:     refund_item
       )
     end
 

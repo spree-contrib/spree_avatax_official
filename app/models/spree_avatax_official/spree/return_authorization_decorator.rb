@@ -2,7 +2,7 @@ module SpreeAvataxOfficial
   module Spree
     module ReturnAuthorizationDecorator
       def self.prepended(base)
-        base.delegate :inventory_units, to: :order, prefix: true
+        base.delegate :inventory_units, :number, to: :order, prefix: true
       end
     end
   end

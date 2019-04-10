@@ -27,8 +27,7 @@ describe SpreeAvataxOfficial::Transactions::AdjustPresenter do
         adjustmentDescription: 'Adjustment description',
         newTransaction:        SpreeAvataxOfficial::Transactions::CreatePresenter.new(
           order:            order,
-          transaction_type: transaction_type,
-          transaction_code: invoice_transaction.code
+          transaction_type: transaction_type
         ).to_json
       }
     end

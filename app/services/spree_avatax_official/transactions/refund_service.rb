@@ -30,8 +30,9 @@ module SpreeAvataxOfficial
 
       def create_partial_refund(refundable)
         SpreeAvataxOfficial::Transactions::PartialRefundService.call(
-          order:        refundable.order,
-          refund_items: refund_items(refundable)
+          refundable_params(refundable).merge(
+            refund_items: refund_items(refundable)
+          )
         )
       end
 
@@ -39,6 +40,13 @@ module SpreeAvataxOfficial
         inventory_units(refundable).group_by(&:line_item).reduce({}) do |ids, (line_item, units)|
           ids.merge!(line_item => [units.count, -1 * line_item_amount(refundable, units)])
         end
+      end
+
+      def refundable_params(refundable)
+        {
+          order:            refundable.order,
+          transaction_code: refund_transaction_code(refundable.order_number, refundable.id)
+        }
       end
 
       def line_item_amount(refundable, units)
@@ -52,7 +60,7 @@ module SpreeAvataxOfficial
 
       def create_full_refund(refundable)
         SpreeAvataxOfficial::Transactions::FullRefundService.call(
-          order: refundable.order
+          refundable_params(refundable)
         )
       end
     end

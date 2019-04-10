@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SpreeAvataxOfficial::Transactions::CreatePresenter do
-  subject { described_class.new(order: order, transaction_type: transaction_type, transaction_code: '123') }
+  subject { described_class.new(order: order, transaction_type: transaction_type) }
 
   describe '#to_json' do
     let(:order) { create(:order_with_line_items) }
@@ -13,7 +13,7 @@ describe SpreeAvataxOfficial::Transactions::CreatePresenter do
       {
         type:          transaction_type,
         companyCode:   SpreeAvataxOfficial::Configuration.new.company_code,
-        code:          '123',
+        code:          order.number,
         referenceCode: order.number,
         date:          order.updated_at.strftime('%Y-%m-%d'),
         customerCode:  order.email,
@@ -47,6 +47,16 @@ describe SpreeAvataxOfficial::Transactions::CreatePresenter do
         order.update(store: create(:store, avatax_company_code: 'test123'))
 
         result[:companyCode] = 'test123'
+
+        expect(subject.to_json).to eq result
+      end
+    end
+
+    context 'with custom transaction code' do
+      subject { described_class.new(order: order, transaction_type: transaction_type, transaction_code: 'test-code') }
+
+      it 'serializes the object' do
+        result[:code] = 'test-code'
 
         expect(subject.to_json).to eq result
       end

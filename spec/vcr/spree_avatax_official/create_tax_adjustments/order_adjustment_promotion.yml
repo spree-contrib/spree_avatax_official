@@ -5,19 +5,31 @@ http_interactions:
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
     body:
       encoding: UTF-8
-      string: '{"type":"SalesOrder","code":null,"referenceCode":"R547334887","companyCode":"test1","date":"2019-04-04","customerCode":"dahlia_boyle@blandahodkiewicz.com","addresses":{"ShipFrom":{"line1":"822
+      string: '{"type":"SalesOrder","code":"R137113778","referenceCode":"R137113778","companyCode":"test1","date":"2019-04-08","customerCode":"desirae@leuschke.com","addresses":{"ShipFrom":{"line1":"822
         Reed St","line2":"","city":"Philadelphia","region":"PA","country":"USA","postalCode":"19147"},"ShipTo":{"line1":"822
-        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"lines":[{"number":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","quantity":4,"amount":"40.0","taxCode":"P0000000","discounted":true,"addresses":{},"description":"Id
-        sed ullam quo ab. Repellat maiores cupiditate sed aliquid eum. Aut velit iusto
-        occaecati quia accusantium voluptatem.","sku":"4c50bede32fe5bb1279c0e9f07ab5cc8"},{"number":"LI-be393e03-c530-4d31-bea7-f01b39496568","quantity":3,"amount":"30.0","taxCode":"P0000000","discounted":true,"addresses":{},"description":"Perferendis
-        rem deleniti quam sit natus repudiandae. Maxime qui illo eveniet quia id consectetur.
-        Dolorum id neque rerum animi quia in. Consequatur est provident aut sunt et
-        et reprehenderit.\nAdipisci quod sint ea a. A aut voluptatem dolorum quod
-        doloremque sit quae. Dolor quasi est ex blanditiis ipsum. Maiores rerum velit
-        est atque et minus hic est. Et officiis itaque odit ab.\nQuam sit aut tempore
-        exercitationem rerum magnam omnis. Qui saepe adipisci unde possimus blanditiis.
-        Culpa quisquam sint deleniti maiores. Recusandae ea quam enim non libero impedit
-        eum.","sku":"fa928d8af2c3b824c8b32896a167256c"},{"number":"FR-6a9efefa-0c6c-4e63-ab43-f43f1d7b2e22","quantity":1,"amount":"5.0","taxCode":"FR","discounted":false,"addresses":{}}],"commit":false,"discount":"20.0"}'
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"lines":[{"number":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","quantity":4,"amount":"40.0","taxCode":"P0000000","discounted":true,"addresses":{},"taxIncluded":false,"description":"Vitae
+        rerum est adipisci incidunt eligendi qui sunt. Itaque architecto esse nostrum
+        magnam possimus. Voluptatem est accusantium vitae quia dignissimos non.\nLaudantium
+        optio ipsum soluta veniam. Officiis molestiae voluptatem qui adipisci et impedit
+        assumenda autem. Sint quos ut explicabo est dolores est. Cupiditate rem iste
+        quibusdam occaecati voluptate. Tempora nesciunt eaque explicabo quo ut itaque
+        vero cumque.\nUnde alias sit et laboriosam sint in vitae. Laudantium vel quasi
+        veniam sequi. Blanditiis consequatur accusamus quod nihil quia tenetur aspernatur
+        facilis. Fuga consequatur voluptas voluptates recusandae qui. Voluptas et
+        qui corporis soluta vero enim eaque voluptatem.","sku":"SKU-35"},{"number":"LI-be393e03-c530-4d31-bea7-f01b39496568","quantity":3,"amount":"30.0","taxCode":"P0000000","discounted":true,"addresses":{},"taxIncluded":false,"description":"Iure
+        fugit eum voluptatibus ut repellat amet dolores. Aliquam vitae sed sunt autem
+        omnis quia reprehenderit. Omnis voluptatem at voluptas dolor.\nEst itaque
+        aut ex aut sapiente et molestias. Omnis impedit accusantium fuga ipsum et
+        sapiente. Vitae suscipit culpa rem est molestias qui. Laudantium eaque delectus
+        quasi tempora reprehenderit rerum itaque. Aut vitae sit architecto velit voluptas
+        molestiae modi odit.\nAd quas et qui non ut laudantium. Quia molestias id
+        amet vero. Sint sed excepturi porro rerum cum et iure facere. Qui neque quibusdam
+        perspiciatis est officiis et.\nIure eos saepe eos qui reprehenderit omnis
+        officiis voluptas. Sunt est pariatur voluptatum numquam consequuntur cum qui
+        odit. Accusantium eos et omnis qui. Voluptas rem repellat tempore quae natus
+        praesentium quod. Rerum non et id voluptate soluta aperiam.\nEnim dicta saepe
+        unde illum exercitationem quae. Animi nihil ea eum sapiente pariatur eaque
+        repellat nam. Mollitia eius non neque quasi quaerat qui.","sku":"SKU-36"},{"number":"FR-6a9efefa-0c6c-4e63-ab43-f43f1d7b2e22","quantity":1,"amount":"5.0","taxCode":"FR","discounted":false,"addresses":{},"taxIncluded":false}],"commit":false,"discount":"20.0"}'
     headers:
       Accept:
       - application/json; charset=utf-8
@@ -37,7 +49,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Thu, 04 Apr 2019 09:24:11 GMT
+      - Mon, 08 Apr 2019 14:22:27 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -51,37 +63,49 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0757822'
+      - '00:00:00.0725287'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
       Serviceduration:
-      - '00:00:00.0735966'
+      - '00:00:00.0705115'
       X-Powered-By:
       - ASP.NET
     body:
       encoding: UTF-8
-      string: '{"id":0,"code":"1161e5f1-2f99-4d15-b823-b2b7e85d0482","companyId":0,"date":"2019-04-04","paymentDate":"2019-04-04","status":"Temporary","type":"SalesOrder","customerVendorCode":"dahlia_boyle@blandahodkiewicz.com","customerCode":"dahlia_boyle@blandahodkiewicz.com","reconciled":false,"referenceCode":"R547334887","totalAmount":75.0,"totalExempt":0.0,"totalDiscount":20.0,"totalTax":4.4,"totalTaxable":55.0,"totalTaxCalculated":4.4,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2019-04-04","exchangeRate":1.0,"modifiedDate":"2019-04-04T09:24:02.9145538Z","modifiedUserId":356147,"taxDate":"2019-04-04T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","description":"Id
-        sed ullam quo ab. Repellat maiores cupiditate sed aliquid eum. Aut velit iusto
-        occaecati quia accusantium voluptatem.","discountAmount":11.43,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":28.57,"quantity":4.0,"reportingDate":"2019-04-04","tax":2.28,"taxableAmount":28.57,"taxCalculated":2.28,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-04-04","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"42","jurisName":"PENNSYLVANIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":1.71,"taxableAmount":28.57,"taxType":"Sales","taxName":"PA
+      string: '{"id":0,"code":"R137113778","companyId":0,"date":"2019-04-08","paymentDate":"2019-04-08","status":"Temporary","type":"SalesOrder","customerVendorCode":"desirae@leuschke.com","customerCode":"desirae@leuschke.com","reconciled":false,"referenceCode":"R137113778","totalAmount":75.0,"totalExempt":0.0,"totalDiscount":20.0,"totalTax":4.4,"totalTaxable":55.0,"totalTaxCalculated":4.4,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2019-04-08","exchangeRate":1.0,"modifiedDate":"2019-04-08T14:22:24.9785057Z","modifiedUserId":356147,"taxDate":"2019-04-08T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","description":"Vitae
+        rerum est adipisci incidunt eligendi qui sunt. Itaque architecto esse nostrum
+        magnam possimus. Voluptatem est accusantium vitae quia dignissimos non.\nLaudantium
+        optio ipsum soluta veniam. Officiis molestiae voluptatem qui adipisci et impedit
+        assumenda autem. Sint quos ut explicabo est dolores est. Cupiditate rem iste
+        quibusdam occaecati voluptate. Tempora nesciunt eaque explicabo quo ut itaque
+        vero cumque.\nUnde alias sit et laboriosam sint in vitae. Laudantium vel quasi
+        veniam sequi. Blanditiis consequatur accusamus quod nihil quia tenetur aspernatur
+        facilis. Fuga consequatur voluptas voluptates recusandae qui. Voluptas et
+        qui corporis soluta vero enim eaque voluptatem.","discountAmount":11.43,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":28.57,"quantity":4.0,"reportingDate":"2019-04-08","tax":2.28,"taxableAmount":28.57,"taxCalculated":2.28,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-04-08","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"42","jurisName":"PENNSYLVANIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":1.71,"taxableAmount":28.57,"taxType":"Sales","taxName":"PA
         STATE TAX","taxAuthorityTypeId":45,"taxCalculated":1.71,"rateType":"General","rateTypeCode":"G","isNonPassThru":false},{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"101","jurisName":"PHILADELPHIA","stateAssignedNo":"51","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0,"rate":0.020000,"tax":0.57,"taxableAmount":28.57,"taxType":"Sales","taxName":"PA
-        COUNTY TAX","taxAuthorityTypeId":45,"taxCalculated":0.57,"rateType":"General","rateTypeCode":"G","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"","vatNumberTypeId":0},{"id":0,"transactionId":0,"lineNumber":"LI-be393e03-c530-4d31-bea7-f01b39496568","description":"Perferendis
-        rem deleniti quam sit natus repudiandae. Maxime qui illo eveniet quia id consectetur.
-        Dolorum id neque rerum animi quia in. Consequatur est provident aut sunt et
-        et reprehenderit.\nAdipisci quod sint ea a. A aut voluptatem dolorum quod
-        doloremque sit quae. Dolor quasi est ex blanditiis ipsum. Maiores rerum velit
-        est atque et minus hic est. Et officiis itaque odit ab.\nQuam sit aut tempore
-        exercitationem rerum magnam omnis. Qui saepe adipisci unde possimus blanditiis.
-        Culpa quisquam sint deleniti maiores. Recusandae ea quam enim non libero impedit
-        eum.","discountAmount":8.57,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":21.43,"quantity":3.0,"reportingDate":"2019-04-04","tax":1.72,"taxableAmount":21.43,"taxCalculated":1.72,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-04-04","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"42","jurisName":"PENNSYLVANIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":1.29,"taxableAmount":21.43,"taxType":"Sales","taxName":"PA
+        COUNTY TAX","taxAuthorityTypeId":45,"taxCalculated":0.57,"rateType":"General","rateTypeCode":"G","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"","vatNumberTypeId":0},{"id":0,"transactionId":0,"lineNumber":"LI-be393e03-c530-4d31-bea7-f01b39496568","description":"Iure
+        fugit eum voluptatibus ut repellat amet dolores. Aliquam vitae sed sunt autem
+        omnis quia reprehenderit. Omnis voluptatem at voluptas dolor.\nEst itaque
+        aut ex aut sapiente et molestias. Omnis impedit accusantium fuga ipsum et
+        sapiente. Vitae suscipit culpa rem est molestias qui. Laudantium eaque delectus
+        quasi tempora reprehenderit rerum itaque. Aut vitae sit architecto velit voluptas
+        molestiae modi odit.\nAd quas et qui non ut laudantium. Quia molestias id
+        amet vero. Sint sed excepturi porro rerum cum et iure facere. Qui neque quibusdam
+        perspiciatis est officiis et.\nIure eos saepe eos qui reprehenderit omnis
+        officiis voluptas. Sunt est pariatur voluptatum numquam consequuntur cum qui
+        odit. Accusantium eos et omnis qui. Voluptas rem repellat tempore quae natus
+        praesentium quod. Rerum non et id voluptate soluta aperiam.\nEnim dicta saepe
+        unde illum exercitationem quae. Animi nihil ea eum sapiente pariatur eaque
+        repellat nam. Mollitia eius non neque quasi quaerat qui.","discountAmount":8.57,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":21.43,"quantity":3.0,"reportingDate":"2019-04-08","tax":1.72,"taxableAmount":21.43,"taxCalculated":1.72,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-04-08","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"42","jurisName":"PENNSYLVANIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":1.29,"taxableAmount":21.43,"taxType":"Sales","taxName":"PA
         STATE TAX","taxAuthorityTypeId":45,"taxCalculated":1.29,"rateType":"General","rateTypeCode":"G","isNonPassThru":false},{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"101","jurisName":"PHILADELPHIA","stateAssignedNo":"51","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0,"rate":0.020000,"tax":0.43,"taxableAmount":21.43,"taxType":"Sales","taxName":"PA
-        COUNTY TAX","taxAuthorityTypeId":45,"taxCalculated":0.43,"rateType":"General","rateTypeCode":"G","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"","vatNumberTypeId":0},{"id":0,"transactionId":0,"lineNumber":"FR-6a9efefa-0c6c-4e63-ab43-f43f1d7b2e22","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":5.0,"quantity":1.0,"reportingDate":"2019-04-04","tax":0.4,"taxableAmount":5.0,"taxCalculated":0.4,"taxCode":"FR","taxCodeId":10890,"taxDate":"2019-04-04","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"42","jurisName":"PENNSYLVANIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":0.3,"taxableAmount":5.0,"taxType":"Sales","taxName":"PA
+        COUNTY TAX","taxAuthorityTypeId":45,"taxCalculated":0.43,"rateType":"General","rateTypeCode":"G","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"","vatNumberTypeId":0},{"id":0,"transactionId":0,"lineNumber":"FR-6a9efefa-0c6c-4e63-ab43-f43f1d7b2e22","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"lineAmount":5.0,"quantity":1.0,"reportingDate":"2019-04-08","tax":0.4,"taxableAmount":5.0,"taxCalculated":0.4,"taxCode":"FR","taxCodeId":10890,"taxDate":"2019-04-08","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"42","jurisName":"PENNSYLVANIA","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0,"rate":0.060000,"tax":0.3,"taxableAmount":5.0,"taxType":"Sales","taxName":"PA
         STATE TAX","taxAuthorityTypeId":45,"taxCalculated":0.3,"rateType":"General","rateTypeCode":"G","isNonPassThru":false},{"id":0,"transactionLineId":0,"transactionId":0,"country":"US","region":"PA","exemptAmount":0.0,"jurisCode":"101","jurisName":"PHILADELPHIA","stateAssignedNo":"51","jurisType":"CTY","jurisdictionType":"County","nonTaxableAmount":0.0,"rate":0.020000,"tax":0.1,"taxableAmount":5.0,"taxType":"Sales","taxName":"PA
         COUNTY TAX","taxAuthorityTypeId":45,"taxCalculated":0.1,"rateType":"General","rateTypeCode":"G","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"","vatNumberTypeId":0}],"addresses":[{"id":0,"transactionId":0,"boundaryLevel":"Address","line1":"822
         Reed St","line2":"","line3":"","city":"Philadelphia","region":"PA","postalCode":"19147","country":"US","taxRegionId":4014900,"latitude":"39.931649","longitude":"-75.159058"}],"summary":[{"country":"US","region":"PA","jurisType":"State","jurisCode":"42","jurisName":"PENNSYLVANIA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"PA
         STATE TAX","rateType":"General","taxable":55.00,"rate":0.060000,"tax":3.30,"taxCalculated":3.30,"nonTaxable":0.0,"exemption":0.0},{"country":"US","region":"PA","jurisType":"County","jurisCode":"101","jurisName":"PHILADELPHIA","taxAuthorityType":45,"stateAssignedNo":"51","taxType":"Sales","taxName":"PA
         COUNTY TAX","rateType":"General","taxable":55.00,"rate":0.020000,"tax":1.10,"taxCalculated":1.10,"nonTaxable":0.0,"exemption":0.0}]}'
     http_version: 
-  recorded_at: Thu, 04 Apr 2019 09:24:11 GMT
+  recorded_at: Mon, 08 Apr 2019 14:22:27 GMT
 recorded_with: VCR 4.0.0

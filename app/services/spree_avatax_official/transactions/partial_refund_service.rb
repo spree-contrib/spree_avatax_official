@@ -1,8 +1,8 @@
 module SpreeAvataxOfficial
   module Transactions
     class PartialRefundService < SpreeAvataxOfficial::Base
-      def call(order:, refund_items:)
-        response = send_request(order, refund_items)
+      def call(order:, transaction_code:, refund_items:)
+        response = send_request(order, transaction_code, refund_items)
 
         request_result(response, order) do
           unless response['id'].to_i.zero?
@@ -17,10 +17,11 @@ module SpreeAvataxOfficial
 
       private
 
-      def send_request(order, refund_items)
+      def send_request(order, transaction_code, refund_items)
         refund_transaction_model = SpreeAvataxOfficial::Transactions::PartialRefundPresenter.new(
-          order:        order,
-          refund_items: refund_items
+          order:            order,
+          refund_items:     refund_items,
+          transaction_code: transaction_code
         ).to_json
 
         logger.info(refund_transaction_model)

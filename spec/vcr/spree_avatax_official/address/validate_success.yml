@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 04 Apr 2019 09:23:53 GMT
+      - Mon, 08 Apr 2019 14:21:59 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -35,13 +35,13 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0502629'
+      - '00:00:00.0167806'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
       Serviceduration:
-      - '00:00:00.0471769'
+      - '00:00:00.0149129'
       X-Powered-By:
       - ASP.NET
     body:
@@ -49,5 +49,5 @@ http_interactions:
       string: '{"address":{"line1":"822 Reed St","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"},"validatedAddresses":[{"addressType":"StreetOrResidentialAddress","line1":"822
         REED ST","line2":"","line3":"","city":"PHILADELPHIA","region":"PA","country":"US","postalCode":"19147-5736","latitude":39.931649,"longitude":-75.159058}],"coordinates":{"latitude":39.931649,"longitude":-75.159058},"resolutionQuality":"Intersection","taxAuthorities":[{"avalaraId":"49","jurisdictionName":"PENNSYLVANIA","jurisdictionType":"State","signatureCode":"BKTQ"},{"avalaraId":"2311","jurisdictionName":"PHILADELPHIA","jurisdictionType":"County","signatureCode":"BMWV"},{"avalaraId":"2001076561","jurisdictionName":"PHILADELPHIA","jurisdictionType":"City","signatureCode":"NMXX"}]}'
     http_version: 
-  recorded_at: Thu, 04 Apr 2019 09:23:53 GMT
+  recorded_at: Mon, 08 Apr 2019 14:22:00 GMT
 recorded_with: VCR 4.0.0

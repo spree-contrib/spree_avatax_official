@@ -1,8 +1,8 @@
 module SpreeAvataxOfficial
   module Transactions
     class FullRefundService < SpreeAvataxOfficial::Base
-      def call(order:)
-        create_refund(order).tap do |response|
+      def call(order:, transaction_code:)
+        create_refund(order, transaction_code).tap do |response|
           return request_result(response, order) do
             create_transaction!(
               code:             response['code'],
@@ -15,18 +15,21 @@ module SpreeAvataxOfficial
 
       private
 
-      def create_refund(order)
-        logger.info(refund_model(order))
+      def create_refund(order, transaction_code)
+        logger.info(refund_model(order, transaction_code))
 
         client.refund_transaction(
           company_code,
-          order.avatax_sales_invoice_code,
-          refund_model(order)
+          order.number,
+          refund_model(order, transaction_code)
         )
       end
 
-      def refund_model(order)
-        @refund_model ||= FullRefundPresenter.new(order: order).to_json
+      def refund_model(order, transaction_code)
+        @refund_model ||= FullRefundPresenter.new(
+          order:            order,
+          transaction_code: transaction_code
+        ).to_json
       end
     end
   end

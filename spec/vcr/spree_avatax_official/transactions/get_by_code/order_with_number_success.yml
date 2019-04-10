@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 04 Apr 2019 09:24:32 GMT
+      - Mon, 08 Apr 2019 14:22:02 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -37,7 +37,7 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0496244'
+      - '00:00:00.0055643'
       Databasecalls:
       - '0'
       Databaseduration:
@@ -55,5 +55,5 @@ http_interactions:
         STATE TAX","rateType":"General","taxable":10.00,"rate":0.060000,"tax":0.60,"taxCalculated":0.60,"nonTaxable":0.00,"exemption":0.00},{"country":"US","region":"PA","jurisType":"County","jurisCode":"101","jurisName":"PHILADELPHIA","taxAuthorityType":45,"stateAssignedNo":"51","taxType":"Sales","taxName":"PA
         COUNTY TAX","rateType":"General","taxable":10.00,"rate":0.020000,"tax":0.20,"taxCalculated":0.20,"nonTaxable":0.00,"exemption":0.00}],"parameters":{}}'
     http_version: 
-  recorded_at: Thu, 04 Apr 2019 09:24:32 GMT
+  recorded_at: Mon, 08 Apr 2019 14:22:02 GMT
 recorded_with: VCR 4.0.0

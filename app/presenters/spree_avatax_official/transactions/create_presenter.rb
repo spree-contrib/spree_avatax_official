@@ -1,10 +1,10 @@
 module SpreeAvataxOfficial
   module Transactions
     class CreatePresenter
-      def initialize(order:, transaction_type:, transaction_code: nil)
-        @order             = order
-        @transaction_type  = transaction_type
-        @transaction_code  = transaction_code
+      def initialize(order:, transaction_type:, transaction_code: order.number)
+        @order            = order
+        @transaction_type = transaction_type
+        @transaction_code = transaction_code
       end
 
       # Based on: https://developer.avalara.com/api-reference/avatax/rest/v2/models/CreateTransactionModel/

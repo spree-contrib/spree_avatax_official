@@ -10,7 +10,6 @@ module SpreeAvataxOfficial
         request_result(response, order) do
           if order.completed? && response['id'].to_i.positive?
             create_transaction!(
-              code:             response['code'],
               order:            order,
               transaction_type: transaction_type
             )

@@ -1,10 +1,11 @@
 module SpreeAvataxOfficial
   module Transactions
     class PartialRefundPresenter < CreatePresenter
-      def initialize(order:, refund_items:)
-        @order             = order
-        @refund_items      = refund_items
-        @transaction_type  = SpreeAvataxOfficial::Transaction::RETURN_INVOICE
+      def initialize(order:, refund_items:, transaction_code:)
+        @order            = order
+        @refund_items     = refund_items
+        @transaction_code = transaction_code
+        @transaction_type = SpreeAvataxOfficial::Transaction::RETURN_INVOICE
       end
 
       private

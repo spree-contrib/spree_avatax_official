@@ -2,19 +2,15 @@ require 'spec_helper'
 
 describe SpreeAvataxOfficial::Transactions::FullRefundService do
   describe '#call' do
-    subject { described_class.call(order: order) }
+    subject { described_class.call(order: order, transaction_code: 'REFUND748-1') }
 
-    let(:order) do
-      create(:completed_order_with_totals).tap do |order|
-        order.avatax_transactions.create(
-          code:             'TESTFULLREFUND',
-          transaction_type: 'SalesInvoice'
-        )
-      end
-    end
+    let(:order)         { create(:completed_order_with_totals, ship_address: create(:usa_address), number: 'REFUND748') }
+    let(:refundable_id) { 1 }
 
     it 'creates refund transaction' do
       VCR.use_cassette('spree_avatax_official/transactions/refund/full_refund_success') do
+        SpreeAvataxOfficial::Transactions::CreateService.call(order: order)
+
         result   = subject
         response = result.value
 

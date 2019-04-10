@@ -23,8 +23,7 @@ module SpreeAvataxOfficial
       def transaction_payload
         SpreeAvataxOfficial::Transactions::CreatePresenter.new(
           order:            order,
-          transaction_type: SpreeAvataxOfficial::Transaction::SALES_INVOICE,
-          transaction_code: order.avatax_sales_invoice_code
+          transaction_type: SpreeAvataxOfficial::Transaction::SALES_INVOICE
         ).to_json
       end
     end

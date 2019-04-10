@@ -38,11 +38,15 @@ module SpreeAvataxOfficial
       success(response)
     end
 
-    def create_transaction!(code:, order:, transaction_type:)
+    def refund_transaction_code(order_number, refundable_id)
+      "#{order_number}-#{refundable_id}"
+    end
+
+    def create_transaction!(order:, code: nil, transaction_type: nil)
       SpreeAvataxOfficial::Transaction.create!(
-        code:             code,
+        code:             code || order.number,
         order:            order,
-        transaction_type: transaction_type
+        transaction_type: transaction_type || SpreeAvataxOfficial::Transaction::SALES_INVOICE
       )
     end
 
