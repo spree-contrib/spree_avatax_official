@@ -2,10 +2,13 @@ module SpreeAvataxOfficial
   module Spree
     module LineItemDecorator
       delegate :tax_zone, to: :order
-      delegate :included_in_price, to: :tax_zone
 
       def self.prepended(base)
         base.include ::SpreeAvataxOfficial::HasUuid
+      end
+
+      def included_in_price
+        tax_zone.try(:included_in_price)
       end
 
       def update_tax_charge
