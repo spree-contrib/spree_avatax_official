@@ -38,7 +38,7 @@ module SpreeAvataxOfficial
 
       def refund_items(refundable)
         inventory_units(refundable).group_by(&:line_item).reduce({}) do |ids, (line_item, units)|
-          ids.merge!(line_item => [units.count, -1 * line_item_amount(refundable, units)])
+          ids.merge!(line_item => [line_item_quantity(units), -1 * line_item_amount(refundable, units)])
         end
       end
 
@@ -47,6 +47,12 @@ module SpreeAvataxOfficial
           order:            refundable.order,
           transaction_code: refund_transaction_code(refundable.order_number, refundable.id)
         }
+      end
+
+      def line_item_quantity(units)
+        return units.count unless units.first.respond_to?(:quantity)
+
+        units.sum(&:quantity)
       end
 
       def line_item_amount(refundable, units)

@@ -48,14 +48,18 @@ describe SpreeAvataxOfficial::Transactions::RefundService do
       end
 
       context 'with partial refund' do
-        it 'creates refund only for refunded lines' do
+        let(:inventory_unit) { order.inventory_units.first }
+
+        before do
           reimbursement.return_items.create!(
-            inventory_unit:    order.inventory_units.first,
+            inventory_unit:    inventory_unit,
             pre_tax_amount:    10,
             acceptance_status: 'accepted'
           )
           order.update(completed_at: Time.current)
+        end
 
+        it 'creates refund only for refunded lines' do
           VCR.use_cassette('spree_avatax_official/transactions/refund/partial_refund_with_refund_success') do
             order.reload
 
@@ -63,6 +67,19 @@ describe SpreeAvataxOfficial::Transactions::RefundService do
 
             expect(line['lineAmount']).to eq(-10)
             expect(line['quantity']).to eq 1
+          end
+        end
+
+        context 'line_item_quantity' do
+          let(:params)       { { order: order, transaction_code: "#{order.number}-#{refund.id}", refund_items: refund_items } }
+          let(:refund_items) { { inventory_unit.line_item => [inventory_unit.try(:quantity) || 1, -10] } }
+
+          it 'calls partial service with correct quantity' do
+            inventory_unit.update(quantity: 5) if inventory_unit.respond_to?(:quantity)
+
+            expect(SpreeAvataxOfficial::Transactions::PartialRefundService).to receive(:call).with(params)
+
+            described_class.call(refundable: refund)
           end
         end
       end
