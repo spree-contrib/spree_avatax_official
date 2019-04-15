@@ -36,8 +36,8 @@ module SpreeAvataxOfficial
 
     def line_item_payload
       {
-        description: item.description,
-        sku:         item.variant.sku
+        description: item.name[0..255],
+        itemCode:    item.variant.sku
       }
     end
 
