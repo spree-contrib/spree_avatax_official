@@ -16,8 +16,8 @@ describe SpreeAvataxOfficial::ItemPresenter do
       let(:result) do
         {
           number:      "LI-#{item.avatax_uuid}",
-          description: item.description,
-          sku:         item.variant.sku,
+          description: item.name[0..255],
+          itemCode:    item.variant.sku,
           quantity:    item.quantity,
           amount:      item.discounted_amount,
           taxCode:     'P0000000',
@@ -109,6 +109,19 @@ describe SpreeAvataxOfficial::ItemPresenter do
           result[:taxIncluded] = true
 
           expect(subject.to_json).to eq result
+        end
+      end
+
+      context 'with product name longer then 256 characters' do
+        let(:very_long_name) { FFaker::Lorem.characters(300) }
+
+        before do
+          item.product.name = very_long_name
+        end
+
+        it 'takes first 256 characters from product name to prevent to long description error' do
+          expect(subject.to_json[:description].length).to eq 256
+          expect(subject.to_json[:description]).to eq very_long_name[0..255]
         end
       end
     end
