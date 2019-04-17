@@ -5,7 +5,7 @@ describe SpreeAvataxOfficial::Transactions::CreateService do
     context 'with correct parameters' do
       let(:order) { create(:order_with_line_items, line_items_count: 1, ship_address: create(:usa_address)) }
 
-      context 'for SalesOrder and Avalara API successfull response' do
+      context 'for SalesOrder and Avalara API successful response' do
         subject { described_class.call(order: order) }
 
         it 'returns positive result' do
@@ -22,7 +22,7 @@ describe SpreeAvataxOfficial::Transactions::CreateService do
         end
       end
 
-      context 'for SalesInvoice and Avalara API successfull response' do
+      context 'for SalesInvoice and Avalara API successful response' do
         subject { described_class.call(order: order) }
 
         let(:order) { create(:order_with_line_items, line_items_count: 1, ship_address: create(:usa_address)) }
