@@ -24,12 +24,14 @@
           <% end %>
         </div>
 
-        <div data-hook="default" class="form-group checkbox">
-          <%= label_tag "zone[#{:included_in_price}" do %>
-            <%= zone_form.check_box :included_in_price %>
-            <%= Spree.t(:included_in_price) %>
-          <% end %>
-        </div>
+        <% if Spree::Zone.method_defined?(:included_in_price) %>
+          <div data-hook="default" class="form-group checkbox">
+            <%= label_tag "zone[#{:included_in_price}" do %>
+              <%= zone_form.check_box :included_in_price %>
+              <%= Spree.t(:included_in_price) %>
+            <% end %>
+          </div>
+        <% end %>
 
         <div data-hook="type" class="form-group">
           <strong><%= Spree.t(:type) %></strong>
