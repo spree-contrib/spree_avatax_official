@@ -19,7 +19,7 @@ module SpreeAvataxOfficial
         logger.info(refund_model(order, transaction_code))
 
         client.refund_transaction(
-          company_code,
+          company_code(order),
           order.number,
           refund_model(order, transaction_code)
         )

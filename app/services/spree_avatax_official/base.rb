@@ -13,8 +13,6 @@ module SpreeAvataxOfficial
 
     private
 
-    delegate :company_code, to: 'SpreeAvataxOfficial::Config'
-
     def client
       AvaTax::Client.new(
         app_name:           APP_NAME,
@@ -22,6 +20,10 @@ module SpreeAvataxOfficial
         connection_options: CONNECTION_OPTIONS,
         logger:             true
       )
+    end
+
+    def company_code(order)
+      order.store&.avatax_company_code || SpreeAvataxOfficial::Config.company_code
     end
 
     def request_result(response, object)

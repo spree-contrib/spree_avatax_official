@@ -25,7 +25,7 @@ module SpreeAvataxOfficial
         logger.info(adjust_transaction_model)
 
         client.adjust_transaction(
-          company_code,
+          company_code(order),
           order.number,
           adjust_transaction_model,
           options

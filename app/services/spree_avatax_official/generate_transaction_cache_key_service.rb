@@ -19,7 +19,7 @@ module SpreeAvataxOfficial
         tax_address_cache_key(order.tax_address),
         line_items_cache_key(order),
         shipments_cache_key(order.shipments),
-        avatax_preferences_cache_key
+        avatax_preferences_cache_key(order)
       ].join('-')
 
       # Cache key length has to be compressed as max_length is 250:
@@ -81,10 +81,10 @@ module SpreeAvataxOfficial
       ].join('-')
     end
 
-    def avatax_preferences_cache_key
+    def avatax_preferences_cache_key(order)
       ship_from_address_timestamp = ship_from_address_preference.try(:updated_at).try(:utc).try(:to_s, :number)
 
-      "#{SpreeAvataxOfficial::Config.company_code}-#{ship_from_address_timestamp}"
+      "#{company_code(order)}-#{ship_from_address_timestamp}"
     end
 
     def ship_from_address_preference
