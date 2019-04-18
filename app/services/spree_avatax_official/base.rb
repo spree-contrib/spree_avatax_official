@@ -25,17 +25,21 @@ module SpreeAvataxOfficial
     end
 
     def request_result(response, object)
-      if response['error'].present?
-        logger.error(object, response)
-
-        return failure(response)
-      end
+      return handle_error(object, response.presence) if response.blank? || response['error'].present?
 
       yield response if block_given?
 
       logger.info(response, object)
 
       success(response)
+    end
+
+    def handle_error(object, response)
+      response ||= I18n.t('spree_avatax_official.base.missing_company_code')
+
+      logger.error(object, response)
+
+      failure(response)
     end
 
     def refund_transaction_code(order_number, refundable_id)

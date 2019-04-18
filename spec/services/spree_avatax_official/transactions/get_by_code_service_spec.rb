@@ -58,6 +58,16 @@ describe SpreeAvataxOfficial::Transactions::GetByCodeService do
           expect(subject.value['error']['code']).to eq 'EntityNotFoundError'
         end
       end
+
+      context 'when company code is not configured' do
+        it 'returns missing company code error' do
+          SpreeAvataxOfficial::Config.company_code = nil
+
+          VCR.use_cassette('spree_avatax_official/transactions/get_by_code/company_code_error') do
+            expect(subject.value).to eq I18n.t('spree_avatax_official.base.missing_company_code')
+          end
+        end
+      end
     end
   end
 end

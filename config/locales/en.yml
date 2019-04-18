@@ -3,6 +3,8 @@
 
 en:
   spree_avatax_official:
+    base:
+      missing_company_code: Configuration is missing company code
     void_service:
       missing_sales_invoice_transaction: Order is missing SalesInvoice transaction
     get_by_code_service:
