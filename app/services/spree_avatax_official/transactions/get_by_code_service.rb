@@ -6,16 +6,16 @@ module SpreeAvataxOfficial
 
         return failure(I18n.t('spree_avatax_official.get_by_code_service.missing_code')) if code.nil?
 
-        request_result(get_by_code(code), order)
+        request_result(get_by_code(code, order), order)
       end
 
       private
 
-      def get_by_code(code)
+      def get_by_code(code, order)
         logger.info(code)
 
         client.get_transaction_by_code(
-          company_code,
+          company_code(order),
           code
         )
       end

@@ -17,7 +17,7 @@ module SpreeAvataxOfficial
         logger.info(options, order)
 
         client.void_transaction(
-          company_code,
+          company_code(order),
           order.number,
           { code: 'DocVoided' },
           options
