@@ -18,7 +18,7 @@ module SpreeAvataxOfficial
           customerCode:  order.email,
           addresses:     addresses_payload,
           lines:         items_payload,
-          commit:        order.complete?,
+          commit:        completed?(order),
           discount:      order.avatax_discount_amount
         }
       end
@@ -55,6 +55,10 @@ module SpreeAvataxOfficial
 
       def items_payload
         order.taxable_items.map { |item| SpreeAvataxOfficial::ItemPresenter.new(item: item).to_json }
+      end
+
+      def completed?(order)
+        order.completed_at.present?
       end
     end
   end
