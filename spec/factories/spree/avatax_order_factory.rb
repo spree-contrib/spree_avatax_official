@@ -44,6 +44,16 @@ FACTORY_BOT_CLASS.define do
       order.updater.update
     end
 
+    trait :shipped do
+      after(:create) do |order|
+        create(:line_item, order: order)
+        create(:avatax_shipment, order: order, state: :shipped)
+
+        order.inventory_units.update_all(state: :shipped)
+        order.update(ship_address: create(:usa_address), completed_at: Time.current)
+      end
+    end
+
     trait :completed do
       shipment_state { 'shipped' }
       payment_state  { 'paid' }

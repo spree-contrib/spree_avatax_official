@@ -33,12 +33,24 @@ describe SpreeAvataxOfficial::Transactions::CreatePresenter do
     end
 
     context 'with complete order' do
+      before { order.update(completed_at: Time.current) }
+
       it 'serializes the object' do
         order.update(state: :complete)
 
         result[:commit] = true
 
         expect(subject.to_json).to eq result
+      end
+
+      context 'with complete order awaiting return' do
+        it 'serializes the object' do
+          order.update(state: :awaiting_return)
+
+          result[:commit] = true
+
+          expect(subject.to_json).to eq result
+        end
       end
     end
 
