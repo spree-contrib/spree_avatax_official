@@ -27,6 +27,24 @@ describe SpreeAvataxOfficial::Transactions::RefundService do
 
           subject
         end
+
+        context 'line_item_amount' do
+          let(:params)       { { order: order, transaction_code: "#{order.number}-#{return_auth.id}", refund_items: refund_items } }
+          let(:refund_items) { { line_item => [3, -7.5] } }
+          let(:line_item)    { order.line_items.first }
+
+          it 'calls partial service with correct amount' do
+            line_item.update_columns(quantity: 4, pre_tax_amount: 10)
+
+            create_list(:inventory_unit, 4, order: order, line_item: line_item)
+
+            return_auth.inventory_units = order.inventory_units.first(3)
+
+            expect(SpreeAvataxOfficial::Transactions::PartialRefundService).to receive(:call).with(params)
+
+            described_class.call(refundable: return_auth)
+          end
+        end
       end
     end
 

@@ -58,10 +58,23 @@ module SpreeAvataxOfficial
       def line_item_amount(refundable, units)
         case refundable_class(refundable)
         when 'ReturnAuthorization'
-          units.flat_map(&:line_item).sum(&:pre_tax_amount)
+          amount_per_unit(refundable, units) * units.count
         when 'Refund'
-          units.flat_map(&:return_items).sum(&:pre_tax_amount)
+          items(refundable, units).sum(&:pre_tax_amount)
         end
+      end
+
+      def amount_per_unit(refundable, units)
+        items(refundable, units).sum(&:pre_tax_amount) / items(refundable, units).sum(&:quantity)
+      end
+
+      def items(refundable, units)
+        @items ||= case refundable_class(refundable)
+                   when 'ReturnAuthorization'
+                     units.map(&:line_item).uniq
+                   when 'Refund'
+                     units.flat_map(&:return_items).uniq
+                   end
       end
 
       def create_full_refund(refundable)
