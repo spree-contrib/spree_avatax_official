@@ -383,11 +383,27 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
     context 'with canceled order' do
       let(:order) { create(:order, state: :canceled) }
 
-      it 'return failure' do
+      it 'returns failure' do
         result = subject
 
         expect(result.failure?).to eq true
         expect(result.value).to eq I18n.t('spree_avatax_official.create_tax_adjustments.order_canceled')
+      end
+    end
+
+    context 'with incorrect address' do
+      let(:invalid_address) { create(:usa_address, address1: 'Invalid street', city: 'Invalid city', zipcode: '00000') }
+      let(:order) { create(:avatax_order, line_items_count: 1, ship_address: invalid_address) }
+
+      it 'returns failure' do
+        result = nil
+        VCR.use_cassette('spree_avatax_official/create_tax_adjustments/with_incorrect_address') do
+          result = subject
+        end
+
+        expect(result.failure?).to eq true
+        expect(result.value).to eq '300 - Unable to determine the taxing jurisdictions. - Invalid St, Invalid city, ' \
+                                   'PA 00000 US (AddressLocationType: ShipTo).'
       end
     end
   end
