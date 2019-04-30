@@ -11,15 +11,15 @@ module SpreeAvataxOfficial
     end
 
     def info(message, object = nil)
-      logger.info("[AVATAX] #{object&.class}-#{object&.id} #{message.to_json}") if enabled?
+      logger.info(log_data(message, object)) if enabled?
     end
 
     def debug(object, message = '')
-      logger.debug("[AVATAX] #{object.class}-#{object.id} #{message.to_json}") if enabled?
+      logger.debug(log_data(message, object)) if enabled?
     end
 
     def error(object, message = '')
-      logger.error("[AVATAX] #{object.class}-#{object.id} #{message.to_json}") if enabled?
+      logger.error(log_data(message, object)) if enabled?
     end
 
     delegate :log_file_name, :log_frequency, to: 'SpreeAvataxOfficial::Config'
@@ -36,6 +36,16 @@ module SpreeAvataxOfficial
       return [STDOUT] if SpreeAvataxOfficial::Config.log_to_stdout
 
       [log_file_path, log_frequency]
+    end
+
+    def log_data(message, object)
+      "[AVATAX] #{object&.class}-#{object&.id} #{log_message(message)}"
+    end
+
+    def log_message(message)
+      return message.to_json unless message.respond_to?(:status)
+
+      "#{message.status} #{message.body.to_json}"
     end
   end
 end
