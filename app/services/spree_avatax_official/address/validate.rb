@@ -4,7 +4,7 @@ module SpreeAvataxOfficial
       def call(address:)
         response = send_request(address)
 
-        return failure(response) if response['messages']
+        return failure(response) if response.body['messages']
 
         success(response)
       end

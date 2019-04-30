@@ -70,5 +70,16 @@ describe SpreeAvataxOfficial::AvataxLog, type: :model do
 
       expect(logger.error('this_wont_change')).to be_nil
     end
+
+    context 'message with status and body' do
+      it 'logs error with given message' do
+        message         = Struct.new(:message, :status, :body)
+        example_payload = message.new(400, test: 'Test!')
+        log_data        = "[AVATAX] #{order.class}-#{order.id} #{example_payload.status} #{example_payload.body.to_json}"
+
+        logger.error(order, example_payload)
+        expect(File.new(Rails.root.join('log', file_name)).read).to include log_data
+      end
+    end
   end
 end

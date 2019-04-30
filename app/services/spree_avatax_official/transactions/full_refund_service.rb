@@ -5,7 +5,7 @@ module SpreeAvataxOfficial
         create_refund(order, transaction_code).tap do |response|
           return request_result(response, order) do
             create_transaction!(
-              code:             response['code'],
+              code:             response.body['code'],
               order:            order,
               transaction_type: SpreeAvataxOfficial::Transaction::RETURN_INVOICE
             )

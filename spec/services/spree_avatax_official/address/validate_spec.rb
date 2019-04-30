@@ -24,7 +24,7 @@ describe SpreeAvataxOfficial::Address::Validate do
           response = subject
 
           expect(response.failure?).to eq true
-          expect(response.value['messages']).to be_present
+          expect(response.value.body['messages']).to be_present
         end
       end
     end

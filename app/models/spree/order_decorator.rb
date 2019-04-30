@@ -60,7 +60,7 @@ module SpreeAvataxOfficial
 
         return if response.success?
 
-        error_message = response.value['messages'].map { |message| message['summary'] }.join('. ')
+        error_message = response.value.body['messages'].map { |message| message['summary'] }.join('. ')
 
         errors.add(:base, error_message)
 
