@@ -4,6 +4,7 @@ module SpreeAvataxOfficial
 
     APP_NAME           = 'a0o0b000005HsXPAA0'.freeze
     APP_VERSION        = 'Spree by Spark'.freeze
+    SUCCESS_STATUSES   = [200, 201].freeze
     CONNECTION_OPTIONS = ::AvaTax::Configuration::DEFAULT_CONNECTION_OPTIONS.merge(
       request: {
         timeout:      SpreeAvataxOfficial::Config.read_timeout,
@@ -18,7 +19,8 @@ module SpreeAvataxOfficial
         app_name:           APP_NAME,
         app_version:        APP_VERSION,
         connection_options: CONNECTION_OPTIONS,
-        logger:             true
+        logger:             true,
+        faraday_response:   true
       )
     end
 
@@ -26,18 +28,25 @@ module SpreeAvataxOfficial
       order.store&.avatax_company_code || SpreeAvataxOfficial::Config.company_code
     end
 
-    def request_result(response, object)
-      if response['error'].present?
+    def request_result(response, object = nil)
+      status        = response.try(:status)
+      response_body = status ? response.body : response
+
+      if request_error?(status, response_body)
         logger.error(object, response)
 
-        return failure(response)
+        failure(response_body)
+      else
+        yield if block_given?
+
+        logger.info(response, object)
+
+        success(response_body)
       end
+    end
 
-      yield response if block_given?
-
-      logger.info(response, object)
-
-      success(response)
+    def request_error?(status, response_body)
+      response_body['error'].present? || !status.in?(SUCCESS_STATUSES)
     end
 
     def refund_transaction_code(order_number, refundable_id)

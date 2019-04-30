@@ -25,7 +25,7 @@ describe SpreeAvataxOfficial::GetTaxService do
           result = subject
 
           expect(result.failure?).to eq true
-          expect(result.value['error']).to be_present
+          expect(result.value.body['error']).to be_present
         end
       end
     end

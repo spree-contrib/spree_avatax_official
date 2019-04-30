@@ -3,9 +3,9 @@ module SpreeAvataxOfficial
     def call(order:, options: {})
       response = send_request(order, options)
 
-      return failure(response) if response['error'].present?
+      return failure(response) if response.body['error'].present?
 
-      success(taxCalculated: response['totalTaxCalculated'])
+      success(taxCalculated: response.body['totalTaxCalculated'])
     end
 
     def send_request(order, options)

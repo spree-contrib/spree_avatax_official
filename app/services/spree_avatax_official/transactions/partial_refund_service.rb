@@ -5,9 +5,9 @@ module SpreeAvataxOfficial
         response = send_request(order, transaction_code, refund_items)
 
         request_result(response, order) do
-          unless response['id'].to_i.zero?
+          unless response.body['id'].to_i.zero?
             create_transaction!(
-              code:             response['code'],
+              code:             response.body['code'],
               order:            order,
               transaction_type: SpreeAvataxOfficial::Transaction::RETURN_INVOICE
             )
