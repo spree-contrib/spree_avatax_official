@@ -14,7 +14,7 @@ module SpreeAvataxOfficial
         send_transaction_to_avatax(order)
       end
 
-      return failure(I18n.t('spree_avatax_official.create_tax_adjustments.tax_calculation_failed')) if avatax_failed_response?(avatax_response)
+      return failure(build_error_message_from_response(avatax_response.value)) if avatax_failed_response?(avatax_response)
 
       process_avatax_items(order, avatax_response.value['lines'])
 
@@ -109,6 +109,14 @@ module SpreeAvataxOfficial
 
     def sum_rates_from_details(avatax_item)
       avatax_item['details'].sum { |detail_entry| detail_entry['rate'] }
+    end
+
+    def build_error_message_from_response(avatax_response)
+      return I18n.t('spree_avatax_official.create_tax_adjustments.tax_calculation_failed') if avatax_response['error'].blank?
+
+      avatax_response['error']['details'].map do |error_detail_entry|
+        "#{error_detail_entry['number']} - #{error_detail_entry['message']} - #{error_detail_entry['description']}."
+      end.join(' ')
     end
   end
 end
