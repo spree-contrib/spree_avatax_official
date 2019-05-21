@@ -27,6 +27,21 @@ describe SpreeAvataxOfficial::Address::Validate do
           expect(response.value.body['messages']).to be_present
         end
       end
+
+      context 'with too long zipcode' do
+        let(:address) { create(:usa_address) }
+
+        it 'returns failure with messages' do
+          address.update_column(:zipcode, 'too_long_zipcode')
+
+          VCR.use_cassette('spree_avatax_official/address/zipcode_failure') do
+            response = subject
+
+            expect(response.failure?).to eq true
+            expect(response.value.body['error']['message']).to be_present
+          end
+        end
+      end
     end
   end
 end

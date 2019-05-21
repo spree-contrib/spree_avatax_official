@@ -4,12 +4,16 @@ module SpreeAvataxOfficial
       def call(address:)
         response = send_request(address)
 
-        return failure(response) if response.body['messages']
+        return failure(response) if errors?(response)
 
         success(response)
       end
 
       private
+
+      def errors?(response)
+        response.body['messages'] || response.body['error']
+      end
 
       def send_request(address)
         ship_to_address_model = SpreeAvataxOfficial::ShipToAddressPresenter.new(
