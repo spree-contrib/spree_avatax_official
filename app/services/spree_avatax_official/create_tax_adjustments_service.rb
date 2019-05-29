@@ -75,7 +75,7 @@ module SpreeAvataxOfficial
 
     def find_or_create_tax_rate(item, avatax_item)
       ::Spree::TaxRate.find_or_create_by!(
-        name:               'AvaTax dummy tax rate',
+        name:               tax_rate_name,
         amount:             sum_rates_from_details(avatax_item),
         zone:               item.tax_zone,
         tax_category:       item.tax_category,
@@ -84,6 +84,10 @@ module SpreeAvataxOfficial
       ) do |tax_rate|
         tax_rate.calculator = SpreeAvataxOfficial::Calculator::AvataxTransactionCalculator.new
       end
+    end
+
+    def tax_rate_name
+      ENV.fetch('AVATAX_TAX_RATE_NAME', 'AvaTax Official Tax Rate')
     end
 
     def create_tax_adjustment(item, source, amount)
