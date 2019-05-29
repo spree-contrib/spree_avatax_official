@@ -33,10 +33,3 @@ appraise 'spree-master' do
   gem 'spree_auth_devise',        github: 'spree/spree_auth_devise',      branch: 'master'
   gem 'rails-controller-testing'
 end
-
-appraise 'spree-fullscript' do
-  gem 'spree_core',               github: 'Fullscript/spree',             branch: '2-2-stable-healthwave'
-  gem 'spree_backend',            github: 'Fullscript/spree',             branch: '2-2-stable-healthwave'
-  gem 'spree_auth_devise',        github: 'Fullscript/spree_auth_devise', branch: 'hw-spree-2-2-rails-4-2-update'
-  gem 'rails-controller-testing'
-end

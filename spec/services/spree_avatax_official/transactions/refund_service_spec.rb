@@ -7,48 +7,7 @@ describe SpreeAvataxOfficial::Transactions::RefundService do
     let(:order)       { create(:shipped_order, line_items_count: 2, ship_address: create(:usa_address)) }
     let(:return_auth) { create(:return_authorization, order: order, inventory_units: order.inventory_units) }
 
-    context 'with return authorization', unless: defined?(Spree::Refund) do
-      context 'with full refund' do
-        it 'creates refund transaction' do
-          expect(SpreeAvataxOfficial::Transactions::FullRefundService).to receive(:call)
-
-          subject
-        end
-      end
-
-      context 'with partial refund' do
-        it 'creates refund only with refunded lines' do
-          # inventory units created with spree 2-2 factory do not have order assigned
-          Spree::InventoryUnit.update_all(order_id: order.id)
-
-          return_auth.inventory_units = [order.inventory_units.first]
-
-          expect(SpreeAvataxOfficial::Transactions::PartialRefundService).to receive(:call)
-
-          subject
-        end
-
-        context 'line_item_amount' do
-          let(:params)       { { order: order, transaction_code: "#{order.number}-#{return_auth.id}", refund_items: refund_items } }
-          let(:refund_items) { { line_item => [3, -7.5] } }
-          let(:line_item)    { order.line_items.first }
-
-          it 'calls partial service with correct amount' do
-            line_item.update_columns(quantity: 4, pre_tax_amount: 10)
-
-            create_list(:inventory_unit, 4, order: order, line_item: line_item)
-
-            return_auth.inventory_units = order.inventory_units.first(3)
-
-            expect(SpreeAvataxOfficial::Transactions::PartialRefundService).to receive(:call).with(params)
-
-            described_class.call(refundable: return_auth)
-          end
-        end
-      end
-    end
-
-    context 'with refund', if: defined?(Spree::Refund) do
+    context 'with refund' do
       let(:payment)       { create(:payment, state: :completed, order: order) }
       let(:reimbursement) { order.reimbursements.create }
       let(:refund)        { create(:refund, amount: 10, reimbursement: reimbursement, payment: payment) }
