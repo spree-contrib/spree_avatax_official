@@ -1,10 +1,30 @@
 # Spree Avatax (Avalara) Official extension
 
-The only officially supported Avatax (Avalara) extension for [Spree Commerce](https://spreecommerce.org/) using [Avalara REST API v2](https://developer.avalara.com/api-reference/avatax/rest/v2/). 
+The only officially supported Avatax (Avalara) extension for [Spree Commerce](https://spreecommerce.org/) using [Avalara REST API v2](https://developer.avalara.com/api-reference/avatax/rest/v2/).
 
 ## Features
 
-...
+1. Tax calculation (additional/included tax), US state tax, Canadian HST, VAT supported
+
+2. Address validation for US & Canada
+
+3. Commiting complete orders
+
+4. Cancelling (voiding) orders
+
+5. Refunding orders
+
+6. GetByCodeService for getting SalesInvoice for order from Avatax
+
+7. GetTaxService for getting totalTaxCalculated for order from Avatax
+
+8. AvataxLog for logging API calls
+
+9. Caching responses for improved performance
+
+10. Multiple company (store) support
+
+&nbsp;
 
 Developed and maintained by:
 
