@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox-rest.avatax.com/api/v2/companies/test1/transactions/not-existing-number
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 19.5.0
+      X-Avalara-Client:
+      - a0o0b000005HsXPAA0;Spree by Spark;RubySdk;19.5.0;
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Fri, 07 Jun 2019 12:13:10 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Kestrel
+      X-Content-Type-Options:
+      - nosniff
+      Serverduration:
+      - '00:00:00.0120804'
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"EntityNotFoundError","message":"Transaction not found.","target":"HttpRequest","details":[{"code":"EntityNotFoundError","number":4,"message":"Transaction
+        not found.","description":"The Transaction with code ''test1:not-existing-number''
+        was not found.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/EntityNotFoundError","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Fri, 07 Jun 2019 12:13:10 GMT
+recorded_with: VCR 4.0.0
