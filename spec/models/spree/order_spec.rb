@@ -24,9 +24,6 @@ describe Spree::Order do
         order.update(state: :complete, completed_at: Time.current)
       end
 
-      # spree-fullscript
-      allow(Spree::OrderMailer).to receive_message_chain(:cancel_email, :deliver_now)
-      # spree-3-1
       allow(Spree::OrderMailer).to receive_message_chain(:cancel_email, :deliver_later)
     end
 
@@ -63,9 +60,6 @@ describe Spree::Order do
     end
 
     before do
-      # spree-fullscript
-      allow(Spree::OrderMailer).to receive_message_chain(:confirm_email, :deliver_now)
-      # spree-3-1
       allow(Spree::OrderMailer).to receive_message_chain(:confirm_email, :deliver_later)
     end
 

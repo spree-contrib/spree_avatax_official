@@ -19,4 +19,4 @@ module SpreeAvataxOfficial
   end
 end
 
-::Spree::Refund.prepend(::SpreeAvataxOfficial::Spree::RefundDecorator) if 'Spree::Refund'.safe_constantize
+::Spree::Refund.prepend ::SpreeAvataxOfficial::Spree::RefundDecorator

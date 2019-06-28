@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SpreeAvataxOfficial::Spree::RefundDecorator do
-  describe '#create', :avatax_enabled, if: defined?(Spree::Refund) do
+  describe '#create', :avatax_enabled do
     let(:refund) { create(:refund, amount: 10) }
 
     it 'calls refund service' do
