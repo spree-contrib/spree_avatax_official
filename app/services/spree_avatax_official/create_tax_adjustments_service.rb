@@ -112,7 +112,9 @@ module SpreeAvataxOfficial
     end
 
     def sum_rates_from_details(avatax_item)
-      avatax_item['details'].sum { |detail_entry| detail_entry['rate'] }
+      avatax_item['details']
+        .sum { |detail_entry| detail_entry['rate'] }
+        .round(6)
     end
 
     def build_error_message_from_response(avatax_response)
