@@ -69,12 +69,12 @@ module SpreeAvataxOfficial
       end
 
       def items(refundable, units)
-        @items ||= case refundable_class(refundable)
-                   when 'ReturnAuthorization'
-                     units.map(&:line_item).uniq
-                   when 'Refund'
-                     units.flat_map(&:return_items).uniq
-                   end
+        case refundable_class(refundable)
+        when 'ReturnAuthorization'
+          units.map(&:line_item).uniq
+        when 'Refund'
+          units.flat_map(&:return_items).uniq
+        end
       end
 
       def create_full_refund(refundable)
