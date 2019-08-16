@@ -406,5 +406,16 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
                                    'PA 00000 US (AddressLocationType: ShipTo).'
       end
     end
+
+    context 'when tax address is NOT persisted' do
+      let(:tax_address) { build(:address) }
+      let(:order)       { create(:order_with_line_items, number: 'non-existing-number') }
+
+      it 'returns failure' do
+        allow(order).to receive(:tax_address).and_return(tax_address)
+
+        expect(subject.success?).to eq false
+      end
+    end
   end
 end
