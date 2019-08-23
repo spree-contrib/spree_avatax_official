@@ -91,12 +91,22 @@ describe SpreeAvataxOfficial::ItemPresenter do
           end
         end
 
-        it 'serializes the object' do
-          item.order.update(ship_address: create(:usa_address))
+        before { item.order.update(ship_address: create(:usa_address)) }
 
+        it 'serializes the object' do
           result[:addresses] = ship_from_address.merge(ship_to_address)
 
           expect(subject.to_json).to eq result
+        end
+
+        context 'with address line longer than 50 characters' do
+          let(:very_long_address) { FFaker::Lorem.characters(100) }
+
+          it 'takes first 50 characters from the address line to prevent error' do
+            stock_location.update(address1: very_long_address)
+
+            expect(subject.to_json[:addresses]['ShipFrom'][:line1]).to eq very_long_address.first(50)
+          end
         end
       end
 
