@@ -18,7 +18,7 @@ gemfile:
 
 script:
   - bundle exec rake test_app
-  - bundle exec rubocop && bundle exec rake spec
+  - bundle exec rake spec
 
 rvm:
   - 2.5.3
