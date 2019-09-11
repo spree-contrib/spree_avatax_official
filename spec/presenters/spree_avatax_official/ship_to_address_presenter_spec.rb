@@ -20,5 +20,15 @@ describe SpreeAvataxOfficial::ShipToAddressPresenter do
     it 'serializes the object' do
       expect(subject).to eq result
     end
+
+    context 'with address line longer than 50 characters' do
+      let(:very_long_address) { FFaker::Lorem.characters(100) }
+
+      it 'takes first 50 characters from the address line to prevent error' do
+        address.address1 = very_long_address
+
+        expect(subject[:line1]).to eq very_long_address.first(50)
+      end
+    end
   end
 end

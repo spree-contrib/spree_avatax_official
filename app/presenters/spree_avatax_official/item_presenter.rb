@@ -68,8 +68,8 @@ module SpreeAvataxOfficial
       stock_location = inventory_units.first.shipment.stock_location
 
       {
-        line1:      stock_location.address1,
-        line2:      stock_location.address2,
+        line1:      stock_location.address1.try(:first, 50),
+        line2:      stock_location.address2.try(:first, 50),
         city:       stock_location.city,
         region:     stock_location.state.try(:abbr),
         country:    stock_location.country.try(:iso),
