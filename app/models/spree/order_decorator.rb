@@ -20,7 +20,7 @@ module SpreeAvataxOfficial
       end
 
       def avatax_tax_calculation_required?
-        tax_address.present? && line_items.any?
+        tax_address&.persisted? && line_items.any?
       end
 
       def avatax_discount_amount
