@@ -21,9 +21,17 @@ appraise 'spree-3-5' do
 end
 
 appraise 'spree-3-7' do
-  gem 'spree_core',               '~> 3.7.0.rc1'
-  gem 'spree_backend',            '~> 3.7.0.rc1'
-  gem 'spree_auth_devise',        '~> 3.4'
+  gem 'spree_core',               '~> 3.7.0'
+  gem 'spree_backend',            '~> 3.7.0'
+  gem 'spree_auth_devise',        '~> 3.5'
+  gem 'rails-controller-testing'
+  gem 'sass-rails'
+end
+
+appraise 'spree-4-0' do
+  gem 'spree_core',               '~> 4.0.0.rc1'
+  gem 'spree_backend',            '~> 4.0.0.rc1'
+  gem 'spree_auth_devise',        '~> 4.0.0.rc2'
   gem 'rails-controller-testing'
 end
 
