@@ -1,5 +1,7 @@
 # Spree Avatax (Avalara) Official extension
 
+[![Build Status](https://travis-ci.com/spark-solutions/spree_avatax_official.svg?token=svVk6tYzmvo9CARDPUra&branch=master)](https://travis-ci.com/spark-solutions/spree_avatax_official)
+
 The only officially supported Avatax (Avalara) extension for [Spree Commerce](https://spreecommerce.org/) using [Avalara REST API v2](https://developer.avalara.com/api-reference/avatax/rest/v2/).
 
 ## Features
