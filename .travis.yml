@@ -4,6 +4,9 @@ dist: trusty
 language: ruby
 cache: bundler
 
+addons:
+  postgresql: 9.4
+
 env:
   - DB=postgres
   - DB=mysql
@@ -13,11 +16,12 @@ gemfile:
   - gemfiles/spree_3_7.gemfile
     #  - gemfiles/spree_3_2.gemfile
     #  - gemfiles/spree_3_5.gemfile
-    #  - gemfiles/spree_master.gemfile
+  - gemfiles/spree_4_0.gemfile
+  - gemfiles/spree_master.gemfile
 
 script:
   - bundle exec rake test_app
-  - bundle exec rubocop && bundle exec rake spec
+  - bundle exec rake spec
 
 rvm:
   - 2.5.3
@@ -28,6 +32,25 @@ matrix:
   fast_finish: true
   allow_failures:
     - gemfile: gemfiles/spree_master.gemfile
+  exclude:
+    - rvm: 2.3.8
+      gemfile: gemfiles/spree_4_0.gemfile
+    - rvm: 2.4.5
+      gemfile: gemfiles/spree_4_0.gemfile
+    - rvm: 2.3.8
+      gemfile: gemfiles/spree_master.gemfile
+    - rvm: 2.4.5
+      gemfile: gemfiles/spree_master.gemfile
+    - rvm: 2.4.5
+      gemfile: gemfiles/spree_3_1.gemfile
+    - rvm: 2.5.3
+      gemfile: gemfiles/spree_3_1.gemfile
+    - rvm: 2.4.5
+      gemfile: gemfiles/spree_3_2.gemfile
+    - rvm: 2.5.3
+      gemfile: gemfiles/spree_3_2.gemfile
+    - rvm: 2.5.3
+      gemfile: gemfiles/spree_3_5.gemfile
 
 before_install:
   - mysql -u root -e "GRANT ALL ON *.* TO 'travis'@'%';"
