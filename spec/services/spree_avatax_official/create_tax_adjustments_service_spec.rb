@@ -417,5 +417,20 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
         expect(subject.success?).to eq false
       end
     end
+
+    context 'when avatax_response is false' do
+      let(:order)        { create(:completed_order_with_totals) }
+      let(:false_result) { Spree::ServiceModule::Result.new(false, false) }
+
+      before do
+        allow(SpreeAvataxOfficial::Transactions::FindOrderTransactionService).to receive(:call).and_return(false_result)
+        allow(SpreeAvataxOfficial::Transactions::CreateService).to receive(:call).and_return(false_result)
+      end
+
+      it 'creates avatax transaction' do
+        expect(subject.success?).to eq false
+        expect(subject.value).to    eq I18n.t('spree_avatax_official.create_tax_adjustments.tax_calculation_failed')
+      end
+    end
   end
 end
