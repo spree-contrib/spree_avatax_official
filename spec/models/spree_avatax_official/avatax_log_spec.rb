@@ -5,6 +5,8 @@ describe SpreeAvataxOfficial::AvataxLog, type: :model do
   let(:logger)          { described_class.new }
   let(:example_payload) { { test: 'Test!' } }
   let!(:order)          { create(:order) }
+  let(:payload)         { File.new(Rails.root.join('log', file_name)).read }
+  let(:log_data)        { "[AVATAX] #{order.class} #{order.id} : #{order.number}" }
 
   before do
     SpreeAvataxOfficial::Config.log_file_name = file_name
@@ -24,7 +26,7 @@ describe SpreeAvataxOfficial::AvataxLog, type: :model do
     it 'logs info with given message' do
       logger.info(example_payload)
 
-      expect(File.new(Rails.root.join('log', file_name)).read).to include "[AVATAX] - #{example_payload.to_json}"
+      expect(payload).to include "[AVATAX] #{example_payload.to_json}"
     end
 
     it 'returns nil if logger is not enabled' do
@@ -48,7 +50,7 @@ describe SpreeAvataxOfficial::AvataxLog, type: :model do
     it 'receives debug with message' do
       logger.debug(order, example_payload)
 
-      expect(File.new(Rails.root.join('log', file_name)).read).to include "[AVATAX] #{order.class}-#{order.id} #{example_payload.to_json}"
+      expect(payload).to include "#{log_data} #{example_payload.to_json}"
     end
 
     it 'returns nil if logger is not enabled' do
@@ -62,7 +64,7 @@ describe SpreeAvataxOfficial::AvataxLog, type: :model do
     it 'logs error with given message' do
       logger.error(order, example_payload)
 
-      expect(File.new(Rails.root.join('log', file_name)).read).to include "[AVATAX] #{order.class}-#{order.id} #{example_payload.to_json}"
+      expect(payload).to include "#{log_data} #{example_payload.to_json}"
     end
 
     it 'returns nil if logger is not enabled' do
@@ -75,10 +77,10 @@ describe SpreeAvataxOfficial::AvataxLog, type: :model do
       it 'logs error with given message' do
         message         = Struct.new(:message, :status, :body)
         example_payload = message.new(400, test: 'Test!')
-        log_data        = "[AVATAX] #{order.class}-#{order.id} #{example_payload.status} #{example_payload.body.to_json}"
+        log_data        = "#{log_data} #{example_payload.status} #{example_payload.body.to_json}"
 
         logger.error(order, example_payload)
-        expect(File.new(Rails.root.join('log', file_name)).read).to include log_data
+        expect(payload).to include log_data
       end
     end
   end

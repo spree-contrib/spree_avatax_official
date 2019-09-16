@@ -39,7 +39,13 @@ module SpreeAvataxOfficial
     end
 
     def log_data(message, object)
-      "[AVATAX] #{object&.class}-#{object&.id} #{log_message(message)}"
+      "[AVATAX] #{object_info(object)}#{log_message(message)}"
+    end
+
+    def object_info(object)
+      return unless object
+
+      "#{object.class} #{object.id} : #{object.number} "
     end
 
     def log_message(message)
