@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesOrder","code":"R347247403","referenceCode":"R347247403","companyCode":"test1","date":"2019-09-20","customerCode":"olene.von@graham.ca","addresses":{"ShipFrom":{"line1":"822
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"USA","postalCode":"19147"},"ShipTo":{"line1":"298
+        Pinetree","line2":"","city":"BEACONSFIELD","region":"QC","country":"CA","postalCode":"H9W
+        5E1"}},"lines":[{"number":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false,"addresses":{},"taxIncluded":false,"description":"Product
+        #3 - 3755","itemCode":"SKU-3"}],"commit":false,"discount":"0.0","currencyCode":"USD","purchaseOrderNo":"R347247403"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 19.7.0
+      X-Avalara-Client:
+      - a0o0b000005HsXPAA0;Spree by Spark;RubySdk;19.7.0;
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 20 Sep 2019 14:44:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - "/api/v2/companies/848107/transactions/0"
+      X-Content-Type-Options:
+      - nosniff
+      Serverduration:
+      - '00:00:00.0558162'
+    body:
+      encoding: UTF-8
+      string: '{"id":0,"code":"R347247403","companyId":848107,"date":"2019-09-20","paymentDate":"2019-09-20","status":"Temporary","type":"SalesOrder","currencyCode":"USD","customerVendorCode":"olene.von@graham.ca","customerCode":"olene.von@graham.ca","reconciled":false,"purchaseOrderNo":"R347247403","referenceCode":"R347247403","totalAmount":10.0,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":0.5,"totalTaxable":10.0,"totalTaxCalculated":0.5,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2019-09-20","exchangeRate":1.0,"modifiedDate":"2019-09-20T14:44:31.8104101Z","modifiedUserId":356147,"taxDate":"2019-09-20T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","description":"Product
+        #3 - 3755","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"itemCode":"SKU-3","lineAmount":10.0,"quantity":1.0,"reportingDate":"2019-09-20","tax":0.5,"taxableAmount":10.0,"taxCalculated":0.5,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-09-20","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"CA","region":"CA","exemptAmount":0.0,"jurisCode":"CA","jurisName":"CANADA","stateAssignedNo":"","jurisType":"CNT","jurisdictionType":"Country","nonTaxableAmount":0.0,"rate":0.050000,"tax":0.5,"taxableAmount":10.0,"taxType":"Output","taxSubTypeId":"O","taxName":"CANADA
+        GST/TPS","taxAuthorityTypeId":45,"taxCalculated":0.5,"rateType":"Standard","rateTypeCode":"S","unitOfBasis":"PerCurrencyUnit","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"","vatNumberTypeId":0}],"addresses":[{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"298
+        Pinetree","line2":"","line3":"","city":"BEACONSFIELD","region":"QC","postalCode":"H9W
+        5E1","country":"CA","taxRegionId":0,"latitude":"0","longitude":"0"},{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"822
+        Reed St","line2":"","line3":"","city":"Philadelphia","region":"PA","postalCode":"19147","country":"US","taxRegionId":4014900,"latitude":"0","longitude":"0"}],"summary":[{"country":"CA","region":"CA","jurisType":"Country","jurisCode":"CA","jurisName":"CANADA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Output","taxSubType":"O","taxName":"CANADA
+        GST/TPS","rateType":"Standard","taxable":10.0,"rate":0.050000,"tax":0.5,"taxCalculated":0.5,"nonTaxable":0.0,"exemption":0.0}]}'
+    http_version:
+  recorded_at: Fri, 20 Sep 2019 14:44:14 GMT
+recorded_with: VCR 4.0.0

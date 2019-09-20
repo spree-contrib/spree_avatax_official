@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/create
+    body:
+      encoding: UTF-8
+      string: '{"type":"SalesOrder","code":"R692933567","referenceCode":"R692933567","companyCode":"test1","date":"2019-09-20","customerCode":"mathilde@flatley.info","addresses":{"ShipFrom":{"line1":"10
+        Paternoster Sq","line2":"","city":"London","region":"","country":"GBR","postalCode":"EC4M
+        7LS"},"ShipTo":{"line1":"10 Paternoster Sq","line2":"","city":"London","region":null,"country":"GB","postalCode":"EC4M
+        7LS"}},"lines":[{"number":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false,"addresses":{},"taxIncluded":false,"description":"Product
+        #6 - 2576","itemCode":"SKU-6"}],"commit":false,"discount":"0.0","currencyCode":"USD","purchaseOrderNo":"R692933567"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 19.7.0
+      X-Avalara-Client:
+      - a0o0b000005HsXPAA0;Spree by Spark;RubySdk;19.7.0;
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 20 Sep 2019 14:44:17 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - "/api/v2/companies/848107/transactions/0"
+      X-Content-Type-Options:
+      - nosniff
+      Serverduration:
+      - '00:00:00.0512590'
+    body:
+      encoding: UTF-8
+      string: '{"id":0,"code":"R692933567","companyId":848107,"date":"2019-09-20","paymentDate":"2019-09-20","status":"Temporary","type":"SalesOrder","currencyCode":"USD","customerVendorCode":"mathilde@flatley.info","customerCode":"mathilde@flatley.info","reconciled":false,"purchaseOrderNo":"R692933567","referenceCode":"R692933567","totalAmount":10.0,"totalExempt":10.0,"totalDiscount":0.0,"totalTax":0.0,"totalTaxable":0.0,"totalTaxCalculated":0.0,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2019-09-20","exchangeRate":1.0,"modifiedDate":"2019-09-20T14:44:08.9381728Z","modifiedUserId":356147,"taxDate":"2019-09-20T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","description":"Product
+        #6 - 2576","discountAmount":0.0,"exemptAmount":10.0,"exemptCertId":0,"isItemTaxable":false,"itemCode":"SKU-6","lineAmount":10.0,"quantity":1.0,"reportingDate":"2019-09-20","tax":0.0,"taxableAmount":0.0,"taxCalculated":0.0,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2019-09-20","taxIncluded":false,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"GB","region":"GB","exemptAmount":0.0,"jurisCode":"GB","jurisName":"UNITED
+        KINGDOM","stateAssignedNo":"","jurisType":"CNT","jurisdictionType":"Country","nonTaxableAmount":10.0,"rate":0.0,"tax":0.0,"taxableAmount":0.0,"taxType":"Output","taxSubTypeId":"O","taxName":"GB
+        VAT","taxAuthorityTypeId":45,"taxCalculated":0.0,"rateType":"Zero","rateTypeCode":"Z","unitOfBasis":"PerCurrencyUnit","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"GBS-0000P--GB","vatNumberTypeId":0}],"addresses":[{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"10
+        Paternoster Sq","line2":"","line3":"","city":"London","region":"","postalCode":"EC4M
+        7LS","country":"GB","taxRegionId":205085,"latitude":"0","longitude":"0"}],"summary":[{"country":"GB","region":"GB","jurisType":"Country","jurisCode":"GB","jurisName":"UNITED
+        KINGDOM","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Output","taxSubType":"O","taxName":"GB
+        VAT","rateType":"Zero","taxable":0.0,"rate":0.0,"tax":0.0,"taxCalculated":0.0,"nonTaxable":10.0,"exemption":0.0}]}'
+    http_version:
+  recorded_at: Fri, 20 Sep 2019 14:44:18 GMT
+recorded_with: VCR 4.0.0

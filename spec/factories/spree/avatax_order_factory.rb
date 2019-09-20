@@ -2,7 +2,7 @@ FACTORY_BOT_CLASS.define do
   factory :avatax_order, class: Spree::Order do
     user
     bill_address
-    ship_address
+    ship_address { create(:usa_address) }
     completed_at { nil }
     email        { user.email }
     state        { 'cart' }
