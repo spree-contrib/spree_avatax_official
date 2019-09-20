@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe SpreeAvataxOfficial::Transactions::FullRefundService do
   describe '#call' do
-    subject { described_class.call(order: order, transaction_code: 'REFUND748-1') }
+    subject { described_class.call(order: order, transaction_code: 'REFUND7482-1') }
 
-    let(:order)         { create(:completed_order_with_totals, ship_address: create(:usa_address), number: 'REFUND748') }
+    let(:order)         { create(:completed_order_with_totals, ship_address: create(:usa_address), number: 'REFUND7482') }
     let(:refundable_id) { 1 }
 
     it 'creates refund transaction' do

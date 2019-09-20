@@ -10,20 +10,22 @@ module SpreeAvataxOfficial
       # Based on: https://developer.avalara.com/api-reference/avatax/rest/v2/models/CreateTransactionModel/
       def to_json # rubocop:disable Metrics/MethodLength
         {
-          type:          transaction_type,
-          code:          transaction_code,
-          referenceCode: order.number,
-          companyCode:   company_code,
-          date:          formatted_date(order_date),
-          customerCode:  order.email,
-          addresses:     addresses_payload,
-          lines:         items_payload,
-          commit:        completed?(order),
-          discount:      order.avatax_discount_amount
+          type:            transaction_type,
+          code:            transaction_code,
+          referenceCode:   order.number,
+          companyCode:     company_code,
+          date:            formatted_date(order_date),
+          customerCode:    customer_code,
+          addresses:       addresses_payload,
+          lines:           items_payload,
+          commit:          completed?(order),
+          discount:        order.avatax_discount_amount,
+          currencyCode:    currency_code,
+          purchaseOrderNo: order.number
         }
       end
 
-      delegate :avatax_ship_from_address, to: :order
+      delegate :avatax_ship_from_address, :user, to: :order
 
       private
 
@@ -39,6 +41,10 @@ module SpreeAvataxOfficial
 
       def order_date
         order.completed_at || order.updated_at
+      end
+
+      def customer_code
+        user.try(:email) || order.email
       end
 
       def ship_from_payload
@@ -59,6 +65,10 @@ module SpreeAvataxOfficial
 
       def completed?(order)
         order.completed_at.present?
+      end
+
+      def currency_code
+        order.currency || ::Spree::Config[:currency]
       end
     end
   end

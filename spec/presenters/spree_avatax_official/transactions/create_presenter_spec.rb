@@ -11,18 +11,20 @@ describe SpreeAvataxOfficial::Transactions::CreatePresenter do
 
     let(:result) do
       {
-        type:          transaction_type,
-        companyCode:   SpreeAvataxOfficial::Configuration.new.company_code,
-        code:          order.number,
-        referenceCode: order.number,
-        date:          order.updated_at.strftime('%Y-%m-%d'),
-        customerCode:  order.email,
-        addresses:     SpreeAvataxOfficial::AddressPresenter.new(address: ship_from_address, address_type: 'ShipFrom').to_json.merge(
+        type:            transaction_type,
+        companyCode:     SpreeAvataxOfficial::Configuration.new.company_code,
+        code:            order.number,
+        referenceCode:   order.number,
+        date:            order.updated_at.strftime('%Y-%m-%d'),
+        customerCode:    order.email,
+        addresses:       SpreeAvataxOfficial::AddressPresenter.new(address: ship_from_address, address_type: 'ShipFrom').to_json.merge(
           SpreeAvataxOfficial::AddressPresenter.new(address: order.ship_address, address_type: 'ShipTo').to_json
         ),
-        lines:         order_items.map { |item| SpreeAvataxOfficial::ItemPresenter.new(item: item).to_json },
-        commit:        false,
-        discount:      0.0
+        lines:           order_items.map { |item| SpreeAvataxOfficial::ItemPresenter.new(item: item).to_json },
+        commit:          false,
+        discount:        0.0,
+        currencyCode:    order.currency,
+        purchaseOrderNo: order.number
       }
     end
 
@@ -69,6 +71,28 @@ describe SpreeAvataxOfficial::Transactions::CreatePresenter do
 
       it 'serializes the object' do
         result[:code] = 'test-code'
+
+        expect(subject.to_json).to eq result
+      end
+    end
+
+    context 'with user email' do
+      let(:email) { 'user_email@test.com' }
+
+      it 'serializes the object' do
+        order.user.update(email: email)
+
+        result[:customerCode] = email
+
+        expect(subject.to_json).to eq result
+      end
+    end
+
+    context 'without order currency' do
+      it 'serializes the object' do
+        order.currency = nil
+
+        result[:currencyCode] = Spree::Config[:currency]
 
         expect(subject.to_json).to eq result
       end
