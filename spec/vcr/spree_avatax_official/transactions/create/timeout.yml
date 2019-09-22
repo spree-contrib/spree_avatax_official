@@ -5,20 +5,19 @@ http_interactions:
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/create?$include=ForceTimeout
     body:
       encoding: UTF-8
-      string: '{"type":"SalesOrder","code":null,"referenceCode":"R729138478","companyCode":"test12","date":"2019-04-05","customerCode":"arica.stiedemann@nicolas.name","addresses":{"ShipFrom":{"line1":"822
+      string: '{"type":"SalesOrder","code":"R214319593","referenceCode":"R214319593","companyCode":"test1","date":"2019-09-20","customerCode":"valencia@wisoky.biz","addresses":{"ShipFrom":{"line1":"822
         Reed St","line2":"","city":"Philadelphia","region":"PA","country":"USA","postalCode":"19147"},"ShipTo":{"line1":"822
         Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"lines":[{"number":"LI-a844605f-e114-4933-a0cf-7a434ac83cdf","quantity":1,"amount":"10.0","taxCode":"P0000000","discounted":false,"addresses":{"ShipFrom":{"line1":"1600
         Pennsylvania Ave NW","line2":null,"city":"Washington","region":"PA","country":"US","postalCode":"20500"},"ShipTo":{"line1":"822
-        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"description":"Dolorem
-        deserunt vero suscipit delectus. Perferendis et veritatis aspernatur ut architecto.
-        Ratione labore quas quos officia sequi dolorum sit et.","sku":"SKU-1"},{"number":"FR-43dfd37b-6011-4317-bbe7-a0ce5be27430","quantity":1,"amount":"100.0","taxCode":"FR","discounted":false,"addresses":{}}],"commit":false,"discount":"0.0"}'
+        Reed St","line2":"","city":"Philadelphia","region":"PA","country":"US","postalCode":"19147"}},"taxIncluded":false,"description":"Product
+        #1 - 5214","itemCode":"SKU-1"},{"number":"FR-817eb172-c380-4a04-b97c-26fc2eda15da","quantity":1,"amount":"100.0","taxCode":"FR","discounted":false,"addresses":{},"taxIncluded":false}],"commit":false,"discount":"0.0","currencyCode":"USD","purchaseOrderNo":"R214319593"}'
     headers:
       Accept:
       - application/json; charset=utf-8
       User-Agent:
-      - AvaTax Ruby Gem 19.3.0
+      - AvaTax Ruby Gem 19.7.0
       X-Avalara-Client:
-      - a0o0b000005HsXPAA0;Spree by Spark;RubySdk;19.3.0;
+      - a0o0b000005HsXPAA0;Spree by Spark;RubySdk;19.7.0;
       Authorization:
       - "<AVATAX_TOKEN>"
       Content-Type:
@@ -31,27 +30,17 @@ http_interactions:
       message: Bad Request
     headers:
       Date:
-      - Fri, 05 Apr 2019 14:30:15 GMT
+      - Fri, 20 Sep 2019 09:01:50 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Server:
-      - Kestrel
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:30.0090118'
-      Databasecalls:
-      - '1'
-      Databaseduration:
-      - '00:00:00'
-      Serviceduration:
-      - '00:00:00'
-      X-Powered-By:
-      - ASP.NET
+      - '00:00:30.0056856'
     body:
       encoding: UTF-8
       string: '{"error":{"code":"TimeoutRequested","message":"You requested a timeout
@@ -61,5 +50,5 @@ http_interactions:
         option simulates a timeout error to make tests easier.  To stop receiving
         this error code, remove the word `ForceTimeout`.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/TimeoutRequested","severity":"Error"}]}}'
     http_version: 
-  recorded_at: Fri, 05 Apr 2019 14:30:15 GMT
+  recorded_at: Fri, 20 Sep 2019 09:01:50 GMT
 recorded_with: VCR 4.0.0

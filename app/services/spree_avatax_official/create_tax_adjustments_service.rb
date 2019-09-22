@@ -10,6 +10,7 @@ module SpreeAvataxOfficial
       return failure(I18n.t('spree_avatax_official.create_tax_adjustments.tax_calculation_unnecessary')) unless order.avatax_tax_calculation_required?
 
       transaction_cache_key = SpreeAvataxOfficial::GenerateTransactionCacheKeyService.call(order: order).value
+
       avatax_response       = Rails.cache.fetch(transaction_cache_key, expires_in: 5.minutes) do
         send_transaction_to_avatax(order)
       end

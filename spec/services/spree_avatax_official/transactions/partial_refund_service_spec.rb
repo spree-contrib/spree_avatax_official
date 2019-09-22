@@ -5,7 +5,7 @@ describe SpreeAvataxOfficial::Transactions::PartialRefundService do
     subject do
       described_class.call(
         order:            order,
-        transaction_code: 'test-code',
+        transaction_code: 'test-code-123',
         refund_items:     refund_item
       )
     end
@@ -16,7 +16,7 @@ describe SpreeAvataxOfficial::Transactions::PartialRefundService do
 
     it 'creates ReturnInvoice' do
       VCR.use_cassette('spree_avatax_official/transactions/refund/partial_refund_success') do
-        order.update(state: :complete)
+        order.update(state: :complete, completed_at: Time.current)
 
         result   = subject
         response = result.value

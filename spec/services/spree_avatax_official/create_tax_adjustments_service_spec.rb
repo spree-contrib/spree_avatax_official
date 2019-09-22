@@ -350,7 +350,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
     end
 
     context 'completed order with single line item and shipment' do
-      let(:order) { create(:avatax_order, :completed, number: 'R966011034', with_shipment: true, line_items_count: 1, ship_address: usa_address) }
+      let(:order) { create(:avatax_order, :completed, number: 'R966011343', with_shipment: true, line_items_count: 1, ship_address: usa_address) }
       let(:line_item) { order.line_items.first }
       let(:shipment) { order.shipments.first }
       let(:invoice_transaction) { order.reload.avatax_sales_invoice_transaction }
@@ -402,8 +402,8 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
         end
 
         expect(result.failure?).to eq true
-        expect(result.value).to eq '300 - Unable to determine the taxing jurisdictions. - Invalid St, Invalid city, ' \
-                                   'PA 00000 US (AddressLocationType: ShipTo).'
+        expect(result.value).to eq '300 - Tax calculation cannot be determined. Zip is not valid for the state. - ' \
+                                   'Invalid St, Invalid city, PA 00000 US (AddressLocationType: ShipTo).'
       end
     end
 
