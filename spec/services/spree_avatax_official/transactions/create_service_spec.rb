@@ -140,5 +140,123 @@ describe SpreeAvataxOfficial::Transactions::CreateService do
         end
       end
     end
+
+    context 'Non US taxes' do
+      subject { described_class.call(order: order) }
+
+      let(:order)          { create(:avatax_order, line_items_count: 1) }
+      let(:canada_address) { create(:canada_address) }
+      let(:europe_address) { create(:europe_address) }
+      let(:tax_summary)    { subject.value['summary'].first }
+
+      let(:from_canada) do
+        {
+          line1:      '298 Pinetree',
+          line2:      '',
+          city:       'BEACONSFIELD',
+          region:     'QC',
+          country:    'CAN',
+          postalCode: 'H9W 5E1'
+        }
+      end
+
+      let(:from_usa) do
+        {
+          line1:      '822 Reed St',
+          line2:      '',
+          city:       'Philadelphia',
+          region:     'PA',
+          country:    'USA',
+          postalCode: '19147'
+        }
+      end
+
+      let(:from_europe) do
+        {
+          line1:      '10 Paternoster Sq',
+          line2:      '',
+          city:       'London',
+          region:     '',
+          country:    'GBR',
+          postalCode: 'EC4M 7LS'
+        }
+      end
+
+      context 'VAT' do
+        context 'US to Europe sale' do
+          before { order.update(ship_address: europe_address) }
+
+          it 'calculates VAT' do
+            VCR.use_cassette('spree_avatax_official/transactions/create/vat/us_to_europe') do
+              expect(tax_summary['taxName']).to eq 'GB VAT'
+            end
+          end
+        end
+
+        context 'Europe to Europe sale' do
+          before { order.update(ship_address: europe_address) }
+
+          it 'calculates VAT' do
+            SpreeAvataxOfficial::Config.ship_from_address = from_europe
+
+            VCR.use_cassette('spree_avatax_official/transactions/create/vat/europe_to_europe') do
+              expect(tax_summary['taxName']).to eq 'GB VAT'
+            end
+
+            SpreeAvataxOfficial::Config.ship_from_address = from_usa
+          end
+        end
+
+        context 'Europe to US sale' do
+          it 'calculates US tax' do
+            SpreeAvataxOfficial::Config.ship_from_address = from_europe
+
+            VCR.use_cassette('spree_avatax_official/transactions/create/vat/europe_to_us') do
+              expect(tax_summary['taxName']).to eq 'PA STATE TAX'
+            end
+
+            SpreeAvataxOfficial::Config.ship_from_address = from_usa
+          end
+        end
+      end
+
+      context 'GST/TPS' do
+        context 'US to Canada sale' do
+          before { order.update(ship_address: canada_address) }
+
+          it 'calculates GST/TPS' do
+            VCR.use_cassette('spree_avatax_official/transactions/create/gst/us_to_canada') do
+              expect(tax_summary['taxName']).to eq 'CANADA GST/TPS'
+            end
+          end
+        end
+
+        context 'Canada to Canada sale' do
+          before { order.update(ship_address: canada_address) }
+
+          it 'calculates GST/TPS' do
+            SpreeAvataxOfficial::Config.ship_from_address = from_canada
+
+            VCR.use_cassette('spree_avatax_official/transactions/create/gst/canada_to_canada') do
+              expect(tax_summary['taxName']).to eq 'CANADA GST/TPS'
+            end
+
+            SpreeAvataxOfficial::Config.ship_from_address = from_usa
+          end
+        end
+
+        context 'Canada to US sale' do
+          it 'calculates US tax' do
+            SpreeAvataxOfficial::Config.ship_from_address = from_canada
+
+            VCR.use_cassette('spree_avatax_official/transactions/create/gst/canada_to_us') do
+              expect(tax_summary['taxName']).to eq 'PA STATE TAX'
+            end
+
+            SpreeAvataxOfficial::Config.ship_from_address = from_usa
+          end
+        end
+      end
+    end
   end
 end
