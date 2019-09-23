@@ -22,10 +22,15 @@ describe SpreeAvataxOfficial::Transactions::PartialRefundPresenter do
         SpreeAvataxOfficial::AddressPresenter.new(address: order.ship_address, address_type: 'ShipTo').to_json
       ),
       lines:           [SpreeAvataxOfficial::ItemPresenter.new(item: line_item, custom_quantity: quantity, custom_amount: amount).to_json],
-      commit:          false,
+      commit:          true,
       discount:        0.0,
       currencyCode:    order.currency,
-      purchaseOrderNo: order.number
+      purchaseOrderNo: order.number,
+      taxOverride:     {
+        reason:  'Refund',
+        taxDate: order.completed_at.strftime('%Y-%m-%d'),
+        type:    'TaxDate'
+      }
     }
   end
 
@@ -35,6 +40,8 @@ describe SpreeAvataxOfficial::Transactions::PartialRefundPresenter do
   let(:amount)    { line_item.amount * 2 }
 
   it 'serializes the object' do
+    order.update(completed_at: Time.current)
+
     expect(subject.to_json).to eq result
   end
 end
