@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SpreeAvataxOfficial::AvataxLog, type: :model do
   let(:file_name)       { 'test_file.log' }
-  let(:logger)          { SpreeAvataxOfficial::AvataxLog.new }
+  let(:logger)          { described_class.new }
   let(:example_payload) { { test: 'Test!' } }
   let!(:order)          { create(:order) }
 
