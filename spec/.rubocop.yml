@@ -31,3 +31,6 @@ RSpec/MessageSpies:
 
 RSpec/MessageChain:
   Enabled: false
+
+RSpec/LeakyConstantDeclaration:
+  Enabled: false
