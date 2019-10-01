@@ -14,3 +14,15 @@ en:
       tax_calculation_failed: AvaTax failed to calculate tax
       line_item_tax_adjustment_default_label: Sales %{included_label}Tax
       shipment_tax_adjustment_default_label: Shipping %{included_label}Tax
+    avatax_credentials: Avatax Credentials
+    company_code: Company code
+    account_number: Account number
+    license_key: License key
+    endpoint_urls: Avatax Endpoint urls
+    endpoint: Endpoint
+    settings: Avatax Settings
+    ship_from_address: Ship from address
+    address_validation: Address validation
+    enable_address_validation: Enable address validation
+    settings_updated: Updated AvaTax configuration
+    save_preferences: Save AvaTax preferences
