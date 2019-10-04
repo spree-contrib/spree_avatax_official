@@ -13,3 +13,4 @@ SpreeAvataxOfficial::Config.ship_from_address = {
   postalCode: '19147'
 }
 Spree::Config[:currency] = 'USD'
+
