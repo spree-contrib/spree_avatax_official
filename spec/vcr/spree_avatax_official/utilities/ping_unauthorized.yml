@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 07 Oct 2019 14:34:24 GMT
+      - Mon, 07 Oct 2019 14:15:23 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -33,9 +33,10 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0001998'
+      - '00:00:00.0003031'
     body:
       encoding: UTF-8
-      string: '{"version":"19.9.1","authenticated":true,"authenticationType":"UsernamePassword","authenticatedUserName":"AVATAX_USERNAME","authenticatedUserId":356147,"authenticatedAccountId":2000336981,"crmid":"0010b00001rp7pSAAQ"}'
-    http_version:
-  recorded_at: Mon, 07 Oct 2019 14:34:24 GMT
+      string: '{"version":"19.9.1","authenticated":false,"authenticationType":"None"}'
+    http_version: 
+  recorded_at: Mon, 07 Oct 2019 14:15:23 GMT
+recorded_with: VCR 5.0.0
