@@ -70,5 +70,5 @@
   </div>
 
   <p class="form-buttons"><%= button t('spree_avatax_official.save_preferences') %></p>
-  <p class="form-buttons"><%=link_to :admin_avatax_ping_path, method: :post %></p>
+  <p class="form-buttons"><%=link_to t('ping_avatax'), :admin_avatax_ping, method: :post, class: 'btn btn-primary' %></p>
 <% end %>
