@@ -6,11 +6,11 @@ module Spree
       def create
         response = SpreeAvataxOfficial::Utilities::PingService.call
         if response.success? && response['value']['authenticated']
-          flash[:success] = "Connected successful"
+          flash[:success] = Spree.t('spree_avatax_official.connected_successful')
         elsif response.success? && !response['value']['authenticated']
-          flash[:error] = "Connected but unauthorized"
+          flash[:error] = Spree.t('spree_avatax_official.unauthorized')
         else
-          flash[:error] = "Avatax rejected connection with error: #{response.value['error']['message']}"
+          flash[:error] = Spree.t('spree_avatax_official.connection_rejected')
         end
         redirect_to edit_admin_avatax_settings_path
       end

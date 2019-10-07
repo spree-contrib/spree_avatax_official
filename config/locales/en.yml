@@ -27,3 +27,6 @@ en:
     settings_updated: Updated AvaTax configuration
     save_preferences: Save AvaTax preferences
     enable_address_validation: Enable address validation
+    connected_successful: Connected successfully
+    unauthorized: Connected but unauthorized
+    connection_rejected: Avatax rejected connection
