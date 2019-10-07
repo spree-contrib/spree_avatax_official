@@ -12,5 +12,6 @@ gem 'spree_auth_devise'
 gem 'spree_backend'
 gem 'spree_core'
 gem 'sass-rails'
+gem 'pry'
 
 gemspec
