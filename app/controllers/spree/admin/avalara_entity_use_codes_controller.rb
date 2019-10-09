@@ -1,7 +1,6 @@
 module Spree
   module Admin
     class AvalaraEntityUseCodesController < Spree::Admin::BaseController
-      respond_to :html
       before_action :load_use_code, only: %i[edit update destroy]
 
       def index
@@ -25,6 +24,7 @@ module Spree
       def create
         @use_code = SpreeAvataxOfficial::EntityUseCode.new(entity_use_codes_params)
         if @use_code.save
+          flash[:notice] = Spree.t('spree_avatax_official.entity_use_code.use_code_created')
           redirect_to admin_avalara_entity_use_codes_path
         else
           flash[:error] = @use_code.errors.full_messages.join('. ')
