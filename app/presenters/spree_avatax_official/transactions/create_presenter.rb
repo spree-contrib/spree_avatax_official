@@ -21,7 +21,8 @@ module SpreeAvataxOfficial
           commit:          completed?(order),
           discount:        order.avatax_discount_amount,
           currencyCode:    currency_code,
-          purchaseOrderNo: order.number
+          purchaseOrderNo: order.number,
+          entityUseCode:   entity_use_code
         }
       end
 
@@ -33,6 +34,10 @@ module SpreeAvataxOfficial
 
       def company_code
         order.store.try(:avatax_company_code) || SpreeAvataxOfficial::Config.company_code
+      end
+
+      def entity_use_code
+        user.try(:spree_avatax_official_entity_use_codes_id)
       end
 
       def formatted_date(date)
