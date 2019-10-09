@@ -31,3 +31,7 @@ en:
     connected_successful: Connected successfully
     unauthorized: Connected but unauthorized
     connection_rejected: Avatax rejected connection
+    entity_use_code:
+      use_code_updated: Entity use code updated
+      use_code_removed: Entity use code removed
+      information_url: Avalara Information

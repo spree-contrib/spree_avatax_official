@@ -51,6 +51,11 @@ RSpec.configure do |config|
   # spree_get :index
   config.include Spree::TestingSupport::ControllerRequests, type: :controller
 
+  # == Devise helpers
+  #
+  # Helpers using in user authorization
+  config.include Devise::Test::ControllerHelpers, type: :controller
+
   # == Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
