@@ -8,6 +8,7 @@
         <legend><%= t('spree_avatax_official.enabled') %></legend>
         <p>
           <label><%= t('spree_avatax_official.enabled') %></label><br />
+          <%= hidden_field_tag('enabled', false) %>
           <%= check_box_tag('enabled', true, SpreeAvataxOfficial::Config.enabled) %>
         </p>
       </fieldset>

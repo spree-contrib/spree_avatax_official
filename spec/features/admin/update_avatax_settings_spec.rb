@@ -24,4 +24,14 @@ describe 'Update Avatax Settings spec', type: :feature do
     expect(SpreeAvataxOfficial::Config.enabled).to      eq true
     expect(current_path).to                             eq '/admin/avatax_settings/edit'
   end
+
+  it 'persists disabled state' do
+    SpreeAvataxOfficial::Config.enabled = true
+
+    visit '/admin/avatax_settings/edit'
+    uncheck 'enabled'
+    click_button I18n.t('spree_avatax_official.save_preferences')
+
+    expect(SpreeAvataxOfficial::Config.enabled).to eq false
+  end
 end
