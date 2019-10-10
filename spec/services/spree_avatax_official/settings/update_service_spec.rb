@@ -46,6 +46,32 @@ describe SpreeAvataxOfficial::Settings::UpdateService do
       end
     end
 
+    context 'enabled' do
+      around do |example|
+        enabled = SpreeAvataxOfficial::Config.enabled
+        example.run
+        SpreeAvataxOfficial::Config.enabled = enabled
+      end
+
+      context 'when enabled param is true' do
+        let(:params) { { enabled: 'true' } }
+
+        it 'updates enabled to true' do
+          SpreeAvataxOfficial::Config.enabled = false
+          expect { subject }.to change { SpreeAvataxOfficial::Config.enabled }.to(true)
+        end
+      end
+
+      context 'when enabled param is false' do
+        let(:params) { { enabled: 'false' } }
+
+        it 'updates enabled to false' do
+          SpreeAvataxOfficial::Config.enabled = true
+          expect { subject }.to change { SpreeAvataxOfficial::Config.enabled }.to(false)
+        end
+      end
+    end
+
     context 'ship_from_address' do
       let(:params) do
         {
