@@ -11,7 +11,7 @@ module SpreeAvataxOfficial
       private
 
       def refund_in_avatax
-        return unless SpreeAvataxOfficial::Config.enabled
+        return unless SpreeAvataxOfficial::Config.enabled && SpreeAvataxOfficial::Config.commit_transaction_enabled
 
         SpreeAvataxOfficial::Transactions::RefundService.call(refundable: self)
       end
