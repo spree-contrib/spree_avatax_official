@@ -63,11 +63,29 @@ describe Spree::Order do
       allow(Spree::OrderMailer).to receive_message_chain(:confirm_email, :deliver_later)
     end
 
-    it 'creates a commited SalesInvoice transaction' do
-      expect(order.state).to eq 'confirm'
+    context 'commit transaction enabled' do
+      it 'creates a commited SalesInvoice transaction' do
+        expect(order.state).to eq 'confirm'
 
-      VCR.use_cassette('spree_order/complete_order') do
-        expect { order.next! }.to change { order.avatax_transactions.count }.by(1)
+        VCR.use_cassette('spree_order/complete_order') do
+          expect { order.next! }.to change { order.avatax_transactions.count }.by(1)
+        end
+      end
+    end
+
+    context 'commit transaction disabled' do
+      around do |example|
+        SpreeAvataxOfficial::Config.commit_transaction_enabled = false
+        example.run
+        SpreeAvataxOfficial::Config.commit_transaction_enabled = true
+      end
+
+      it 'doesnt create a commited SalesInvoice transaction' do
+        expect(order.state).to eq 'confirm'
+
+        VCR.use_cassette('spree_order/complete_order_no_transaction') do
+          expect { order.next! }.to_not change { order.avatax_transactions.count }
+        end
       end
     end
   end
