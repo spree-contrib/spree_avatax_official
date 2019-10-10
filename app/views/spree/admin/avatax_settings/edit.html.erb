@@ -5,6 +5,14 @@
   <div class="yui-g">
     <div class="yui-u first">
       <fieldset>
+        <legend><%= t('spree_avatax_official.enabled') %></legend>
+        <p>
+          <label><%= t('spree_avatax_official.enabled') %></label><br />
+          <%= check_box_tag('enabled', true, SpreeAvataxOfficial::Config.enabled) %>
+        </p>
+      </fieldset>
+
+      <fieldset>
         <legend><%= t('spree_avatax_official.avatax_credentials') %></legend>
         <p>
           <label><%= t('spree_avatax_official.company_code') %></label><br />
