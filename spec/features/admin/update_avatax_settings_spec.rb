@@ -3,21 +3,96 @@ require 'spec_helper'
 describe 'Update Avatax Settings spec', type: :feature do
   stub_authorization!
 
-  around do |example|
-    company_code = SpreeAvataxOfficial::Config.company_code
-    example.run
-    SpreeAvataxOfficial::Config.company_code = company_code
+  describe 'company code' do
+    around do |example|
+      company_code = SpreeAvataxOfficial::Config.company_code
+      example.run
+      SpreeAvataxOfficial::Config.company_code = company_code
+    end
+
+    it 'updates avatax settings' do
+      create(:country)
+
+      visit '/admin/avatax_settings/edit'
+
+      fill_in 'company_code', with: 'test123'
+      click_button I18n.t('spree_avatax_official.save_preferences')
+
+      expect(SpreeAvataxOfficial::Config.company_code).to eq 'test123'
+      expect(current_path).to                             eq '/admin/avatax_settings/edit'
+    end
   end
 
-  it 'updates avatax settings' do
-    create(:country)
+  describe 'commit_transaction_enabled' do
+    context 'change param' do
+      context 'initially true' do
+        around do |example|
+          SpreeAvataxOfficial::Config.commit_transaction_enabled = true
+          example.run
+          SpreeAvataxOfficial::Config.commit_transaction_enabled = true
+        end
 
-    visit '/admin/avatax_settings/edit'
+        it 'updates commit_transaction_enabled' do
+          visit '/admin/avatax_settings/edit'
 
-    fill_in 'company_code', with: 'test123'
-    click_button I18n.t('spree_avatax_official.save_preferences')
+          uncheck 'commit_transaction_enabled'
 
-    expect(SpreeAvataxOfficial::Config.company_code).to eq 'test123'
-    expect(current_path).to                             eq '/admin/avatax_settings/edit'
+          click_button I18n.t('spree_avatax_official.save_preferences')
+
+          expect(SpreeAvataxOfficial::Config.commit_transaction_enabled).to eq false
+          expect(current_path).to eq '/admin/avatax_settings/edit'
+        end
+      end
+      context 'initially false' do
+        around do |example|
+          SpreeAvataxOfficial::Config.commit_transaction_enabled = false
+          example.run
+          SpreeAvataxOfficial::Config.commit_transaction_enabled = true
+        end
+
+        it 'updates commit_transaction_enabled' do
+          visit '/admin/avatax_settings/edit'
+
+          check 'commit_transaction_enabled'
+
+          click_button I18n.t('spree_avatax_official.save_preferences')
+
+          expect(SpreeAvataxOfficial::Config.commit_transaction_enabled).to eq true
+          expect(current_path).to eq '/admin/avatax_settings/edit'
+        end
+      end
+    end
+
+    context 'doesnt touch param' do
+      context 'initially true' do
+        before { SpreeAvataxOfficial::Config.commit_transaction_enabled = true }
+
+        it 'leave commit_transaction_enabled' do
+          visit '/admin/avatax_settings/edit'
+
+          click_button I18n.t('spree_avatax_official.save_preferences')
+
+          expect(SpreeAvataxOfficial::Config.commit_transaction_enabled).to eq true
+          expect(current_path).to eq '/admin/avatax_settings/edit'
+        end
+      end
+
+      context 'initially false' do
+        around do |example|
+          SpreeAvataxOfficial::Config.commit_transaction_enabled = false
+          example.run
+          SpreeAvataxOfficial::Config.commit_transaction_enabled = true
+        end
+
+        it 'leave commit_transaction_enabled' do
+          visit '/admin/avatax_settings/edit'
+
+          click_button I18n.t('spree_avatax_official.save_preferences')
+
+          expect(SpreeAvataxOfficial::Config.commit_transaction_enabled).to eq false 
+          expect(current_path).to eq '/admin/avatax_settings/edit'
+        end
+      end
+    end
   end
 end

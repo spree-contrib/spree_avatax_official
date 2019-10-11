@@ -19,16 +19,32 @@ describe SpreeAvataxOfficial::Settings::UpdateService do
     end
 
     context 'commit_transaction_enabled' do
-      let(:params) { { commit_transaction_enabled: false } }
+      context 'from true to false' do
+        let(:params){ {} }
 
-      around do |example|
-        commit_transaction_enabled = SpreeAvataxOfficial::Config.commit_transaction_enabled
-        example.run
-        SpreeAvataxOfficial::Config.commit_transaction_enabled = commit_transaction_enabled
+        around do |example|
+          SpreeAvataxOfficial::Config.commit_transaction_enabled = true
+          example.run
+          SpreeAvataxOfficial::Config.commit_transaction_enabled = true
+        end
+
+        it 'updates commit_transaction_enabled' do
+          expect { subject }.to change { SpreeAvataxOfficial::Config.commit_transaction_enabled }.to(false)
+        end
       end
 
-      it 'updates commit_transaction_enabled' do
-        expect { subject }.to change { SpreeAvataxOfficial::Config.commit_transaction_enabled }.to(false)
+      context 'from false to true' do
+        let(:params){ {commit_transaction_enabled: 'true'} }
+
+        around do |example|
+          SpreeAvataxOfficial::Config.commit_transaction_enabled = false
+          example.run
+          SpreeAvataxOfficial::Config.commit_transaction_enabled = true
+        end
+
+        it 'updates commit_transaction_enabled' do
+          expect { subject }.to change { SpreeAvataxOfficial::Config.commit_transaction_enabled }.to(true)
+        end
       end
     end
 
