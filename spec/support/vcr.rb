@@ -10,4 +10,8 @@ VCR.configure do |config|
   config.filter_sensitive_data('<AVATAX_TOKEN>') do |interaction|
     interaction.request.headers['Authorization'].first
   end
+
+  config.filter_sensitive_data('AVATAX_USERNAME') do |interaction|
+    JSON(interaction.response.body)['authenticatedUserName']
+  end
 end
