@@ -26,3 +26,4 @@ en:
     enable_address_validation: Enable address validation
     settings_updated: Updated AvaTax configuration
     save_preferences: Save AvaTax preferences
+    commit_transaction_enabled: Enable commiting transactions
