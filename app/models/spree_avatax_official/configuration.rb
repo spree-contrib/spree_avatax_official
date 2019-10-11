@@ -12,5 +12,8 @@ module SpreeAvataxOfficial
     preference :open_timeout,               :decimal, default: 2.0
     preference :read_timeout,               :decimal, default: 6.0
     preference :show_rate_in_label,         :boolean, default: false
+    preference :account_number,             :string,  default: ''
+    preference :endpoint,                   :string,  default: Rails.env.production? ? 'https://rest.avatax.com' : 'https://sandbox-rest.avatax.com'
+    preference :license_key,                :string,  default: ''
   end
 end
