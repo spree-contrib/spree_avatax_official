@@ -30,6 +30,14 @@
       </fieldset>
 
       <fieldset>
+        <legend><%= t('spree_avatax_official.commit_transaction_enabled') %></legend>
+        <p>
+          <label><%= t('spree_avatax_official.commit_transaction_enabled') %></label><br />
+          <%= check_box_tag('commit_transaction_enabled', true, SpreeAvataxOfficial::Config.commit_transaction_enabled) %>
+        </p>
+      </fieldset>
+
+      <fieldset>
         <legend><%= t('spree_avatax_official.address_validation') %></legend>
         <p>
           <label><%= t('spree_avatax_official.enable_address_validation') %></label><br />

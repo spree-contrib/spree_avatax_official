@@ -15,6 +15,7 @@ module SpreeAvataxOfficial
         SpreeAvataxOfficial::Config.company_code               = params[:company_code] if params[:company_code].present?
         SpreeAvataxOfficial::Config.endpoint                   = params[:endpoint] if params[:endpoint].present?
         SpreeAvataxOfficial::Config.address_validation_enabled = params[:address_validation_enabled] if params[:address_validation_enabled].present?
+        SpreeAvataxOfficial::Config.commit_transaction_enabled = params[:commit_transaction_enabled] if params.key?(:commit_transaction_enabled)
       end
 
       def update_address_settings(ship_from_params)
