@@ -89,4 +89,12 @@ RSpec.configure do |config|
 
     SpreeAvataxOfficial::Config.enabled = false
   end
+
+  config.before(type: :feature) do
+    DatabaseCleaner.start
+  end
+
+  config.append_after(type: :feature) do
+    DatabaseCleaner.clean
+  end
 end

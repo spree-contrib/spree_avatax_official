@@ -1,7 +1,7 @@
 module SpreeAvataxOfficial
-  class EntityUseCode < ActiveRecord::Base
+  class EntityUseCode < ::Spree::Base
     with_options presence: true do
-      validates :code, :name
+      validates :code, :name, uniqueness: true
     end
   end
 end
