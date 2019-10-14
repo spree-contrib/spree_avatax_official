@@ -20,7 +20,7 @@ describe SpreeAvataxOfficial::Settings::UpdateService do
 
     context 'commit_transaction_enabled' do
       context 'from true to false' do
-        let(:params){ {} }
+        let(:params) { { commit_transaction_enabled: 'false' } }
 
         around do |example|
           SpreeAvataxOfficial::Config.commit_transaction_enabled = true
@@ -34,7 +34,7 @@ describe SpreeAvataxOfficial::Settings::UpdateService do
       end
 
       context 'from false to true' do
-        let(:params){ {commit_transaction_enabled: 'true'} }
+        let(:params) { { commit_transaction_enabled: 'true' } }
 
         around do |example|
           SpreeAvataxOfficial::Config.commit_transaction_enabled = false
