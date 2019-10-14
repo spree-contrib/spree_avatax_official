@@ -25,6 +25,7 @@ describe 'Update Avatax Settings spec', type: :feature do
 
   describe 'enable commiting transactions' do
     before { create(:country) }
+
     context 'toggle committing transactions' do
       context 'initially enabled' do
         around do |example|
@@ -44,6 +45,7 @@ describe 'Update Avatax Settings spec', type: :feature do
           expect(current_path).to eq '/admin/avatax_settings/edit'
         end
       end
+
       context 'initially disabled' do
         around do |example|
           SpreeAvataxOfficial::Config.commit_transaction_enabled = false
