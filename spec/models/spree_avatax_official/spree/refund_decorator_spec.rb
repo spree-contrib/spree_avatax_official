@@ -5,6 +5,8 @@ describe SpreeAvataxOfficial::Spree::RefundDecorator do
     let(:refund) { create(:refund, amount: 10) }
 
     context 'commit transaction enabled' do
+      before { SpreeAvataxOfficial::Config.commit_transaction_enabled = true }
+
       it 'calls refund service' do
         expect(SpreeAvataxOfficial::Transactions::RefundService).to receive(:call)
 

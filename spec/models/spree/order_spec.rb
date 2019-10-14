@@ -64,6 +64,8 @@ describe Spree::Order do
     end
 
     context 'commit transaction enabled' do
+      before { SpreeAvataxOfficial::Config.commit_transaction_enabled = true }
+
       it 'creates a commited SalesInvoice transaction' do
         expect(order.state).to eq 'confirm'
 
