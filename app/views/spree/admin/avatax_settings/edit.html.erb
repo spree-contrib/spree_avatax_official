@@ -42,6 +42,7 @@
         <legend><%= t('spree_avatax_official.address_validation') %></legend>
         <p>
           <label><%= t('spree_avatax_official.enable_address_validation') %></label><br />
+          <%= hidden_field_tag('address_validation_enabled', false) %>
           <%= check_box_tag('address_validation_enabled', true, SpreeAvataxOfficial::Config.address_validation_enabled) %>
         </p>
       </fieldset>
