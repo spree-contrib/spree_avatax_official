@@ -37,7 +37,7 @@ module SpreeAvataxOfficial
       end
 
       def entity_use_code
-        user.try(:spree_avatax_official_entity_use_codes_id)
+        user.avatax_entity_use_code.try(:code)
       end
 
       def formatted_date(date)

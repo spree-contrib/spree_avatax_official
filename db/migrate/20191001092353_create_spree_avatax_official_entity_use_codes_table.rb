@@ -9,6 +9,10 @@ class CreateSpreeAvataxOfficialEntityUseCodesTable < SpreeExtension::Migration[4
       t.timestamps
     end
 
-    add_reference :spree_users, :spree_avatax_official_entity_use_codes, type: :integer, index: true
+    return if column_exists?(:spree_users, :avatax_entity_use_code_id)
+
+    change_table :spree_users do |t|
+      t.integer :avatax_entity_use_code_id, index: { unique: true }, foreign_key: true
+    end
   end
 end

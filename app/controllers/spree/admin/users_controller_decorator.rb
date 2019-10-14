@@ -22,7 +22,7 @@ module Spree
       end
 
       def user_params
-        params.require(:user).permit(:spree_avatax_official_entity_use_codes_id, :exemption_number, :vat_id)
+        params.require(:user).permit(:avatax_entity_use_code_id, :exemption_number, :vat_id)
       end
     end
   end

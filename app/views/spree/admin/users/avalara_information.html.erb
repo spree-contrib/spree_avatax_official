@@ -13,8 +13,8 @@
   <div data-hook="admin_user_edit_form">
     <%= form_for [:admin, @user], method: :put do |f| %>
       <div class="form-group">
-        <%= label_tag :spree_avatax_official_entity_use_codes_id, Spree.t(:avalara_entity_use_code) %><br />
-        <%= f.select(:spree_avatax_official_entity_use_codes_id, @use_codes, { include_blank: false }, class: 'form-control'  ) %>
+        <%= label_tag :avatax_entity_use_code_id, Spree.t(:avalara_entity_use_code) %><br />
+        <%= f.select(:avatax_entity_use_code_id, @use_codes, { include_blank: false }, class: 'form-control'  ) %>
       </div>
 
       <div class="form-group">

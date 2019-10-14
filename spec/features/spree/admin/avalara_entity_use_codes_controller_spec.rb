@@ -55,8 +55,12 @@ describe Spree::Admin::AvalaraEntityUseCodesController, type: :feature do
 
       expect(page).to have_content(avalara_entity_use_code.code)
 
-      page.accept_confirm do
-        click_on('Delete')
+      within("tr#entity_use_code_#{avalara_entity_use_code.id}") do
+        page.accept_alert do
+          click_on('Delete')
+        end
+
+        expect(page.document).to have_content('Entity use code removed')
       end
 
       visit spree.admin_avalara_entity_use_codes_path

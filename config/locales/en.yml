@@ -32,6 +32,6 @@ en:
     connection_rejected: Avatax rejected connection
     entity_use_code_created: Entity use code created
     entity_use_code_updated: Entity use code updated
-    use_code_removed: Entity use code removed
+    entity_use_code_removed: Entity use code removed
     information_url: Avalara Information
     avalara_entity_use_code: Avalara Entity Use Code
