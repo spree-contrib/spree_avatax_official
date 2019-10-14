@@ -24,6 +24,7 @@ describe 'Update Avatax Settings spec', type: :feature do
   end
 
   describe 'commit_transaction_enabled' do
+    before { create(:country) }
     context 'change param' do
       context 'initially true' do
         around do |example|
