@@ -90,7 +90,7 @@ describe 'Update Avatax Settings spec', type: :feature do
 
           click_button I18n.t('spree_avatax_official.save_preferences')
 
-          expect(SpreeAvataxOfficial::Config.commit_transaction_enabled).to eq false 
+          expect(SpreeAvataxOfficial::Config.commit_transaction_enabled).to eq false
           expect(current_path).to eq '/admin/avatax_settings/edit'
         end
       end
@@ -127,6 +127,40 @@ describe 'Update Avatax Settings spec', type: :feature do
 
         expect(SpreeAvataxOfficial::Config.address_validation_enabled).to eq false
         expect(current_path).to                                           eq '/admin/avatax_settings/edit'
+      end
+    end
+  end
+
+  context 'enabling and disabling extension' do
+    around do |example|
+      enabled = SpreeAvataxOfficial::Config.enabled
+      example.run
+      SpreeAvataxOfficial::Config.enabled = enabled
+    end
+
+    context 'when checkbox is checked' do
+      it 'updates enabled state to enabled' do
+        SpreeAvataxOfficial::Config.enabled = false
+
+        visit '/admin/avatax_settings/edit'
+        check 'enabled'
+        click_button I18n.t('spree_avatax_official.save_preferences')
+
+        expect(current_path).to                        eq '/admin/avatax_settings/edit'
+        expect(SpreeAvataxOfficial::Config.enabled).to eq true
+      end
+    end
+
+    context 'when checkbox is unchecked' do
+      it 'updates enabled state to disabled' do
+        SpreeAvataxOfficial::Config.enabled = true
+
+        visit '/admin/avatax_settings/edit'
+        uncheck 'enabled'
+        click_button I18n.t('spree_avatax_official.save_preferences')
+
+        expect(current_path).to                        eq '/admin/avatax_settings/edit'
+        expect(SpreeAvataxOfficial::Config.enabled).to eq false
       end
     end
   end
