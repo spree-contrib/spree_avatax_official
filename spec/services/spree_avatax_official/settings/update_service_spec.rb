@@ -18,6 +18,36 @@ describe SpreeAvataxOfficial::Settings::UpdateService do
       end
     end
 
+    context 'commit_transaction_enabled' do
+      context 'from true to false' do
+        let(:params) { { commit_transaction_enabled: 'false' } }
+
+        around do |example|
+          SpreeAvataxOfficial::Config.commit_transaction_enabled = true
+          example.run
+          SpreeAvataxOfficial::Config.commit_transaction_enabled = true
+        end
+
+        it 'updates commit_transaction_enabled' do
+          expect { subject }.to change { SpreeAvataxOfficial::Config.commit_transaction_enabled }.to(false)
+        end
+      end
+
+      context 'from false to true' do
+        let(:params) { { commit_transaction_enabled: 'true' } }
+
+        around do |example|
+          SpreeAvataxOfficial::Config.commit_transaction_enabled = false
+          example.run
+          SpreeAvataxOfficial::Config.commit_transaction_enabled = true
+        end
+
+        it 'updates commit_transaction_enabled' do
+          expect { subject }.to change { SpreeAvataxOfficial::Config.commit_transaction_enabled }.to(true)
+        end
+      end
+    end
+
     context 'account_number' do
       let(:params) { { account_number: 'test account number' } }
 

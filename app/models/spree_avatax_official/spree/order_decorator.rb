@@ -74,7 +74,7 @@ module SpreeAvataxOfficial
       private
 
       def commit_in_avatax
-        return unless SpreeAvataxOfficial::Config.enabled
+        return unless SpreeAvataxOfficial::Config.enabled && SpreeAvataxOfficial::Config.commit_transaction_enabled
 
         SpreeAvataxOfficial::Transactions::CreateService.call(order: self)
       end

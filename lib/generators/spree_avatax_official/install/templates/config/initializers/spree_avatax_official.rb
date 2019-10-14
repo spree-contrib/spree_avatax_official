@@ -26,3 +26,4 @@ SpreeAvataxOfficial::Config.max_retries                = 2
 SpreeAvataxOfficial::Config.open_timeout               = 2.0
 SpreeAvataxOfficial::Config.read_timeout               = 6.0
 SpreeAvataxOfficial::Config.show_rate_in_label         = false
+SpreeAvataxOfficial::Config.commit_transaction_enabled = true
