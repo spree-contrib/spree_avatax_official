@@ -6,27 +6,29 @@
     <div class="yui-u first">
       <fieldset>
         <legend><%= t('spree_avatax_official.enabled') %></legend>
-        <p>
-          <label><%= t('spree_avatax_official.enabled') %></label><br />
-          <%= hidden_field_tag('enabled', false) %>
-          <%= check_box_tag('enabled', true, SpreeAvataxOfficial::Config.enabled) %>
-        </p>
+        <div class="checkbox">
+          <label>
+            <%= hidden_field_tag('enabled', false) %>
+            <%= check_box_tag('enabled', true, SpreeAvataxOfficial::Config.enabled) %>
+            <%= t('spree_avatax_official.enabled') %>
+          </label>
+        </div>
       </fieldset>
 
       <fieldset>
         <legend><%= t('spree_avatax_official.avatax_credentials') %></legend>
         <p>
           <label><%= t('spree_avatax_official.company_code') %></label><br />
-          <%= text_field_tag('company_code', SpreeAvataxOfficial::Config.company_code, size: 46, maxlength: 256) %>
+          <%= text_field_tag('company_code', SpreeAvataxOfficial::Config.company_code, size: 46, maxlength: 256, class: 'form-control') %>
         </p>
 
         <p>
           <label><%= t('spree_avatax_official.account_number') %></label><br />
-          <%= text_field_tag('account_number', SpreeAvataxOfficial::Config.account_number, size: 46, maxlength: 256) %>
+          <%= text_field_tag('account_number', SpreeAvataxOfficial::Config.account_number, size: 46, maxlength: 256, class: 'form-control') %>
         </p>
         <p>
           <label><%= t('spree_avatax_official.license_key') %></label><br />
-          <%= text_field_tag('license_key', SpreeAvataxOfficial::Config.license_key, size: 46, maxlength: 256) %>
+          <%= text_field_tag('license_key', SpreeAvataxOfficial::Config.license_key, size: 46, maxlength: 256, class: 'form-control') %>
         </p>
       </fieldset>
 
@@ -34,25 +36,29 @@
         <legend><%= t('spree_avatax_official.endpoint_urls') %></legend>
         <p>
           <label><%= t('spree_avatax_official.endpoint') %></label><br />
-          <%= text_field_tag('endpoint', SpreeAvataxOfficial::Config.endpoint, size: 46, maxlength: 256) %>
+          <%= text_field_tag('endpoint', SpreeAvataxOfficial::Config.endpoint, size: 46, maxlength: 256, class: 'form-control') %>
         </p>
       </fieldset>
 
       <fieldset>
         <legend><%= t('spree_avatax_official.commit_transaction_enabled') %></legend>
-        <p>
-          <label><%= t('spree_avatax_official.commit_transaction_enabled') %></label><br />
-          <%= hidden_field_tag('commit_transaction_enabled', false) %>
-          <%= check_box_tag('commit_transaction_enabled', true, SpreeAvataxOfficial::Config.commit_transaction_enabled) %>
-        </p>
+        <div class="checkbox">
+          <label>
+            <%= hidden_field_tag('commit_transaction_enabled', false) %>
+            <%= check_box_tag('commit_transaction_enabled', true, SpreeAvataxOfficial::Config.commit_transaction_enabled) %>
+            <%= t('spree_avatax_official.commit_transaction_enabled') %>
+          </label>
+        </div>
       </fieldset>
 
       <fieldset>
         <legend><%= t('spree_avatax_official.address_validation') %></legend>
-        <p>
-          <label><%= t('spree_avatax_official.enable_address_validation') %></label><br />
-          <%= hidden_field_tag('address_validation_enabled', false) %>
-          <%= check_box_tag('address_validation_enabled', true, SpreeAvataxOfficial::Config.address_validation_enabled) %>
+        <div class="checkbox">
+          <label>
+            <%= hidden_field_tag('address_validation_enabled', false) %>
+            <%= check_box_tag('address_validation_enabled', true, SpreeAvataxOfficial::Config.address_validation_enabled) %>
+            <%= t('spree_avatax_official.enable_address_validation') %>
+          </label>
         </p>
       </fieldset>
 
@@ -60,15 +66,15 @@
         <legend><%= t('spree_avatax_official.ship_from_address') %></legend>
         <p>
           <label><%= Spree.t('address1') %></label><br />
-          <%= text_field_tag('ship_from[line1]', @ship_from_address[:line1], size: 46, maxlength: 256) %>
+          <%= text_field_tag('ship_from[line1]', @ship_from_address[:line1], size: 46, maxlength: 256, class: 'form-control') %>
         </p>
         <p>
           <label><%= Spree.t('address2') %></label><br />
-          <%= text_field_tag('ship_from[line2]', @ship_from_address[:line2], size: 46, maxlength: 256) %>
+          <%= text_field_tag('ship_from[line2]', @ship_from_address[:line2], size: 46, maxlength: 256, class: 'form-control') %>
         </p>
         <p>
           <label><%= Spree.t('city') %></label><br />
-          <%= text_field_tag('ship_from[city]', @ship_from_address[:city], size: 46, maxlength: 256) %>
+          <%= text_field_tag('ship_from[city]', @ship_from_address[:city], size: 46, maxlength: 256, class: 'form-control') %>
         </p>
         <p>
           <label><%= Spree.t('country') %></label><br />
@@ -82,7 +88,7 @@
         <% end %>
         <p>
           <label><%= Spree.t('postalcode') %></label><br />
-          <%= text_field_tag('ship_from[postal_code]', @ship_from_address[:postalCode], size: 46, maxlength: 25) %>
+          <%= text_field_tag('ship_from[postal_code]', @ship_from_address[:postalCode], size: 46, maxlength: 25, class: 'form-control') %>
         </p>
       </fieldset>
     </div>

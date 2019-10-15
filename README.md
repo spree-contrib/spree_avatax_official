@@ -57,6 +57,21 @@ Developed and maintained by:
 
   If your server was running, restart it so that it can find the assets properly.
 
+## Setup
+
+In order to use `spree_avatax_official` extension, you need to configure your
+Avatax credentials. To do so, open spree admin panel and go to **Configurations**
+and then **Avatax Settings**. Company code, account number and license key can be
+configured in the **Avatax Credentials** section of the form.
+
+<img width="1053" alt="Zrzut ekranu 2019-10-15 o 12 46 14" src="https://user-images.githubusercontent.com/581569/66825661-fcd5d000-ef4a-11e9-84b1-993b1a5c1996.png">
+
+Edit **Tax Categories** configuration settings. If left blank, the **Tax Code** will
+default to `P0000000`. The **Tax Code** must be matched to a value that is
+configured in the Avalara site.
+
+<img width="1053" alt="Zrzut ekranu 2019-10-15 o 12 51 04" src="https://user-images.githubusercontent.com/581569/66825678-095a2880-ef4b-11e9-840c-0a86dbc721b4.png">
+
 ## Migrating from spree_avatax_certified
 
 1. Remove the `spree_avatax_certified` from your `Gemfile`
