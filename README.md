@@ -26,7 +26,7 @@ And since AvaTax delivers sales and use tax calculations at the time of checkout
 The new extension comes with technical support from both Spree Commerce core team and Avalara and will be maintained to keep up with the innovations introduced by Avalara in the future. The old extension will no longer be maintained or supported.
 
 For more information, support and guidance on how to implement Spree AvaTax V2 extension feel free to:
-* reach out through [Spree contact form](https://spreecommerce.org/contact/)
+* reach out through the [Spree contact form](https://spreecommerce.org/contact/)
 * join the Spree slack channel #spree-avatax at [slack.spreecommerce.org](http://slack.spreecommerce.org)
 
 ## Features
@@ -121,9 +121,11 @@ To see a listing of all available **AvaTax System** tax codes, see http://taxcod
 
 ## Migrating from spree_avatax_certified
 
-The old extension spree_avatax_certified using the old Avalara REST API V1 will no longer be maintained or supported. In order to migrate to this extension please follow these steps: 
-1. Remove the `spree_avatax_certified` from your `Gemfile`
-2. ...
+The old extension spree_avatax_certified using the old Avalara REST API V1 will no longer be maintained or supported by the Spree team. 
+
+If you need to migrate from the old spree_avatax_certified to the new spree_avatax_official, in order to take advantage of the improved AvaTax performance, reliability and new functionality, there are various ways of ensuring backwards compatibility of Orders (eg. for refund purposes) which were committed to Avatax using the old extension.
+
+Please reach out through the [Spree contact form](https://spreecommerce.org/contact/) to discuss an optimal strategy for your use case.
 
 ## Testing
 
