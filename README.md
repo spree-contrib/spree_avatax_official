@@ -61,16 +61,46 @@ Developed and maintained by:
 
 In order to use `spree_avatax_official` extension, you need to configure your
 Avatax credentials. To do so, open spree admin panel and go to **Configurations**
-and then **Avatax Settings**. Company code, account number and license key can be
-configured in the **Avatax Credentials** section of the form.
+and then **Avatax Settings**.
 
 <img width="1053" alt="Zrzut ekranu 2019-10-15 o 12 46 14" src="https://user-images.githubusercontent.com/581569/66825661-fcd5d000-ef4a-11e9-84b1-993b1a5c1996.png">
 
-Edit **Tax Categories** configuration settings. If left blank, the **Tax Code** will
-default to `P0000000`. The **Tax Code** must be matched to a value that is
-configured in the Avalara site.
+Company code, account number and license key can be
+configured in the **Avatax Credentials** section of the form.
+
+<img width="1053" alt="Zrzut ekranu 2019-10-16 o 12 20 14" src="https://user-images.githubusercontent.com/581569/66910959-da59ba80-f00f-11e9-8b96-ad2fa45b01ae.png">
+
+* **Account Number:** Provided during your AvaTax account activation process.
+* **License Key:** Provided during your AvaTax account activation process.
+* **Company Code:** Company profile identifier in the AvaTax Admin Console.
+
+**Service URL** is an URL to connect to the Development or Production AvaTax services. It can be configured in the **Avatax Endpoint urls** section below.
+
+<img width="1053" alt="Zrzut ekranu 2019-10-16 o 12 24 35" src="https://user-images.githubusercontent.com/581569/66911009-fa897980-f00f-11e9-8524-1c64540a9a0f.png">
+
+You can test settings you provided using the **Ping Avatax** button under the form
+
+<img width="1053" alt="Zrzut ekranu 2019-10-16 o 12 25 26" src="https://user-images.githubusercontent.com/581569/66911077-17be4800-f010-11e9-89e0-e1982dd84e25.png">
+
+### Configure Avalra AvaTax
+
+Once connected, you configure additional settings.
+
+<img width="1053" alt="Zrzut ekranu 2019-10-16 o 12 26 54" src="https://user-images.githubusercontent.com/581569/66911217-5c49e380-f010-11e9-86e7-f6fee2f0795d.png">
+
+* **Enable Commiting Transactions:** Enables tax document submission to **Avalara’s AvaTax** service for record keeping. With this setting enabled, transactions will be posted and committed to the **AvaTax Admin Console**.
+* **Enable Address Validation:** Option to enable or disable address validation
+
+### Assign an AvaTax System Tax Code to a Tax Category
+
+In order to assign **AvaTax System Tax Code** to **Spree Tax Category**, you need to open **Tax Categories** settings screen (`Configurations -> Tax Categories`), pick up existing or create a new **Tax Category** and fill the **Tax Code** input with the applicable **AvaTax System Tax Code**.
 
 <img width="1053" alt="Zrzut ekranu 2019-10-15 o 12 51 04" src="https://user-images.githubusercontent.com/581569/66825678-095a2880-ef4b-11e9-840c-0a86dbc721b4.png">
+
+If left blank, the **Tax Code** will
+default to `P0000000`.
+
+To see a listing of all available **AvaTax System** tax codes, see http://taxcode.avatax.avalara.com
 
 ## Migrating from spree_avatax_certified
 
