@@ -3,14 +3,15 @@
 [![Build Status](https://travis-ci.com/spark-solutions/spree_avatax_official.svg?token=svVk6tYzmvo9CARDPUra&branch=master)](https://travis-ci.com/spark-solutions/spree_avatax_official)
 
 The new officially supported Avalara AvaTax extension for [Spree Commerce](https://spreecommerce.org/) using [Avalara REST API v2](https://developer.avalara.com/api-reference/avatax/rest/v2/).
-* [Introduction](#setup)
-* [Maintenance & support](#maintenance-support)
+* [Introduction](#introduction)
+* [Maintenance & support](#maintenance--support)
 * [Features](#features)
 * [Installation](#installation)
 * [Setup](#setup)
 * [Migrating from spree_avatax_certified](#migrating-from-spree_avatax_certified)
 * [Testing](#testing)
 * [Contributing](#contributing)
+* [About Spark Solutions](#about-spark-solutions)
 
 ## Introduction
 
@@ -70,7 +71,7 @@ For more information, support and guidance on how to implement Spree AvaTax V2 e
 
 In order to configure tax calculation you need to:
 1. [Connect Spree to AvaTax](#connect-spree-to-avatax)
-2. [Configure AvaTax settings](#configure-avalra-avatax)
+2. [Configure AvaTax settings](#configure-avalara-avatax)
 3. [Assign an AvaTax System Tax Code to a Tax Category](#assign-an-avatax-system-tax-code-to-a-tax-category)
 
 ### Connect Spree to AvaTax
