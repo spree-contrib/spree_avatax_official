@@ -1,36 +1,45 @@
-# Spree Avatax (Avalara) Official extension
+# Spree Avalara AvaTax official extension
 
 [![Build Status](https://travis-ci.com/spark-solutions/spree_avatax_official.svg?token=svVk6tYzmvo9CARDPUra&branch=master)](https://travis-ci.com/spark-solutions/spree_avatax_official)
 
-The only officially supported Avatax (Avalara) extension for [Spree Commerce](https://spreecommerce.org/) using [Avalara REST API v2](https://developer.avalara.com/api-reference/avatax/rest/v2/).
+The new officially supported Avalara AvaTax extension for [Spree Commerce](https://spreecommerce.org/) using [Avalara REST API v2](https://developer.avalara.com/api-reference/avatax/rest/v2/).
+* [Introduction](#setup)
+* [Maintenance & support](#maintenance-support)
+* [Features](#features)
+* [Installation](#installation)
+* [Setup](#setup)
+* [Migrating from spree_avatax_certified](#migrating-from-spree_avatax_certified)
+* [Testing](#testing)
+* [Contributing](#contributing)
+
+## Introduction
+
+Avalara AvaTax is a cloud-based solution automating transaction tax calculations and the tax filing process. Avalara provides real-time tax calculation using tax content from more than 12,000 US taxing jurisdictions and over 200 countries, ensuring your transaction tax is calculated based on the most current tax rules.
+
+The new officially certified Spree AvaTax extension helps Spree users and developers to switch from the old Avalara REST API V1 to the latest [Avalara REST API v2](https://developer.avalara.com/api-reference/avatax/rest/v2/). In the words of Avalara developers "the benefits are huge" as the new API V2 offers improved AvaTax performance, reliability and a wide range of new functionality. 
+
+And since AvaTax delivers sales and use tax calculations at the time of checkout or billing — in real time — the business benefits from implementing the new Spree AvaTax V2 extension are significant, potentially improving conversion rates and sales results.
+
+## Maintenance & support
+
+The new extension comes with technical support from both Spree Commerce core team and Avalara and will be maintained to keep up with the innovations introduced by Avalara in the future. The old extension will no longer be maintained or supported.
+
+For more information, support and guidance on how to implement Spree AvaTax V2 extension feel free to:
+* reach out through [Spree contact form](https://spreecommerce.org/contact/)
+* join the Spree slack channel #spree-avatax at [slack.spreecommerce.org](http://slack.spreecommerce.org)
 
 ## Features
 
 1. Tax calculation (additional/included tax), US state tax, Canadian HST, VAT supported
-
 2. Address validation for US & Canada
-
 3. Commiting complete orders
-
 4. Cancelling (voiding) orders
-
 5. Refunding orders
-
 6. GetByCodeService for getting SalesInvoice for order from Avatax
-
 7. GetTaxService for getting totalTaxCalculated for order from Avatax
-
 8. AvataxLog for logging API calls
-
 9. Caching responses for improved performance
-
 10. Multiple company (store) support
-
-&nbsp;
-
-Developed and maintained by:
-
-[![Spark Solutions](http://sparksolutions.co/wp-content/uploads/2015/01/logo-ss-tr-221x100.png)][spark]
 
 ## Installation
 
@@ -59,6 +68,13 @@ Developed and maintained by:
 
 ## Setup
 
+In order to configure tax calculation you need to:
+1. [Connect Spree to AvaTax](#connect-spree-to-avatax)
+2. [Configure AvaTax settings](#configure-avalra-avatax)
+3. [Assign an AvaTax System Tax Code to a Tax Category](#assign-an-avatax-system-tax-code-to-a-tax-category)
+
+### Connect Spree to AvaTax
+
 In order to use `spree_avatax_official` extension, you need to configure your
 Avatax credentials. To do so, open spree admin panel and go to **Configurations**
 and then **Avatax Settings**.
@@ -82,7 +98,7 @@ You can test settings you provided using the **Ping Avatax** button under the fo
 
 <img width="1053" alt="Zrzut ekranu 2019-10-16 o 12 25 26" src="https://user-images.githubusercontent.com/581569/66911077-17be4800-f010-11e9-89e0-e1982dd84e25.png">
 
-### Configure Avalra AvaTax
+### Configure Avalara AvaTax
 
 Once connected, you configure additional settings.
 
@@ -104,6 +120,7 @@ To see a listing of all available **AvaTax System** tax codes, see http://taxcod
 
 ## Migrating from spree_avatax_certified
 
+The old extension spree_avatax_certified using the old Avalara REST API V1 will no longer be maintained or supported. In order to migrate to this extension please follow these steps: 
 1. Remove the `spree_avatax_certified` from your `Gemfile`
 2. ...
 
@@ -142,9 +159,8 @@ It is free software, and may be redistributed under the terms specified in the
 [![Spark Solutions](http://sparksolutions.co/wp-content/uploads/2015/01/logo-ss-tr-221x100.png)][spark]
 
 Spree Avatax Official is maintained by [Spark Solutions Sp. z o.o.](http://sparksolutions.co?utm_source=github) and
-funded by [Avalara Inc.](https://www.avalara.com/us/en/index.html). The names and logos are trademarks of Avalara Inc.
+supported by [Avalara Inc.](https://www.avalara.com/us/en/index.html). The names and logos are trademarks of Avalara Inc.
 
-We are passionate about open source software.
-We are [available for hire][spark].
+We are passionate about open source software and [available for hire][spark].
 
 [spark]:http://sparksolutions.co?utm_source=github
