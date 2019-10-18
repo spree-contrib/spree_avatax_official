@@ -27,7 +27,11 @@ en:
     settings_updated: Updated AvaTax configuration
     save_preferences: Save AvaTax preferences
     commit_transaction_enabled: Enable commiting transactions
-    enable_address_validation: Enable address validation
     connected_successful: Connected successfully
     unauthorized: Connected but unauthorized
     connection_rejected: Avatax rejected connection
+    entity_use_code_created: Entity use code created
+    entity_use_code_updated: Entity use code updated
+    entity_use_code_removed: Entity use code removed
+    information_url: Avalara Information
+    avalara_entity_use_code: Avalara Entity Use Code

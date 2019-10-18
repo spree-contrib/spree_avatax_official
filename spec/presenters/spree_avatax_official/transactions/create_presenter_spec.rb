@@ -24,7 +24,8 @@ describe SpreeAvataxOfficial::Transactions::CreatePresenter do
         commit:          false,
         discount:        0.0,
         currencyCode:    order.currency,
-        purchaseOrderNo: order.number
+        purchaseOrderNo: order.number,
+        entityUseCode:   order.try(:user).avatax_entity_use_code.try(:code)
       }
     end
 

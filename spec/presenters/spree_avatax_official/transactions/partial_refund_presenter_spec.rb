@@ -24,6 +24,7 @@ describe SpreeAvataxOfficial::Transactions::PartialRefundPresenter do
       lines:           [SpreeAvataxOfficial::ItemPresenter.new(item: line_item, custom_quantity: quantity, custom_amount: amount).to_json],
       commit:          true,
       discount:        0.0,
+      entityUseCode:   order.try(:user).avatax_entity_use_code.try(:code),
       currencyCode:    order.currency,
       purchaseOrderNo: order.number,
       taxOverride:     {
