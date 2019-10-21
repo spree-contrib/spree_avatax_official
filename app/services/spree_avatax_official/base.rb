@@ -20,7 +20,10 @@ module SpreeAvataxOfficial
         app_version:        APP_VERSION,
         connection_options: CONNECTION_OPTIONS,
         logger:             true,
-        faraday_response:   true
+        faraday_response:   true,
+        endpoint:           SpreeAvataxOfficial::Config.endpoint,
+        username:           SpreeAvataxOfficial::Config.account_number,
+        password:           SpreeAvataxOfficial::Config.license_key
       )
     end
 
