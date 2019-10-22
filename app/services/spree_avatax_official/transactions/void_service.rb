@@ -3,7 +3,7 @@ module SpreeAvataxOfficial
     class VoidService < SpreeAvataxOfficial::Base
       def call(order:, options: {})
         if order.avatax_sales_invoice_transaction.blank?
-          return failure(I18n.t('spree_avatax_official.void_service.missing_sales_invoice_transaction'))
+          return failure(Spree.t('spree_avatax_official.void_service.missing_sales_invoice_transaction'))
         end
 
         response = send_request(order, options)

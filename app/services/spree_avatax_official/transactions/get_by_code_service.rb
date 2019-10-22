@@ -4,7 +4,7 @@ module SpreeAvataxOfficial
       def call(order:, type: 'SalesInvoice')
         code = transaction_code(order, type)
 
-        return failure(I18n.t('spree_avatax_official.get_by_code_service.missing_code')) if code.nil?
+        return failure(Spree.t('spree_avatax_official.get_by_code_service.missing_code')) if code.nil?
 
         request_result(get_by_code(code, order), order)
       end

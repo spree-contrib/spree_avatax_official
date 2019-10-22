@@ -16,7 +16,7 @@ describe 'Update Avatax Settings spec', type: :feature do
       visit '/admin/avatax_settings/edit'
 
       fill_in 'company_code', with: 'test123'
-      click_button I18n.t('spree_avatax_official.save_preferences')
+      click_button Spree.t('spree_avatax_official.save_preferences')
 
       expect(SpreeAvataxOfficial::Config.company_code).to eq 'test123'
       expect(current_path).to                             eq '/admin/avatax_settings/edit'
@@ -37,7 +37,7 @@ describe 'Update Avatax Settings spec', type: :feature do
 
           uncheck 'commit_transaction_enabled'
 
-          click_button I18n.t('spree_avatax_official.save_preferences')
+          click_button Spree.t('spree_avatax_official.save_preferences')
 
           expect(SpreeAvataxOfficial::Config.commit_transaction_enabled).to eq false
           expect(current_path).to eq '/admin/avatax_settings/edit'
@@ -56,7 +56,7 @@ describe 'Update Avatax Settings spec', type: :feature do
 
           check 'commit_transaction_enabled'
 
-          click_button I18n.t('spree_avatax_official.save_preferences')
+          click_button Spree.t('spree_avatax_official.save_preferences')
 
           expect(SpreeAvataxOfficial::Config.commit_transaction_enabled).to eq true
           expect(current_path).to eq '/admin/avatax_settings/edit'
@@ -71,7 +71,7 @@ describe 'Update Avatax Settings spec', type: :feature do
         it 'leave commit_transaction_enabled' do
           visit '/admin/avatax_settings/edit'
 
-          click_button I18n.t('spree_avatax_official.save_preferences')
+          click_button Spree.t('spree_avatax_official.save_preferences')
 
           expect(SpreeAvataxOfficial::Config.commit_transaction_enabled).to eq true
           expect(current_path).to eq '/admin/avatax_settings/edit'
@@ -88,7 +88,7 @@ describe 'Update Avatax Settings spec', type: :feature do
         it 'leave commit_transaction_enabled' do
           visit '/admin/avatax_settings/edit'
 
-          click_button I18n.t('spree_avatax_official.save_preferences')
+          click_button Spree.t('spree_avatax_official.save_preferences')
 
           expect(SpreeAvataxOfficial::Config.commit_transaction_enabled).to eq false
           expect(current_path).to eq '/admin/avatax_settings/edit'
@@ -110,7 +110,7 @@ describe 'Update Avatax Settings spec', type: :feature do
 
         visit '/admin/avatax_settings/edit'
         check 'address_validation_enabled'
-        click_button I18n.t('spree_avatax_official.save_preferences')
+        click_button Spree.t('spree_avatax_official.save_preferences')
 
         expect(SpreeAvataxOfficial::Config.address_validation_enabled).to eq true
         expect(current_path).to                                           eq '/admin/avatax_settings/edit'
@@ -123,7 +123,7 @@ describe 'Update Avatax Settings spec', type: :feature do
 
         visit '/admin/avatax_settings/edit'
         uncheck 'address_validation_enabled'
-        click_button I18n.t('spree_avatax_official.save_preferences')
+        click_button Spree.t('spree_avatax_official.save_preferences')
 
         expect(SpreeAvataxOfficial::Config.address_validation_enabled).to eq false
         expect(current_path).to                                           eq '/admin/avatax_settings/edit'
@@ -144,7 +144,7 @@ describe 'Update Avatax Settings spec', type: :feature do
 
         visit '/admin/avatax_settings/edit'
         check 'enabled'
-        click_button I18n.t('spree_avatax_official.save_preferences')
+        click_button Spree.t('spree_avatax_official.save_preferences')
 
         expect(current_path).to                        eq '/admin/avatax_settings/edit'
         expect(SpreeAvataxOfficial::Config.enabled).to eq true
@@ -157,7 +157,7 @@ describe 'Update Avatax Settings spec', type: :feature do
 
         visit '/admin/avatax_settings/edit'
         uncheck 'enabled'
-        click_button I18n.t('spree_avatax_official.save_preferences')
+        click_button Spree.t('spree_avatax_official.save_preferences')
 
         expect(current_path).to                        eq '/admin/avatax_settings/edit'
         expect(SpreeAvataxOfficial::Config.enabled).to eq false

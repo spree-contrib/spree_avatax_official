@@ -3,11 +3,11 @@ module SpreeAvataxOfficial
     include SpreeAvataxOfficial::TaxAdjustmentLabelHelper
 
     def call(order:) # rubocop:disable Metrics/AbcSize
-      return failure(I18n.t('spree_avatax_official.create_tax_adjustments.order_canceled')) if order.canceled?
+      return failure(Spree.t('spree_avatax_official.create_tax_adjustments.order_canceled')) if order.canceled?
 
       order.reload.all_adjustments.tax.destroy_all
 
-      return failure(I18n.t('spree_avatax_official.create_tax_adjustments.tax_calculation_unnecessary')) unless order.avatax_tax_calculation_required?
+      return failure(Spree.t('spree_avatax_official.create_tax_adjustments.tax_calculation_unnecessary')) unless order.avatax_tax_calculation_required?
 
       transaction_cache_key = SpreeAvataxOfficial::GenerateTransactionCacheKeyService.call(order: order).value
 
@@ -29,7 +29,7 @@ module SpreeAvataxOfficial
         SpreeAvataxOfficial::Transactions::AdjustService.call(
           order:                  order,
           adjustment_reason:      SpreeAvataxOfficial::Transaction::DEFAULT_ADJUSTMENT_REASON,
-          adjustment_description: I18n.t('spree_avatax_official.create_tax_adjustments.adjustment_description')
+          adjustment_description: Spree.t('spree_avatax_official.create_tax_adjustments.adjustment_description')
         )
       else
         SpreeAvataxOfficial::Transactions::CreateService.call(order: order)
@@ -119,7 +119,7 @@ module SpreeAvataxOfficial
     end
 
     def build_error_message_from_response(avatax_response)
-      return I18n.t('spree_avatax_official.create_tax_adjustments.tax_calculation_failed') unless error_present?(avatax_response)
+      return Spree.t('spree_avatax_official.create_tax_adjustments.tax_calculation_failed') unless error_present?(avatax_response)
 
       avatax_response['error']['details'].map do |error_detail_entry|
         "#{error_detail_entry['number']} - #{error_detail_entry['message']} - #{error_detail_entry['description']}."
