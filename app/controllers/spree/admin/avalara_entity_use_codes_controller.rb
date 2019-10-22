@@ -16,7 +16,7 @@ module Spree
 
       def update
         if @use_code.update(entity_use_codes_params)
-          redirect_to admin_avalara_entity_use_codes_path, success: t('spree_avatax_official.entity_use_code_updated')
+          redirect_to admin_avalara_entity_use_codes_path, success: Spree.t('spree_avatax_official.entity_use_code_updated')
         else
           redirect_to edit_admin_avalara_entity_use_code_path(@use_code), error: @use_code.errors.full_messages.to_sentence
         end
@@ -25,7 +25,7 @@ module Spree
       def create
         @use_code = SpreeAvataxOfficial::EntityUseCode.new(entity_use_codes_params)
         if @use_code.save
-          redirect_to admin_avalara_entity_use_codes_path, success: t('spree_avatax_official.entity_use_code_created')
+          redirect_to admin_avalara_entity_use_codes_path, success: Spree.t('spree_avatax_official.entity_use_code_created')
         else
           redirect_to new_admin_avalara_entity_use_code_path, error: @use_code.errors.full_messages.to_sentence
         end
@@ -33,7 +33,7 @@ module Spree
 
       def destroy
         if @use_code.destroy
-          flash[:success] = t('spree_avatax_official.entity_use_code_removed')
+          flash[:success] =Spree.t('spree_avatax_official.entity_use_code_removed')
         else
           flash[:error] = @use_code.errors.full_messages.to_sentence
         end

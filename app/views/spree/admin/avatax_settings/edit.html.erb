@@ -10,7 +10,7 @@
           <label>
             <%= hidden_field_tag('enabled', false) %>
             <%= check_box_tag('enabled', true, SpreeAvataxOfficial::Config.enabled) %>
-            <%= t('spree_avatax_official.enabled') %>
+            <%= Spree.t('spree_avatax_official.enabled') %>
           </label>
         </div>
       </fieldset>
@@ -46,7 +46,7 @@
           <label>
             <%= hidden_field_tag('commit_transaction_enabled', false) %>
             <%= check_box_tag('commit_transaction_enabled', true, SpreeAvataxOfficial::Config.commit_transaction_enabled) %>
-            <%= t('spree_avatax_official.commit_transaction_enabled') %>
+            <%= Spree.t('spree_avatax_official.commit_transaction_enabled') %>
           </label>
         </div>
       </fieldset>
@@ -57,7 +57,7 @@
           <label>
             <%= hidden_field_tag('address_validation_enabled', false) %>
             <%= check_box_tag('address_validation_enabled', true, SpreeAvataxOfficial::Config.address_validation_enabled) %>
-            <%= t('spree_avatax_official.enable_address_validation') %>
+            <%= Spree.t('spree_avatax_official.enable_address_validation') %>
           </label>
         </p>
       </fieldset>
