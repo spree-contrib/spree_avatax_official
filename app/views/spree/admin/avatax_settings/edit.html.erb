@@ -1,11 +1,11 @@
-<h1><%= t('spree_avatax_official.settings') %></h1>
+<h1><%= Spree.t('spree_avatax_official.settings') %></h1>
 
 <%= form_tag(admin_avatax_settings_path, method: :put, id: :avatax_settings_form) do %>
 
   <div class="yui-g">
     <div class="yui-u first">
       <fieldset>
-        <legend><%= t('spree_avatax_official.enabled') %></legend>
+        <legend><%= Spree.t('spree_avatax_official.enabled') %></legend>
         <div class="checkbox">
           <label>
             <%= hidden_field_tag('enabled', false) %>
@@ -16,32 +16,32 @@
       </fieldset>
 
       <fieldset>
-        <legend><%= t('spree_avatax_official.avatax_credentials') %></legend>
+        <legend><%= Spree.t('spree_avatax_official.avatax_credentials') %></legend>
         <p>
-          <label><%= t('spree_avatax_official.company_code') %></label><br />
+          <label><%= Spree.t('spree_avatax_official.company_code') %></label><br />
           <%= text_field_tag('company_code', SpreeAvataxOfficial::Config.company_code, size: 46, maxlength: 256, class: 'form-control') %>
         </p>
 
         <p>
-          <label><%= t('spree_avatax_official.account_number') %></label><br />
+          <label><%= Spree.t('spree_avatax_official.account_number') %></label><br />
           <%= text_field_tag('account_number', SpreeAvataxOfficial::Config.account_number, size: 46, maxlength: 256, class: 'form-control') %>
         </p>
         <p>
-          <label><%= t('spree_avatax_official.license_key') %></label><br />
+          <label><%= Spree.t('spree_avatax_official.license_key') %></label><br />
           <%= text_field_tag('license_key', SpreeAvataxOfficial::Config.license_key, size: 46, maxlength: 256, class: 'form-control') %>
         </p>
       </fieldset>
 
       <fieldset>
-        <legend><%= t('spree_avatax_official.endpoint_urls') %></legend>
+        <legend><%= Spree.t('spree_avatax_official.endpoint_urls') %></legend>
         <p>
-          <label><%= t('spree_avatax_official.endpoint') %></label><br />
+          <label><%= Spree.t('spree_avatax_official.endpoint') %></label><br />
           <%= text_field_tag('endpoint', SpreeAvataxOfficial::Config.endpoint, size: 46, maxlength: 256, class: 'form-control') %>
         </p>
       </fieldset>
 
       <fieldset>
-        <legend><%= t('spree_avatax_official.commit_transaction_enabled') %></legend>
+        <legend><%= Spree.t('spree_avatax_official.commit_transaction_enabled') %></legend>
         <div class="checkbox">
           <label>
             <%= hidden_field_tag('commit_transaction_enabled', false) %>
@@ -52,7 +52,7 @@
       </fieldset>
 
       <fieldset>
-        <legend><%= t('spree_avatax_official.address_validation') %></legend>
+        <legend><%= Spree.t('spree_avatax_official.address_validation') %></legend>
         <div class="checkbox">
           <label>
             <%= hidden_field_tag('address_validation_enabled', false) %>
@@ -63,7 +63,7 @@
       </fieldset>
 
       <fieldset>
-        <legend><%= t('spree_avatax_official.ship_from_address') %></legend>
+        <legend><%= Spree.t('spree_avatax_official.ship_from_address') %></legend>
         <p>
           <label><%= Spree.t('address1') %></label><br />
           <%= text_field_tag('ship_from[line1]', @ship_from_address[:line1], size: 46, maxlength: 256, class: 'form-control') %>
@@ -94,6 +94,6 @@
     </div>
   </div>
 
-  <p class="form-buttons"><%= button t('spree_avatax_official.save_preferences') %></p>
-  <p class="form-buttons"><%=link_to t('spree_avatax_official.ping_avatax'), :admin_avatax_ping, method: :post, class: 'btn btn-primary' %></p>
+  <p class="form-buttons"><%= button Spree.t('spree_avatax_official.save_preferences') %></p>
+  <p class="form-buttons"><%=link_to Spree.t('spree_avatax_official.ping_avatax'), :admin_avatax_ping, method: :post, class: 'btn btn-primary' %></p>
 <% end %>
