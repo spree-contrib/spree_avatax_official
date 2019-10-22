@@ -33,7 +33,7 @@ module Spree
 
       def destroy
         if @use_code.destroy
-          flash[:success] =Spree.t('spree_avatax_official.entity_use_code_removed')
+          flash[:success] = Spree.t('spree_avatax_official.entity_use_code_removed')
         else
           flash[:error] = @use_code.errors.full_messages.to_sentence
         end
