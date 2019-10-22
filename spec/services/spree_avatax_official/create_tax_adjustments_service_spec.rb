@@ -387,7 +387,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
         result = subject
 
         expect(result.failure?).to eq true
-        expect(result.value).to eq Spree.t('spree_avatax_official.create_tax_adjustments.order_canceled')
+        expect(result.value).to eq 'Cannot calculate tax for a canceled order'
       end
     end
 
@@ -429,7 +429,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
 
       it 'creates avatax transaction' do
         expect(subject.success?).to eq false
-        expect(subject.value).to    eq Spree.t('spree_avatax_official.create_tax_adjustments.tax_calculation_failed')
+        expect(subject.value).to    eq 'AvaTax failed to calculate tax'
       end
     end
   end

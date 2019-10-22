@@ -29,7 +29,7 @@ module SpreeAvataxOfficial
         SpreeAvataxOfficial::Transactions::AdjustService.call(
           order:                  order,
           adjustment_reason:      SpreeAvataxOfficial::Transaction::DEFAULT_ADJUSTMENT_REASON,
-          adjustment_description: Spree.t('spree_avatax_official.create_tax_adjustments.adjustment_description')
+          adjustment_description: ::Spree.t('spree_avatax_official.create_tax_adjustments.adjustment_description')
         )
       else
         SpreeAvataxOfficial::Transactions::CreateService.call(order: order)
