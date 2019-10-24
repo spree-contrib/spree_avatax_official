@@ -98,5 +98,13 @@ describe SpreeAvataxOfficial::Transactions::CreatePresenter do
         expect(subject.to_json).to eq result
       end
     end
+
+    context 'without order user' do
+      before { order.update(user: nil) }
+
+      it 'serializes the object' do
+        expect(subject.to_json['entityUseCode']).to eq nil
+      end
+    end
   end
 end
