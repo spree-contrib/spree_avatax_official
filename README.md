@@ -61,9 +61,7 @@ For more information, support and guidance on how to implement Spree AvaTax V2 e
   bundle exec rails g spree_avatax_official:install
   ```
 
-4. Fill up config located in `config/initializers/spree_avatax_official.rb`
-
-5. Restart your server
+4. Restart your server
 
   If your server was running, restart it so that it can find the assets properly.
 
