@@ -14,7 +14,7 @@ module Spree
       def update
         SpreeAvataxOfficial::Settings::UpdateService.call(params: params)
 
-        flash[:success] = t('spree_avatax_official.settings_updated')
+        flash[:success] = Spree.t('spree_avatax_official.settings_updated')
         redirect_to edit_admin_avatax_settings_path
       end
     end

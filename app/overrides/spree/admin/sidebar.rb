@@ -6,7 +6,7 @@ Deface::Override.new(
   <<~HTML
     <li>
       <%= link_to_with_icon 'money',
-        t('spree_avatax_official.information_url'),
+        Spree.t('spree_avatax_official.information_url'),
         avalara_information_admin_user_path(@user),
         class: "nav-link" %>
     </li>

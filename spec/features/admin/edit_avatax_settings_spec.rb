@@ -6,6 +6,6 @@ describe 'Edit Avatax Settings spec', type: :feature do
   it 'renders edit page' do
     visit '/admin/avatax_settings/edit'
 
-    expect(page).to have_content(I18n.t('spree_avatax_official.settings'))
+    expect(page).to have_content('Avatax Settings')
   end
 end

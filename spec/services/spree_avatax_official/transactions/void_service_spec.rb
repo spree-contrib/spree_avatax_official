@@ -26,7 +26,7 @@ describe SpreeAvataxOfficial::Transactions::VoidService do
         response = result.value
 
         expect(result.success?).to eq false
-        expect(response).to eq I18n.t('spree_avatax_official.void_service.missing_sales_invoice_transaction')
+        expect(response).to eq 'Order is missing SalesInvoice transaction'
       end
     end
   end

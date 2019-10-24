@@ -9,7 +9,7 @@ module SpreeAvataxOfficial
       item_class = item.class.name.demodulize.underscore
 
       format_adjustment_label(
-        I18n.t("spree_avatax_official.create_tax_adjustments.#{item_class}_tax_adjustment_default_label", included_label: included_label(item)),
+        ::Spree.t("spree_avatax_official.create_tax_adjustments.#{item_class}_tax_adjustment_default_label", included_label: included_label(item)),
         rate
       )
     end

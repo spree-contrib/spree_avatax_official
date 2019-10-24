@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= button_link_to t('spree_avatax_official.avalara entity_use_code'),
+  <%= button_link_to Spree.t('spree_avatax_official.avalara entity_use_code'),
                      new_admin_avalara_entity_use_code_url,
                      class: 'btn-success',
                      icon: 'add',
