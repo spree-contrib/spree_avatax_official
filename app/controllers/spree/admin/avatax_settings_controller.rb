@@ -12,9 +12,13 @@ module Spree
       end
 
       def update
-        SpreeAvataxOfficial::Settings::UpdateService.call(params: params)
+        if params[:endpoint].present? && params[:endpoint] !~ URI::DEFAULT_PARSER.make_regexp
+          flash[:error] = Spree.t('spree_avatax_official.wrong_endpoint_url')
+        else
+          SpreeAvataxOfficial::Settings::UpdateService.call(params: params)
+          flash[:success] = Spree.t('spree_avatax_official.settings_updated')
+        end
 
-        flash[:success] = Spree.t('spree_avatax_official.settings_updated')
         redirect_to edit_admin_avatax_settings_path
       end
     end

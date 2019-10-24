@@ -23,6 +23,39 @@ describe 'Update Avatax Settings spec', type: :feature do
     end
   end
 
+  describe 'endpoint URL' do
+    around do |example|
+      endpoint = SpreeAvataxOfficial::Config.endpoint
+      example.run
+      SpreeAvataxOfficial::Config.endpoint = endpoint
+    end
+
+    context 'when endpoint URL is valid' do
+      it 'updates avatax settings' do
+        visit '/admin/avatax_settings/edit'
+
+        fill_in 'endpoint', with: 'https://sandbox-rest.avatax.com'
+        click_button 'Save AvaTax preferences'
+
+        expect(SpreeAvataxOfficial::Config.endpoint).to eq 'https://sandbox-rest.avatax.com'
+        expect(page).to have_current_path '/admin/avatax_settings/edit'
+      end
+    end
+
+    context 'when endpoint URL is invalid' do
+      it 'does not update avatax settings' do
+        visit '/admin/avatax_settings/edit'
+
+        fill_in 'endpoint', with: 'wrong-url'
+        click_button 'Save AvaTax preferences'
+
+        expect(SpreeAvataxOfficial::Config.endpoint).not_to eq 'wrong-url'
+        expect(page).to have_current_path '/admin/avatax_settings/edit'
+        expect(page).to have_content 'Endpoint URL seems to be invalid'
+      end
+    end
+  end
+
   describe 'enable commiting transactions' do
     context 'toggle committing transactions' do
       context 'initially enabled' do
