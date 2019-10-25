@@ -37,3 +37,4 @@ en:
       information_url: Avalara Information
       avalara_entity_use_code: Avalara Entity Use Code
       ping_avatax: Ping AvaTax
+      wrong_endpoint_url: Endpoint URL seems to be invalid
