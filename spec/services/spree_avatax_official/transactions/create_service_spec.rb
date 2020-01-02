@@ -99,7 +99,7 @@ describe SpreeAvataxOfficial::Transactions::CreateService do
             expect(result.success?).to eq false
             expect(response['error']).to be_present
             expect(response['error']['code']).to eq 'ConnectionError'
-            expect(response['error']['message']).to eq 'Faraday::TimeoutError - Net::ReadTimeout'
+            expect(response['error']['message'] =~ /Net::ReadTimeout/).to be_truthy
           end
         end
       end
