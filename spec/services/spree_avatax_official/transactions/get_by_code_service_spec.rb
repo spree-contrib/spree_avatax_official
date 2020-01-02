@@ -46,6 +46,17 @@ describe SpreeAvataxOfficial::Transactions::GetByCodeService do
           end
         end
       end
+
+      context 'with custom transaction code' do
+        let(:params) { { order: order, type: 'ReturnInvoice', code: 'custom123' } }
+
+        it 'returns success' do
+          VCR.use_cassette('spree_avatax_official/transactions/get_by_code/order_with_custom_code_success') do
+            expect(subject.success?).to eq true
+            expect(subject.value['code']).to eq 'custom123'
+          end
+        end
+      end
     end
 
     context 'with incorrect params' do
