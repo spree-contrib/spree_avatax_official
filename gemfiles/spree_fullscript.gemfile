@@ -10,5 +10,6 @@ gem 'rubocop-rspec', require: false
 gem 'spree_auth_devise', branch: 'hw-spree-2-2-rails-4-2-update', git: 'https://github.com/Fullscript/spree_auth_devise.git'
 gem 'spree_backend', branch: '2-2-stable-healthwave', git: 'https://github.com/Fullscript/spree.git'
 gem 'spree_core', branch: '2-2-stable-healthwave', git: 'https://github.com/Fullscript/spree.git'
+gem 'sprockets', '< 4.0' # 4.0 breaks a build as the manifest file is missing
 
 gemspec path: '../'
