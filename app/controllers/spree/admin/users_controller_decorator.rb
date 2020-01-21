@@ -20,10 +20,6 @@ module Spree
 
         @use_codes = SpreeAvataxOfficial::EntityUseCode.all.map { |use_code| ["#{use_code.code} - #{use_code.name}", use_code.id] }
       end
-
-      def user_params
-        params.require(:user).permit(:avatax_entity_use_code_id, :exemption_number, :vat_id)
-      end
     end
   end
 end
