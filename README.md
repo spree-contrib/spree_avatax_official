@@ -15,7 +15,7 @@ The new officially supported Avalara AvaTax extension for [Spree Commerce](https
 
 ## Introduction
 
-Avalara AvaTax is a cloud-based solution automating transaction tax calculations and the tax filing process. Avalara provides real-time tax calculation using tax content from more than 12,000 US taxing jurisdictions and over 200 countries, ensuring your transaction tax is calculated based on the most current tax rules.
+<img src="https://spreecommerce.org/wp-content/uploads/2019/11/AvalaraCertifiedBadge_Refunds.png" width=150 align=right> <img src="https://spreecommerce.org/wp-content/uploads/2019/11/AvalaraCertifiedBadge_SalesTax.png" width=150 align=right> Avalara AvaTax is a cloud-based solution automating transaction tax calculations and the tax filing process. Avalara provides real-time tax calculation using tax content from more than 12,000 US taxing jurisdictions and over 200 countries, ensuring your transaction tax is calculated based on the most current tax rules.
 
 The new officially certified Spree AvaTax extension helps Spree users and developers to switch from the old Avalara REST API V1 to the latest [Avalara REST API v2](https://developer.avalara.com/api-reference/avatax/rest/v2/). In the words of Avalara developers "the benefits are huge" as the new API V2 offers improved AvaTax performance, reliability and a wide range of new functionality.
 
