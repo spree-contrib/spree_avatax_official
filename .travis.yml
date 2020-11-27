@@ -15,9 +15,10 @@ services:
 language: ruby
 
 rvm:
-  - 2.5.3
-  - 2.4.5
-  - 2.3.8
+  - 2.6
+  - 2.5
+  - 2.4
+  - 2.3
 
 env:
   - DB=mysql
@@ -29,6 +30,8 @@ gemfile:
 #  - gemfiles/spree_3_2.gemfile
 #  - gemfiles/spree_3_5.gemfile
   - gemfiles/spree_4_0.gemfile
+  - gemfiles/spree_4_1.gemfile
+  - gemfiles/spree_4_2.gemfile
   - gemfiles/spree_master.gemfile
 
 jobs:
