@@ -18,6 +18,7 @@ describe Spree::LineItem do
         VCR.use_cassette('spree_order/update_tax_charge/create_line_item') do
           create(:line_item, price: 10.0, quantity: 2, order: order)
 
+          order.reload
           order.updater.update
         end
       end
@@ -35,6 +36,7 @@ describe Spree::LineItem do
           VCR.use_cassette('spree_line_item/update_tax_charge/increase_quantity') do
             line_item.update(quantity: 3)
 
+            order.reload
             order.updater.update
           end
 
@@ -49,6 +51,7 @@ describe Spree::LineItem do
           VCR.use_cassette('spree_line_item/update_tax_charge/decrease_quantity') do
             line_item.update(quantity: 1)
 
+            order.reload
             order.updater.update
           end
 

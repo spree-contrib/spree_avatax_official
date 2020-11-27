@@ -102,6 +102,7 @@ describe Spree::Order do
       VCR.use_cassette('spree_order/simple_order_with_single_line_item_and_shipment') do
         create(:line_item, price: 10.0, quantity: 1, order: order)
 
+        order.reload
         order.updater.update
       end
     end
@@ -153,11 +154,11 @@ describe Spree::Order do
 
         VCR.use_cassette('spree_order/california_order') do
           order.tax_address.update(
-            address1: california_address.address1,
-            address2: california_address.address2,
-            city:     california_address.city,
-            zipcode:  california_address.zipcode,
-            state_id: california_address.state_id
+              address1: california_address.address1,
+              address2: california_address.address2,
+              city:     california_address.city,
+              zipcode:  california_address.zipcode,
+              state_id: california_address.state_id
           )
           california_address.run_callbacks(:save)
         end

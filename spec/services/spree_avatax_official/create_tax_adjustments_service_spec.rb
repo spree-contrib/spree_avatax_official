@@ -156,12 +156,12 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
           let!(:stock_location) do
             line_item.inventory_units.first.shipment.stock_location.tap do |stock_location|
               stock_location.update(
-                name:     'California Warehouse',
-                address1: california_address.address1,
-                address2: california_address.address2,
-                city:     california_address.city,
-                zipcode:  california_address.zipcode,
-                state_id: california_address.state_id
+                  name:     'California Warehouse',
+                  address1: california_address.address1,
+                  address2: california_address.address2,
+                  city:     california_address.city,
+                  zipcode:  california_address.zipcode,
+                  state_id: california_address.state_id
               )
             end
           end
@@ -195,6 +195,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
               create(:line_item, id: 1, price: 10.0, quantity: 2, order: order)
               create(:line_item, id: 2, price: 10.0, quantity: 3, order: order, avatax_uuid: '50f0c7ba-0c5f-4479-a24a-3de192354004')
 
+              order.reload
               result = subject
 
               order.updater.update
@@ -217,6 +218,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
               create(:line_item, id: 1, price: 10.0, quantity: 2, order: order)
               create(:line_item, id: 2, price: 10.0, quantity: 3, order: order, avatax_uuid: '50f0c7ba-0c5f-4479-a24a-3de192354004')
 
+              order.reload
               result = subject
 
               order.updater.update
@@ -245,6 +247,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
               create(:line_item, id: 1, price: 10.0, quantity: 4, order: order)
               create(:line_item, id: 2, price: 10.0, quantity: 3, order: order, avatax_uuid: 'bf57f52a-2ab3-44bc-8be3-8f99ecccd196')
 
+              order.reload
               order.updater.update
               order.coupon_code = promotion.code
               Spree::PromotionHandler::Coupon.new(order).apply
@@ -271,6 +274,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
               create(:line_item, id: 1, price: 10.0, quantity: 4, order: order)
               create(:line_item, id: 2, price: 10.0, quantity: 3, order: order, avatax_uuid: 'bf57f52a-2ab3-44bc-8be3-8f99ecccd196')
 
+              order.reload
               order.updater.update
               order.coupon_code = promotion.code
               Spree::PromotionHandler::Coupon.new(order).apply
@@ -357,6 +361,8 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
 
       before do
         VCR.use_cassette('spree_avatax_official/create_tax_adjustments/simple_completed_order') do
+          order.reload
+
           described_class.call(order: order)
           order.updater.update
         end
