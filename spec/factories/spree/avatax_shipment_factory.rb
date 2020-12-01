@@ -1,4 +1,4 @@
-FACTORY_BOT_CLASS.define do
+FactoryBot.define do
   factory :avatax_shipment, class: Spree::Shipment do
     tracking { 'U10000' }
     cost     { 100.00 }

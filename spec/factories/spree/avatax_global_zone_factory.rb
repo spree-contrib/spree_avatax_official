@@ -1,4 +1,4 @@
-FACTORY_BOT_CLASS.define do
+FactoryBot.define do
   factory :avatax_global_zone, class: Spree::Zone do
     name        { 'GlobalZone' }
     description { 'Description' }

@@ -36,14 +36,10 @@ describe SpreeAvataxOfficial::Settings::UpdateService do
       context 'from false to true' do
         let(:params) { { commit_transaction_enabled: 'true' } }
 
-        around do |example|
-          SpreeAvataxOfficial::Config.commit_transaction_enabled = false
-          example.run
-          SpreeAvataxOfficial::Config.commit_transaction_enabled = true
-        end
-
         it 'updates commit_transaction_enabled' do
-          expect { subject }.to change { SpreeAvataxOfficial::Config.commit_transaction_enabled }.to(true)
+          subject
+
+          expect(SpreeAvataxOfficial::Config.commit_transaction_enabled).to eq true
         end
       end
     end

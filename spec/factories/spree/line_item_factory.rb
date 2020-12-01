@@ -1,7 +1,7 @@
 require 'spree/testing_support/factories'
 
-if FACTORY_BOT_CLASS.factories.registered?(:line_item)
-  FACTORY_BOT_CLASS.modify do
+if FactoryBot.factories.registered?(:line_item)
+FactoryBot.modify do
     factory :line_item, class: Spree::LineItem do
       before(:create) do |line_item|
         uuid = 'a844605f-e114-4933-a0cf-7a434ac83cdf'

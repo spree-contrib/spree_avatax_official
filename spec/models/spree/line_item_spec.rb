@@ -15,6 +15,8 @@ describe Spree::LineItem do
       let(:line_item) { order.line_items.first }
 
       before do
+        SpreeAvataxOfficial::Config.enabled = true
+
         VCR.use_cassette('spree_order/update_tax_charge/create_line_item') do
           create(:line_item, price: 10.0, quantity: 2, order: order)
 

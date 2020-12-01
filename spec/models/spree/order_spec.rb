@@ -19,6 +19,8 @@ describe Spree::Order do
     let(:order) { create(:order, ship_address: create(:usa_address)) }
 
     before do
+      SpreeAvataxOfficial::Config.enabled = true
+
       VCR.use_cassette('spree_order/simple_order_with_single_line_item') do
         create(:line_item, price: 10.0, quantity: 1, order: order)
         order.update(state: :complete, completed_at: Time.current)
@@ -60,6 +62,7 @@ describe Spree::Order do
     end
 
     before do
+      SpreeAvataxOfficial::Config.enabled = true
       allow(Spree::OrderMailer).to receive_message_chain(:confirm_email, :deliver_later)
     end
 
@@ -76,11 +79,7 @@ describe Spree::Order do
     end
 
     context 'commit transaction disabled' do
-      around do |example|
-        SpreeAvataxOfficial::Config.commit_transaction_enabled = false
-        example.run
-        SpreeAvataxOfficial::Config.commit_transaction_enabled = true
-      end
+      before { SpreeAvataxOfficial::Config.commit_transaction_enabled = false }
 
       it 'doesnt create a commited SalesInvoice transaction' do
         expect(order.state).to eq 'confirm'
@@ -99,6 +98,8 @@ describe Spree::Order do
     let(:tax_adjustment) { line_item.adjustments.tax.first }
 
     before do
+      SpreeAvataxOfficial::Config.enabled = true
+
       VCR.use_cassette('spree_order/simple_order_with_single_line_item_and_shipment') do
         create(:line_item, price: 10.0, quantity: 1, order: order)
 
@@ -177,13 +178,7 @@ describe Spree::Order do
   describe '#validate_tax_address' do
     let(:order) { create(:order_with_line_items, ship_address: ship_address, state: :address) }
 
-    around do |example|
-      SpreeAvataxOfficial::Config.address_validation_enabled = true
-
-      example.run
-
-      SpreeAvataxOfficial::Config.address_validation_enabled = false
-    end
+    before { SpreeAvataxOfficial::Config.address_validation_enabled = true }
 
     context 'when address is invalid' do
       let(:ship_address) { create(:invalid_usa_address) }

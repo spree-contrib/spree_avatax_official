@@ -123,11 +123,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
           let(:line_item_tax_adjustment) { order.line_items.first.adjustments.tax.first }
           let(:shipment_tax_adjustment) { order.shipments.first.adjustments.tax.first }
 
-          around do |example|
-            SpreeAvataxOfficial::Config.show_rate_in_label = true
-            example.run
-            SpreeAvataxOfficial::Config.show_rate_in_label = false
-          end
+          before { SpreeAvataxOfficial::Config.show_rate_in_label = true }
 
           it 'sets adjustments labels with percentage tax amount' do
             result = nil

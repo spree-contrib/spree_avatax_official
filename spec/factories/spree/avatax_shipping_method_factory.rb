@@ -1,4 +1,4 @@
-FACTORY_BOT_CLASS.define do
+FactoryBot.define do
   factory :avatax_shipping_method, class: Spree::ShippingMethod do
     zones      { [Spree::Zone.find_by(name: 'GlobalZone') || create(:avatax_global_zone, default_tax: true)] }
     name       { 'AvaTax Ground' }

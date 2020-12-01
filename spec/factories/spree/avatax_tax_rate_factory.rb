@@ -1,4 +1,4 @@
-FACTORY_BOT_CLASS.define do
+FactoryBot.define do
   factory :avatax_tax_rate, class: Spree::TaxRate do
     name               { 'Default AvaTax tax rate' }
     amount             { 0.0 }

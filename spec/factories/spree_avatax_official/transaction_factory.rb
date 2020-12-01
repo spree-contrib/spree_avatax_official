@@ -1,4 +1,4 @@
-FACTORY_BOT_CLASS.define do
+FactoryBot.define do
   factory :spree_avatax_official_transaction, class: SpreeAvataxOfficial::Transaction do
     transaction_type { 'SalesInvoice' }
     code             { order.number }

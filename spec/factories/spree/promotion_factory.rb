@@ -3,8 +3,8 @@ require 'spree/testing_support/factories'
 # According to documentation it's not possible to modify traits, what forces definition of new
 # trait that covers differences between Spree versions. Link:
 # https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#modifying-factories
-if FACTORY_BOT_CLASS.factories.registered?(:promotion)
-  FACTORY_BOT_CLASS.modify do
+if FactoryBot.factories.registered?(:promotion)
+FactoryBot.modify do
     factory :promotion, class: Spree::Promotion do
       trait :avatax_with_order_adjustment do
         transient do
@@ -20,8 +20,8 @@ if FACTORY_BOT_CLASS.factories.registered?(:promotion)
   end
 end
 
-unless FACTORY_BOT_CLASS.factories.registered?(:free_shipping_promotion)
-  FACTORY_BOT_CLASS.define do
+unless FactoryBot.factories.registered?(:free_shipping_promotion)
+FactoryBot.define do
     factory :free_shipping_promotion, class: Spree::Promotion do
       name { 'Free Shipping Promotion' }
 

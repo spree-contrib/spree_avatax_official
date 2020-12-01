@@ -5,11 +5,7 @@ describe SpreeAvataxOfficial::TaxAdjustmentLabelHelper do
     let(:subject) { helper.tax_adjustment_label(item, 0.08) }
 
     context 'with SpreeAvatxOfficial::Config.show_rate_in_label equal true' do
-      around do |example|
-        SpreeAvataxOfficial::Config.show_rate_in_label = true
-        example.run
-        SpreeAvataxOfficial::Config.show_rate_in_label = false
-      end
+      before { SpreeAvataxOfficial::Config.show_rate_in_label = true }
 
       context 'with tax included in price' do
         before do
@@ -59,11 +55,7 @@ describe SpreeAvataxOfficial::TaxAdjustmentLabelHelper do
 
   describe '#format_adjustment_label' do
     context 'with SpreeAvatxOfficial::Config.show_rate_in_label equal true' do
-      around do |example|
-        SpreeAvataxOfficial::Config.show_rate_in_label = true
-        example.run
-        SpreeAvataxOfficial::Config.show_rate_in_label = false
-      end
+      before { SpreeAvataxOfficial::Config.show_rate_in_label = true }
 
       context 'when rate has trailing zeros' do
         it 'returns percent value without trailing zeros' do

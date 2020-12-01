@@ -112,10 +112,8 @@ describe 'Update Avatax Settings spec', type: :feature do
       end
 
       context 'initially false' do
-        around do |example|
+        before do
           SpreeAvataxOfficial::Config.commit_transaction_enabled = false
-          example.run
-          SpreeAvataxOfficial::Config.commit_transaction_enabled = true
         end
 
         it 'leave commit_transaction_enabled' do

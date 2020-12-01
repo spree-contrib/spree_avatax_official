@@ -1,4 +1,4 @@
-FACTORY_BOT_CLASS.define do
+FactoryBot.define do
   factory :avatax_order, class: Spree::Order do
     user
     bill_address

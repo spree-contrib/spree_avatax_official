@@ -5,7 +5,10 @@ describe SpreeAvataxOfficial::Spree::RefundDecorator do
     let(:refund) { create(:refund, amount: 10) }
 
     context 'commit transaction enabled' do
-      before { SpreeAvataxOfficial::Config.commit_transaction_enabled = true }
+      before do
+        SpreeAvataxOfficial::Config.enabled = true
+        SpreeAvataxOfficial::Config.commit_transaction_enabled = true
+      end
 
       it 'calls refund service' do
         expect(SpreeAvataxOfficial::Transactions::RefundService).to receive(:call)
@@ -15,10 +18,9 @@ describe SpreeAvataxOfficial::Spree::RefundDecorator do
     end
 
     context 'commit transaction disabled' do
-      around do |example|
+      before do
+        SpreeAvataxOfficial::Config.enabled = false
         SpreeAvataxOfficial::Config.commit_transaction_enabled = false
-        example.run
-        SpreeAvataxOfficial::Config.commit_transaction_enabled = true
       end
 
       it 'doesnt call refund service' do

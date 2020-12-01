@@ -1,7 +1,7 @@
 require 'spree/testing_support/factories'
 
-unless FACTORY_BOT_CLASS.factories.registered?(:europe_address)
-  FACTORY_BOT_CLASS.define do
+unless FactoryBot.factories.registered?(:europe_address)
+FactoryBot.define do
     factory :europe_address, class: Spree::Address do
       firstname         { FFaker::Name.first_name }
       lastname          { FFaker::Name.last_name }

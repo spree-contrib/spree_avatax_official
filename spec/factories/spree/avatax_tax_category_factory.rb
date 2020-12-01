@@ -1,4 +1,4 @@
-FACTORY_BOT_CLASS.define do
+FactoryBot.define do
   factory :avatax_tax_category, class: Spree::TaxCategory do
     name        { 'Tax category name' }
     description { 'Tax category description' }
