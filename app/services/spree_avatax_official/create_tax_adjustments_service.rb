@@ -78,7 +78,7 @@ module SpreeAvataxOfficial
       ::Spree::TaxRate.find_or_create_by!(
         name:               tax_rate_name,
         amount:             sum_rates_from_details(avatax_item),
-        zone:               item.tax_zone,
+        zone:               item.tax_zone&.reload,
         tax_category:       item.tax_category,
         show_rate_in_label: false,
         included_in_price:  item.included_in_price
