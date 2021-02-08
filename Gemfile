@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails-controller-testing'
-gem 'rubocop', '~> 0.63.0', require: false
+gem 'rubocop', '~> 0.68.1', require: false
 gem 'rubocop-rspec', require: false
 gem 'spree_auth_devise'
 gem 'spree_backend'
