@@ -91,7 +91,6 @@ RSpec.configure do |config|
   end
 
   config.before do
-    # binding.pry
     Rails.cache.clear
   end
 
