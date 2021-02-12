@@ -30,7 +30,7 @@ module SpreeAvataxOfficial
 
       def create_partial_refund(refundable)
         SpreeAvataxOfficial::Transactions::PartialRefundService.call(
-          refundable_params(refundable).merge(
+          **refundable_params(refundable).merge(
             refund_items: refund_items(refundable)
           )
         )
