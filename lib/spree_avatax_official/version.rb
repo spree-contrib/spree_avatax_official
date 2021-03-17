@@ -1,17 +1,11 @@
 module SpreeAvataxOfficial
+  VERSION = '1.7.0.beta'.freeze
+
   module_function
 
   # Returns the version of the currently loaded SpreeAvataxOfficial as a
   # <tt>Gem::Version</tt>.
   def version
-    Gem::Version.new VERSION::STRING
-  end
-
-  module VERSION
-    MAJOR = 1
-    MINOR = 6
-    TINY  = 1
-
-    STRING = [MAJOR, MINOR, TINY].compact.join('.')
+    Gem::Version.new VERSION
   end
 end
