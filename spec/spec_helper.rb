@@ -90,6 +90,10 @@ RSpec.configure do |config|
     SpreeAvataxOfficial::Config.enabled = false
   end
 
+  config.before do
+    Rails.cache.clear
+  end
+
   config.before(type: :feature) do
     DatabaseCleaner.start
   end

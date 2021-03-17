@@ -156,12 +156,12 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
           let!(:stock_location) do
             line_item.inventory_units.first.shipment.stock_location.tap do |stock_location|
               stock_location.update(
-                  name:     'California Warehouse',
-                  address1: california_address.address1,
-                  address2: california_address.address2,
-                  city:     california_address.city,
-                  zipcode:  california_address.zipcode,
-                  state_id: california_address.state_id
+                name:     'California Warehouse',
+                address1: california_address.address1,
+                address2: california_address.address2,
+                city:     california_address.city,
+                zipcode:  california_address.zipcode,
+                state_id: california_address.state_id
               )
             end
           end
@@ -224,6 +224,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
               order.updater.update
             end
 
+            expect(order.tax_zone.included_in_price).to be true
             expect(result.success?).to eq true
             expect(order.total).to eq 50.0
             expect(order.included_tax_total).to eq 3.7
@@ -284,6 +285,7 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService do
               order.updater.update
             end
 
+            expect(order.tax_zone.included_in_price).to be true
             expect(result.success?).to eq true
             expect(order.total).to eq 50.0
             expect(order.included_tax_total).to eq 3.7

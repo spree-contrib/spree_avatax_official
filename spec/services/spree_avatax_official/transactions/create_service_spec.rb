@@ -88,7 +88,7 @@ describe SpreeAvataxOfficial::Transactions::CreateService do
         let(:connection_options) { { request: { timeout: 0, open_timeout: 2 } } }
 
         before do
-          allow_any_instance_of(AvaTax::Client).to receive(:connection_options).and_return(connection_options) # rubocop:disable RSpec/AnyInstance
+          allow_any_instance_of(AvaTax::Client).to receive(:connection_options).and_return(**connection_options) # rubocop:disable RSpec/AnyInstance
         end
 
         it 'returns negative result' do

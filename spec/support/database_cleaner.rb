@@ -2,7 +2,7 @@ require 'database_cleaner'
 
 RSpec.configure do |config|
   config.before(:suite) do
-    DatabaseCleaner.clean_with :truncation
+    DatabaseCleaner.clean_with :truncation, except: %w[spree_preferences]
   end
 
   config.before do
@@ -11,7 +11,7 @@ RSpec.configure do |config|
 
   # Before each spec check if it is a Javascript test and switch between using database transactions or not where necessary.
   config.before(:each, :js) do
-    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.strategy = :truncation, { except: %w[spree_preferences] }
   end
 
   config.before do
