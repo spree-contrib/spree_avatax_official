@@ -1,5 +1,5 @@
 module SpreeAvataxOfficial
-  VERSION = '1.7.0.beta'.freeze
+  VERSION = '1.7.0'.freeze
 
   module_function
 
