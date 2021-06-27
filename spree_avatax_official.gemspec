@@ -8,7 +8,7 @@ Gem::Specification.new do |s| # rubocop:disable Metrics/BlockLength
   s.name                  = 'spree_avatax_official'
   s.version               = SpreeAvataxOfficial.version
   s.summary               = 'The official certified Spree Avatax'
-  s.description           = 'Add (optional) extension description here'
+  s.description           = 'The new officially supported Avalara AvaTax extension for Spree Commerce using Avalara REST API v2'
   s.required_ruby_version = '>= 2.2.2'
 
   s.author   = 'Spark Solutions'
