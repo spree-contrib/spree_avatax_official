@@ -46,7 +46,7 @@ For more information, support and guidance on how to implement Spree AvaTax V2 e
 
 1. Add this extension to your `Gemfile` with this line:
   ```ruby
-  gem 'spree_avatax_official', github: 'spree-contrib/spree_avatax_official'
+  gem 'spree_avatax_official'
   ```
 
 2. Install the gem using Bundler:

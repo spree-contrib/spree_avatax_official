@@ -19,7 +19,7 @@ Gem::Specification.new do |s| # rubocop:disable Metrics/BlockLength
   s.metadata = {
     "bug_tracker_uri"   => "https://github.com/spree/spree_avatax_official/issues",
     "changelog_uri"     => "https://github.com/spree/spree_avatax_official/releases/tag/v#{s.version}",
-    "documentation_uri" => "https://guides.spreecommerce.org/",
+    "documentation_uri" => "https://github.com/spree-contrib/spree_avatax_official",
     "source_code_uri"   => "https://github.com/spree/spree_avatax_official/tree/v#{s.version}",
   }
 
