@@ -9,14 +9,22 @@ Gem::Specification.new do |s| # rubocop:disable Metrics/BlockLength
   s.version               = SpreeAvataxOfficial.version
   s.summary               = 'The official certified Spree Avatax'
   s.description           = 'The new officially supported Avalara AvaTax extension for Spree Commerce using Avalara REST API v2'
-  s.required_ruby_version = '>= 2.2.2'
+  s.required_ruby_version = '>= 2.0.0'
 
   s.author   = 'Spark Solutions'
   s.email    = 'we@sparksolutions.co'
   s.homepage = 'https://sparksolutions.co'
   s.license  = 'BSD-3-Clause'
 
-  # s.files       = `git ls-files`.split("\n").reject { |f| f.match(/^spec/) && !f.match(/^spec\/fixtures/) }
+  s.metadata = {
+    "bug_tracker_uri"   => "https://github.com/spree/spree_avatax_official/issues",
+    "changelog_uri"     => "https://github.com/spree/spree_avatax_official/releases/tag/v#{s.version}",
+    "documentation_uri" => "https://guides.spreecommerce.org/",
+    "source_code_uri"   => "https://github.com/spree/spree_avatax_official/tree/v#{s.version}",
+  }
+
+  s.files       = `git ls-files`.split("\n")
+  s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_path = 'lib'
   s.requirements << 'none'
 
