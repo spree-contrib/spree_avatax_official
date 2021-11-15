@@ -12,10 +12,6 @@ module SpreeAvataxOfficial
       SpreeAvataxOfficial::Config = SpreeAvataxOfficial::Configuration.new
     end
 
-    initializer 'spree.avatax_certified.calculators', after: 'spree.register.calculators' do |_app|
-      Rails.application.config.spree.calculators.tax_rates << SpreeAvataxOfficial::Calculator::AvataxTransactionCalculator
-    end
-
     # use rspec for tests
     config.generators do |g|
       g.test_framework :rspec
