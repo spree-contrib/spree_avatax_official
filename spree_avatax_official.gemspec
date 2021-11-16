@@ -22,7 +22,7 @@ Gem::Specification.new do |s| # rubocop:disable Metrics/BlockLength
 
   s.add_dependency 'avatax', '~> 19.3'
 
-  spree_version = '>= 2.1.0', '< 5.0'
+  spree_version = '>= 2.1.0'
 
   s.add_dependency 'spree_backend', spree_version
   s.add_dependency 'spree_core',    spree_version
