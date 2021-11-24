@@ -1,7 +1,7 @@
 
-module SpreeAvataxOfficial
-  Config = SpreeAvataxOfficial::Configuration.new
-end
+# module SpreeAvataxOfficial
+#   Config = SpreeAvataxOfficial::Configuration.new
+# end
 
 AvaTax.configure do |config|
   config.endpoint = 'https://sandbox-rest.avatax.com' # This endpoint is used for testing and should be replaced
