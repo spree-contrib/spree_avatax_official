@@ -40,10 +40,19 @@ appraise 'spree-4-2' do
   gem 'rspec-rails',              '~> 4.0.0.beta2'
 end
 
-appraise 'spree-master' do
-  gem 'spree_core',               github: 'spree/spree',                  branch: 'master'
-  gem 'spree_backend',            github: 'spree/spree',                  branch: 'master'
-  gem 'spree_auth_devise',        github: 'spree/spree_auth_devise',      branch: 'master'
+appraise 'spree-4-3' do
+  gem 'spree_core',               '~> 4.3.0'
+  gem 'spree_backend',            '~> 4.3.0'
+  gem 'spree_auth_devise',        '~> 4.3.0'
+  gem 'rails-controller-testing'
+  gem 'sass-rails'
+  gem 'rspec-rails',              '~> 4.0.0.beta2'
+end
+
+appraise 'spree-main' do
+  gem 'spree_core',               '~> 4.3'
+  gem 'spree_backend',            '~> 4.3'
+  gem 'spree_auth_devise',        '~> 4.4', '>= 4.4.1'
   gem 'rails-controller-testing'
   gem 'rspec-rails',              '~> 4.0.0.beta2'
 end
