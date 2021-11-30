@@ -48,13 +48,13 @@ jobs:
           command: cp gemfiles/<< parameters.gemfile >>.gemfile gemfiles/ci.gemfile
       - restore_cache:
           keys:
-            - bundler-v6-<< parameters.ruby-version >>-<< parameters.gemfile >>-{{ checksum "gemfiles/ci.gemfile" }}
-            - bundler-v6-<< parameters.ruby-version >>-<< parameters.gemfile >>
+            - bundler-v7-<< parameters.ruby-version >>-<< parameters.gemfile >>-{{ checksum "gemfiles/ci.gemfile" }}
+            - bundler-v7-<< parameters.ruby-version >>-<< parameters.gemfile >>
       - run:
           name: Install dependencies
           command: bundle install --path=~/.bundle --gemfile=gemfiles/ci.gemfile
       - save_cache:
-          key: bundler-v6-<< parameters.ruby-version >>-<< parameters.gemfile >>-{{ checksum "gemfiles/ci.gemfile" }}
+          key: bundler-v7-<< parameters.ruby-version >>-<< parameters.gemfile >>-{{ checksum "gemfiles/ci.gemfile" }}
           paths:
             - "~/.bundle"
       - run:
