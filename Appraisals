@@ -10,6 +10,7 @@ end
 appraise 'spree-4-3' do
   gem 'spree_core',               '~> 4.3.0'
   gem 'spree_backend',            '~> 4.3.0'
+  gem 'spree_frontend',           '~> 4.3'
   gem 'spree_auth_devise',        '~> 4.3.0'
   gem 'spree_emails', '>= 4.3'
   gem "redis", "~> 4.0"
