@@ -59,10 +59,10 @@ jobs:
             - "~/.bundle"
       - run:
           name: Setup test app
-          command: bundle exec --gemfile=gemfiles/ci.gemfile rake test_app
+          command: bundle exec rake test_app
       - run:
           name: Run RSpec
-          command: bundle exec --gemfile=gemfiles/ci.gemfile rake spec
+          command: bundle exec rake spec
 workflows:
   all-specs:
     jobs:
