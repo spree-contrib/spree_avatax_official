@@ -62,7 +62,7 @@ jobs:
           command: bundle exec --gemfile=gemfiles/ci.gemfile rake test_app
       - run:
           name: Run RSpec
-          command: bundle exec rake spec
+          command: bundle exec --gemfile=gemfiles/ci.gemfile rake spec
 workflows:
   all-specs:
     jobs:
