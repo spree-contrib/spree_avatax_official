@@ -41,6 +41,9 @@ jobs:
                 name: Configure Postgres
                 command: echo 'export DATABASE_URL="postgresql://avatax:password@127.0.0.1/avatax"' >> $BASH_ENV
       - run:
+          name: Install bundler
+          command: bundle _1.17.3 install
+      - run:
           name: Configure bundler
           command: bundle config --local path '~/.bundle'
       - run:
@@ -48,13 +51,16 @@ jobs:
           command: cp gemfiles/<< parameters.gemfile >>.gemfile gemfiles/ci.gemfile
       - restore_cache:
           keys:
-            - bundler-v1.2-<< parameters.ruby-version >>-<< parameters.gemfile >>-{{ checksum "gemfiles/ci.gemfile" }}
-            - bundler-v1.2-<< parameters.ruby-version >>-<< parameters.gemfile >>
+            - bundler-v1.3-<< parameters.ruby-version >>-<< parameters.gemfile >>-{{ checksum "gemfiles/ci.gemfile" }}
+            - bundler-v1.3-<< parameters.ruby-version >>-<< parameters.gemfile >>
+      - run:
+          name: Debug
+          command: bundler -v
       - run:
           name: Install dependencies
           command: bundle install --gemfile=gemfiles/ci.gemfile
       - save_cache:
-          key: bundler-v1.2-<< parameters.ruby-version >>-<< parameters.gemfile >>-{{ checksum "gemfiles/ci.gemfile" }}
+          key: bundler-v1.3-<< parameters.ruby-version >>-<< parameters.gemfile >>-{{ checksum "gemfiles/ci.gemfile" }}
           paths:
             - "~/.bundle"
       - run:
