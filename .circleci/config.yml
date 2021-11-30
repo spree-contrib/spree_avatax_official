@@ -48,13 +48,13 @@ jobs:
           command: cp gemfiles/<< parameters.gemfile >>.gemfile gemfiles/ci.gemfile
       - restore_cache:
           keys:
-            - bundler-v8-<< parameters.ruby-version >>-<< parameters.gemfile >>-{{ checksum "gemfiles/ci.gemfile" }}
-            - bundler-v8-<< parameters.ruby-version >>-<< parameters.gemfile >>
+            - bundler-v9-<< parameters.ruby-version >>-<< parameters.gemfile >>-{{ checksum "gemfiles/ci.gemfile" }}
+            - bundler-v9-<< parameters.ruby-version >>-<< parameters.gemfile >>
       - run:
           name: Install dependencies
           command: bundle install --gemfile=gemfiles/ci.gemfile
       - save_cache:
-          key: bundler-v8-<< parameters.ruby-version >>-<< parameters.gemfile >>-{{ checksum "gemfiles/ci.gemfile" }}
+          key: bundler-v9-<< parameters.ruby-version >>-<< parameters.gemfile >>-{{ checksum "gemfiles/ci.gemfile" }}
           paths:
             - "~/.bundle"
       - run:
@@ -62,8 +62,7 @@ jobs:
           command: bundle exec rake test_app
       - run:
           name: Run RSpec
-          command: bundle exec rake spec || [ "<< parameters.gemfile >>" = "spree_main" ]
-
+          command: bundle exec rake spec
 workflows:
   all-specs:
     jobs:
@@ -74,47 +73,11 @@ workflows:
                 - mysql
                 - postgres
               gemfile:
-                - spree_3_1
-                - spree_3_7
-                - spree_4_0
-                - spree_4_1
                 - spree_4_2
-                - spree_main
+                - spree_4_3
               ruby-version:
                 - "3.0"
                 - "2.7"
-            exclude:
-              - ruby-version: "3.0"
-                gemfile: spree_3_1
-                database: mysql
-              - ruby-version: "3.0"
-                gemfile: spree_3_7
-                database: mysql
-              - ruby-version: "3.0"
-                gemfile: spree_4_0
-                database: mysql
-              - ruby-version: "3.0"
-                gemfile: spree_4_1
-                database: mysql
-              - ruby-version: "2.7"
-                gemfile: spree_3_1
-                database: mysql
-              - ruby-version: "3.0"
-                gemfile: spree_3_1
-                database: postgres
-              - ruby-version: "3.0"
-                gemfile: spree_3_7
-                database: postgres
-              - ruby-version: "3.0"
-                gemfile: spree_4_0
-                database: postgres
-              - ruby-version: "3.0"
-                gemfile: spree_4_1
-                database: postgres
-              - ruby-version: "2.7"
-                gemfile: spree_3_1
-                database: postgres
-
 
 
 
