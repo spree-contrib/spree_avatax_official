@@ -42,7 +42,7 @@ jobs:
                 command: echo 'export DATABASE_URL="postgresql://avatax:password@127.0.0.1/avatax"' >> $BASH_ENV
       - run:
           name: Install bundler
-          command: bundle _1.17.3 install
+          command: bundle _1.17.3_ install
       - run:
           name: Configure bundler
           command: bundle config --local path '~/.bundle'
