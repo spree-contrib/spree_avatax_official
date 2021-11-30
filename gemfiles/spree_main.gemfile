@@ -5,9 +5,9 @@ source "https://rubygems.org"
 gem "rails-controller-testing"
 gem "rubocop", "~> 0.63.0", require: false
 gem "rubocop-rspec", require: false
-gem "spree_auth_devise", git: "https://github.com/spree/spree_auth_devise.git", branch: "main"
-gem "spree_backend", git: "https://github.com/spree/spree_backend.git", branch: "main"
-gem "spree_core", git: "https://github.com/spree/spree.git", branch: "main"
+gem "spree_auth_devise", "~> 4.4.0.alpha", git: "https://github.com/spree/spree_auth_devise.git", branch: "main"
+gem "spree_backend", "~> 4.4.0.alpha", git: "https://github.com/spree/spree_backend.git", branch: "main"
+gem "spree_core", "~> 4.4.0.alpha", git: "https://github.com/spree/spree.git", branch: "main"
 gem "sass-rails"
 gem "rspec-rails", "~> 4.0.0.beta2"
 
