@@ -52,7 +52,7 @@ jobs:
             - bundler-v8-<< parameters.ruby-version >>-<< parameters.gemfile >>
       - run:
           name: Install dependencies
-          command: bundle install --path=~/.bundle --gemfile=gemfiles/ci.gemfile
+          command: bundle install --gemfile=gemfiles/ci.gemfile
       - save_cache:
           key: bundler-v8-<< parameters.ruby-version >>-<< parameters.gemfile >>-{{ checksum "gemfiles/ci.gemfile" }}
           paths:
