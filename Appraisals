@@ -50,9 +50,9 @@ appraise 'spree-4-3' do
 end
 
 appraise 'spree-main' do
-  gem 'spree_core',               github: 'spree/spree',                  branch: 'main'
-  gem 'spree_backend',            github: 'spree/spree_backend',          branch: 'main'
-  gem 'spree_auth_devise',        github: 'spree/spree_auth_devise',      branch: 'main'
+  gem 'spree_core',               git: 'https://github.com/spree/spree.git',                  branch: 'main'
+  gem 'spree_backend',            git: 'https://github.com/spree/spree_backend.git',          branch: 'main'
+  gem 'spree_auth_devise',        git: 'https://github.com/spree/spree_auth_devise.git',      branch: 'main'
   gem 'rails-controller-testing'
   gem 'rspec-rails',              '~> 4.0.0.beta2'
 end
