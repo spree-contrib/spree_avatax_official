@@ -91,4 +91,3 @@ end
 unless ::Spree::Order.ancestors.include?(::SpreeAvataxOfficial::Spree::OrderDecorator)
   ::Spree::Order.prepend(::SpreeAvataxOfficial::Spree::OrderDecorator)
 end
-
