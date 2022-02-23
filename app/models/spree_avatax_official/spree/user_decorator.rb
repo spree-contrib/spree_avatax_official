@@ -2,7 +2,7 @@ module SpreeAvataxOfficial
   module Spree
     module UserDecorator
       def self.prepended(base)
-        base.belongs_to :avatax_entity_use_code, class_name: 'SpreeAvataxOfficial::EntityUseCode'
+        base.belongs_to :avatax_entity_use_code, class_name: 'SpreeAvataxOfficial::EntityUseCode', optional: true
       end
     end
   end
