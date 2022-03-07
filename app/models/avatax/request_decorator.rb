@@ -2,9 +2,11 @@ module Avatax
   module RequestDecorator
     include ::SpreeAvataxOfficial::HttpHelper
 
-    def request(method, path, model, options = {})
-      max_retries                  ||= ::SpreeAvataxOfficial::Config.max_retries
-      uri_encoded_path               = URI.parse(path).to_s
+    def request(method, path, model, options = {}, apiversion = "")
+      max_retries ||= ::SpreeAvataxOfficial::Config.max_retries
+      uri_encoded_path = URI.parse(path).to_s
+      request.headers['X-Avalara-Client'] = request.headers['X-Avalara-Client'].gsub("API_VERSION", apiversion)
+
       response                       = connection.send(method) do |request|
         request.options['timeout'] ||= 1_200
         case method
