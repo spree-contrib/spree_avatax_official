@@ -5,17 +5,17 @@ module Avatax
     def request(method, path, model, options = {}, apiversion = "")
       max_retries ||= ::SpreeAvataxOfficial::Config.max_retries
       uri_encoded_path = URI.parse(path).to_s
-      request.headers['X-Avalara-Client'] = request.headers['X-Avalara-Client'].gsub("API_VERSION", apiversion)
 
-      response                       = connection.send(method) do |request|
-        request.options['timeout'] ||= 1_200
+      response = connection.send(method) do |req|
+        req.headers['X-Avalara-Client'] = req.headers['X-Avalara-Client'].to_s.gsub("API_VERSION", apiversion) if apiversion.present?
+        req.options['timeout'] ||= 1_200
         case method
         when :get, :delete
-          request.url("#{uri_encoded_path}?#{URI.encode_www_form(options)}")
+          req.url("#{uri_encoded_path}?#{URI.encode_www_form(options)}")
         when :post, :put
-          request.url("#{uri_encoded_path}?#{URI.encode_www_form(options)}")
-          request.headers['Content-Type'] = 'application/json'
-          request.body                    = model.to_json unless model.empty?
+          req.url("#{uri_encoded_path}?#{URI.encode_www_form(options)}")
+          req.headers['Content-Type'] = 'application/json'
+          req.body                    = model.to_json unless model.empty?
         end
       end
 
