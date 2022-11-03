@@ -20,4 +20,6 @@ module SpreeAvataxOfficial
   end
 end
 
-::Spree::ReturnAuthorization.prepend(::SpreeAvataxOfficial::Spree::ReturnAuthorizationDecorator) unless 'Spree::Refund'.safe_constantize
+unless ::Spree::ReturnAuthorization.ancestors.include?(::SpreeAvataxOfficial::Spree::ReturnAuthorizationDecorator)
+  ::Spree::ReturnAuthorization.prepend(::SpreeAvataxOfficial::Spree::ReturnAuthorizationDecorator) unless 'Spree::Refund'.safe_constantize
+end
