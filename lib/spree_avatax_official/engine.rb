@@ -1,3 +1,5 @@
+require_relative 'configuration'
+
 module SpreeAvataxOfficial
   class Engine < Rails::Engine
     require 'spree/core'
@@ -12,8 +14,8 @@ module SpreeAvataxOfficial
       SpreeAvataxOfficial::Config = SpreeAvataxOfficial::Configuration.new
     end
 
-    initializer 'spree.avatax_certified.calculators', after: 'spree.register.calculators' do |_app|
-      Rails.application.config.spree.calculators.tax_rates << SpreeAvataxOfficial::Calculator::AvataxTransactionCalculator
+    config.after_initialize do |app|
+      app.config.spree.calculators.tax_rates << SpreeAvataxOfficial::Calculator::AvataxTransactionCalculator
     end
 
     # use rspec for tests
