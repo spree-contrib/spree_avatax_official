@@ -4,7 +4,7 @@ module Spree
       def edit
         @ship_from_address = SpreeAvataxOfficial::Config.ship_from_address
         @country = if @ship_from_address[:country].blank?
-                     Spree::Country.default
+                     Spree::Store.default.default_country
                    else
                      Spree::Country.find_by(iso3: @ship_from_address[:country])
                    end
