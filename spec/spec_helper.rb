@@ -92,6 +92,9 @@ RSpec.configure do |config|
 
   config.before do
     Rails.cache.clear
+
+    create(:country, name: 'United States', iso_name: 'UNITED STATES', iso: 'US', states_required: true)
+    create(:store, default_currency: 'USD', default_country_id: Spree::Country.first.id)
   end
 
   config.before(type: :feature) do
