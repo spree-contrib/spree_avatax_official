@@ -4,7 +4,6 @@ describe SpreeAvataxOfficial::Seeder do
   describe '#seed!' do
     subject { described_class.new.seed! }
 
-    let!(:usa) { create(:country, name: 'United States', iso3: 'USA') }
     let!(:pennslyvania) { create(:state, name: 'Pennsylvania', abbr: 'PA') }
     let!(:shipping_method) { create(:shipping_method, tax_category: nil) }
     let(:clothing_tax_category) { Spree::TaxCategory.find_by(name: 'Clothing') }

@@ -19,6 +19,7 @@ else
   gem 'sqlite3', '~> 1.4'
 end
 
+gem 'webdrivers'
 gem 'pry'
 
 gemspec
