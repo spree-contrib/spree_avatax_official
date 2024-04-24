@@ -6,6 +6,8 @@ FACTORY_BOT_CLASS.define do
     completed_at { nil }
     email        { user.email }
     state        { 'cart' }
+    currency     { 'USD' }
+    store        { Spree::Store.first || create(:store) }
 
     transient do
       line_items_price           { 10.0 }

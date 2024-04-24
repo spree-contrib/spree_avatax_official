@@ -82,7 +82,7 @@ module SpreeAvataxOfficial
     end
 
     def avatax_preferences_cache_key(order)
-      ship_from_address_timestamp = ship_from_address_preference.try(:updated_at).try(:utc).try(:to_s, :number)
+      ship_from_address_timestamp = ship_from_address_preference.try(:updated_at).try(:utc).try(:to_i)
 
       "#{company_code(order)}-#{ship_from_address_timestamp}"
     end

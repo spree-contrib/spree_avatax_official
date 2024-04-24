@@ -6,11 +6,19 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails-controller-testing'
-gem 'rubocop', '~> 0.63.0', require: false
-gem 'rubocop-rspec', require: false
-gem 'spree_auth_devise'
-gem 'spree_backend'
-gem 'spree_core'
-gem 'sass-rails'
+gem 'spree', github: 'spree/spree', branch: 'main'
+gem 'spree_backend', github: 'spree/spree_backend', branch: 'main'
+gem 'spree_emails', github: 'spree/spree', branch: 'main'
+gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: 'main'
+
+if ENV['DB'] == 'mysql'
+  gem 'mysql2'
+elsif ENV['DB'] == 'postgres'
+  gem 'pg'
+else
+  gem 'sqlite3', '~> 1.4'
+end
+
+gem 'pry'
 
 gemspec
