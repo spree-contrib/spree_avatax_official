@@ -15,7 +15,7 @@ unless FACTORY_BOT_CLASS.factories.registered?(:usa_address)
 
       country do
         usa_attributes = { name: 'United States', iso_name: 'UNITED STATES', iso: 'US', iso3: 'USA' }
-        Spree::Country.find_by(usa_attributes) || create(:country, usa_attributes)
+        Spree::Country.find_by(iso: 'US') || create(:country, usa_attributes)
       end
 
       trait :from_california do
