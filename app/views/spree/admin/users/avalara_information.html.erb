@@ -3,11 +3,11 @@
   <%= Spree.t('avalara_entity_use_codes') %>
 <% end %>
 
-<%= render partial: 'spree/admin/users/sidebar', locals: { current: :avalara_informtion } %>
+<%#= render partial: 'spree/admin/users/sidebar', locals: { current: :avalara_informtion } %>
 
 <fieldset data-hook="admin_user_edit_general_settings" class="alpha twelve columns">
   <div data-hook="admin_user_edit_form_header">
-    <%= render partial: 'spree/shared/error_messages', locals: { target: @user } %>
+    <%= render partial: 'spree/admin/shared/error_messages', locals: { target: @user } %>
   </div>
 
   <div data-hook="admin_user_edit_form">

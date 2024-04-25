@@ -39,6 +39,50 @@ http_interactions:
       string: '{"error":{"code":"EntityNotFoundError","message":"Transaction not found.","target":"HttpRequest","details":[{"code":"EntityNotFoundError","number":4,"message":"Transaction
         not found.","description":"The Transaction with code ''test1:not-existing-number''
         was not found.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/EntityNotFoundError","severity":"Error"}]}}'
-    http_version: 
   recorded_at: Fri, 20 Sep 2019 09:03:57 GMT
-recorded_with: VCR 4.0.0
+- request:
+    method: get
+    uri: https://sandbox-rest.avatax.com/api/v2/companies/test1/transactions/NOT-EXISTING-NUMBER
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 24.4.2
+      X-Avalara-Client:
+      - a0o0b000005HsXPAA0;Spree by Spark;RubySdk;24.4.2;
+      Authorization:
+      - "<AVATAX_TOKEN>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Wed, 24 Apr 2024 18:01:04 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Correlation-Id:
+      - 62404d35-57bf-4a26-9f10-339d39d221e5
+      X-Avalara-Uid:
+      - 62404d35-57bf-4a26-9f10-339d39d221e5
+    body:
+      encoding: UTF-8
+      string: '{"error": {"code": "AuthenticationException","message": "Authentication
+        failed.","details": [{"code": "AuthenticationException","message": "Authentication
+        failed.","description": "Missing authentication or unable to authenticate
+        the user or the account.","faultCode": "Client","helpLink": "http://developer.avalara.com/avatax/errors/AuthenticationException"}]}}'
+  recorded_at: Wed, 24 Apr 2024 18:01:04 GMT
+recorded_with: VCR 6.2.0
