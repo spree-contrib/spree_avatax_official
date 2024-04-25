@@ -8,4 +8,4 @@ module SpreeAvataxOfficial
   end
 end
 
-::Spree::User.prepend ::SpreeAvataxOfficial::Spree::UserDecorator
+Spree.user_class.prepend ::SpreeAvataxOfficial::Spree::UserDecorator
