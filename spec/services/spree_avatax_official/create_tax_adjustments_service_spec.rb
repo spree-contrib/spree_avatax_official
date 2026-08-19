@@ -140,21 +140,19 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService, :avalara_integration 
         let(:line_item) { order.line_items.first }
 
         it 'nets pre_tax_amount from the inclusive item, not from the frozen exclusive flag on the rate' do
-          VCR.use_cassette('spree_avatax_official/create_tax_adjustments/tax_excluded/line_item_and_shipment') do
-            subject
-          end
-
-          tax_rate = Spree::TaxRate.find_by(name: 'AvaTax Official Tax Rate', tax_category: line_item.tax_category)
-          expect(tax_rate.included_in_price).to eq(false)
-
-          enable_tax_inclusive_for_order(order)
-
           VCR.use_cassette('spree_avatax_official/create_tax_adjustments/tax_included/line_item_and_shipment') do
-            expect { described_class.call(order: order) }.not_to change { Spree::TaxRate.count }
-          end
+            subject
 
-          expect(tax_rate.reload.included_in_price).to eq(false)
-          expect(line_item.reload.pre_tax_amount).to eq(9.25) # 10.00 price - 0.75 tax from the cassette
+            tax_rate = Spree::TaxRate.find_by(name: 'AvaTax Official Tax Rate', tax_category: line_item.tax_category)
+            expect(tax_rate.included_in_price).to eq(false)
+
+            enable_tax_inclusive_for_order(order)
+
+            expect { described_class.call(order: order) }.not_to change { Spree::TaxRate.count }
+
+            expect(tax_rate.reload.included_in_price).to eq(false)
+            expect(line_item.reload.pre_tax_amount).to eq(9.25) # 10.00 price - 0.75 tax from the cassette
+          end
         end
       end
 
