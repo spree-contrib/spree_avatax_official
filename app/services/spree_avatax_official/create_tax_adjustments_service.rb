@@ -96,8 +96,6 @@ module SpreeAvataxOfficial
       tax_rate.update_column(:amount, amount) if tax_rate.amount != amount
 
       tax_rate
-    rescue ActiveRecord::RecordNotUnique
-      retry
     end
 
     def tax_rate_name
