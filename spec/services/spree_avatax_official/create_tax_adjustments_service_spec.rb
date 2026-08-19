@@ -115,6 +115,47 @@ describe SpreeAvataxOfficial::CreateTaxAdjustmentsService, :avalara_integration 
         end
       end
 
+      context 'when recalculating after the stored tax rate has drifted' do
+        let(:order)     { create(:avatax_order, with_shipment: true, line_items_count: 1, ship_address: usa_address) }
+        let(:line_item) { order.line_items.first }
+
+        it 'reuses the row instead of creating a duplicate, refreshes the amount, and leaves included_in_price untouched' do
+          VCR.use_cassette('spree_avatax_official/create_tax_adjustments/tax_excluded/line_item_and_shipment') do
+            subject
+
+            tax_rate          = Spree::TaxRate.find_by(name: 'AvaTax Official Tax Rate', tax_category: line_item.tax_category)
+            original_amount   = tax_rate.amount
+            original_included = tax_rate.included_in_price
+            tax_rate.update_column(:amount, 0.99)
+
+            expect { described_class.call(order: order) }.not_to change { Spree::TaxRate.count }
+            expect(tax_rate.reload.amount).to eq(original_amount)
+            expect(tax_rate.included_in_price).to eq(original_included)
+          end
+        end
+      end
+
+      context 'when the shared tax rate was created for a tax-exclusive item' do
+        let(:order)     { create(:avatax_order, with_shipment: true, line_items_count: 1, ship_address: usa_address) }
+        let(:line_item) { order.line_items.first }
+
+        it 'nets pre_tax_amount from the inclusive item, not from the frozen exclusive flag on the rate' do
+          VCR.use_cassette('spree_avatax_official/create_tax_adjustments/tax_included/line_item_and_shipment') do
+            subject
+
+            tax_rate = Spree::TaxRate.find_by(name: 'AvaTax Official Tax Rate', tax_category: line_item.tax_category)
+            expect(tax_rate.included_in_price).to eq(false)
+
+            enable_tax_inclusive_for_order(order)
+
+            expect { described_class.call(order: order) }.not_to change { Spree::TaxRate.count }
+
+            expect(tax_rate.reload.included_in_price).to eq(false)
+            expect(line_item.reload.pre_tax_amount).to eq(9.25) # 10.00 price - 0.75 tax from the cassette
+          end
+        end
+      end
+
       context 'with multiple line items with multiple quantity' do
         let(:order) { create(:avatax_order, with_shipment: true, ship_address: usa_address) }
         let(:first_line_item) { order.line_items.first }
